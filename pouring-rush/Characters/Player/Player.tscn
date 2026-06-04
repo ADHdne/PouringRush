@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://dq0nnq8dnfdh"]
 
 [ext_resource type="Script" uid="uid://d3iuuhhslgqod" path="res://Characters/Player/player.gd" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://dtlhgiqyishti" path="res://Characters/Scripts/character_properties.gd" id="2_14m2a"]
 [ext_resource type="Script" uid="uid://dkmh855tvgk5t" path="res://StateMachine/CharacterStateMachine.gd" id="2_tok1r"]
+[ext_resource type="Script" uid="uid://bq3wd10ibsv6" path="res://Characters/Player/player_actions.gd" id="3_6fff4"]
 [ext_resource type="Script" uid="uid://cm5uk4lupd14h" path="res://Characters/Player/PlayerStates/MoveState.gd" id="3_tok1r"]
 [ext_resource type="Script" uid="uid://d0rg3adfxle5y" path="res://Characters/Player/PlayerStates/FallState.gd" id="4_ddoul"]
 [ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
@@ -10,11 +12,21 @@
 [ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
 [ext_resource type="Script" uid="uid://ch51j4onl3j1j" path="res://Characters/Player/PlayerStates/IdleState.gd" id="8_dl42p"]
 
+[sub_resource type="Resource" id="Resource_1niqm"]
+script = ExtResource("2_14m2a")
+metadata/_custom_type_script = "uid://dtlhgiqyishti"
+
+[sub_resource type="Resource" id="Resource_6h4vt"]
+script = ExtResource("3_6fff4")
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(50, 100)
 
 [node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "footstep_timer", "sound_effects")]
+collision_layer = 2
 script = ExtResource("1_3qydi")
+properties = SubResource("Resource_1niqm")
+player_actions = SubResource("Resource_6h4vt")
 state_machine = NodePath("CharacterStateMachine")
 coyote_jump_timer = NodePath("Timers/CoyoteJumpTimer")
 footstep_timer = NodePath("Timers/FootStepTimer")
@@ -29,8 +41,9 @@ offset_right = 50.0
 offset_bottom = 100.0
 color = Color(0.4856801, 0.8383938, 0.4309208, 1)
 
-[node name="CharacterStateMachine" type="Node" parent="." unique_id=840629580]
+[node name="CharacterStateMachine" type="Node" parent="." unique_id=840629580 node_paths=PackedStringArray("current_state")]
 script = ExtResource("2_tok1r")
+current_state = NodePath("Move")
 
 [node name="Move" type="Node" parent="CharacterStateMachine" unique_id=986578383]
 script = ExtResource("3_tok1r")

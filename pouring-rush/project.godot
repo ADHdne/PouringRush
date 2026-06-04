@@ -11,7 +11,13 @@ config_version=5
 [application]
 
 config/name="PouringRush"
+run/main_scene="uid://cnyv3j61dkd35"
 config/features=PackedStringArray("4.6", "Mobile")
+
+[layer_names]
+
+2d_physics/layer_1="GroundLayer"
+2d_physics/layer_2="PlayerLayer"
 
 [physics]
 

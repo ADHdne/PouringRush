@@ -22,7 +22,7 @@ func _ready():
 			
 			# set the states up with what they need to function
 			child.player = player
-			child.playback = animation_tree["parameters/playback"]
+			#child.playback = animation_tree["parameters/playback"]
 			
 			# connect to interupt signal
 			child.connect("interupt_state", on_state_interupt_state)
