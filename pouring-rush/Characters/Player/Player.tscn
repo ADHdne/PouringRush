@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://dq0nnq8dnfdh"]
+
+[ext_resource type="Script" uid="uid://d3iuuhhslgqod" path="res://Characters/Player/player.gd" id="1_3qydi"]
+[ext_resource type="Script" uid="uid://dkmh855tvgk5t" path="res://StateMachine/CharacterStateMachine.gd" id="2_tok1r"]
+[ext_resource type="Script" uid="uid://cm5uk4lupd14h" path="res://Characters/Player/PlayerStates/MoveState.gd" id="3_tok1r"]
+[ext_resource type="Script" uid="uid://d0rg3adfxle5y" path="res://Characters/Player/PlayerStates/FallState.gd" id="4_ddoul"]
+[ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
+[ext_resource type="Script" uid="uid://iwci1d7ahseu" path="res://Characters/Player/PlayerStates/DoubleJumpState.gd" id="6_6ysni"]
+[ext_resource type="Script" uid="uid://bkv3s0jliqmm4" path="res://Characters/Player/PlayerStates/BasicShotState.gd" id="7_vlldt"]
+[ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
+[ext_resource type="Script" uid="uid://ch51j4onl3j1j" path="res://Characters/Player/PlayerStates/IdleState.gd" id="8_dl42p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
+size = Vector2(50, 100)
+
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "footstep_timer", "sound_effects")]
+script = ExtResource("1_3qydi")
+state_machine = NodePath("CharacterStateMachine")
+coyote_jump_timer = NodePath("Timers/CoyoteJumpTimer")
+footstep_timer = NodePath("Timers/FootStepTimer")
+sound_effects = NodePath("SoundEffects")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
+position = Vector2(25, 50)
+shape = SubResource("RectangleShape2D_q3lat")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1497093350]
+offset_right = 50.0
+offset_bottom = 100.0
+color = Color(0.4856801, 0.8383938, 0.4309208, 1)
+
+[node name="CharacterStateMachine" type="Node" parent="." unique_id=840629580]
+script = ExtResource("2_tok1r")
+
+[node name="Move" type="Node" parent="CharacterStateMachine" unique_id=986578383]
+script = ExtResource("3_tok1r")
+
+[node name="Fall" type="Node" parent="CharacterStateMachine" unique_id=1327168684]
+script = ExtResource("4_ddoul")
+metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
+
+[node name="Jump" type="Node" parent="CharacterStateMachine" unique_id=2108050567]
+script = ExtResource("5_8g4oa")
+metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
+
+[node name="DoubleJump" type="Node" parent="CharacterStateMachine" unique_id=831550898]
+script = ExtResource("6_6ysni")
+metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
+
+[node name="BasicShot" type="Node" parent="CharacterStateMachine" unique_id=814971524]
+script = ExtResource("7_vlldt")
+metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
+
+[node name="Idle" type="Node" parent="CharacterStateMachine" unique_id=1114626690]
+script = ExtResource("8_dl42p")
+metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
+
+[node name="Timers" type="Node" parent="." unique_id=1220796725]
+
+[node name="CoyoteJumpTimer" type="Timer" parent="Timers" unique_id=921392844]
+wait_time = 0.15
+one_shot = true
+
+[node name="FootStepTimer" type="Timer" parent="Timers" unique_id=1057524813]
+one_shot = true
+
+[node name="SoundEffects" type="Node2D" parent="." unique_id=403259885]
+script = ExtResource("8_14m2a")
