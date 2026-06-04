@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://cm5uk4lupd14h" path="res://Characters/Player/PlayerStates/MoveState.gd" id="3_tok1r"]
 [ext_resource type="Script" uid="uid://d0rg3adfxle5y" path="res://Characters/Player/PlayerStates/FallState.gd" id="4_ddoul"]
 [ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
-[ext_resource type="Script" uid="uid://iwci1d7ahseu" path="res://Characters/Player/PlayerStates/DoubleJumpState.gd" id="6_6ysni"]
 [ext_resource type="Script" uid="uid://bkv3s0jliqmm4" path="res://Characters/Player/PlayerStates/BasicShotState.gd" id="7_vlldt"]
 [ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
 [ext_resource type="Script" uid="uid://ch51j4onl3j1j" path="res://Characters/Player/PlayerStates/IdleState.gd" id="8_dl42p"]
@@ -76,10 +75,6 @@ script = ExtResource("5_8g4oa")
 fall_state = NodePath("../Fall")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Move")
-metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
-
-[node name="DoubleJump" type="Node" parent="CharacterStateMachine" unique_id=831550898]
-script = ExtResource("6_6ysni")
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="BasicShot" type="Node" parent="CharacterStateMachine" unique_id=814971524]

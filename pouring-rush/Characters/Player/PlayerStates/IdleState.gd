@@ -9,7 +9,10 @@ func state_process(_delta):
 		next_state = move_state
 
 func state_input(event : InputEvent):
-	if player.movement.can_action_pressed:
+	if player.can_action_pressed:
 		if event.is_action_pressed(player.player_actions.jump):
-			player.movement.jump()
-			next_state = Jump_state
+			_jump()
+
+func _jump():
+	player.movement.jump()
+	next_state = Jump_state

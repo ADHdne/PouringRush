@@ -17,7 +17,7 @@ func state_process(_delta):
 
 
 func state_input(event : InputEvent):
-	if player.movement.can_action_pressed:
+	if player.can_action_pressed:
 		if event.is_action_pressed("Jump"):
 			_jump()
 

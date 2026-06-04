@@ -13,9 +13,13 @@ class_name Player
 @export var sound_effects : CharacterSoundEffects
 @export var movement : MovementComponent
 
+
+# player can action pressed
+var can_action_pressed : bool = true
+
 func _ready() -> void:
 	pass
 
 
 func _process(delta: float) -> void:
-	print("player on floor: ", is_on_floor(), " ", movement.direction)
+	print("player jumps remain : ", movement.jumps_remaining)

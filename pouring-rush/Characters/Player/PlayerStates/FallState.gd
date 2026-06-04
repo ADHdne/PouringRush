@@ -14,3 +14,13 @@ func state_process(_delta):
 			next_state = idle_state
 		elif player.movement.direction.x != 0:
 			next_state = move_state
+
+func state_input(event : InputEvent):
+	if event.is_action_pressed("Jump") and player.movement.jumps_remaining > 0:
+		double_jump()
+
+func double_jump():
+	player.movement.jumps_remaining -= 1
+	# the physical jump
+	player.velocity.y = player.properties.double_jump_power
+	next_state = jump_state

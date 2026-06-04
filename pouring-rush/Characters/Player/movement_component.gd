@@ -6,11 +6,12 @@ class_name MovementComponent
 
 # directions inputs
 var direction = Vector2.ZERO
-# can event action pressed
-var can_action_pressed : bool = true
 
 ## dash vars
 var dash_timer = 0
+
+# jump variables
+var jumps_remaining : int = 1
 
 func _process(delta: float) -> void:
 	## add gravity
@@ -28,7 +29,7 @@ func _process(delta: float) -> void:
 		if player.velocity.y > player.properties.max_fall_velocity:
 			player.velocity.y = player.properties.max_fall_velocity
 	
-	if player.movement.direction.x != 0 and player.state_machine.check_if_can_move() and player.movement.can_action_pressed:
+	if player.movement.direction.x != 0 and player.state_machine.check_if_can_move() and player.can_action_pressed:
 		accelerate(direction.x)
 		if player.is_on_floor():
 			if player.footstep_timer.time_left <= 0:
@@ -42,6 +43,11 @@ func _process(delta: float) -> void:
 		# dash timer
 	if dash_timer > 0:
 		dash_timer -= delta
+	
+	
+	# reset jumps on landing
+	if player.is_on_floor() and jumps_remaining != 1:
+		jumps_remaining = 1
 
 func input() -> Vector2:
 	direction = Input.get_vector(player.player_actions.move_left, player.player_actions.move_right, player.player_actions.move_up, player.player_actions.move_down)
