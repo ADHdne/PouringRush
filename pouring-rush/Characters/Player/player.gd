@@ -15,6 +15,9 @@ class_name Player
 @export var movement : MovementComponent
 
 
+# aim directions inputs
+var aim_direction = Vector2.ZERO
+
 # player can do different actions
 var can_action_pressed : bool = true
 var can_jump : bool = true
@@ -27,3 +30,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	print("player jumps remain : ", movement.jumps_remaining)
+
+
+func aim_input() -> Vector2:
+	aim_direction = Input.get_vector(player_actions.aim_left, player_actions.aim_right, player_actions.aim_up, player_actions.aim_down)
+	aim_direction = aim_direction.normalized()
+	return aim_direction

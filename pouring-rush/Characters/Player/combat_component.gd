@@ -30,7 +30,7 @@ func shoot():
 	var proj = projectile.instantiate()
 	
 	proj.global_position = player.global_position
-	proj.direction = player.movement.input()
+	proj.direction = player.aim_input()
 	proj.owner = player
 	
 	get_tree().current_scene.add_child(proj)

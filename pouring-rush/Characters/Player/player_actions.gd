@@ -11,3 +11,8 @@ class_name PlayerActions
 @export var special : StringName = "Special"
 @export var block : StringName = "Block"
 @export var interact : StringName = "Interact"
+
+@export var aim_up : StringName = "Aim Up"
+@export var aim_down : StringName = "Aim Down"
+@export var aim_right : StringName = "Aim Right"
+@export var aim_left : StringName = "Aim Left"
