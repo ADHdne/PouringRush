@@ -26,11 +26,14 @@ func can_shoot() -> bool:
 
 
 func shoot():
-	
 	var proj = projectile.instantiate()
 	
-	proj.global_position = player.global_position
-	proj.direction = player.aim_input()
+	if player.aim_input() != Vector2(0, 0):
+		proj.global_position = player.global_position + (10 * player.aim_direction)
+		proj.direction = player.aim_input()
+	else:
+		proj.global_position = player.global_position + Vector2(10, 0) # skuddet står bare stille om det ikke er noen retning input.
+	
 	proj.owner = player
 	
 	get_tree().current_scene.add_child(proj)
