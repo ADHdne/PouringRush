@@ -18,6 +18,7 @@ class_name Player
 # player can do different actions
 var can_action_pressed : bool = true
 var can_jump : bool = true
+var can_attack : bool = true
 
 
 func _ready() -> void:
