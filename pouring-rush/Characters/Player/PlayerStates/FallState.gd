@@ -16,8 +16,11 @@ func state_process(_delta):
 			next_state = move_state
 
 func state_input(event : InputEvent):
-	if event.is_action_pressed("Jump") and player.movement.jumps_remaining > 0:
-		double_jump()
+	if event.is_action_pressed("Jump"):
+		if player.movement.jumps_remaining > 0:
+			double_jump()
+		else:
+			player.jump_buffer_timer.start()
 
 func double_jump():
 	player.movement.jumps_remaining -= 1

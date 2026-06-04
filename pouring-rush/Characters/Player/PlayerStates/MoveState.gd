@@ -8,8 +8,8 @@ class_name MoveState
 
 
 func on_enter():
-	pass
-
+	if not player.jump_buffer_timer.is_stopped():
+		_jump()
 
 func state_process(_delta):
 	if player.is_on_floor() and player.movement.direction.x == 0:

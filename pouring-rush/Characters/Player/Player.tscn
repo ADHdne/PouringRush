@@ -23,13 +23,14 @@ script = ExtResource("3_6fff4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(50, 100)
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "footstep_timer", "sound_effects", "movement")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 properties = SubResource("Resource_1niqm")
 player_actions = SubResource("Resource_6h4vt")
 state_machine = NodePath("CharacterStateMachine")
 coyote_jump_timer = NodePath("Timers/CoyoteJumpTimer")
+jump_buffer_timer = NodePath("Timers/JumpBufferTimer")
 footstep_timer = NodePath("Timers/FootStepTimer")
 sound_effects = NodePath("SoundEffects")
 movement = NodePath("Movement")
@@ -88,6 +89,10 @@ wait_time = 0.15
 one_shot = true
 
 [node name="FootStepTimer" type="Timer" parent="Timers" unique_id=1057524813]
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="Timers" unique_id=1824565787]
+wait_time = 0.15
 one_shot = true
 
 [node name="SoundEffects" type="Node2D" parent="." unique_id=403259885]
