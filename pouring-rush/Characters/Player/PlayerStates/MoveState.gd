@@ -3,7 +3,8 @@ class_name MoveState
 
 
 # state reference
-@export var air_state : State
+@export var jump_state : State
+@export var idle_state : State
 
 
 func on_enter():
@@ -11,8 +12,16 @@ func on_enter():
 
 
 func state_process(_delta):
-	pass
+	if player.is_on_floor() and player.movement.direction.x == 0:
+		next_state = idle_state
 
 
-func state_input(_event : InputEvent):
-	pass
+func state_input(event : InputEvent):
+	if player.movement.can_action_pressed:
+		if event.is_action_pressed("Jump"):
+			_jump()
+
+
+func _jump():
+	player.movement.jump()
+	next_state = jump_state

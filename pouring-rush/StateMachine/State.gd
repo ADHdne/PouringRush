@@ -14,7 +14,7 @@ signal interupt_state(new_state : State)
 func state_process(_delta):
 	pass
 
-func state_input(_event : InputEvent):
+func state_input(event : InputEvent):
 	pass
 
 func on_enter():
