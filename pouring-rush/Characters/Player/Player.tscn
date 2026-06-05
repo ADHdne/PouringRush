@@ -62,11 +62,12 @@ color = Color(0.4856801, 0.8383938, 0.4309208, 1)
 script = ExtResource("12_6h4vt")
 player = NodePath("..")
 
-[node name="Combat" type="Node" parent="." unique_id=1944969963 node_paths=PackedStringArray("player")]
+[node name="Combat" type="Node" parent="." unique_id=1944969963 node_paths=PackedStringArray("player", "shot_buffer")]
 script = ExtResource("5_6h4vt")
 player = NodePath("..")
 projectile = ExtResource("6_wraqo")
 projectile_data = SubResource("Resource_2xv0b")
+shot_buffer = NodePath("../Timers/ShotBufferTimer")
 
 [node name="CharacterStateMachine" type="Node" parent="." unique_id=840629580 node_paths=PackedStringArray("player", "current_state")]
 script = ExtResource("2_tok1r")
@@ -111,8 +112,14 @@ one_shot = true
 wait_time = 0.15
 one_shot = true
 
+[node name="ShotBufferTimer" type="Timer" parent="Timers" unique_id=977781886]
+wait_time = 0.1
+one_shot = true
+
 [node name="SoundEffects" type="Node2D" parent="." unique_id=403259885]
 script = ExtResource("8_14m2a")
 
 [node name="StateDebugLabel" parent="." unique_id=18120675 node_paths=PackedStringArray("state_machine") instance=ExtResource("13_wraqo")]
 state_machine = NodePath("../CharacterStateMachine")
+
+[connection signal="timeout" from="Timers/ShotBufferTimer" to="Combat" method="_on_shot_buffer_timer_timeout"]
