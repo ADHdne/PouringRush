@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://d0rg3adfxle5y" path="res://Characters/Player/PlayerStates/FallState.gd" id="4_ddoul"]
 [ext_resource type="Script" uid="uid://d31va4idms3u2" path="res://Characters/Player/PlayerComponents/combat_component.gd" id="5_6h4vt"]
 [ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
+[ext_resource type="Resource" uid="uid://craujuwyqxor6" path="res://Characters/Player/PlayerResources/basic_shot.tres" id="6_wraqo"]
 [ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
 [ext_resource type="Script" uid="uid://ch51j4onl3j1j" path="res://Characters/Player/PlayerStates/IdleState.gd" id="8_dl42p"]
 [ext_resource type="Script" uid="uid://dy3hvkt1q1r7t" path="res://Characters/Player/PlayerComponents/movement_component.gd" id="12_6h4vt"]
@@ -59,6 +60,7 @@ player = NodePath("..")
 [node name="Combat" type="Node" parent="." unique_id=1944969963 node_paths=PackedStringArray("player", "shot_buffer")]
 script = ExtResource("5_6h4vt")
 player = NodePath("..")
+basic_shot_data = ExtResource("6_wraqo")
 shot_buffer = NodePath("../Timers/ShotBufferTimer")
 
 [node name="CharacterStateMachine" type="Node" parent="." unique_id=840629580 node_paths=PackedStringArray("player", "current_state")]

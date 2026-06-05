@@ -11,6 +11,7 @@ metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 [resource]
 script = ExtResource("1_3qajh")
 ability_name = "Basic Shot"
+cooldown = 0.25
 projectile_scene = ExtResource("2_gn41h")
 projectile_data = SubResource("Resource_1auey")
 metadata/_custom_type_script = "uid://d1qs4e030ganv"

@@ -12,11 +12,6 @@ class_name CombatComponent
 var shot_buffered : bool = false
 
 var shoot_cooldown := 0.0
-@export var fire_rate : float = 0.25 # seconds between shots 
-var ability_resource := 100
-
-var ammo : int = 10
-
 
 
 func _process(delta):
