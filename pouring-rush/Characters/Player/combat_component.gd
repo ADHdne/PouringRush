@@ -39,7 +39,12 @@ func shoot():
 		proj.global_position = player.global_position + (40 * player.aim_direction)
 		proj.direction = player.aim_input()
 	else:
-		proj.global_position = player.global_position + Vector2(40, 0) # skuddet står bare stille om det ikke er noen retning input.
+		if not player.player_flipped:
+			proj.global_position = player.global_position + (Vector2(40, 0) * 1)
+			proj.direction.x = 1
+		else:
+			proj.global_position = player.global_position + (Vector2(40, 0) * -1)
+			proj.direction.x = -1
 	
 	proj.owner = player
 	
