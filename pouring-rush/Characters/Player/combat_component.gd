@@ -29,10 +29,10 @@ func shoot():
 	var proj = projectile.instantiate()
 	
 	if player.aim_input() != Vector2(0, 0):
-		proj.global_position = player.global_position + (10 * player.aim_direction)
+		proj.global_position = player.global_position + (40 * player.aim_direction)
 		proj.direction = player.aim_input()
 	else:
-		proj.global_position = player.global_position + Vector2(10, 0) # skuddet står bare stille om det ikke er noen retning input.
+		proj.global_position = player.global_position + Vector2(40, 0) # skuddet står bare stille om det ikke er noen retning input.
 	
 	proj.owner = player
 	

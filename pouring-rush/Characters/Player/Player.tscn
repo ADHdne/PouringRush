@@ -42,12 +42,20 @@ sound_effects = NodePath("SoundEffects")
 movement = NodePath("Movement")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
-position = Vector2(25, 50)
 shape = SubResource("RectangleShape2D_q3lat")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1497093350]
-offset_right = 50.0
-offset_bottom = 100.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -50.0
+offset_right = 25.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0.4856801, 0.8383938, 0.4309208, 1)
 
 [node name="Movement" type="Node" parent="." unique_id=2061918053 node_paths=PackedStringArray("player")]

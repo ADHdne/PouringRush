@@ -12,7 +12,7 @@ func on_enter():
 		_jump()
 
 func state_process(_delta):
-	if player.is_on_floor() and player.movement.direction.x == 0:
+	if player.is_on_floor() and player.direction.x == 0:
 		next_state = idle_state
 
 

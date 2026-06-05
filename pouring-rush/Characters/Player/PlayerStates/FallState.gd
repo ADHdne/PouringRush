@@ -10,9 +10,9 @@ class_name FallState
 
 func state_process(_delta):
 	if player.is_on_floor():
-		if player.movement.direction.x == 0:
+		if player.direction.x == 0:
 			next_state = idle_state
-		elif player.movement.direction.x != 0:
+		elif player.direction.x != 0:
 			next_state = move_state
 
 func state_input(event : InputEvent):

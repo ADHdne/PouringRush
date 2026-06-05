@@ -11,7 +11,7 @@ func on_enter():
 		_jump()
 
 func state_process(_delta):
-	if not player.movement.direction.x == 0:
+	if not player.direction.x == 0:
 		next_state = move_state
 
 func state_input(event : InputEvent):

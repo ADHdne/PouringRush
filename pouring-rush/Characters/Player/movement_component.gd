@@ -4,8 +4,6 @@ class_name MovementComponent
 
 @export var player : Player
 
-# directions inputs
-var direction = Vector2.ZERO
 
 ## dash vars
 var dash_timer = 0
@@ -29,8 +27,8 @@ func _process(delta: float) -> void:
 		if player.velocity.y > player.properties.max_fall_velocity:
 			player.velocity.y = player.properties.max_fall_velocity
 	
-	if player.movement.direction.x != 0 and player.state_machine.check_if_can_move() and player.can_action_pressed:
-		accelerate(direction.x)
+	if player.direction.x != 0 and player.state_machine.check_if_can_move() and player.can_action_pressed:
+		accelerate(player.direction.x)
 		if player.is_on_floor():
 			if player.footstep_timer.time_left <= 0:
 				#sound_effects.run()
@@ -38,7 +36,6 @@ func _process(delta: float) -> void:
 	else:
 		add_friction()
 	player_movement()
-	input()
 	
 		# dash timer
 	if dash_timer > 0:
@@ -48,11 +45,6 @@ func _process(delta: float) -> void:
 	# reset jumps on landing
 	if player.is_on_floor() and jumps_remaining != 1:
 		jumps_remaining = 1
-
-func input() -> Vector2:
-	direction = Input.get_vector(player.player_actions.move_left, player.player_actions.move_right, player.player_actions.move_up, player.player_actions.move_down)
-	direction = direction.normalized()
-	return direction
 
 func accelerate(direction):
 	if player.is_on_floor():
