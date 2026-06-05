@@ -7,7 +7,7 @@ class_name Projectile
 
 
 var direction : Vector2
-var origin : Node 
+var origin : Node
 
 
 func _ready() -> void:

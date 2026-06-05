@@ -2,10 +2,12 @@ extends Node
 class_name CombatComponent
 
 @export var player : Player
-@export var projectile : PackedScene
-@export var projectile_data : ProjectileData
+@export var basic_shot_data : AbilityData
+@export var special_shot_data : AbilityData
+
 
 # shot buffering
+@export var buffered_ability : AbilityData
 @export var shot_buffer : Timer
 var shot_buffered : bool = false
 
@@ -22,18 +24,20 @@ func _process(delta):
 	shoot_cooldown = max(0, shoot_cooldown - delta)
 	
 	if can_shoot() and shot_buffered:
-		shoot()
+		shoot(buffered_ability)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Attack"):
-		try_shoot()
+	if event.is_action_pressed(player.player_actions.attack):
+		try_shoot(basic_shot_data)
+	if event.is_action_pressed(player.player_actions.special1):
+		try_shoot(special_shot_data)
 
 func can_shoot() -> bool:
 	return shoot_cooldown <= 0 and player.can_attack
 
 
-func shoot():
-	var proj = projectile.instantiate()
+func shoot(data : AbilityData):
+	var proj = data.projectile.instantiate()
 	
 	if player.aim_input() != Vector2(0, 0):
 		proj.global_position = player.global_position + (40 * player.aim_direction)
@@ -50,18 +54,21 @@ func shoot():
 	
 	get_tree().current_scene.add_child(proj)
 	
-	shoot_cooldown = fire_rate
+	# subtract 1 ammo
+	data.ammo -= data.projectile_data.ammo_cost
+	
+	shoot_cooldown = data.cooldown
 
-func try_shoot():
-	if ammo < projectile_data.ammo_cost:
+func try_shoot(data : AbilityData):
+	if data.ammo < data.projectile_data.ammo_cost:
 		return
 	
 	if not can_shoot():
 		shot_buffered = true
+		buffered_ability = data
 		shot_buffer.start()
 		return
-	ammo -= projectile_data.ammo_cost
-	shoot()
+	shoot(data)
 
 
 func _on_shot_buffer_timer_timeout() -> void:

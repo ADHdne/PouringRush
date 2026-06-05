@@ -8,7 +8,8 @@ class_name PlayerActions
 @export var move_down : StringName = "Down"
 @export var jump : StringName = "Jump"
 @export var attack : StringName = "Attack"
-@export var special : StringName = "Special"
+@export var special1 : StringName = "Special1"
+@export var special2 : StringName = "Special2"
 @export var block : StringName = "Block"
 @export var interact : StringName = "Interact"
 
