@@ -32,7 +32,9 @@ func can_shoot() -> bool:
 
 
 func shoot(data : AbilityData):
-	var proj = data.projectile.instantiate()
+	var proj = data.projectile_scene.instantiate()
+	
+	proj.data = data.projectile_data
 	
 	if player.aim_input() != Vector2(0, 0):
 		proj.global_position = player.global_position + (40 * player.aim_direction)
