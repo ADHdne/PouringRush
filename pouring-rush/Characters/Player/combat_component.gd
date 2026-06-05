@@ -39,7 +39,7 @@ func shoot():
 		proj.global_position = player.global_position + (40 * player.aim_direction)
 		proj.direction = player.aim_input()
 	else:
-		if not player.player_flipped:
+		if not player.facing_flipped:
 			proj.global_position = player.global_position + (Vector2(40, 0) * 1)
 			proj.direction.x = 1
 		else:

@@ -25,7 +25,7 @@ var can_action_pressed : bool = true
 var can_jump : bool = true
 var can_attack : bool = true
 
-var player_flipped : bool = false
+var facing_flipped : bool = false
 
 
 func _ready() -> void:
@@ -35,10 +35,10 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	# flip player based on direction
-	if direction.x > 0 and player_flipped:
-		player_flipped = false
-	elif direction.x < 0 and not player_flipped:
-		player_flipped = true
+	if direction.x > 0 and facing_flipped:
+		facing_flipped = false
+	elif direction.x < 0 and not facing_flipped:
+		facing_flipped = true
 	
 	
 	input()
