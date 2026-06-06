@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dkmh855tvgk5t" path="res://StateMachine/CharacterStateMachine.gd" id="2_tok1r"]
 [ext_resource type="Script" uid="uid://bq3wd10ibsv6" path="res://Characters/Player/PlayerComponents/player_actions.gd" id="3_6fff4"]
 [ext_resource type="Script" uid="uid://cm5uk4lupd14h" path="res://Characters/Player/PlayerStates/MoveState.gd" id="3_tok1r"]
+[ext_resource type="Script" uid="uid://k6vgsmgmifss" path="res://Characters/Player/PlayerComponents/damage_component.gd" id="4_2xv0b"]
 [ext_resource type="Script" uid="uid://d0rg3adfxle5y" path="res://Characters/Player/PlayerStates/FallState.gd" id="4_ddoul"]
 [ext_resource type="Script" uid="uid://d31va4idms3u2" path="res://Characters/Player/PlayerComponents/combat_component.gd" id="5_6h4vt"]
 [ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
@@ -53,6 +54,9 @@ offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.4856801, 0.8383938, 0.4309208, 1)
+
+[node name="DamageComponent" type="Node" parent="." unique_id=7170156]
+script = ExtResource("4_2xv0b")
 
 [node name="Movement" type="Node" parent="." unique_id=2061918053 node_paths=PackedStringArray("player")]
 script = ExtResource("12_6h4vt")
