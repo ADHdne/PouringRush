@@ -21,9 +21,17 @@ func apply_knockback(hit : HitData):
 	# reduce based on weight
 	force *= (1 / weight)
 	
+	match hit.knockback_type:
+		HitData.KnockbackType.POKE:
+			vertical_weight = 0.5
+			horizontal_weight = 0.9
+		HitData.KnockbackType.LAUNCHER:
+			vertical_weight = 0.4
+			horizontal_weight = 0.9
+		HitData.KnockbackType.SPIKE:
+			vertical_weight = -0.6
+			horizontal_weight = 1.0
 	
-
-	
-	var final_dir = (horizontal * 0.8 + vertical * vertical_weight).normalized()
+	var final_dir = (horizontal * horizontal_weight + vertical * vertical_weight).normalized()
 	
 	body.velocity += final_dir * force
