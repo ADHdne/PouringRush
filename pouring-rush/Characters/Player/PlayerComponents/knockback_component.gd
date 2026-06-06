@@ -5,6 +5,8 @@ class_name KnockbackComponent
 @export var body : CharacterBody2D
 @export var damage_component : DamageComponent
 
+# get data from hurtbox
+
 func apply_knockback(hit : HitData):
 	var percent = damage_component.percentage
 	var weight = body.stats.weight
@@ -21,9 +23,10 @@ func apply_knockback(hit : HitData):
 	# reduce based on weight
 	force *= (1 / weight)
 	
+	# the direction of the knockback is effected by the shots knockback type
 	match hit.knockback_type:
-		HitData.KnockbackType.POKE:
-			vertical_weight = 0.5
+		HitData.KnockbackType.BOOM:
+			vertical_weight = 0.6
 			horizontal_weight = 0.9
 			
 		HitData.KnockbackType.LAUNCHER:

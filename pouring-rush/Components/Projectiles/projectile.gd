@@ -21,25 +21,32 @@ func _on_lifetime_timer_timeout() -> void:
 	queue_free()
 
 
+func disolve():
+	# take a way 1 from amount of piercing and if 0 then queue free
+	# if piercing < 0 then it keeps going through without getting queued free (only by lifetime)
+	if data.pierces > 0:
+		data.pierces -= 1
+	elif data.pierces == 0:
+		queue_free()
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Ground"):
-		return
+		disolve() # removes or subtract from pierce
 
 
 func _on_area_entered(area: Area2D) -> void:
 	
-	# duplicating hit_data
+	# duplicating hit_data to make it unique
 	var _hit_data = data.hit_data.duplicate()
 	# adding its direction
 	_hit_data.direction = direction
 	
+	# make sure you dont shoot your self
 	if area.owner == origin:
 		return
 	
 	
 	if area.has_method("recieve_hit"):
 		area.recieve_hit(_hit_data)
-	if data.pierces > 0:
-		data.pierces -= 1
-	elif data.pierces == 0:
-		queue_free()
+	
+	disolve() # removes or subtract from pierce

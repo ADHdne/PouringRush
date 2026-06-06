@@ -11,7 +11,7 @@ class_name HitData
 @export var direction : Vector2
 
 enum KnockbackType {
-	POKE, 
+	BOOM, 
 	LAUNCHER, 
 	SPIKE
 	}

@@ -47,7 +47,7 @@ func shoot(data : AbilityData):
 			proj.global_position = player.global_position + (Vector2(15, 0) * -1)
 			proj.direction.x = -1
 	
-	proj.owner = player
+	proj.origin = player
 	
 	get_tree().current_scene.add_child(proj)
 	
