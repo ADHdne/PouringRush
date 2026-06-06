@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PlayerActions" format=3 uid="uid://cq3rt54svka12"]
+
+[ext_resource type="Script" uid="uid://bq3wd10ibsv6" path="res://Characters/Player/PlayerComponents/player_actions.gd" id="1_ycosh"]
+
+[resource]
+script = ExtResource("1_ycosh")
+move_left = &"P2 Left"
+move_right = &"P2 Right"
+move_up = &"P2 Up"
+move_down = &"P2 Down"
+jump = &"P2 Jump"
+attack = &"P2 Attack"
+special1 = &"P2 Special1"
+special2 = &"P2 Special2"
+block = &"P2 Block"
+interact = &"P2 Interact"
+aim_up = &"P2 Aim Up"
+aim_down = &"P2 Aim Down"
+aim_right = &"P2 Aim Right"
+aim_left = &"P2 Aim Left"
+metadata/_custom_type_script = "uid://bq3wd10ibsv6"

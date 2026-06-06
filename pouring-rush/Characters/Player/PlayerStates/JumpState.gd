@@ -19,9 +19,9 @@ func state_process(_delta):
 
 func state_input(event : InputEvent):
 	if player.can_action_pressed:
-		if Input.is_action_just_released("Jump") and player.velocity.y < 0:
+		if Input.is_action_just_released(player.player_actions.jump) and player.velocity.y < 0:
 			player.velocity.y *= deceleration_on_jump_release
-		if event.is_action_pressed("Jump") and player.movement.jumps_remaining > 0:
+		if event.is_action_pressed(player.player_actions.jump) and player.movement.jumps_remaining > 0:
 			double_jump()
 
 func double_jump():
