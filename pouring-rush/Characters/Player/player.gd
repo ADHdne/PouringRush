@@ -13,6 +13,7 @@ class_name Player
 @export var footstep_timer : Timer
 @export var sound_effects : CharacterSoundEffects
 @export var movement : MovementComponent
+@export var damage_component : DamageComponent
 
 
 # directions inputs

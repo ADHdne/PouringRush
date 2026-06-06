@@ -5,14 +5,14 @@ class_name DamageComponent
 
 @export var damage_profle : DamageProfile
 
-@export var procentage : float = 0.0
+@export var percentage : float = 0.0
 
 
 func apply_damage(amount : float):
-	procentage += amount
+	percentage += amount
 	return
 
 
 func apply_heal(amount : float):
-	procentage -= amount
+	percentage -= amount
 	return

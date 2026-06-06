@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djkt86xwm70xd"]
 
-[ext_resource type="Script" uid="uid://dlbl3046cs771" path="res://Components/StateDebugLabel/state_debug_label.gd" id="1_r4ghm"]
+[ext_resource type="Script" uid="uid://dlbl3046cs771" path="res://Components/DebugTools/state_debug_label.gd" id="1_r4ghm"]
 
 [node name="StateDebugLabel" type="Label" unique_id=18120675]
 offset_left = -63.0

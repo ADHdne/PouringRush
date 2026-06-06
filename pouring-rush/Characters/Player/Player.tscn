@@ -14,7 +14,8 @@
 [ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
 [ext_resource type="Script" uid="uid://ch51j4onl3j1j" path="res://Characters/Player/PlayerStates/IdleState.gd" id="8_dl42p"]
 [ext_resource type="Script" uid="uid://dy3hvkt1q1r7t" path="res://Characters/Player/PlayerComponents/movement_component.gd" id="12_6h4vt"]
-[ext_resource type="PackedScene" uid="uid://djkt86xwm70xd" path="res://Components/StateDebugLabel/state_debug_label.tscn" id="13_wraqo"]
+[ext_resource type="PackedScene" uid="uid://djkt86xwm70xd" path="res://Components/DebugTools/state_debug_label.tscn" id="13_wraqo"]
+[ext_resource type="PackedScene" uid="uid://bqkyds65ymdao" path="res://Components/DebugTools/Precentage.tscn" id="16_7jpmk"]
 
 [sub_resource type="Resource" id="Resource_1niqm"]
 script = ExtResource("2_14m2a")
@@ -26,7 +27,7 @@ script = ExtResource("3_6fff4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(15, 32)
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 properties = SubResource("Resource_1niqm")
@@ -37,6 +38,7 @@ jump_buffer_timer = NodePath("Timers/JumpBufferTimer")
 footstep_timer = NodePath("Timers/FootStepTimer")
 sound_effects = NodePath("SoundEffects")
 movement = NodePath("Movement")
+damage_component = NodePath("DamageComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
 shape = SubResource("RectangleShape2D_q3lat")
@@ -121,5 +123,13 @@ script = ExtResource("8_14m2a")
 
 [node name="StateDebugLabel" parent="." unique_id=18120675 node_paths=PackedStringArray("state_machine") instance=ExtResource("13_wraqo")]
 state_machine = NodePath("../CharacterStateMachine")
+
+[node name="Precentage" parent="." unique_id=1974832711 node_paths=PackedStringArray("player") instance=ExtResource("16_7jpmk")]
+offset_left = -16.0
+offset_top = -66.0
+offset_right = 12.0
+offset_bottom = -43.0
+text = "100"
+player = NodePath("..")
 
 [connection signal="timeout" from="Timers/ShotBufferTimer" to="Combat" method="_on_shot_buffer_timer_timeout"]

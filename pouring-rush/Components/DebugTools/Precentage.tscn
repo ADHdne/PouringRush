@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bqkyds65ymdao"]
+
+[ext_resource type="Script" uid="uid://brrl3xhilbkx8" path="res://Components/DebugTools/precentage.gd" id="1_chign"]
+
+[node name="Precentage" type="Label" unique_id=1974832711]
+script = ExtResource("1_chign")
