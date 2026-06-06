@@ -5,7 +5,11 @@ class_name KnockbackComponent
 @export var body : CharacterBody2D
 @export var damage_component : DamageComponent
 
-# get data from hurtbox
+@export var tumble_state : State
+
+@export var tumble_threshold : float = 5
+
+# getting hit_data from hurtbox
 
 func apply_knockback(hit : HitData):
 	var percent = damage_component.percentage
@@ -40,3 +44,8 @@ func apply_knockback(hit : HitData):
 	var final_dir = (horizontal * horizontal_weight + vertical * vertical_weight).normalized()
 	
 	body.velocity += final_dir * force
+	
+	# checks if enough force to send in to tumble state
+	if tumble_state != null:
+		if force > tumble_threshold:
+			body.state_machine.on_state_interupt_state(tumble_state)

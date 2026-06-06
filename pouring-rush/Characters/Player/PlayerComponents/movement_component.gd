@@ -12,6 +12,10 @@ var dash_timer = 0
 # jump variables
 var jumps_remaining : int = 1
 
+# bools for landing after being hit
+var was_on_floor : bool = false
+var just_landed : bool = false
+
 func _process(delta: float) -> void:
 	## add gravity
 	if not player.is_on_floor():
@@ -28,6 +32,7 @@ func _process(delta: float) -> void:
 		if player.velocity.y > player.properties.max_fall_velocity:
 			player.velocity.y = player.properties.max_fall_velocity
 	
+	# moves player woth adding acceleration to direction
 	if player.direction.x != 0 and player.state_machine.check_if_can_move() and player.can_action_pressed:
 		accelerate(player.direction.x)
 		if player.is_on_floor():
@@ -36,7 +41,12 @@ func _process(delta: float) -> void:
 				player.footstep_timer.start(0.15)
 	else:
 		add_friction()
+		
+	was_on_floor = player.is_on_floor()
+	
 	player_movement()
+	
+	just_landed = not was_on_floor and player.is_on_floor()
 	
 		# dash timer
 	if dash_timer > 0:
@@ -46,6 +56,10 @@ func _process(delta: float) -> void:
 	# reset jumps on landing
 	if player.is_on_floor() and jumps_remaining != 1:
 		jumps_remaining = 1
+	
+	
+	
+	
 
 func accelerate(direction):
 	if player.is_on_floor():

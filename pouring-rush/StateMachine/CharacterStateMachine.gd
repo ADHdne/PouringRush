@@ -53,14 +53,3 @@ func _input(event : InputEvent):
 
 func on_state_interupt_state(new_state : State):
 	switch_states(new_state)
-	
-func _is_hit():
-	if current_state != block_state and current_state != dead_state and not player_dead:
-		on_state_interupt_state(hit_state)
-
-func _on_health_depleted():
-	on_state_interupt_state(dead_state)
-	player_dead = true
-
-func _on_shield_depleted():
-	on_state_interupt_state(shieldbroken_state)

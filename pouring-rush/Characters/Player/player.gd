@@ -32,6 +32,7 @@ var can_attack : bool = true
 
 var facing_flipped : bool = false
 
+var in_tumble : bool = false
 
 func _ready() -> void:
 	# giving references to different things

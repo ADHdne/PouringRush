@@ -20,6 +20,7 @@
 [ext_resource type="Script" uid="uid://bfuixdc6vqn1w" path="res://Characters/Player/PlayerComponents/ko_component.gd" id="12_870kv"]
 [ext_resource type="PackedScene" uid="uid://djkt86xwm70xd" path="res://Components/DebugTools/state_debug_label.tscn" id="13_wraqo"]
 [ext_resource type="PackedScene" uid="uid://bqkyds65ymdao" path="res://Components/DebugTools/Precentage.tscn" id="16_7jpmk"]
+[ext_resource type="Script" uid="uid://buxclsp28a2e2" path="res://Characters/Player/PlayerStates/tumble_state.gd" id="18_u61tb"]
 
 [sub_resource type="Resource" id="Resource_1niqm"]
 script = ExtResource("2_14m2a")
@@ -46,7 +47,7 @@ coyote_jump_timer = NodePath("Timers/CoyoteJumpTimer")
 jump_buffer_timer = NodePath("Timers/JumpBufferTimer")
 footstep_timer = NodePath("Timers/FootStepTimer")
 sound_effects = NodePath("SoundEffects")
-movement = NodePath("Movement")
+movement = NodePath("MovementComponent")
 damage_component = NodePath("DamageComponent")
 knockback_component = NodePath("KnockbackComponent")
 hurtbox = NodePath("Hurtbox")
@@ -74,15 +75,16 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.4856801, 0.8383938, 0.4309208, 1)
 
-[node name="Movement" type="Node" parent="." unique_id=2061918053 node_paths=PackedStringArray("player")]
+[node name="MovementComponent" type="Node" parent="." unique_id=2061918053 node_paths=PackedStringArray("player")]
 script = ExtResource("12_6h4vt")
 player = NodePath("..")
 
 [node name="DamageComponent" type="Node" parent="." unique_id=7170156]
 script = ExtResource("4_2xv0b")
 
-[node name="KnockbackComponent" type="Node" parent="." unique_id=1533990578]
+[node name="KnockbackComponent" type="Node" parent="." unique_id=1533990578 node_paths=PackedStringArray("tumble_state")]
 script = ExtResource("7_k8aph")
+tumble_state = NodePath("../CharacterStateMachine/Tumble")
 
 [node name="CombatComponent" type="Node" parent="." unique_id=1944969963 node_paths=PackedStringArray("player", "shot_buffer")]
 script = ExtResource("5_6h4vt")
@@ -122,6 +124,12 @@ script = ExtResource("5_8g4oa")
 fall_state = NodePath("../Fall")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Move")
+metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
+
+[node name="Tumble" type="Node" parent="CharacterStateMachine" unique_id=80380702 node_paths=PackedStringArray("idle_state")]
+script = ExtResource("18_u61tb")
+idle_state = NodePath("../Idle")
+can_move = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="Timers" type="Node" parent="." unique_id=1220796725]
