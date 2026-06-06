@@ -22,12 +22,18 @@ func _on_lifetime_timer_timeout() -> void:
 
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.owner == origin:
+	if body.is_in_group("Ground"):
+		return
+
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.owner == origin:
 		return
 	
-	if body.has_method("apply_damage"):
-		body.apply_damage(data.damage)
-		
-		body.apply_knockback(direction * data.knockback)
 	
-	queue_free()
+	if area.has_method("recieve_hit"):
+		area.recieve_hit(data.damage, direction * data.knockback)
+	if data.pierces > 0:
+		data.pierces -= 1
+	elif data.pierces == 0:
+		queue_free()

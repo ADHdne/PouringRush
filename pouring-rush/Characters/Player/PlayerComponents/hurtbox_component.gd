@@ -12,3 +12,4 @@ func recieve_hit(damage : float, knockback : Vector2):
 		damage_component.apply_damage(damage)
 	if knockback_component != null:
 		knockback_component.apply_knockback(knockback)
+	print("hurtbox hit")
