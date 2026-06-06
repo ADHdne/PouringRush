@@ -17,6 +17,7 @@ class_name Player
 @export var damage_component : DamageComponent
 @export var knockback_component : KnockbackComponent
 @export var hurtbox : HurtboxComponent
+@export var KO_component : KOComponent
 
 
 # directions inputs
@@ -40,6 +41,8 @@ func _ready() -> void:
 		hurtbox.knockback_component = knockback_component
 		knockback_component.body = self
 		knockback_component.damage_component = damage_component
+		KO_component.player = self
+		
 
 
 func _process(delta: float) -> void:
@@ -50,8 +53,10 @@ func _process(delta: float) -> void:
 	elif direction.x < 0 and not facing_flipped:
 		facing_flipped = true
 	
-	
 	input()
+	
+	if is_on_wall():
+		KO_component.check_impact()
 
 func input() -> Vector2:
 	direction = Input.get_vector(player_actions.move_left, player_actions.move_right, player_actions.move_up, player_actions.move_down)
