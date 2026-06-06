@@ -10,6 +10,7 @@ script = ExtResource("1_ens8g")
 damage = 10.0
 base_knockback = 10.0
 knockback_growth = 10.0
+knockback_type = 1
 hit_stun = 1.0
 metadata/_custom_type_script = "uid://drphxsmjyfe1x"
 
