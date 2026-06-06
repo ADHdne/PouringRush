@@ -10,7 +10,7 @@ class_name CharacterProperties
 @export var air_friction : float = 30
 @export var jump_gravity : float = 800.0
 @export var fall_gravity : float = 1000.0
-@export var jump_hang_gravity : float = 400
+@export var jump_hang_gravity : float = 10
 @export var max_fall_velocity : float = 400.0
 # jump
 @export var jump_power : float = -360.0

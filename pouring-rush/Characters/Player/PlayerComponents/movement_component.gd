@@ -1,6 +1,7 @@
 extends Node
 class_name MovementComponent
 
+## a components that holds all of the movement logic
 
 @export var player : Player
 
@@ -18,7 +19,7 @@ func _process(delta: float) -> void:
 		if player.velocity.y < -0.1:
 			player.velocity.y += player.properties.jump_gravity * delta
 		## gravity at jumps peak
-		elif player.velocity.y > -0.1 and player.velocity.y < 0.1:
+		elif player.velocity.y > -0.2 and player.velocity.y < 0.7:
 			player.velocity.y += player.properties.jump_hang_gravity * delta
 		## fall gravity
 		else:
