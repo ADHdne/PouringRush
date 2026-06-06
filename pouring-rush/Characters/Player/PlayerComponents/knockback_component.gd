@@ -15,7 +15,16 @@ func apply_knockback(hit : HitData):
 	# reduce based on weight
 	force *= (1 / weight)
 	
-	var dir = hit.direction.normalized()
 	
-	body.velocity += dir * force
+	var horizontal_weight = 0.8
+	var vertical_weight = 0.4
+
+	var dir = hit.direction.normalized()
+
+	var horiz = Vector2(dir.x, 0)
+	var vert = Vector2(0, -1)
+	
+	var final_dir = (horiz * horizontal_weight + vert * vertical_weight).normalized()
+	
+	body.velocity += final_dir * force
 	print("direction: ", dir, " force: ", force)
