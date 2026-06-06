@@ -2,10 +2,16 @@
 
 [ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="1_3qajh"]
 [ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="1_bpwv8"]
+[ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_gn41h"]
 [ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="2_gn41h"]
+
+[sub_resource type="Resource" id="Resource_8kog8"]
+script = ExtResource("1_gn41h")
+metadata/_custom_type_script = "uid://drphxsmjyfe1x"
 
 [sub_resource type="Resource" id="Resource_1auey"]
 script = ExtResource("1_bpwv8")
+hit_data = SubResource("Resource_8kog8")
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]

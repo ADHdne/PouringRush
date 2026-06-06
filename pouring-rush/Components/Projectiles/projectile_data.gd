@@ -2,10 +2,10 @@ extends Resource
 class_name ProjectileData
 
 
+@export var hit_data : HitData
+
+
 @export var speed: float = 800
-@export var damage: float = 5
-@export var healing: float = 0
-@export var knockback: float = 300
 @export var lifetime: float = 2.0
 
 @export var can_be_reflected: bool = true

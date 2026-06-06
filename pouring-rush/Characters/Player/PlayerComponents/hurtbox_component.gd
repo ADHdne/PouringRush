@@ -7,9 +7,9 @@ class_name HurtboxComponent
 @export var _owner : Player
 
 
-func recieve_hit(damage : float, knockback : Vector2):
-	if damage_component != null:
-		damage_component.apply_damage(damage)
+func recieve_hit(hit_data : HitData):
+
 	if knockback_component != null:
-		knockback_component.apply_knockback(knockback)
-	print("hurtbox hit")
+		knockback_component.apply_knockback(hit_data)
+	if damage_component != null:
+		damage_component.apply_damage(hit_data)

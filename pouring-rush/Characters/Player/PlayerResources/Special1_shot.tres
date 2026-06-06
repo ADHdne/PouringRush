@@ -1,14 +1,22 @@
 [gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://c1urw7gwlpneg"]
 
 [ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="1_6j2ow"]
+[ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_ens8g"]
 [ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="1_wuhd5"]
 [ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="2_ens8g"]
 
+[sub_resource type="Resource" id="Resource_hlkmj"]
+script = ExtResource("1_ens8g")
+damage = 10.0
+base_knockback = 10.0
+knockback_growth = 10.0
+hit_stun = 1.0
+metadata/_custom_type_script = "uid://drphxsmjyfe1x"
+
 [sub_resource type="Resource" id="Resource_5ikm4"]
 script = ExtResource("1_wuhd5")
+hit_data = SubResource("Resource_hlkmj")
 speed = 400.0
-damage = 10.0
-knockback = 600.0
 lifetime = 4.0
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 

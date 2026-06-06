@@ -32,10 +32,13 @@ var facing_flipped : bool = false
 
 
 func _ready() -> void:
+	# giving references to different things
 	if hurtbox != null:
 		hurtbox._owner = self
 		hurtbox.damage_component = damage_component
 		hurtbox.knockback_component = knockback_component
+		knockback_component.body = self
+		knockback_component.damage_component = damage_component
 
 
 func _process(delta: float) -> void:
