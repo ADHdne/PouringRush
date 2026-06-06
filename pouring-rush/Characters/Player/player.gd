@@ -14,6 +14,8 @@ class_name Player
 @export var sound_effects : CharacterSoundEffects
 @export var movement : MovementComponent
 @export var damage_component : DamageComponent
+@export var knockback_component : KnockbackComponent
+@export var hurtbox : HurtboxComponent
 
 
 # directions inputs
@@ -30,7 +32,10 @@ var facing_flipped : bool = false
 
 
 func _ready() -> void:
-	pass
+	if hurtbox != null:
+		hurtbox._owner = self
+		hurtbox.damage_component = damage_component
+		hurtbox.knockback_component = knockback_component
 
 
 func _process(delta: float) -> void:

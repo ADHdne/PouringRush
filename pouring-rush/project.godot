@@ -172,6 +172,10 @@ Interact={
 
 2d_physics/layer_1="GroundLayer"
 2d_physics/layer_2="PlayerLayer"
+2d_physics/layer_3="HurtboxLayer"
+2d_physics/layer_4="HitboxLayer"
+2d_physics/layer_5="ProjectileLayer"
+2d_physics/layer_6="InteractablesLayer"
 
 [physics]
 
