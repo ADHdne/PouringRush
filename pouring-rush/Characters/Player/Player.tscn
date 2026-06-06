@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://cm5uk4lupd14h" path="res://Characters/Player/PlayerStates/MoveState.gd" id="3_tok1r"]
 [ext_resource type="Script" uid="uid://k6vgsmgmifss" path="res://Characters/Player/PlayerComponents/damage_component.gd" id="4_2xv0b"]
 [ext_resource type="PackedScene" uid="uid://byiuwaeqsgmq5" path="res://Characters/Player/PlayerComponents/hurtbox_component.tscn" id="4_5xivi"]
+[ext_resource type="Script" uid="uid://bd8fllxfus67" path="res://Characters/Player/PlayerComponents/stats.gd" id="4_74fb0"]
 [ext_resource type="Script" uid="uid://d0rg3adfxle5y" path="res://Characters/Player/PlayerStates/FallState.gd" id="4_ddoul"]
 [ext_resource type="Script" uid="uid://d31va4idms3u2" path="res://Characters/Player/PlayerComponents/combat_component.gd" id="5_6h4vt"]
 [ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
@@ -26,6 +27,10 @@ metadata/_custom_type_script = "uid://dtlhgiqyishti"
 [sub_resource type="Resource" id="Resource_6h4vt"]
 script = ExtResource("3_6fff4")
 
+[sub_resource type="Resource" id="Resource_870kv"]
+script = ExtResource("4_74fb0")
+metadata/_custom_type_script = "uid://bd8fllxfus67"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(15, 32)
 
@@ -34,6 +39,7 @@ collision_layer = 2
 script = ExtResource("1_3qydi")
 properties = SubResource("Resource_1niqm")
 player_actions = SubResource("Resource_6h4vt")
+stats = SubResource("Resource_870kv")
 state_machine = NodePath("CharacterStateMachine")
 coyote_jump_timer = NodePath("Timers/CoyoteJumpTimer")
 jump_buffer_timer = NodePath("Timers/JumpBufferTimer")

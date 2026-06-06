@@ -7,9 +7,13 @@ class_name KnockbackComponent
 
 func apply_knockback(hit : HitData):
 	var precent = damage_component.percentage
+	var weight = body.stats.weight
 	
 	# scaling like smash
 	var force = hit.base_knockback + (precent * hit.knockback_growth)
+	
+	# reduce based on weight
+	force *= (1 / weight)
 	
 	var dir = hit.direction.normalized()
 	

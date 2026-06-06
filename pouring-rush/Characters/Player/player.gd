@@ -5,6 +5,7 @@ class_name Player
 # reference to resources
 @export var properties : CharacterProperties
 @export var player_actions : PlayerActions
+@export var stats : Stats
 
 # reference to children
 @export var state_machine : CharacterStateMachine
