@@ -25,9 +25,11 @@ func apply_knockback(hit : HitData):
 		HitData.KnockbackType.POKE:
 			vertical_weight = 0.5
 			horizontal_weight = 0.9
+			
 		HitData.KnockbackType.LAUNCHER:
 			vertical_weight = 0.4
 			horizontal_weight = 0.9
+			
 		HitData.KnockbackType.SPIKE:
 			vertical_weight = -0.6
 			horizontal_weight = 1.0
