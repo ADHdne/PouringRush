@@ -7,7 +7,8 @@
 script = ExtResource("2_h2xf7")
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h2xf7"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2xf7"]
+radius = 8.0
 
 [node name="Projectile" type="Area2D" unique_id=2142960138 node_paths=PackedStringArray("lifetime_timer")]
 script = ExtResource("1_3ktke")
@@ -15,7 +16,7 @@ data = SubResource("Resource_u6a0y")
 lifetime_timer = NodePath("LifetimeTimer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1411973391]
-shape = SubResource("CapsuleShape2D_h2xf7")
+shape = SubResource("CircleShape2D_h2xf7")
 
 [node name="LifetimeTimer" type="Timer" parent="." unique_id=209157782]
 

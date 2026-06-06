@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://dtlhgiqyishti"
 script = ExtResource("3_6fff4")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
-size = Vector2(50, 100)
+size = Vector2(15, 32)
 
 [node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement")]
 collision_layer = 2
@@ -46,10 +46,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -25.0
-offset_top = -50.0
-offset_right = 25.0
-offset_bottom = 50.0
+offset_left = -8.0
+offset_top = -16.0
+offset_right = 8.0
+offset_bottom = 16.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.4856801, 0.8383938, 0.4309208, 1)

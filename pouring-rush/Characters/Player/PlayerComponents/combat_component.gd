@@ -37,14 +37,14 @@ func shoot(data : AbilityData):
 	proj.data = data.projectile_data
 	
 	if player.aim_input() != Vector2(0, 0):
-		proj.global_position = player.global_position + (40 * player.aim_direction)
+		proj.global_position = player.global_position + (15 * player.aim_direction)
 		proj.direction = player.aim_input()
 	else:
 		if not player.facing_flipped:
-			proj.global_position = player.global_position + (Vector2(40, 0) * 1)
+			proj.global_position = player.global_position + (Vector2(15, 0) * 1)
 			proj.direction.x = 1
 		else:
-			proj.global_position = player.global_position + (Vector2(40, 0) * -1)
+			proj.global_position = player.global_position + (Vector2(15, 0) * -1)
 			proj.direction.x = -1
 	
 	proj.owner = player
