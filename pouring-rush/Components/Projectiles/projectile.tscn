@@ -20,5 +20,11 @@ shape = SubResource("CircleShape2D_h2xf7")
 
 [node name="LifetimeTimer" type="Timer" parent="." unique_id=209157782]
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=303695677]
+offset_left = -7.0
+offset_top = -6.0
+offset_right = 6.0
+offset_bottom = 6.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="LifetimeTimer" to="." method="_on_lifetime_timer_timeout"]
