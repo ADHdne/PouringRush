@@ -48,7 +48,7 @@ func _process(delta: float) -> void:
 	
 	just_landed = not was_on_floor and player.is_on_floor()
 	
-		# dash timer
+	# dash timer
 	if dash_timer > 0:
 		dash_timer -= delta
 	
@@ -58,8 +58,7 @@ func _process(delta: float) -> void:
 		jumps_remaining = 1
 	
 	
-	
-	
+
 
 func accelerate(direction):
 	if player.is_on_floor():

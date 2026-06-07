@@ -33,7 +33,8 @@ var can_attack : bool = true
 
 var facing_flipped : bool = false
 
-var in_tumble : bool = false
+var can_tech : bool = false
+
 
 func _ready() -> void:
 	# giving references to different things
@@ -43,7 +44,7 @@ func _ready() -> void:
 		hurtbox.knockback_component = knockback_component
 	
 	if knockback_component != null:
-		knockback_component.body = self
+		knockback_component.player = self
 		knockback_component.damage_component = damage_component
 	
 	if KO_component != null:
@@ -51,7 +52,7 @@ func _ready() -> void:
 	
 	if ko_collision_check != null:
 		ko_collision_check.player = self
-		
+	
 
 
 func _process(delta: float) -> void:

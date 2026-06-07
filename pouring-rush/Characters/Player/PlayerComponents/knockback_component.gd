@@ -2,7 +2,7 @@ extends Node
 class_name KnockbackComponent
 
 
-@export var body : CharacterBody2D
+@export var player : Player
 @export var damage_component : DamageComponent
 
 @export var tumble_state : State
@@ -13,7 +13,7 @@ class_name KnockbackComponent
 
 func apply_knockback(hit : HitData):
 	var percent = damage_component.percentage
-	var weight = body.stats.weight
+	var weight = player.stats.weight
 	var dir = hit.direction.normalized()
 	
 	var horizontal = Vector2(dir.x, 0)
@@ -43,9 +43,16 @@ func apply_knockback(hit : HitData):
 	
 	var final_dir = (horizontal * horizontal_weight + vertical * vertical_weight).normalized()
 	
-	body.velocity += final_dir * force
-	
 	# checks if enough force to send in to tumble state
 	if tumble_state != null:
 		if force > tumble_threshold:
-			body.state_machine.on_state_interupt_state(tumble_state)
+			player.state_machine.on_state_interupt_state(tumble_state)
+	
+	# sets the final force vector2 for use in moving the player
+	var final_force = final_dir * force
+
+	# moves the player with the calculated knockback force times direction
+	player.velocity += final_force
+	
+	# checks if player is in a wall or ceiling and sends to ko component
+	player.KO_component.check_immedate_impact(player.ko_collision_check.surface_to_check)
