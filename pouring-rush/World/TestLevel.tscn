@@ -92,7 +92,7 @@ position = Vector2(369, 352)
 player_actions = ExtResource("2_w6c0v")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=2075292164]
-zoom = Vector2(2, 2)
+zoom = Vector2(1.7, 1.7)
 
 [node name="TileMap2" type="TileMap" parent="." unique_id=128111978 groups=["Ground"]]
 tile_set = SubResource("TileSet_j7nd8")
