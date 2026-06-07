@@ -21,7 +21,8 @@ func check_killing_speed():
 
 # tumble state calles this through player
 func check_impact():
-	if get_speed() >= ceiling_ko_speed:
+	print("speed: ", get_speed(), ", ceiling ko speed: ", ceiling_ko_speed)
+	if player.ko_collision_check.collision_speed >= ceiling_ko_speed:
 		KO()
 
 func KO():

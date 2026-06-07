@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://d0rg3adfxle5y" path="res://Characters/Player/PlayerStates/FallState.gd" id="4_ddoul"]
 [ext_resource type="Script" uid="uid://d31va4idms3u2" path="res://Characters/Player/PlayerComponents/combat_component.gd" id="5_6h4vt"]
 [ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
+[ext_resource type="PackedScene" uid="uid://c8c1ig2gcblnu" path="res://Characters/Player/PlayerComponents/ko_collision_check.tscn" id="6_u4bhk"]
 [ext_resource type="Resource" uid="uid://craujuwyqxor6" path="res://Characters/Player/PlayerResources/basic_shot.tres" id="6_wraqo"]
 [ext_resource type="Resource" uid="uid://c1urw7gwlpneg" path="res://Characters/Player/PlayerResources/Special1_shot.tres" id="7_0ij6m"]
 [ext_resource type="Script" uid="uid://ce44ty8226jpp" path="res://Characters/Player/PlayerComponents/knockback_component.gd" id="7_k8aph"]
@@ -36,7 +37,7 @@ metadata/_custom_type_script = "uid://bd8fllxfus67"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(15, 32)
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "hurtbox", "KO_component")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "hurtbox", "KO_component", "ko_collision_check")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 properties = SubResource("Resource_1niqm")
@@ -52,6 +53,7 @@ damage_component = NodePath("DamageComponent")
 knockback_component = NodePath("KnockbackComponent")
 hurtbox = NodePath("Hurtbox")
 KO_component = NodePath("KOComponent")
+ko_collision_check = NodePath("KOCollisionCheck")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
 shape = SubResource("RectangleShape2D_q3lat")
@@ -60,6 +62,8 @@ shape = SubResource("RectangleShape2D_q3lat")
 modulate = Color(0.56078434, 1, 0.4, 1)
 visibility_layer = 0
 collision_mask = 24
+
+[node name="KOCollisionCheck" parent="." unique_id=2081846536 instance=ExtResource("6_u4bhk")]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1497093350]
 anchors_preset = 8

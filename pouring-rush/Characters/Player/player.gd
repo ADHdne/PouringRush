@@ -18,6 +18,7 @@ class_name Player
 @export var knockback_component : KnockbackComponent
 @export var hurtbox : HurtboxComponent
 @export var KO_component : KOComponent
+@export var ko_collision_check : KOCollisionCheck
 
 
 # directions inputs
@@ -40,9 +41,16 @@ func _ready() -> void:
 		hurtbox._owner = self
 		hurtbox.damage_component = damage_component
 		hurtbox.knockback_component = knockback_component
+	
+	if knockback_component != null:
 		knockback_component.body = self
 		knockback_component.damage_component = damage_component
+	
+	if KO_component != null:
 		KO_component.player = self
+	
+	if ko_collision_check != null:
+		ko_collision_check.player = self
 		
 
 
