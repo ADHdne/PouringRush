@@ -55,9 +55,6 @@ func _process(delta: float) -> void:
 		facing_flipped = true
 	
 	input()
-	
-	if is_on_wall():
-		KO_component.check_impact()
 
 func input() -> Vector2:
 	direction = Input.get_vector(player_actions.move_left, player_actions.move_right, player_actions.move_up, player_actions.move_down)
