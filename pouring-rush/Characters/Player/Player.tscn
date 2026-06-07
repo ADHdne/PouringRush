@@ -39,7 +39,7 @@ size = Vector2(15, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4bhk"]
 resource_local_to_scene = true
-size = Vector2(12, 30)
+size = Vector2(12, 28)
 
 [node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "hurtbox", "KO_component", "wall_collision_check", "ceiling_collision_check")]
 collision_layer = 2
@@ -75,7 +75,7 @@ surface_to_check = 0
 surface_to_check = 1
 
 [node name="CollisionShape2D" parent="CeilingCollisionCheck" index="0" unique_id=721128433]
-position = Vector2(0, -4)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_u4bhk")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1497093350]
