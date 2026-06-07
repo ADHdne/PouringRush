@@ -18,7 +18,8 @@ class_name Player
 @export var knockback_component : KnockbackComponent
 @export var hurtbox : HurtboxComponent
 @export var KO_component : KOComponent
-@export var ko_collision_check : KOCollisionCheck
+@export var wall_collision_check : KOCollisionCheck
+@export var ceiling_collision_check : KOCollisionCheck
 
 
 # directions inputs
@@ -49,10 +50,6 @@ func _ready() -> void:
 	
 	if KO_component != null:
 		KO_component.player = self
-	
-	if ko_collision_check != null:
-		ko_collision_check.player = self
-	
 
 
 func _process(delta: float) -> void:

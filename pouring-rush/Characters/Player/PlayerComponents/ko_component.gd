@@ -21,9 +21,11 @@ func get_speed() -> float:
 	return speed
 
 # checks if player is starting close to wall/ceiling, from knockback component
-func check_immedate_impact(surface : String):
-	if player.ko_collision_check.has_overlapping_bodies():
-		check_impact(surface)
+func check_immedate_impact():
+	if player.ceiling_collision_check.has_overlapping_bodies():
+		check_impact("Ceiling")
+	elif player.wall_collision_check.has_overlapping_bodies():
+		check_impact("Wall")
 
 func check_killing_speed():
 	# gives colors as hints to if you will die if hitting a wall

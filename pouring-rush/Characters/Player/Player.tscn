@@ -39,9 +39,9 @@ size = Vector2(15, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4bhk"]
 resource_local_to_scene = true
-size = Vector2(12, 36)
+size = Vector2(12, 30)
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "hurtbox", "KO_component", "ko_collision_check")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "hurtbox", "KO_component", "wall_collision_check", "ceiling_collision_check")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 properties = SubResource("Resource_1niqm")
@@ -57,7 +57,8 @@ damage_component = NodePath("DamageComponent")
 knockback_component = NodePath("KnockbackComponent")
 hurtbox = NodePath("Hurtbox")
 KO_component = NodePath("KOComponent")
-ko_collision_check = NodePath("WallCollisionCheck")
+wall_collision_check = NodePath("WallCollisionCheck")
+ceiling_collision_check = NodePath("CeilingCollisionCheck")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
 shape = SubResource("RectangleShape2D_q3lat")
@@ -74,6 +75,7 @@ surface_to_check = 0
 surface_to_check = 1
 
 [node name="CollisionShape2D" parent="CeilingCollisionCheck" index="0" unique_id=721128433]
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_u4bhk")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1497093350]
