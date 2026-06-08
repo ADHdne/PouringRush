@@ -6,13 +6,14 @@ class_name TechState
 
 func on_enter():
 	player.hurtbox.visible = false
-	# play tech animation
 
-
-func on_exit():
-	player.hurtbox.visible = true
-	
+func teching():
+	await get_tree().create_timer(1).timeout
 	if player.is_on_floor():
 		next_state = idle_state
 	else:
 		next_state = fall_state
+
+
+func on_exit():
+	player.hurtbox.visible = true
