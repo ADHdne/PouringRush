@@ -30,8 +30,9 @@ func state_input(event : InputEvent):
 			check_tech()
 
 func check_tech():
-	if player.tech_zone.has_overlapping_bodies():
-		next_state = tech_state
+	if player.tech_zone != null:
+		if player.tech_zone.has_overlapping_bodies():
+			next_state = tech_state
 
 func on_exit():
 	pass
