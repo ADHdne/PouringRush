@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cwrej1c125gkm"]
+
+[ext_resource type="Texture2D" uid="uid://d33piyfffxpb5" path="res://Assets/Sprites/Tilesets/sandbrick_grass_alt_tileset_2.png" id="1_24pi4"]
+[ext_resource type="Script" uid="uid://bvxu56ycil7vo" path="res://World/arena.gd" id="1_udclw"]
+[ext_resource type="PackedScene" uid="uid://05kvo1nocej0" path="res://Components/SpawnStuff/spawn_points.tscn" id="3_7cq58"]
+[ext_resource type="PackedScene" uid="uid://cxl0h72jh2uik" path="res://Components/CameraStuff/camera_bounds.tscn" id="3_ktx4i"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_24pi4"]
+texture = ExtResource("1_24pi4")
+
+[sub_resource type="TileSet" id="TileSet_udclw"]
+sources/0 = SubResource("TileSetAtlasSource_24pi4")
+
+[node name="Arena" type="Node2D" unique_id=790477264]
+script = ExtResource("1_udclw")
+
+[node name="TileMap" type="TileMap" parent="." unique_id=1316477682]
+tile_set = SubResource("TileSet_udclw")
+format = 2
+
+[node name="SpawnPoints" parent="." unique_id=278151024 instance=ExtResource("3_7cq58")]
+
+[node name="Spawn1" type="Marker2D" parent="SpawnPoints" unique_id=594705747]
+
+[node name="CameraBounds" parent="." unique_id=767753523 instance=ExtResource("3_ktx4i")]

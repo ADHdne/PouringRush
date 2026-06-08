@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cxl0h72jh2uik"]
+
+[ext_resource type="Script" uid="uid://bwilqeqnnvhif" path="res://Components/CameraStuff/camera_bounds.gd" id="1_0quyx"]
+
+[node name="CameraBounds" type="Node2D" unique_id=767753523 node_paths=PackedStringArray("top_left", "bottom_right")]
+script = ExtResource("1_0quyx")
+top_left = NodePath("TopLeft")
+bottom_right = NodePath("BottomRight")
+
+[node name="TopLeft" type="Marker2D" parent="." unique_id=1937808575]
+
+[node name="BottomRight" type="Marker2D" parent="." unique_id=1443772944]
+position = Vector2(1148, 650)
