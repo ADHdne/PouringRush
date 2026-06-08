@@ -6,6 +6,7 @@
 size = Vector2(15, 32)
 
 [node name="Hurtbox" type="Area2D" unique_id=935006614]
+modulate = Color(0.29899275, 0.6702701, 4.6205523e-06, 1)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_iaehs")

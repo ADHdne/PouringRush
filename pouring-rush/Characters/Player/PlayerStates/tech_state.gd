@@ -5,7 +5,7 @@ class_name TechState
 @export var fall_state : State
 
 func on_enter():
-	player.hurtbox.visible = false
+	player.hurtbox.monitorable = false
 
 func teching():
 	await get_tree().create_timer(1).timeout
@@ -16,4 +16,4 @@ func teching():
 
 
 func on_exit():
-	player.hurtbox.visible = true
+	player.hurtbox.monitorable = true

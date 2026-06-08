@@ -39,7 +39,7 @@ metadata/_custom_type_script = "uid://bd8fllxfus67"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(15, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hnbq"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t7vx"]
 resource_local_to_scene = true
 size = Vector2(12, 28)
 
@@ -66,7 +66,6 @@ ceiling_collision_check = NodePath("CeilingCollisionCheck")
 shape = SubResource("RectangleShape2D_q3lat")
 
 [node name="Hurtbox" parent="." unique_id=935006614 instance=ExtResource("4_5xivi")]
-modulate = Color(0.56078434, 1, 0.4, 1)
 visibility_layer = 0
 collision_mask = 24
 
@@ -78,7 +77,7 @@ surface_to_check = 1
 
 [node name="CollisionShape2D" parent="CeilingCollisionCheck" index="0" unique_id=721128433]
 position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_6hnbq")
+shape = SubResource("RectangleShape2D_1t7vx")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1497093350]
 anchors_preset = 8
