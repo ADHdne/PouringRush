@@ -20,8 +20,10 @@ class_name Player
 @export var damage_component : DamageComponent
 @export var knockback_component : KnockbackComponent
 @export var hurtbox : HurtboxComponent
-
 @export var KO_component : KOComponent
+
+@export var tech_zone : Area2D
+
 @export var wall_collision_check : KOCollisionCheck
 @export var ceiling_collision_check : KOCollisionCheck
 

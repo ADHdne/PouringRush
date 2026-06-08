@@ -15,6 +15,7 @@
 [ext_resource type="Resource" uid="uid://craujuwyqxor6" path="res://Characters/Player/PlayerResources/basic_shot.tres" id="6_wraqo"]
 [ext_resource type="Resource" uid="uid://c1urw7gwlpneg" path="res://Characters/Player/PlayerResources/Special1_shot.tres" id="7_0ij6m"]
 [ext_resource type="Script" uid="uid://ce44ty8226jpp" path="res://Characters/Player/PlayerComponents/knockback_component.gd" id="7_k8aph"]
+[ext_resource type="PackedScene" uid="uid://hmiwpv2cagky" path="res://Characters/Player/PlayerComponents/tech_zone.tscn" id="7_tdp7v"]
 [ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
 [ext_resource type="Script" uid="uid://ch51j4onl3j1j" path="res://Characters/Player/PlayerStates/IdleState.gd" id="8_dl42p"]
 [ext_resource type="Script" uid="uid://dy3hvkt1q1r7t" path="res://Characters/Player/PlayerComponents/movement_component.gd" id="12_6h4vt"]
@@ -43,7 +44,7 @@ size = Vector2(15, 32)
 resource_local_to_scene = true
 size = Vector2(12, 28)
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "hurtbox", "KO_component", "wall_collision_check", "ceiling_collision_check")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "hurtbox", "KO_component", "tech_zone", "wall_collision_check", "ceiling_collision_check")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 properties = SubResource("Resource_1niqm")
@@ -59,6 +60,7 @@ damage_component = NodePath("DamageComponent")
 knockback_component = NodePath("KnockbackComponent")
 hurtbox = NodePath("Hurtbox")
 KO_component = NodePath("KOComponent")
+tech_zone = NodePath("TechZone")
 wall_collision_check = NodePath("WallCollisionCheck")
 ceiling_collision_check = NodePath("CeilingCollisionCheck")
 
@@ -78,6 +80,9 @@ surface_to_check = 1
 [node name="CollisionShape2D" parent="CeilingCollisionCheck" index="0" unique_id=721128433]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_1t7vx")
+
+[node name="TechZone" parent="." unique_id=10040679 instance=ExtResource("7_tdp7v")]
+collision_layer = 0
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1497093350]
 anchors_preset = 8
@@ -146,9 +151,10 @@ idle_state = NodePath("../Idle")
 move_state = NodePath("../Move")
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
-[node name="Tumble" type="Node" parent="CharacterStateMachine" unique_id=80380702 node_paths=PackedStringArray("idle_state")]
+[node name="Tumble" type="Node" parent="CharacterStateMachine" unique_id=80380702 node_paths=PackedStringArray("idle_state", "tech_state")]
 script = ExtResource("18_u61tb")
 idle_state = NodePath("../Idle")
+tech_state = NodePath("../Tech")
 can_move = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 

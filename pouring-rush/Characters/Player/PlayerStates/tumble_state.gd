@@ -2,6 +2,7 @@ extends State
 class_name TumbleState
 
 @export var idle_state : State
+@export var tech_state : State
 
 
 func  on_enter():
@@ -26,9 +27,11 @@ func state_process(_delta):
 func state_input(event : InputEvent):
 	if player.can_tech:
 		if event.is_action_pressed("Block"):
-			print("From Tumble: Player teched")
-			# go to tech state and disable can_tech!
+			check_tech()
 
+func check_tech():
+	if player.tech_zone.has_overlapping_bodies():
+		next_state = tech_state
 
 func on_exit():
 	pass

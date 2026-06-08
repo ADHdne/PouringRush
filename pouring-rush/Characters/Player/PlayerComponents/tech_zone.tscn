@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://hmiwpv2cagky"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdp7v"]
+size = Vector2(29, 38)
+
+[node name="TechZone" type="Area2D" unique_id=10040679]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=245850410]
+shape = SubResource("RectangleShape2D_tdp7v")
+debug_color = Color(0.6983993, 0.38208362, 0.8013122, 0.41960785)

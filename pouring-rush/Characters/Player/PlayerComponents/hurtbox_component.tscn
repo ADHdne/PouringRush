@@ -6,10 +6,10 @@
 size = Vector2(15, 32)
 
 [node name="Hurtbox" type="Area2D" unique_id=935006614]
-modulate = Color(0.29899275, 0.6702701, 4.6205523e-06, 1)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_iaehs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=200772170]
 shape = SubResource("RectangleShape2D_k6hg1")
+debug_color = Color(0, 0.64651567, 0.24259588, 0.41960785)
