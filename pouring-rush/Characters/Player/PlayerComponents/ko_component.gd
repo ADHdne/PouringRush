@@ -3,6 +3,7 @@ class_name KOComponent
 
 @export var player : Player
 
+@export var ko_state : KOState
 
 @export var wall_ko_speed : float = 1000
 @export var ceiling_ko_speed : float = 800
@@ -46,4 +47,7 @@ func check_impact(surface : String):
 			KO()
 
 func KO():
-	player.queue_free()
+	if ko_state != null:
+		player.state_machine.on_state_interupt_state(ko_state)
+	else:
+		print("no ko state")

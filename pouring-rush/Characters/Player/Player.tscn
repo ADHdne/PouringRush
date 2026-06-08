@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://bqkyds65ymdao" path="res://Components/DebugTools/Precentage.tscn" id="16_7jpmk"]
 [ext_resource type="Script" uid="uid://buxclsp28a2e2" path="res://Characters/Player/PlayerStates/tumble_state.gd" id="18_u61tb"]
 [ext_resource type="Script" uid="uid://flftotrrcgyd" path="res://Characters/Player/PlayerStates/tech_state.gd" id="20_6hnbq"]
+[ext_resource type="Script" uid="uid://c471yv64cmmrv" path="res://Characters/Player/PlayerStates/ko_state.gd" id="21_1t7vx"]
 
 [sub_resource type="Resource" id="Resource_1niqm"]
 script = ExtResource("2_14m2a")
@@ -111,8 +112,9 @@ basic_shot_data = ExtResource("6_wraqo")
 special_shot_data = ExtResource("7_0ij6m")
 shot_buffer = NodePath("../Timers/ShotBufferTimer")
 
-[node name="KOComponent" type="Node" parent="." unique_id=1836747962 node_paths=PackedStringArray("color")]
+[node name="KOComponent" type="Node" parent="." unique_id=1836747962 node_paths=PackedStringArray("ko_state", "color")]
 script = ExtResource("12_870kv")
+ko_state = NodePath("../CharacterStateMachine/KO")
 color = NodePath("../ColorRect")
 
 [node name="CharacterStateMachine" type="Node" parent="." unique_id=840629580 node_paths=PackedStringArray("player", "current_state")]
@@ -155,6 +157,10 @@ metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 script = ExtResource("20_6hnbq")
 idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
+metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
+
+[node name="KO" type="Node" parent="CharacterStateMachine" unique_id=1388787417]
+script = ExtResource("21_1t7vx")
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="Timers" type="Node" parent="." unique_id=1220796725]

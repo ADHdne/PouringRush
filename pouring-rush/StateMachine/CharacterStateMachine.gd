@@ -7,10 +7,6 @@ class_name CharacterStateMachine
 @export var animation_tree : AnimationTree
 # reference states
 @export var current_state : State
-@export var hit_state : State
-@export var dead_state : State
-@export var block_state : State
-@export var shieldbroken_state : State
 
 var states : Array[State]
 var player_dead : bool = false

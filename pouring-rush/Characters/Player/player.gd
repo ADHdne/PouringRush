@@ -9,14 +9,18 @@ class_name Player
 
 # reference to children
 @export var state_machine : CharacterStateMachine
+
 @export var coyote_jump_timer : Timer
 @export var jump_buffer_timer : Timer
 @export var footstep_timer : Timer
+
 @export var sound_effects : CharacterSoundEffects
+
 @export var movement : MovementComponent
 @export var damage_component : DamageComponent
 @export var knockback_component : KnockbackComponent
 @export var hurtbox : HurtboxComponent
+
 @export var KO_component : KOComponent
 @export var wall_collision_check : KOCollisionCheck
 @export var ceiling_collision_check : KOCollisionCheck
