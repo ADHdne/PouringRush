@@ -9,6 +9,8 @@ var players : Array[Player] = []
 
 var player_scene : PackedScene
 
+
+# this gets called from match_scene
 func initialize(p_arena : Arena, p_game_mode : GameMode, players_root : Node2D):
 	arena = p_arena
 	game_mode = p_game_mode
