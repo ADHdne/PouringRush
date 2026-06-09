@@ -30,9 +30,14 @@ func spawn_players(players_root):
 	
 	players = [p1, p2]
 	
+	for p in players:
+		p.match_manager = self
+	
 	p1.global_position = arena.get_spawn_point(0).global_position
 	p2.global_position = arena.get_spawn_point(1).global_position
 
+func on_player_ko(player : Player):
+	respawn_player(player)
 
 func respawn_player(player):
 	# respawns player
