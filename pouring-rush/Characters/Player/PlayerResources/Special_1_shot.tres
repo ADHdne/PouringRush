@@ -17,6 +17,7 @@ metadata/_custom_type_script = "uid://drphxsmjyfe1x"
 [sub_resource type="Resource" id="Resource_5ikm4"]
 script = ExtResource("2_qtc1u")
 hit_data = SubResource("Resource_hlkmj")
+gravity = 500.0
 speed = 400.0
 lifetime = 4.0
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"

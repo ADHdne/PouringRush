@@ -18,7 +18,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	
 	# apply gravity
-	velocity.y += gravity * delta
+	velocity.y += data.gravity * delta
 	
 	
 	# basic movement
@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 	# rotating with gravity pull
 	if velocity.length() > 0.1:
 		rotation = velocity.angle()
-	
+
 
 
 func _on_lifetime_timer_timeout() -> void:

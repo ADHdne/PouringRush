@@ -13,6 +13,7 @@ metadata/_custom_type_script = "uid://drphxsmjyfe1x"
 [sub_resource type="Resource" id="Resource_1auey"]
 script = ExtResource("1_bpwv8")
 hit_data = SubResource("Resource_8kog8")
+gravity = 0.0
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]
