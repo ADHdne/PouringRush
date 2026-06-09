@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c1653pi6i1rp6"]
 
 [ext_resource type="Script" uid="uid://cboy3legkgv6e" path="res://MatchLogic/match_scene.gd" id="1_1yt1k"]
+[ext_resource type="PackedScene" uid="uid://bsyrujkhp2cnx" path="res://MatchLogic/match_manager.tscn" id="2_cf7uw"]
 
 [node name="MatchScene" type="Node2D" unique_id=1843901484]
 script = ExtResource("1_1yt1k")
@@ -12,3 +13,5 @@ script = ExtResource("1_1yt1k")
 [node name="Players" type="Node2D" parent="." unique_id=559754225]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1828280291]
+
+[node name="MatchManager" parent="." unique_id=449420938 instance=ExtResource("2_cf7uw")]
