@@ -14,6 +14,10 @@ config/name="PouringRush"
 run/main_scene="uid://cnyv3j61dkd35"
 config/features=PackedStringArray("4.6", "Mobile")
 
+[autoload]
+
+GameManager="*uid://cagm8f82g5h6w"
+
 [input]
 
 Up={
