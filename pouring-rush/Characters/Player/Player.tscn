@@ -13,7 +13,7 @@
 [ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
 [ext_resource type="PackedScene" uid="uid://c8c1ig2gcblnu" path="res://Characters/Player/PlayerComponents/ko_collision_check.tscn" id="6_u4bhk"]
 [ext_resource type="Resource" uid="uid://craujuwyqxor6" path="res://Characters/Player/PlayerResources/basic_shot.tres" id="6_wraqo"]
-[ext_resource type="Resource" uid="uid://c1urw7gwlpneg" path="res://Characters/Player/PlayerResources/Special1_shot.tres" id="7_0ij6m"]
+[ext_resource type="Resource" uid="uid://c1urw7gwlpneg" path="res://Characters/Player/PlayerResources/Special_1_shot.tres" id="7_0ij6m"]
 [ext_resource type="Script" uid="uid://ce44ty8226jpp" path="res://Characters/Player/PlayerComponents/knockback_component.gd" id="7_k8aph"]
 [ext_resource type="PackedScene" uid="uid://hmiwpv2cagky" path="res://Characters/Player/PlayerComponents/tech_zone.tscn" id="7_tdp7v"]
 [ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
@@ -40,7 +40,7 @@ metadata/_custom_type_script = "uid://bd8fllxfus67"
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(15, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t7vx"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdp7v"]
 resource_local_to_scene = true
 size = Vector2(12, 28)
 
@@ -79,7 +79,7 @@ surface_to_check = 1
 
 [node name="CollisionShape2D" parent="CeilingCollisionCheck" index="0" unique_id=721128433]
 position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_1t7vx")
+shape = SubResource("RectangleShape2D_tdp7v")
 
 [node name="TechZone" parent="." unique_id=10040679 instance=ExtResource("7_tdp7v")]
 collision_layer = 0

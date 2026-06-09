@@ -4,6 +4,8 @@ class_name CombatComponent
 @export var player : Player
 @export var basic_shot_data : AbilityData
 @export var special_shot_data : AbilityData
+@export var special_2_data : AbilityData
+## and an utility move on the 
 
 
 # shot buffering
@@ -12,6 +14,7 @@ class_name CombatComponent
 var shot_buffered : bool = false
 
 var shoot_cooldown := 0.0
+
 
 
 func _process(delta):
@@ -24,28 +27,35 @@ func _process(delta):
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(player.player_actions.attack):
 		try_shoot(basic_shot_data)
-	if event.is_action_pressed(player.player_actions.special1):
+	if event.is_action_pressed(player.player_actions.special_1):
 		try_shoot(special_shot_data)
+	if event.is_action_pressed(player.player_actions.special_2):
+		try_shoot(special_2_data)
 
 func can_shoot() -> bool:
 	return shoot_cooldown <= 0 and player.can_attack
 
 
 func shoot(data : AbilityData):
+	
 	var proj = data.projectile_scene.instantiate()
 	
+	# get direction
+	var direction = player.aim_input()
+	
+	# add the right data for the projectile
 	proj.data = data.projectile_data
 	
 	if player.aim_input() != Vector2(0, 0):
 		proj.global_position = player.global_position + (15 * player.aim_direction)
-		proj.direction = player.aim_input()
+		proj.velocity = direction.normalized() * data.projectile_data.speed
 	else:
 		if not player.facing_flipped:
 			proj.global_position = player.global_position + (Vector2(15, 0) * 1)
-			proj.direction.x = 1
+			proj.velocity = Vector2(1,0).normalized() * data.projectile_data.speed
 		else:
 			proj.global_position = player.global_position + (Vector2(15, 0) * -1)
-			proj.direction.x = -1
+			proj.velocity = Vector2(-1,0).normalized() * data.projectile_data.speed
 	
 	proj.origin = player
 	

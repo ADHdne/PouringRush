@@ -4,6 +4,7 @@ class_name ProjectileData
 
 @export var hit_data : HitData
 
+@export var gravity : float = 1000
 
 @export var speed: float = 800
 @export var lifetime: float = 2.0

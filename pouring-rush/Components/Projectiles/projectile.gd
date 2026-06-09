@@ -7,6 +7,8 @@ class_name Projectile
 
 
 var direction : Vector2
+var velocity : Vector2
+
 var origin : Node
 
 
@@ -14,7 +16,19 @@ func _ready() -> void:
 	lifetime_timer.start(data.lifetime)
 
 func _physics_process(delta: float) -> void:
-	global_position += direction * data.speed * delta
+	
+	# apply gravity
+	velocity.y += gravity * delta
+	
+	
+	# basic movement
+	global_position += velocity * delta
+	
+	
+	# rotating with gravity pull
+	if velocity.length() > 0.1:
+		rotation = velocity.angle()
+	
 
 
 func _on_lifetime_timer_timeout() -> void:
