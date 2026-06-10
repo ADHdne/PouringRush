@@ -15,5 +15,3 @@ class_name ProjectileData
 @export var pierces: int = 0
 
 @export var ammo_cost: int = 1
-
-@export var role_tag: String = "dps"  # dps / tank / support

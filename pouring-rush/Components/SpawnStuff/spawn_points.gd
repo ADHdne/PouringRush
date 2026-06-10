@@ -6,5 +6,5 @@ class_name SpawnPoints
 
 func _ready() -> void:
 	for c in get_children():
-		if c == Marker2D:
+		if c is Marker2D:
 			spawn_points.append(c)

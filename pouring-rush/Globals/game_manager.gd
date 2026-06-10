@@ -7,10 +7,7 @@ var MATCHSCENE = "res://MatchLogic/match_scene.tscn"
 var MAINMENU = "res://main_menu/main_menu.tscn"
 
 
-# match variables
-var selected_arena : PackedScene
-var selected_game_mode : PackedScene
-var selected_characters : Array = [CharacterData]
+# Match variables
 var match_config : MatchConfig
 
 # settings variables

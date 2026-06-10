@@ -196,6 +196,8 @@ offset_bottom = -43.0
 text = "100"
 player = NodePath("..")
 
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2128638675]
+
 [connection signal="timeout" from="Timers/ShotBufferTimer" to="CombatComponent" method="_on_shot_buffer_timer_timeout"]
 
 [editable path="CeilingCollisionCheck"]

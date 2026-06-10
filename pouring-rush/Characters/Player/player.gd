@@ -3,7 +3,7 @@ class_name Player
 
 
 # reference to game logic
-@export var match_manager : Node
+@export var match_manager : MatchManager
 
 
 # reference to resources
@@ -36,6 +36,8 @@ class_name Player
 @export var ceiling_collision_check : KOCollisionCheck
 
 
+var team : Team.type
+
 # directions inputs
 var direction = Vector2.ZERO
 # aim directions inputs
@@ -45,10 +47,12 @@ var aim_direction = Vector2.ZERO
 var can_action_pressed : bool = true
 var can_jump : bool = true
 var can_attack : bool = true
+var can_tech : bool = false
 
+# facing bool
 var facing_flipped : bool = false
 
-var can_tech : bool = false
+
 
 
 func _ready() -> void:
@@ -65,9 +69,11 @@ func _ready() -> void:
 	if KO_component != null:
 		KO_component.player = self
 
-func initialize(m_character_data : CharacterData, m_match_manager : Node):
-	character_data = m_character_data
-	match_manager = m_match_manager
+func initialize(character_data : CharacterData, match_manager : Node):
+	self.character_data = character_data
+	self.match_manager = match_manager
+	
+	combat_component.initialize(character_data)
 
 func _process(delta: float) -> void:
 	

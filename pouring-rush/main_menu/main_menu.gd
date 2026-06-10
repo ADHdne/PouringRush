@@ -18,10 +18,17 @@ class_name MainMenu
 
 # Characterr Rooster
 var rooster : Array[CharacterData] = [
-	preload("res://Resources/TestCharacter1.tres"),
+	preload("res://Resources/TestCharacter1.tres"), # test character 1
 ]
 
+var arenas : Array[PackedScene] = [
+	preload("res://World/grass_lands.tscn"), # grass land arena
+]
 
+var game_modes : Array[PackedScene] = [
+	preload("res://GameModes/stock_mode.tscn")
+	
+]
 
  # Different variables for logic
 var saved_location : StringName
@@ -87,8 +94,8 @@ func start_match():
 	config.players = players
 	
 	# both arena and game mode should be choosable in this menu in the future
-	config.arena_scene = preload("res://World/grass_lands.tscn")
-	config.game_mode = "stock"
+	config.arena_scene = arenas[0]
+	config.game_mode = game_modes[0]
 	
 	GameManager.match_config = config
 	
@@ -131,8 +138,8 @@ func _on_select_character_pressed() -> void:
 func _on_add_player_button_pressed() -> void:
 	number_of_players += 1
 	
-	if number_of_players >= 7 :
-		number_of_players = 6
+	if number_of_players >= 9 :
+		number_of_players = 8
 		print("max players reached")
 	
 	update_nop_label(number_of_players)
