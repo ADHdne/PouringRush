@@ -27,6 +27,10 @@ script = ExtResource("3_6fff4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(15, 32)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_870kv"]
+radius = 540.0
+height = 1640.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "combat_component", "hurtbox", "tech_zone")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
@@ -167,5 +171,11 @@ text = "100"
 player = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2128638675]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=20094202]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1608010951]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_870kv")
 
 [connection signal="timeout" from="Timers/ShotBufferTimer" to="CombatComponent" method="_on_shot_buffer_timer_timeout"]

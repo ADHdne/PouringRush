@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://nwurj74d4di3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6obsn"]
-radius = 322.0
-height = 1142.0
+radius = 540.0
+height = 1640.0
 
 [node name="TeamZone" type="Area2D" unique_id=188268863]
 collision_layer = 64
