@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://b3uysjrd82s1j" path="res://MatchLogic/match_manager.gd" id="1_n5qc4"]
 [ext_resource type="PackedScene" uid="uid://dq0nnq8dnfdh" path="res://Characters/Player/Player.tscn" id="2_dempf"]
+[ext_resource type="PackedScene" uid="uid://nwurj74d4di3" path="res://Components/TeamComponents/TeamZone.tscn" id="3_ry1cr"]
 
 [node name="MatchManager" type="Node" unique_id=449420938]
 script = ExtResource("1_n5qc4")
 player_scene = ExtResource("2_dempf")
+team_zone_scene = ExtResource("3_ry1cr")

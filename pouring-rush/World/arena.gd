@@ -4,6 +4,9 @@ class_name Arena
 
 @onready var camera_bounds: CameraBounds = $CameraBounds
 @onready var spawn_points: Node2D = $SpawnPoints
+@onready var red_base_spawn: Node2D = $RedBaseSpawn
+@onready var blue_base_spawn: Node2D = $BlueBaseSpawn
+
 
 func get_spawn_point(index : int) -> Marker2D:
 	return spawn_points.spawn_points[index]

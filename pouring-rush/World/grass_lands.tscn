@@ -25,4 +25,10 @@ position = Vector2(-1401, -440)
 [node name="BottomRight" parent="CameraBounds" parent_id_path=PackedInt32Array(767753523) index="1" unique_id=1443772944]
 position = Vector2(2484, 1144)
 
+[node name="RedBaseSpawn" parent="." index="3" unique_id=1788055153]
+position = Vector2(-1153, 429)
+
+[node name="BlueBaseSpawn" parent="." index="4" unique_id=783503134]
+position = Vector2(2066, 418)
+
 [editable path="CameraBounds"]

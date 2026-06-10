@@ -101,3 +101,7 @@ format = 2
 [node name="Spawn1" type="Marker2D" parent="SpawnPoints" unique_id=594705747]
 
 [node name="CameraBounds" parent="." unique_id=767753523 instance=ExtResource("3_ktx4i")]
+
+[node name="RedBaseSpawn" type="Node2D" parent="." unique_id=1788055153]
+
+[node name="BlueBaseSpawn" type="Node2D" parent="." unique_id=783503134]

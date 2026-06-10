@@ -6,11 +6,11 @@ var match_manager : MatchManager
 var arena
 var players : Array[Player]
 
-
+var match_in_progress = false
 
 func _process(delta: float) -> void:
-	
-	check_ko()
+	if match_in_progress == true:
+		check_ko()
 
 
 # gets called in match manager
@@ -20,18 +20,20 @@ func initialize(match_manager : MatchManager):
 
 
 func start_match():
-	pass
+	match_in_progress = true
 
 func end_match():
-	print("Match ended")
+	match_in_progress = false
+	print("match ended")
 
 
 func check_ko():
+	
 	for p in match_manager.players:
-		
+		print("Hey")
 		var zone = match_manager.get_camera_zones(p.team)
 		
-		if not zone.contains_point(p.global_position):
+		if not zone.overlaps_body(p):
 			on_player_ko(p)
 
 func on_player_ko(player : Player):

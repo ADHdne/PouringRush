@@ -87,3 +87,6 @@ func aim_input() -> Vector2:
 	aim_direction = Input.get_vector(player_actions.aim_left, player_actions.aim_right, player_actions.aim_up, player_actions.aim_down)
 	aim_direction = aim_direction.normalized()
 	return aim_direction
+
+func reset_for_respawn():
+	pass
