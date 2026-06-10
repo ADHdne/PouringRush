@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bklvsy8pxe12q"]
+
+[ext_resource type="PackedScene" uid="uid://48sy0yiotlye" path="res://GameModes/GameMode.tscn" id="1_262nx"]
+
+[sub_resource type="GDScript" id="GDScript_6ykgx"]
+script/source = "extends GameMode
+class_name KOSurfaceMode
+
+
+# give player the surface mode ko_component
+"
+
+[node name="KOSurface" unique_id=457060701 instance=ExtResource("1_262nx")]
+script = SubResource("GDScript_6ykgx")

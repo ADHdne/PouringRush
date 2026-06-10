@@ -8,7 +8,6 @@ class_name Player
 
 # reference to resources
 @export var character_data : CharacterData
-@export var properties : CharacterProperties
 @export var player_actions : PlayerActions
 
 

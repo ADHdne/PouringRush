@@ -7,7 +7,6 @@
 [resource]
 script = ExtResource("1_8ajqi")
 display_name = "TestCharacter1"
-poise = 1.0
 basic_shot = ExtResource("1_1vi2l")
 special_1 = ExtResource("3_63t4j")
 metadata/_custom_type_script = "uid://c26p6mh1s8fyn"

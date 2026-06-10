@@ -26,7 +26,7 @@ class_name CharacterProperties
 
 @export_category("Stats")
 # stat values
-@export var poise : float
+@export var weight : float = 1
 
 @export_group("Dash Stats")
 # dash stats

@@ -21,16 +21,16 @@ func _process(delta: float) -> void:
 	if not player.is_on_floor():
 		## jump gravity
 		if player.velocity.y < -0.1:
-			player.velocity.y += player.properties.jump_gravity * delta
+			player.velocity.y += player.character_data.jump_gravity * delta
 		## gravity at jumps peak
 		elif player.velocity.y > -0.2 and player.velocity.y < 0.7:
-			player.velocity.y += player.properties.jump_hang_gravity * delta
+			player.velocity.y += player.character_data.jump_hang_gravity * delta
 		## fall gravity
 		else:
-			player.velocity.y += player.properties.fall_gravity * delta
+			player.velocity.y += player.character_data.fall_gravity * delta
 		## max fall velocity
-		if player.velocity.y > player.properties.max_fall_velocity:
-			player.velocity.y = player.properties.max_fall_velocity
+		if player.velocity.y > player.character_data.max_fall_velocity:
+			player.velocity.y = player.character_data.max_fall_velocity
 	
 	# moves player woth adding acceleration to direction
 	if player.direction.x != 0 and player.state_machine.check_if_can_move() and player.can_action_pressed:
@@ -62,15 +62,15 @@ func _process(delta: float) -> void:
 
 func accelerate(direction):
 	if player.is_on_floor():
-		player.velocity.x = move_toward(player.velocity.x, player.properties.run_speed * direction, player.properties.acc)
+		player.velocity.x = move_toward(player.velocity.x, player.character_data.run_speed * direction, player.character_data.acc)
 	else:
-		player.velocity.x = move_toward(player.velocity.x, player.properties.run_speed * direction, player.properties.air_acc)
+		player.velocity.x = move_toward(player.velocity.x, player.character_data.run_speed * direction, player.character_data.air_acc)
 
 func add_friction():
 	if player.is_on_floor():
-		player.velocity.x = move_toward(player.velocity.x, 0, player.properties.friction)
+		player.velocity.x = move_toward(player.velocity.x, 0, player.character_data.friction)
 	else:
-		player.velocity.x = move_toward(player.velocity.x, 0, player.properties.air_friction)
+		player.velocity.x = move_toward(player.velocity.x, 0, player.character_data.air_friction)
 	
 func player_movement():
 	var was_on_the_flore = player.is_on_floor()
@@ -81,4 +81,4 @@ func player_movement():
 
 
 func jump():
-	player.velocity.y = player.properties.jump_power
+	player.velocity.y = player.character_data.jump_power

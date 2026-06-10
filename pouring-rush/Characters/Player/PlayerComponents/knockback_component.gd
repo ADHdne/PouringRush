@@ -13,7 +13,7 @@ class_name KnockbackComponent
 
 func apply_knockback(hit : HitData):
 	var percent = damage_component.percentage
-	var weight = player.stats.weight
+	var weight = player.character_data.weight
 	var dir = hit.direction.normalized()
 	
 	var horizontal = Vector2(dir.x, 0)

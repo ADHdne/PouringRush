@@ -13,6 +13,12 @@ position = Vector2(-1212, 524)
 [node name="Spawn2" type="Marker2D" parent="SpawnPoints" parent_id_path=PackedInt32Array(278151024) index="1" unique_id=2097479296]
 position = Vector2(2035, 511)
 
+[node name="Spawn3" type="Marker2D" parent="SpawnPoints" parent_id_path=PackedInt32Array(278151024) index="2" unique_id=1563047666]
+position = Vector2(-1103, 520)
+
+[node name="Spawn4" type="Marker2D" parent="SpawnPoints" parent_id_path=PackedInt32Array(278151024) index="3" unique_id=986690603]
+position = Vector2(2117, 517)
+
 [node name="TopLeft" parent="CameraBounds" parent_id_path=PackedInt32Array(767753523) index="0" unique_id=1937808575]
 position = Vector2(-1401, -440)
 

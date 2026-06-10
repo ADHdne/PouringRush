@@ -27,4 +27,4 @@ func state_input(event : InputEvent):
 func double_jump():
 	player.movement.jumps_remaining -= 1
 	# the physical jump
-	player.velocity.y = player.properties.double_jump_power
+	player.velocity.y = player.character_data.double_jump_power

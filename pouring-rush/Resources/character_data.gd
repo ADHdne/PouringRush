@@ -27,7 +27,7 @@ class_name CharacterData
 
 # stats
 @export_category("Stats")
-@export var poise : float
+@export var weight : float = 1
 
 # Abilities
 @export var basic_shot : AbilityData
