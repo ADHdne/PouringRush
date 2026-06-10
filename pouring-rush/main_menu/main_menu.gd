@@ -18,8 +18,9 @@ class_name MainMenu
 
 # Characterr Rooster
 var rooster : Array[CharacterData] = [
-	preload("uid://dfelift0tkp3c"),
+	preload("res://Resources/TestCharacter1.tres"),
 ]
+
 
 
  # Different variables for logic
@@ -177,7 +178,6 @@ func _on_team_1_button_pressed() -> void:
 	else:
 		start_match()
 	
-	print("ready players: ", players)
 
 
 func _on_team_2_button_pressed() -> void:

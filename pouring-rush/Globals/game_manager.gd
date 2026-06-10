@@ -3,8 +3,9 @@ extends Node
 
 
 
-var MATCHSCENE = preload("uid://c1653pi6i1rp6")
-var MAINMENU = "Here comes the main menu scene file path"
+var MATCHSCENE = "res://MatchLogic/match_scene.tscn"
+var MAINMENU = "res://main_menu/main_menu.tscn"
+
 
 # match variables
 var selected_arena : PackedScene
