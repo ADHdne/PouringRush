@@ -89,6 +89,8 @@ texture = ExtResource("1_24pi4")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_24pi4")
 
+[sub_resource type="Curve2D" id="Curve2D_7cq58"]
+
 [node name="Arena" type="Node2D" unique_id=790477264]
 script = ExtResource("1_udclw")
 
@@ -105,3 +107,12 @@ format = 2
 [node name="RedBaseSpawn" type="Node2D" parent="." unique_id=1788055153]
 
 [node name="BlueBaseSpawn" type="Node2D" parent="." unique_id=783503134]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=1031795041]
+curve = SubResource("Curve2D_7cq58")
+
+[node name="Pusher" type="PathFollow2D" parent="Path2D" unique_id=2000730710]
+
+[node name="RedBlock" type="PathFollow2D" parent="Path2D" unique_id=1278154611]
+
+[node name="BlueBlock" type="PathFollow2D" parent="Path2D" unique_id=1108116020]
