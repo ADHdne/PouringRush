@@ -33,7 +33,6 @@ var game_modes : Array[PackedScene] = [
  # Different variables for logic
 var saved_location : StringName
 
-var last_menu : VBoxContainer
 var current_menu : VBoxContainer
 
 
@@ -77,8 +76,7 @@ func open_menu(menu : VBoxContainer):
 	# grab first buttons focus
 	first_button.grab_focus()
 	
-	# set last menu and current menues
-	last_menu = current_menu
+	# set current menues
 	current_menu = menu
 
 ## different logical functions
@@ -105,6 +103,15 @@ func start_match():
 ## General buttons
 
 func _on_return_button_pressed() -> void:
+	var last_menu : VBoxContainer
+	
+	if current_menu == host_game_menu:
+		last_menu = start_menu
+	elif current_menu == character_selection_menu or choose_team_menu:
+		last_menu = host_game_menu
+		players.clear()
+		active_player = null
+	
 	open_menu(last_menu)
 
 
@@ -162,9 +169,7 @@ func _on_character_1_pressed() -> void:
 	# setting character_data to active character
 	active_player.character_data = rooster[0]
 	
-	
 	open_menu(choose_team_menu)
-
 
 
 ## Choose Team Menu
@@ -181,7 +186,7 @@ func _on_team_1_button_pressed() -> void:
 	if number_of_players > players.size():
 		# go back to character select for next character?
 		active_player = PlayerConfig.new()
-		open_menu(last_menu)
+		open_menu(character_selection_menu)
 	else:
 		start_match()
 	
