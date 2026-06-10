@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://bvxu56ycil7vo" path="res://World/arena.gd" id="1_udclw"]
 [ext_resource type="PackedScene" uid="uid://05kvo1nocej0" path="res://Components/SpawnStuff/spawn_points.tscn" id="3_7cq58"]
 [ext_resource type="PackedScene" uid="uid://cxl0h72jh2uik" path="res://Components/CameraStuff/camera_bounds.tscn" id="3_ktx4i"]
-[ext_resource type="PackedScene" uid="uid://nwurj74d4di3" path="res://Components/TeamComponents/TeamCamera.tscn" id="5_nwrlw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_24pi4"]
 texture = ExtResource("1_24pi4")
@@ -102,6 +101,3 @@ format = 2
 [node name="Spawn1" type="Marker2D" parent="SpawnPoints" unique_id=594705747]
 
 [node name="CameraBounds" parent="." unique_id=767753523 instance=ExtResource("3_ktx4i")]
-
-[node name="TeamCamera" parent="." unique_id=1682599896 instance=ExtResource("5_nwrlw")]
-position = Vector2(-868, 591)

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cboy3legkgv6e" path="res://MatchLogic/match_scene.gd" id="1_1yt1k"]
 [ext_resource type="PackedScene" uid="uid://bsyrujkhp2cnx" path="res://MatchLogic/match_manager.tscn" id="2_cf7uw"]
+[ext_resource type="PackedScene" uid="uid://nwurj74d4di3" path="res://Components/TeamComponents/TeamZone.tscn" id="3_dc1vv"]
 
 [node name="MatchScene" type="Node2D" unique_id=1843901484]
 script = ExtResource("1_1yt1k")
@@ -15,3 +16,9 @@ script = ExtResource("1_1yt1k")
 [node name="UI" type="CanvasLayer" parent="." unique_id=1828280291]
 
 [node name="MatchManager" parent="." unique_id=449420938 instance=ExtResource("2_cf7uw")]
+
+[node name="TeamZones" type="Node2D" parent="." unique_id=582685174]
+
+[node name="RedTeamZone" parent="TeamZones" unique_id=1682599896 instance=ExtResource("3_dc1vv")]
+
+[node name="BlueTeamZone" parent="TeamZones" unique_id=653167589 instance=ExtResource("3_dc1vv")]

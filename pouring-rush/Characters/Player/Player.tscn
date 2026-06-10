@@ -19,7 +19,7 @@
 [ext_resource type="Script" uid="uid://buxclsp28a2e2" path="res://Characters/Player/PlayerStates/tumble_state.gd" id="18_u61tb"]
 [ext_resource type="Script" uid="uid://flftotrrcgyd" path="res://Characters/Player/PlayerStates/tech_state.gd" id="20_6hnbq"]
 [ext_resource type="Script" uid="uid://c471yv64cmmrv" path="res://Characters/Player/PlayerStates/ko_state.gd" id="21_1t7vx"]
-[ext_resource type="Script" uid="uid://tc5e113761qt" path="res://Characters/Player/reload.gd" id="23_11ayp"]
+[ext_resource type="Script" uid="uid://tc5e113761qt" path="res://Characters/Player/PlayerStates/reload.gd" id="23_11ayp"]
 
 [sub_resource type="Resource" id="Resource_6h4vt"]
 script = ExtResource("3_6fff4")

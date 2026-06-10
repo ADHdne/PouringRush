@@ -179,6 +179,17 @@ func _on_team_1_button_pressed() -> void:
 	# chooses team
 	active_player.team = Team.type.RED
 	
+	add_and_check_player()
+	
+
+
+func _on_team_2_button_pressed() -> void:
+	# chooses team
+	active_player.team = Team.type.BLUE
+	
+	add_and_check_player()
+
+func add_and_check_player():
 	# adds active player to players array
 	players.append(active_player)
 	
@@ -189,8 +200,3 @@ func _on_team_1_button_pressed() -> void:
 		open_menu(character_selection_menu)
 	else:
 		start_match()
-	
-
-
-func _on_team_2_button_pressed() -> void:
-	pass # Replace with function body.
