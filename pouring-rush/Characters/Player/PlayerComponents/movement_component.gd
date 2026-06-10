@@ -19,7 +19,7 @@ var just_landed : bool = false
 func _process(delta: float) -> void:
 	## add gravity
 	if player.is_on_wall_only() and player.velocity.y > 0:
-		## wall grav
+		## wall gravity
 		player.velocity.y += player.character_data.wall_slide_gravity
 		player.velocity.y = min(player.velocity.y, player.character_data.wall_slide_gravity)
 	elif not player.is_on_floor():
