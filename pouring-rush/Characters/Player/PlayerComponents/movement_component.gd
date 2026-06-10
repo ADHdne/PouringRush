@@ -87,4 +87,4 @@ func jump():
 	player.velocity.y = player.character_data.jump_power
 
 func wall_jump():
-	player.velocity = Vector2(player.character_data.wall_jump_pushback, player.character_data.wall_jump_power)
+	player.velocity = Vector2(player.character_data.wall_jump_pushback * -player.direction.x, player.character_data.wall_jump_power)
