@@ -39,7 +39,7 @@ corner_radius_top_right = 17
 corner_radius_bottom_right = 17
 corner_radius_bottom_left = 17
 
-[node name="MainMenue" type="Control" unique_id=898228504]
+[node name="MainMenue" type="Control" unique_id=898228504 node_paths=PackedStringArray("start_menu", "host_game_menu", "character_selection_menu", "choose_team_menu", "number_of_players_label", "game_text")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,6 +47,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rxt62")
+start_menu = NodePath("StartMenu")
+host_game_menu = NodePath("HostGameMenu")
+character_selection_menu = NodePath("CharacterSelectionMenu")
+choose_team_menu = NodePath("ChooseTeamMenu")
+number_of_players_label = NodePath("Number of players")
+game_text = NodePath("GameText")
 
 [node name="Panel" type="Panel" parent="." unique_id=476654495]
 layout_mode = 1
@@ -85,7 +91,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Load Game"
+text = "Host Game"
 
 [node name="JoinGameButton" type="Button" parent="StartMenu" unique_id=666550901]
 layout_mode = 2
@@ -100,7 +106,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "New Game"
+text = "Join Game"
 
 [node name="OptionsButton" type="Button" parent="StartMenu" unique_id=1449684577]
 layout_mode = 2
@@ -133,6 +139,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
 text = "Exit"
 
 [node name="HostGameMenu" type="VBoxContainer" parent="." unique_id=503903644]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -160,9 +167,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Load Game"
+text = "Select Character"
 
-[node name="OptionsButton" type="Button" parent="HostGameMenu" unique_id=914937387]
+[node name="AddPlayerButton" type="Button" parent="HostGameMenu" unique_id=914937387]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -175,7 +182,22 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Options"
+text = "Add Player"
+
+[node name="RemovePlayerButton" type="Button" parent="HostGameMenu" unique_id=421463458]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "Remove Player"
 
 [node name="ReturnButton" type="Button" parent="HostGameMenu" unique_id=91918646]
 layout_mode = 2
@@ -190,9 +212,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Exit"
+text = "Return"
 
 [node name="CharacterSelectionMenu" type="VBoxContainer" parent="." unique_id=1468595019]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -220,7 +243,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Load Game"
+text = "Character 1"
 
 [node name="Character2Button" type="Button" parent="CharacterSelectionMenu" unique_id=1083693402]
 layout_mode = 2
@@ -235,22 +258,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "New Game"
-
-[node name="ChooseTeamButton" type="Button" parent="CharacterSelectionMenu" unique_id=812575483]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
-theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
-theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Options"
+text = "Character 2"
 
 [node name="ReturnButton" type="Button" parent="CharacterSelectionMenu" unique_id=1309601048]
 layout_mode = 2
@@ -265,7 +273,77 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Exit"
+text = "Return
+"
+
+[node name="ChooseTeamMenu" type="VBoxContainer" parent="." unique_id=1646116425]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -90.0
+offset_right = 158.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Team1Button" type="Button" parent="ChooseTeamMenu" unique_id=485799849]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "Team 1"
+
+[node name="Team2Button" type="Button" parent="ChooseTeamMenu" unique_id=83501360]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "Team 2"
+
+[node name="ReturnButton" type="Button" parent="ChooseTeamMenu" unique_id=1729542738]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "Return"
+
+[node name="Number of players" type="Label" parent="." unique_id=1929643248]
+layout_mode = 0
+offset_left = 208.0
+offset_top = 202.0
+offset_right = 385.0
+offset_bottom = 225.0
+text = "Number of player: 1"
 
 [node name="GameTitle" type="Label" parent="." unique_id=598136969]
 layout_mode = 1
@@ -291,11 +369,23 @@ text = "Pouring Rush"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="GameText" type="Label" parent="." unique_id=1251356793]
+layout_mode = 0
+offset_left = 418.0
+offset_top = 510.0
+offset_right = 737.0
+offset_bottom = 596.0
+
 [connection signal="pressed" from="StartMenu/HostGameButton" to="." method="_on_host_game_pressed"]
 [connection signal="pressed" from="StartMenu/JoinGameButton" to="." method="_on_join_game_pressed"]
 [connection signal="pressed" from="StartMenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="StartMenu/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="HostGameMenu/SelectCharacterButton" to="." method="_on_select_character_pressed"]
+[connection signal="pressed" from="HostGameMenu/AddPlayerButton" to="." method="_on_add_player_button_pressed"]
+[connection signal="pressed" from="HostGameMenu/RemovePlayerButton" to="." method="_on_remove_player_button_pressed"]
 [connection signal="pressed" from="HostGameMenu/ReturnButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="CharacterSelectionMenu/Character1Button" to="." method="_on_character_1_pressed"]
 [connection signal="pressed" from="CharacterSelectionMenu/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="ChooseTeamMenu/Team1Button" to="." method="_on_team_1_button_pressed"]
+[connection signal="pressed" from="ChooseTeamMenu/Team2Button" to="." method="_on_team_2_button_pressed"]
+[connection signal="pressed" from="ChooseTeamMenu/ReturnButton" to="." method="_on_return_button_pressed"]

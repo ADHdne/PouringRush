@@ -10,7 +10,6 @@ class_name Player
 @export var character_data : CharacterData
 @export var properties : CharacterProperties
 @export var player_actions : PlayerActions
-@export var stats : Stats
 
 
 
@@ -66,7 +65,7 @@ func _ready() -> void:
 	if KO_component != null:
 		KO_component.player = self
 
-func initialize(m_character_data : CharacterData, m_match_manager : MatchManager):
+func initialize(m_character_data : CharacterData, m_match_manager : Node):
 	character_data = m_character_data
 	match_manager = m_match_manager
 

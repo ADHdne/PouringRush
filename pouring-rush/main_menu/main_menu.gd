@@ -2,30 +2,48 @@ extends Control
 class_name MainMenu
 
 # different menues first buttons
-@export var host_game_button : Button
-@export var select_character : Button
-@export var character_1_button : Button
+@export var first_button : Button
 
 # different menues
 @export var start_menu : VBoxContainer
 @export var host_game_menu : VBoxContainer
+@export var character_selection_menu : VBoxContainer
+@export var choose_team_menu : VBoxContainer
 
-var new_game_position
 
+# reference to other children
+@export var number_of_players_label : Label
+@export var game_text : Label
+
+
+# Characterr Rooster
+var rooster : Array[CharacterData] = [
+	preload("uid://dfelift0tkp3c")
+	
+]
+
+
+ # Different variables for logic
 var saved_location : StringName
 
 var last_menu : VBoxContainer
 var current_menu : VBoxContainer
 
+
+var players : Array[PlayerConfig]
+var number_of_players : int = 2
+
+
+var active_player : PlayerConfig
+
 func _ready() -> void:
 	# turns of visibility of the other screens
-	host_game_button.visible = false
-	# turns on visibility for start menu
-	start_menu.visible = true
+	open_menu(start_menu)
 	
-	host_game_button.grab_focus()
 	current_menu = start_menu
 	
+	# set number of player label
+	number_of_players_label.text = "Number Of Players: 2"
 
 
 
@@ -42,15 +60,41 @@ func open_menu(menu : VBoxContainer):
 	# make the correct menu visible
 	menu.visible = true
 	
+	# find the first button in menu
+	for c in menu.get_children():
+		if c is Button:
+			first_button = c
+			break # stop the cycle
+	# grab first buttons focus
+	first_button.grab_focus()
+	
 	# set last menu and current menues
 	last_menu = current_menu
 	current_menu = menu
 
+## different logical functions
+
+func choose_team(character_data : CharacterData):
+	pass
+
+func update_nop_label(value : int):
+	number_of_players_label.text = ("Number of players: " + str(value))
+
+func start_match():
+	var config = MatchConfig.new()
+	config.players = players
+	
+	# both arena and game mode should be choosable in this menu in the future
+	config.arena_scene = preload("res://World/grass_lands.tscn")
+	config.game_mode = "stock"
+	
+	GameManager.match_config = config
+	
+	GameManager.start_match()
 
 
 ## General buttons
 
-## return to start menu
 func _on_return_button_pressed() -> void:
 	open_menu(last_menu)
 
@@ -77,13 +121,61 @@ func _on_exit_button_pressed() -> void:
 ## host game menu
 
 func _on_select_character_pressed() -> void:
-	pass # Replace with function body.
+	open_menu(character_selection_menu)
+	
+	# starting the new character
+	active_player = PlayerConfig.new()
+
+func _on_add_player_button_pressed() -> void:
+	number_of_players += 1
+	
+	if number_of_players >= 7 :
+		number_of_players = 6
+		print("max players reached")
+	
+	update_nop_label(number_of_players)
 
 
+func _on_remove_player_button_pressed() -> void:
+	number_of_players -= 1
+	
+	if number_of_players <= 1:
+		number_of_players = 2
+		# need at least 2 players
+	
+	update_nop_label(number_of_players)
 
 
 
 ## Character Selection Menu
 
 func _on_character_1_pressed() -> void:
+	# setting character_data to active character
+	active_player.character_data = rooster[1]
+	
+	
+	open_menu(choose_team_menu)
+
+
+
+## Choose Team Menu
+
+
+func _on_team_1_button_pressed() -> void:
+	# chooses team
+	active_player.team = Team.type.RED
+	
+	# adds active player to players array
+	players.append(active_player)
+	
+	
+	if number_of_players > players.count(PlayerConfig):
+		# go back to character select for next character?
+		active_player = PlayerConfig.new()
+		open_menu(last_menu)
+	else:
+		start_match()
+
+
+func _on_team_2_button_pressed() -> void:
 	pass # Replace with function body.

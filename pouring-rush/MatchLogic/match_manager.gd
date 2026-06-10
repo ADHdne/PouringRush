@@ -30,8 +30,8 @@ func spawn_players(players_root):
 	
 	players = [p1, p2]
 	
-	for p in players:
-		p.initialize(, self)
+	#for p in players:
+		#p.initialize(, self)
 	
 	# assign global position after initializing
 	p1.global_position = arena.get_spawn_point(0).global_position

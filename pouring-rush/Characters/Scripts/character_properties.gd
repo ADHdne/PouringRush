@@ -24,6 +24,10 @@ class_name CharacterProperties
 # wall slide gravity
 @export var wall_slide_grav : float = 40
 
+@export_category("Stats")
+# stat values
+@export var poise : float
+
 @export_group("Dash Stats")
 # dash stats
 @export var dash_speed = 700

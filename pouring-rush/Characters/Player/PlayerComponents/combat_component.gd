@@ -17,7 +17,7 @@ var shoot_cooldown := 0.0
 
 ## basic shot
 
-func initialize(character_data : CharacterData, match_manager : MatchManager):
+func initialize(character_data : CharacterData, match_manager : Node):
 	pass
 
 func _process(delta):

@@ -10,6 +10,7 @@ var MAINMENU = "Here comes the main menu scene file path"
 var selected_arena : PackedScene
 var selected_game_mode : PackedScene
 var selected_characters : Array = [CharacterData]
+var match_config : MatchConfig
 
 # settings variables
 var music_volume : float = 1
