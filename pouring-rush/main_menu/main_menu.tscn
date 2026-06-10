@@ -1,0 +1,301 @@
+[gd_scene format=3 uid="uid://crhyafy0tdaol"]
+
+[ext_resource type="Script" uid="uid://brx0wllm262sv" path="res://main_menu/main_menu.gd" id="1_rxt62"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mxu81"]
+modulate_color = Color(0.847474, 0.847474, 0.847474, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpiua"]
+bg_color = Color(0.723484, 0.576639, 0.460241, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rxt62"]
+bg_color = Color(0.118622, 0.110167, 0.0966475, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mxu81"]
+bg_color = Color(0.691353, 0.691359, 0.691356, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1rgs"]
+bg_color = Color(0.385493, 0.385492, 0.385492, 0.823529)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+
+[node name="MainMenue" type="Control" unique_id=898228504]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rxt62")
+
+[node name="Panel" type="Panel" parent="." unique_id=476654495]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mxu81")
+
+[node name="StartMenu" type="VBoxContainer" parent="." unique_id=44968692]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -90.0
+offset_right = 158.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="HostGameButton" type="Button" parent="StartMenu" unique_id=1532961557]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "Load Game"
+
+[node name="JoinGameButton" type="Button" parent="StartMenu" unique_id=666550901]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "New Game"
+
+[node name="OptionsButton" type="Button" parent="StartMenu" unique_id=1449684577]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "Options"
+
+[node name="ExitButton" type="Button" parent="StartMenu" unique_id=874293991]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "Exit"
+
+[node name="HostGameMenu" type="VBoxContainer" parent="." unique_id=503903644]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -90.0
+offset_right = 158.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="SelectCharacterButton" type="Button" parent="HostGameMenu" unique_id=1505489540]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "Load Game"
+
+[node name="OptionsButton" type="Button" parent="HostGameMenu" unique_id=914937387]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "Options"
+
+[node name="ReturnButton" type="Button" parent="HostGameMenu" unique_id=91918646]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "Exit"
+
+[node name="CharacterSelectionMenu" type="VBoxContainer" parent="." unique_id=1468595019]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -158.0
+offset_top = -90.0
+offset_right = 158.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="Character1Button" type="Button" parent="CharacterSelectionMenu" unique_id=2061894000]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "Load Game"
+
+[node name="Character2Button" type="Button" parent="CharacterSelectionMenu" unique_id=1083693402]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "New Game"
+
+[node name="ChooseTeamButton" type="Button" parent="CharacterSelectionMenu" unique_id=812575483]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "Options"
+
+[node name="ReturnButton" type="Button" parent="CharacterSelectionMenu" unique_id=1309601048]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
+text = "Exit"
+
+[node name="GameTitle" type="Label" parent="." unique_id=598136969]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -232.5
+offset_top = -268.0
+offset_right = 232.5
+offset_bottom = -153.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.632811, 0.587053, 0.203254, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 60
+text = "Pouring Rush"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="StartMenu/HostGameButton" to="." method="_on_host_game_pressed"]
+[connection signal="pressed" from="StartMenu/JoinGameButton" to="." method="_on_join_game_pressed"]
+[connection signal="pressed" from="StartMenu/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="StartMenu/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="HostGameMenu/SelectCharacterButton" to="." method="_on_select_character_pressed"]
+[connection signal="pressed" from="HostGameMenu/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="CharacterSelectionMenu/Character1Button" to="." method="_on_character_1_pressed"]
+[connection signal="pressed" from="CharacterSelectionMenu/ReturnButton" to="." method="_on_return_button_pressed"]

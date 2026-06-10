@@ -2,10 +2,10 @@ extends Node
 class_name CombatComponent
 
 @export var player : Player
-@export var basic_shot_data : AbilityData
-@export var special_shot_data : AbilityData
-@export var special_2_data : AbilityData
-## and an utility move on the 
+var basic_shot_data : AbilityState
+var special_shot_data : AbilityState
+var special_2_data : AbilityState
+var utility_data : AbilityState
 
 
 # shot buffering
@@ -15,7 +15,10 @@ var shot_buffered : bool = false
 
 var shoot_cooldown := 0.0
 
+## basic shot
 
+func initialize(character_data : CharacterData, match_manager : MatchManager):
+	pass
 
 func _process(delta):
 	# reset the shoot_coooldown after each shot
@@ -26,12 +29,17 @@ func _process(delta):
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(player.player_actions.attack):
-		try_shoot(basic_shot_data)
+		try_shoot(basic_shot_data.data)
 	if event.is_action_pressed(player.player_actions.special_1):
-		try_shoot(special_shot_data)
+		try_shoot(special_shot_data.data)
 	if event.is_action_pressed(player.player_actions.special_2):
-		try_shoot(special_2_data)
+		try_shoot(special_2_data.data)
+	if event.is_action_pressed(player.player_actions.reload):
+		begin_reload()
 
+
+
+## shooting logic
 func can_shoot() -> bool:
 	return shoot_cooldown <= 0 and player.can_attack
 
@@ -66,6 +74,7 @@ func shoot(data : AbilityData):
 	
 	shoot_cooldown = data.cooldown
 
+
 func try_shoot(data : AbilityData):
 	if data.ammo < data.projectile_data.ammo_cost:
 		return
@@ -80,3 +89,8 @@ func try_shoot(data : AbilityData):
 
 func _on_shot_buffer_timer_timeout() -> void:
 	shot_buffered = false
+
+
+## reload logic
+func begin_reload():
+	pass

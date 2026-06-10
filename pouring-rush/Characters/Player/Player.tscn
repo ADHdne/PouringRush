@@ -12,8 +12,6 @@
 [ext_resource type="Script" uid="uid://d31va4idms3u2" path="res://Characters/Player/PlayerComponents/combat_component.gd" id="5_6h4vt"]
 [ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
 [ext_resource type="PackedScene" uid="uid://c8c1ig2gcblnu" path="res://Characters/Player/PlayerComponents/ko_collision_check.tscn" id="6_u4bhk"]
-[ext_resource type="Resource" uid="uid://craujuwyqxor6" path="res://Characters/Player/PlayerResources/basic_shot.tres" id="6_wraqo"]
-[ext_resource type="Resource" uid="uid://c1urw7gwlpneg" path="res://Characters/Player/PlayerResources/Special_1_shot.tres" id="7_0ij6m"]
 [ext_resource type="Script" uid="uid://ce44ty8226jpp" path="res://Characters/Player/PlayerComponents/knockback_component.gd" id="7_k8aph"]
 [ext_resource type="PackedScene" uid="uid://hmiwpv2cagky" path="res://Characters/Player/PlayerComponents/tech_zone.tscn" id="7_tdp7v"]
 [ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
@@ -25,6 +23,7 @@
 [ext_resource type="Script" uid="uid://buxclsp28a2e2" path="res://Characters/Player/PlayerStates/tumble_state.gd" id="18_u61tb"]
 [ext_resource type="Script" uid="uid://flftotrrcgyd" path="res://Characters/Player/PlayerStates/tech_state.gd" id="20_6hnbq"]
 [ext_resource type="Script" uid="uid://c471yv64cmmrv" path="res://Characters/Player/PlayerStates/ko_state.gd" id="21_1t7vx"]
+[ext_resource type="Script" uid="uid://tc5e113761qt" path="res://Characters/Player/reload.gd" id="23_11ayp"]
 
 [sub_resource type="Resource" id="Resource_1niqm"]
 script = ExtResource("2_14m2a")
@@ -44,7 +43,7 @@ size = Vector2(15, 32)
 resource_local_to_scene = true
 size = Vector2(12, 28)
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "hurtbox", "KO_component", "tech_zone", "wall_collision_check", "ceiling_collision_check")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "combat_component", "hurtbox", "KO_component", "tech_zone", "wall_collision_check", "ceiling_collision_check")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 properties = SubResource("Resource_1niqm")
@@ -58,6 +57,7 @@ sound_effects = NodePath("SoundEffects")
 movement = NodePath("MovementComponent")
 damage_component = NodePath("DamageComponent")
 knockback_component = NodePath("KnockbackComponent")
+combat_component = NodePath("CombatComponent")
 hurtbox = NodePath("Hurtbox")
 KO_component = NodePath("KOComponent")
 tech_zone = NodePath("TechZone")
@@ -112,8 +112,6 @@ tumble_state = NodePath("../CharacterStateMachine/Tumble")
 [node name="CombatComponent" type="Node" parent="." unique_id=1944969963 node_paths=PackedStringArray("player", "shot_buffer")]
 script = ExtResource("5_6h4vt")
 player = NodePath("..")
-basic_shot_data = ExtResource("6_wraqo")
-special_shot_data = ExtResource("7_0ij6m")
 shot_buffer = NodePath("../Timers/ShotBufferTimer")
 
 [node name="KOComponent" type="Node" parent="." unique_id=1836747962 node_paths=PackedStringArray("ko_state", "color")]
@@ -166,6 +164,11 @@ metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="KO" type="Node" parent="CharacterStateMachine" unique_id=1388787417]
 script = ExtResource("21_1t7vx")
+metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
+
+[node name="Reload" type="Node" parent="CharacterStateMachine" unique_id=861515978 node_paths=PackedStringArray("idle_state")]
+script = ExtResource("23_11ayp")
+idle_state = NodePath("../Idle")
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="Timers" type="Node" parent="." unique_id=1220796725]

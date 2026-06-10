@@ -3,7 +3,7 @@ class_name Player
 
 
 # reference to game logic
-var match_manager : MatchManager
+@export var match_manager : Node
 
 
 # reference to resources
@@ -27,6 +27,7 @@ var match_manager : MatchManager
 @export var movement : MovementComponent
 @export var damage_component : DamageComponent
 @export var knockback_component : KnockbackComponent
+@export var combat_component : CombatComponent
 @export var hurtbox : HurtboxComponent
 @export var KO_component : KOComponent
 
@@ -65,6 +66,9 @@ func _ready() -> void:
 	if KO_component != null:
 		KO_component.player = self
 
+func initialize(m_character_data : CharacterData, m_match_manager : MatchManager):
+	character_data = m_character_data
+	match_manager = m_match_manager
 
 func _process(delta: float) -> void:
 	

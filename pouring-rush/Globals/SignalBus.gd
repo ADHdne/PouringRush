@@ -1,0 +1,2 @@
+extends Node
+## Signal Bus
