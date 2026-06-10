@@ -51,6 +51,8 @@ func _ready() -> void:
 func close_menu():
 	start_menu.visible = false
 	host_game_menu.visible = false
+	character_selection_menu.visible = false
+	choose_team_menu.visible = false
 
 func open_menu(menu : VBoxContainer):
 	# close all menues
@@ -168,13 +170,14 @@ func _on_team_1_button_pressed() -> void:
 	players.append(active_player)
 	
 	
-	if number_of_players > players.count(PlayerConfig):
+	if number_of_players > players.size():
 		# go back to character select for next character?
 		active_player = PlayerConfig.new()
 		open_menu(last_menu)
-		print("next player choose character, last menu: ", )
 	else:
 		start_match()
+	
+	print("ready players: ", players)
 
 
 func _on_team_2_button_pressed() -> void:
