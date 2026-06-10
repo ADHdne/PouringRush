@@ -20,6 +20,10 @@ GameManager="*uid://cagm8f82g5h6w"
 SignalBus="*uid://b6wxjl4pq806j"
 SaveManager="*uid://bqmgavpmw27yo"
 
+[global_group]
+
+Ground=""
+
 [input]
 
 ui_accept={

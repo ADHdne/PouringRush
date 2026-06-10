@@ -92,7 +92,7 @@ sources/0 = SubResource("TileSetAtlasSource_24pi4")
 [node name="Arena" type="Node2D" unique_id=790477264]
 script = ExtResource("1_udclw")
 
-[node name="TileMap" type="TileMap" parent="." unique_id=1316477682]
+[node name="TileMap" type="TileMap" parent="." unique_id=1316477682 groups=["Ground"]]
 tile_set = SubResource("TileSet_udclw")
 format = 2
 
