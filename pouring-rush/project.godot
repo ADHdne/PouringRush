@@ -20,6 +20,12 @@ GameManager="*uid://cagm8f82g5h6w"
 SignalBus="*uid://b6wxjl4pq806j"
 SaveManager="*uid://bqmgavpmw27yo"
 
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+
 [global_group]
 
 Ground=""
