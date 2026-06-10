@@ -15,7 +15,7 @@ func state_process(_delta):
 			next_state = idle_state
 		elif player.direction.x != 0:
 			next_state = move_state
-	elif player.is_on_wall():
+	elif player.is_on_wall() and player.velocity.y > 0:
 		next_state = wall_slide_state
 
 func state_input(event : InputEvent):

@@ -18,7 +18,11 @@ var just_landed : bool = false
 
 func _process(delta: float) -> void:
 	## add gravity
-	if not player.is_on_floor() and not player.is_on_wall():
+	if player.is_on_wall_only() and player.velocity.y > 0:
+		## wall grav
+		player.velocity.y += player.character_data.wall_slide_gravity
+		player.velocity.y = min(player.velocity.y, player.character_data.wall_slide_gravity)
+	elif not player.is_on_floor():
 		## jump gravity
 		if player.velocity.y < -0.1:
 			player.velocity.y += player.character_data.jump_gravity * delta
@@ -31,9 +35,6 @@ func _process(delta: float) -> void:
 		## max fall velocity
 		if player.velocity.y > player.character_data.max_fall_velocity:
 			player.velocity.y = player.character_data.max_fall_velocity
-	elif player.is_on_wall_only():
-		player.velocity.y += player.character_data.wall_slide_gravity
-		player.velocity.y = min(player.velocity.y, player.character_data.wall_slide_gravity)
 	
 	# moves player woth adding acceleration to direction
 	if player.direction.x != 0 and player.state_machine.check_if_can_move() and player.can_action_pressed:
