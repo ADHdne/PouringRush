@@ -27,14 +27,11 @@ class_name Player
 @export var knockback_component : KnockbackComponent
 @export var combat_component : CombatComponent
 @export var hurtbox : HurtboxComponent
-@export var KO_component : KOComponent
 
 @export var tech_zone : Area2D
 
-@export var wall_collision_check : KOCollisionCheck
-@export var ceiling_collision_check : KOCollisionCheck
 
-
+# have a reference of what team its on during runtime
 var team : Team.type
 
 # directions inputs
@@ -64,9 +61,6 @@ func _ready() -> void:
 	if knockback_component != null:
 		knockback_component.player = self
 		knockback_component.damage_component = damage_component
-	
-	if KO_component != null:
-		KO_component.player = self
 
 func initialize(character_data : CharacterData, match_manager : Node):
 	self.character_data = character_data

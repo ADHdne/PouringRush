@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://nwurj74d4di3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6obsn"]
+radius = 322.0
+height = 1142.0
+
+[node name="TeamCamera" type="Node2D" unique_id=1682599896]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=603978017]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=424615567]
+position = Vector2(0, 1)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_6obsn")

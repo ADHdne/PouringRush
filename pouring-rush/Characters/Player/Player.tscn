@@ -9,13 +9,11 @@
 [ext_resource type="Script" uid="uid://d0rg3adfxle5y" path="res://Characters/Player/PlayerStates/FallState.gd" id="4_ddoul"]
 [ext_resource type="Script" uid="uid://d31va4idms3u2" path="res://Characters/Player/PlayerComponents/combat_component.gd" id="5_6h4vt"]
 [ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
-[ext_resource type="PackedScene" uid="uid://c8c1ig2gcblnu" path="res://Characters/Player/PlayerComponents/ko_collision_check.tscn" id="6_u4bhk"]
 [ext_resource type="Script" uid="uid://ce44ty8226jpp" path="res://Characters/Player/PlayerComponents/knockback_component.gd" id="7_k8aph"]
 [ext_resource type="PackedScene" uid="uid://hmiwpv2cagky" path="res://Characters/Player/PlayerComponents/tech_zone.tscn" id="7_tdp7v"]
 [ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
 [ext_resource type="Script" uid="uid://ch51j4onl3j1j" path="res://Characters/Player/PlayerStates/IdleState.gd" id="8_dl42p"]
 [ext_resource type="Script" uid="uid://dy3hvkt1q1r7t" path="res://Characters/Player/PlayerComponents/movement_component.gd" id="12_6h4vt"]
-[ext_resource type="Script" uid="uid://bfuixdc6vqn1w" path="res://Characters/Player/PlayerComponents/ko_component.gd" id="12_870kv"]
 [ext_resource type="PackedScene" uid="uid://djkt86xwm70xd" path="res://Components/DebugTools/state_debug_label.tscn" id="13_wraqo"]
 [ext_resource type="PackedScene" uid="uid://bqkyds65ymdao" path="res://Components/DebugTools/Precentage.tscn" id="16_7jpmk"]
 [ext_resource type="Script" uid="uid://buxclsp28a2e2" path="res://Characters/Player/PlayerStates/tumble_state.gd" id="18_u61tb"]
@@ -29,11 +27,7 @@ script = ExtResource("3_6fff4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(15, 32)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t7vx"]
-resource_local_to_scene = true
-size = Vector2(12, 28)
-
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "combat_component", "hurtbox", "KO_component", "tech_zone", "wall_collision_check", "ceiling_collision_check")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "combat_component", "hurtbox", "tech_zone")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 player_actions = SubResource("Resource_6h4vt")
@@ -47,10 +41,7 @@ damage_component = NodePath("DamageComponent")
 knockback_component = NodePath("KnockbackComponent")
 combat_component = NodePath("CombatComponent")
 hurtbox = NodePath("Hurtbox")
-KO_component = NodePath("KOComponent")
 tech_zone = NodePath("TechZone")
-wall_collision_check = NodePath("WallCollisionCheck")
-ceiling_collision_check = NodePath("CeilingCollisionCheck")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
 shape = SubResource("RectangleShape2D_q3lat")
@@ -58,16 +49,6 @@ shape = SubResource("RectangleShape2D_q3lat")
 [node name="Hurtbox" parent="." unique_id=935006614 instance=ExtResource("4_5xivi")]
 visibility_layer = 0
 collision_mask = 24
-
-[node name="WallCollisionCheck" parent="." unique_id=2081846536 instance=ExtResource("6_u4bhk")]
-surface_to_check = 0
-
-[node name="CeilingCollisionCheck" parent="." unique_id=240887249 instance=ExtResource("6_u4bhk")]
-surface_to_check = 1
-
-[node name="CollisionShape2D" parent="CeilingCollisionCheck" index="0" unique_id=721128433]
-position = Vector2(0, -3)
-shape = SubResource("RectangleShape2D_1t7vx")
 
 [node name="TechZone" parent="." unique_id=10040679 instance=ExtResource("7_tdp7v")]
 collision_layer = 0
@@ -101,11 +82,6 @@ tumble_state = NodePath("../CharacterStateMachine/Tumble")
 script = ExtResource("5_6h4vt")
 player = NodePath("..")
 shot_buffer = NodePath("../Timers/ShotBufferTimer")
-
-[node name="KOComponent" type="Node" parent="." unique_id=1836747962 node_paths=PackedStringArray("ko_state", "color")]
-script = ExtResource("12_870kv")
-ko_state = NodePath("../CharacterStateMachine/KO")
-color = NodePath("../ColorRect")
 
 [node name="CharacterStateMachine" type="Node" parent="." unique_id=840629580 node_paths=PackedStringArray("player", "current_state")]
 script = ExtResource("2_tok1r")
@@ -193,5 +169,3 @@ player = NodePath("..")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2128638675]
 
 [connection signal="timeout" from="Timers/ShotBufferTimer" to="CombatComponent" method="_on_shot_buffer_timer_timeout"]
-
-[editable path="CeilingCollisionCheck"]

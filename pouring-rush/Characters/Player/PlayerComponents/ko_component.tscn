@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bggkv5hujuwxj"]
+
+[ext_resource type="Script" uid="uid://bfuixdc6vqn1w" path="res://Characters/Player/PlayerComponents/ko_component.gd" id="1_ndjml"]
+[ext_resource type="PackedScene" uid="uid://c8c1ig2gcblnu" path="res://Characters/Player/PlayerComponents/ko_collision_check.tscn" id="2_fei0u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1t7vx"]
+resource_local_to_scene = true
+size = Vector2(12, 28)
+
+[node name="KOComponent" type="Node" unique_id=732348754 node_paths=PackedStringArray("ko_state", "color")]
+script = ExtResource("1_ndjml")
+ko_state = NodePath("")
+color = NodePath("")
+
+[node name="WallCollisionCheck" parent="." unique_id=2081846536 instance=ExtResource("2_fei0u")]
+surface_to_check = 0
+
+[node name="CeilingCollisionCheck" parent="." unique_id=1313399077 instance=ExtResource("2_fei0u")]
+surface_to_check = 1
+
+[node name="CollisionShape2D" parent="CeilingCollisionCheck" index="0" unique_id=721128433]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_1t7vx")
+
+[editable path="CeilingCollisionCheck"]

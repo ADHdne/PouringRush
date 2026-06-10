@@ -69,5 +69,11 @@ func respawn_player(player):
 	player.reset_for_respawn() # need to make this a function in player
 
 
+func _physics_process(delta: float) -> void:
+	
+	for p in players:
+		if not p.team_camera.overlaps_point(p.global_position):
+			print("would KO")
+
 func end_match():
 	pass
