@@ -18,8 +18,7 @@ class_name MainMenu
 
 # Characterr Rooster
 var rooster : Array[CharacterData] = [
-	preload("uid://dfelift0tkp3c")
-	
+	preload("uid://dfelift0tkp3c"),
 ]
 
 
@@ -151,7 +150,7 @@ func _on_remove_player_button_pressed() -> void:
 
 func _on_character_1_pressed() -> void:
 	# setting character_data to active character
-	active_player.character_data = rooster[1]
+	active_player.character_data = rooster[0]
 	
 	
 	open_menu(choose_team_menu)
@@ -173,6 +172,7 @@ func _on_team_1_button_pressed() -> void:
 		# go back to character select for next character?
 		active_player = PlayerConfig.new()
 		open_menu(last_menu)
+		print("next player choose character, last menu: ", )
 	else:
 		start_match()
 
