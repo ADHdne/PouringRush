@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://ch51j4onl3j1j" path="res://Characters/Player/PlayerStates/IdleState.gd" id="8_dl42p"]
 [ext_resource type="Script" uid="uid://dy3hvkt1q1r7t" path="res://Characters/Player/PlayerComponents/movement_component.gd" id="12_6h4vt"]
 [ext_resource type="PackedScene" uid="uid://djkt86xwm70xd" path="res://Components/DebugTools/state_debug_label.tscn" id="13_wraqo"]
+[ext_resource type="Script" uid="uid://gkrxyqf3tr7g" path="res://Characters/Player/PlayerStates/wall_slide_state.gd" id="14_u61tb"]
 [ext_resource type="PackedScene" uid="uid://bqkyds65ymdao" path="res://Components/DebugTools/Precentage.tscn" id="16_7jpmk"]
 [ext_resource type="Script" uid="uid://buxclsp28a2e2" path="res://Characters/Player/PlayerStates/tumble_state.gd" id="18_u61tb"]
 [ext_resource type="Script" uid="uid://flftotrrcgyd" path="res://Characters/Player/PlayerStates/tech_state.gd" id="20_6hnbq"]
@@ -99,11 +100,12 @@ move_state = NodePath("../Move")
 Jump_state = NodePath("../Jump")
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
-[node name="Fall" type="Node" parent="CharacterStateMachine" unique_id=1327168684 node_paths=PackedStringArray("move_state", "idle_state", "jump_state")]
+[node name="Fall" type="Node" parent="CharacterStateMachine" unique_id=1327168684 node_paths=PackedStringArray("move_state", "idle_state", "jump_state", "wall_slide_state")]
 script = ExtResource("4_ddoul")
 move_state = NodePath("../Move")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
+wall_slide_state = NodePath("../WallSlide")
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="Jump" type="Node" parent="CharacterStateMachine" unique_id=2108050567 node_paths=PackedStringArray("fall_state", "idle_state", "move_state")]
@@ -111,6 +113,13 @@ script = ExtResource("5_8g4oa")
 fall_state = NodePath("../Fall")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Move")
+metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
+
+[node name="WallSlide" type="Node" parent="CharacterStateMachine" unique_id=932921881 node_paths=PackedStringArray("fall_state", "jump_state", "idle_state")]
+script = ExtResource("14_u61tb")
+fall_state = NodePath("../Fall")
+jump_state = NodePath("../Jump")
+idle_state = NodePath("../Idle")
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="Tumble" type="Node" parent="CharacterStateMachine" unique_id=80380702 node_paths=PackedStringArray("idle_state", "tech_state")]

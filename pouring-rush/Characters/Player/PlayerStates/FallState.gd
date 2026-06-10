@@ -5,6 +5,7 @@ class_name FallState
 @export var move_state : State
 @export var idle_state : State
 @export var jump_state : State
+@export var wall_slide_state : State
 
 
 
@@ -14,6 +15,8 @@ func state_process(_delta):
 			next_state = idle_state
 		elif player.direction.x != 0:
 			next_state = move_state
+	elif player.is_on_wall():
+		next_state = wall_slide_state
 
 func state_input(event : InputEvent):
 	if event.is_action_pressed(player.player_actions.jump):
