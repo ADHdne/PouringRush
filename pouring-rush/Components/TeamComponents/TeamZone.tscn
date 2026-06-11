@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://nwurj74d4di3"]
 
+[ext_resource type="Script" uid="uid://1qp7xj0c0dac" path="res://Components/TeamComponents/team_zone.gd" id="1_620r3"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6obsn"]
 radius = 540.0
 height = 1640.0
@@ -7,6 +9,7 @@ height = 1640.0
 [node name="TeamZone" type="Area2D" unique_id=188268863]
 collision_layer = 64
 collision_mask = 4
+script = ExtResource("1_620r3")
 
 [node name="SafeZone" type="CollisionShape2D" parent="." unique_id=424615567]
 position = Vector2(0, 1)

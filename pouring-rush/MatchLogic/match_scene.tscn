@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cboy3legkgv6e" path="res://MatchLogic/match_scene.gd" id="1_1yt1k"]
 [ext_resource type="PackedScene" uid="uid://bsyrujkhp2cnx" path="res://MatchLogic/match_manager.tscn" id="2_cf7uw"]
 [ext_resource type="PackedScene" uid="uid://n2y3blgk7doe" path="res://World/world.tscn" id="3_dc1vv"]
+[ext_resource type="PackedScene" uid="uid://be0hl4ltt0cyk" path="res://Components/Viewport+/view_system.tscn" id="4_ao4n8"]
 
 [node name="MatchScene" type="Node2D" unique_id=1843901484]
 script = ExtResource("1_1yt1k")
@@ -11,4 +12,4 @@ script = ExtResource("1_1yt1k")
 
 [node name="World" parent="." unique_id=1259623814 instance=ExtResource("3_dc1vv")]
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1828280291]
+[node name="ViewSystem" parent="." unique_id=1875535046 instance=ExtResource("4_ao4n8")]

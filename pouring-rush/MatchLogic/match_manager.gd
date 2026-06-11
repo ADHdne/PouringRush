@@ -8,6 +8,8 @@ class_name MatchManager
 
 var match_config = MatchConfig
 
+var view_system : ViewSystem
+
 var arena : Arena
 var game_mode : GameMode
 
@@ -15,22 +17,24 @@ var players : Array[Player] = []
 
 var players_root : Node2D
 
-var red_zone 
+var red_zone
 var blue_zone
 
 
 # this gets called from match_scene
-func initialize(match_config : MatchConfig, arena_root : Node2D, game_mode_root : Node, players_root : Node2D):
+func initialize(match_config : MatchConfig, world : World, view_system : ViewSystem):
 	
 	self.match_config = match_config
-	self.players_root = players_root
+	self.players_root = world.players_root
+	self.view_system = view_system
 	
-
-	
-	load_arena(arena_root)
+	load_arena(world.arena_root)
 	spawn_team_zones()
+	
+	view_system.initialize(world, red_zone, blue_zone)
+	
 	spawn_players()
-	load_game_mode(game_mode_root)
+	load_game_mode(world.game_mode_root)
 	
 	game_mode.initialize(self)
 	game_mode.start_match()
@@ -95,7 +99,6 @@ func load_game_mode(game_mode_root : Node):
 	# adding the selected mode to the match scene
 	game_mode = GameManager.match_config.game_mode.instantiate()
 	game_mode_root.add_child(game_mode)
-
 
 # During runtime
 

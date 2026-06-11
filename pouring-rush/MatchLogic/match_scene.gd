@@ -3,11 +3,8 @@ class_name MatchScene
 
 
 @onready var match_manager: MatchManager = $MatchManager
-
 @onready var world: World = $World
-
-
-@onready var ui: CanvasLayer = $UI
+@onready var view_system: ViewSystem = $ViewSystem
 
 
 
@@ -17,5 +14,4 @@ func _ready() -> void:
 	
 	# both viewports renders the same world
 	
-	
-	match_manager.initialize(GameManager.match_config, world.arena_root, world.game_mode_root, world.players_root)
+	match_manager.initialize(GameManager.match_config, world, view_system)
