@@ -30,11 +30,11 @@ func initialize(match_config : MatchConfig, world : World, view_system : ViewSys
 	
 	load_arena(world.arena_root)
 	spawn_team_zones()
-	
-	view_system.initialize(world, red_zone, blue_zone)
-	
 	spawn_players()
 	load_game_mode(world.game_mode_root)
+	
+	
+	view_system.initialize(world, red_zone, blue_zone)
 	
 	game_mode.initialize(self)
 	game_mode.start_match()

@@ -32,3 +32,9 @@ func set_world(world : World):
 	
 	red_viewport.world_2d = shared_world
 	blue_viewport.world_2d = shared_world
+	
+	red_viewport.get_camera_2d().make_current()
+	blue_viewport.get_camera_2d().make_current()
+	
+	red_viewport.size = red_window.size
+	blue_viewport.size = blue_window.size
