@@ -13,6 +13,10 @@ class_name ViewSystem
 
 var world : World
 
+func _ready() -> void:
+	red_window.show()
+	blue_window.show()
+
 func initialize(world : World, red_zone, blue_zone):
 	
 	red_camera.target_zone = red_zone

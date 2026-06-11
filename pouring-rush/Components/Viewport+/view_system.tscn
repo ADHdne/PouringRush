@@ -15,6 +15,7 @@ oversampling_override = 1.0
 
 [node name="BlueWindow" type="Window" parent="." unique_id=325505694]
 oversampling_override = 1.0
+position = Vector2i(1920, 0)
 
 [node name="BlueViewport" type="SubViewport" parent="BlueWindow" unique_id=347619260]
 
