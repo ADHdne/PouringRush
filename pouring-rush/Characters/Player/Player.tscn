@@ -19,9 +19,11 @@
 [ext_resource type="Script" uid="uid://gkrxyqf3tr7g" path="res://Characters/Player/PlayerStates/wall_slide_state.gd" id="14_u61tb"]
 [ext_resource type="PackedScene" uid="uid://bqkyds65ymdao" path="res://Components/DebugTools/Precentage.tscn" id="16_7jpmk"]
 [ext_resource type="Script" uid="uid://buxclsp28a2e2" path="res://Characters/Player/PlayerStates/tumble_state.gd" id="18_u61tb"]
+[ext_resource type="Script" uid="uid://cl3fv5nelqmvq" path="res://Characters/Player/PlayerStates/pickup_state.gd" id="20_1t7vx"]
 [ext_resource type="Script" uid="uid://flftotrrcgyd" path="res://Characters/Player/PlayerStates/tech_state.gd" id="20_6hnbq"]
 [ext_resource type="Script" uid="uid://c471yv64cmmrv" path="res://Characters/Player/PlayerStates/ko_state.gd" id="21_1t7vx"]
-[ext_resource type="Script" uid="uid://tc5e113761qt" path="res://Characters/Player/PlayerStates/reload.gd" id="23_11ayp"]
+[ext_resource type="Script" uid="uid://blvvlhwcsrp30" path="res://Characters/Player/PlayerStates/set_down_state.gd" id="21_tdp7v"]
+[ext_resource type="Script" uid="uid://tc5e113761qt" path="res://Characters/Player/PlayerStates/reload_state.gd" id="23_11ayp"]
 
 [sub_resource type="Resource" id="Resource_6h4vt"]
 script = ExtResource("3_6fff4")
@@ -147,6 +149,14 @@ metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 [node name="Reload" type="Node" parent="CharacterStateMachine" unique_id=861515978 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("23_11ayp")
 idle_state = NodePath("../Idle")
+metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
+
+[node name="Pickup" type="Node" parent="CharacterStateMachine" unique_id=141311973]
+script = ExtResource("20_1t7vx")
+metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
+
+[node name="SetDown" type="Node" parent="CharacterStateMachine" unique_id=565212390]
+script = ExtResource("21_tdp7v")
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="Timers" type="Node" parent="." unique_id=1220796725]
