@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://hmiwpv2cagky" path="res://Characters/Player/PlayerComponents/tech_zone.tscn" id="7_tdp7v"]
 [ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
 [ext_resource type="Script" uid="uid://ch51j4onl3j1j" path="res://Characters/Player/PlayerStates/IdleState.gd" id="8_dl42p"]
+[ext_resource type="Script" uid="uid://c3exafj8k1lqv" path="res://Characters/Player/PlayerComponents/carry_component.gd" id="9_u4bhk"]
 [ext_resource type="Script" uid="uid://dy3hvkt1q1r7t" path="res://Characters/Player/PlayerComponents/movement_component.gd" id="12_6h4vt"]
 [ext_resource type="PackedScene" uid="uid://djkt86xwm70xd" path="res://Components/DebugTools/state_debug_label.tscn" id="13_wraqo"]
 [ext_resource type="Script" uid="uid://gkrxyqf3tr7g" path="res://Characters/Player/PlayerStates/wall_slide_state.gd" id="14_u61tb"]
@@ -28,7 +29,7 @@ script = ExtResource("3_6fff4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(15, 32)
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "combat_component", "hurtbox", "tech_zone")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 player_actions = SubResource("Resource_6h4vt")
@@ -42,6 +43,7 @@ damage_component = NodePath("DamageComponent")
 knockback_component = NodePath("KnockbackComponent")
 combat_component = NodePath("CombatComponent")
 hurtbox = NodePath("Hurtbox")
+carry_component = NodePath("CarryComponent")
 tech_zone = NodePath("TechZone")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
@@ -83,6 +85,9 @@ tumble_state = NodePath("../CharacterStateMachine/Tumble")
 script = ExtResource("5_6h4vt")
 player = NodePath("..")
 shot_buffer = NodePath("../Timers/ShotBufferTimer")
+
+[node name="CarryComponent" type="Node" parent="." unique_id=193415765]
+script = ExtResource("9_u4bhk")
 
 [node name="CharacterStateMachine" type="Node" parent="." unique_id=840629580 node_paths=PackedStringArray("player", "current_state")]
 script = ExtResource("2_tok1r")

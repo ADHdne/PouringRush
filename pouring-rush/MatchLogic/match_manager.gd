@@ -51,6 +51,7 @@ func spawn_team_zones():
 	red_zone.global_position = arena.red_base_spawn.global_position
 	blue_zone.global_position = arena.blue_base_spawn.global_position
 
+
 func get_camera_zones(team : Team.type):
 	
 	match team:
@@ -58,6 +59,7 @@ func get_camera_zones(team : Team.type):
 			return red_zone
 		Team.type.BLUE:
 			return blue_zone
+
 
 func spawn_players():
 	# clearing players array just in case
@@ -85,6 +87,9 @@ func spawn_player(config : PlayerConfig, spawn_point : Node2D) -> Player:
 	# assigning match spesific state
 	p.team = config.team
 	
+	# setting the spesific players teamzone
+	get_camera_zones(p.team)
+	
 	p.global_position = spawn_point.global_position
 	
 	return p
@@ -99,6 +104,7 @@ func load_game_mode(game_mode_root : Node):
 	# adding the selected mode to the match scene
 	game_mode = GameManager.match_config.game_mode.instantiate()
 	game_mode_root.add_child(game_mode)
+
 
 # During runtime
 

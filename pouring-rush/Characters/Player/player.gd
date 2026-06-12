@@ -27,6 +27,7 @@ class_name Player
 @export var knockback_component : KnockbackComponent
 @export var combat_component : CombatComponent
 @export var hurtbox : HurtboxComponent
+@export var carry_component : CarryComponent
 
 @export var tech_zone : Area2D
 
@@ -62,11 +63,13 @@ func _ready() -> void:
 		knockback_component.player = self
 		knockback_component.damage_component = damage_component
 
+# match manager calles this
 func initialize(character_data : CharacterData, match_manager : Node):
 	self.character_data = character_data
 	self.match_manager = match_manager
 	
 	combat_component.initialize(character_data)
+	carry_component.intialize(self)
 
 func _process(delta: float) -> void:
 	
