@@ -154,11 +154,13 @@ metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 [node name="Pickup" type="Node" parent="CharacterStateMachine" unique_id=141311973 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("20_1t7vx")
 idle_state = NodePath("../Idle")
+can_move = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="PutDown" type="Node" parent="CharacterStateMachine" unique_id=565212390 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("21_tdp7v")
 idle_state = NodePath("../Idle")
+can_move = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="Timers" type="Node" parent="." unique_id=1220796725]
