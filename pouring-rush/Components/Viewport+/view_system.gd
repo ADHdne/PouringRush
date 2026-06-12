@@ -38,3 +38,6 @@ func set_world(world : World):
 	
 	red_viewport.size = red_window.size
 	blue_viewport.size = blue_window.size
+	
+	red_window.world_2d = red_viewport.world_2d
+	blue_window.world_2d = blue_viewport.world_2d

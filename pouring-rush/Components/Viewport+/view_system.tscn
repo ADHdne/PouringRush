@@ -8,7 +8,7 @@ script = ExtResource("1_jn0iy")
 
 [node name="RedWindow" type="Window" parent="." unique_id=715518714]
 oversampling_override = 1.0
-position = Vector2i(0, 36)
+position = Vector2i(0, 100)
 
 [node name="RedViewport" type="SubViewport" parent="RedWindow" unique_id=803839444]
 
@@ -16,7 +16,7 @@ position = Vector2i(0, 36)
 
 [node name="BlueWindow" type="Window" parent="." unique_id=325505694]
 oversampling_override = 1.0
-position = Vector2i(1886, 36)
+position = Vector2i(1886, 100)
 
 [node name="BlueViewport" type="SubViewport" parent="BlueWindow" unique_id=347619260]
 
