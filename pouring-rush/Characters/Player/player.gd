@@ -62,6 +62,7 @@ func _ready() -> void:
 	if knockback_component != null:
 		knockback_component.player = self
 		knockback_component.damage_component = damage_component
+	
 
 # match manager calles this
 func initialize(character_data : CharacterData, match_manager : Node):

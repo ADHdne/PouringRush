@@ -21,8 +21,8 @@ func _process(delta: float) -> void:
 		global_position = carrier.global_position + carrier_offset
 
 
+
 func can_be_picked_up(player : Player) -> bool:
-	
 	if player.team!= team:
 		return false
 	

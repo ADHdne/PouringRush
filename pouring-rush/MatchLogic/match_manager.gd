@@ -45,11 +45,15 @@ func spawn_team_zones():
 	red_zone = team_zone_scene.instantiate()
 	blue_zone = team_zone_scene.instantiate()
 	
+	red_zone.team = Team.type.RED
+	blue_zone.team = Team.type.BLUE
+	
 	arena.red_base_spawn.add_child(red_zone)
 	arena.blue_base_spawn.add_child(blue_zone)
 	
 	red_zone.global_position = arena.red_base_spawn.global_position
 	blue_zone.global_position = arena.blue_base_spawn.global_position
+	
 
 
 func get_camera_zones(team : Team.type):
@@ -88,7 +92,7 @@ func spawn_player(config : PlayerConfig, spawn_point : Node2D) -> Player:
 	p.team = config.team
 	
 	# setting the spesific players teamzone
-	get_camera_zones(p.team)
+	p.carry_component.zone = get_camera_zones(p.team)
 	
 	p.global_position = spawn_point.global_position
 	

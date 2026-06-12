@@ -10,17 +10,16 @@ var carried_zone : TeamZone
 func intialize(player : Player):
 	self.player = player
 	
-	zone = player.match_manager.get_camera_zones(player.team)
-	
 
 
 func pick_up(zone : TeamZone):
-	
+
 	if carried_zone:
 		return
 	
 	if zone.try_pick_up(player):
 		carried_zone = zone
+
 
 func drop():
 	
