@@ -10,6 +10,7 @@ script = ExtResource("1_jn0iy")
 oversampling_override = 1.0
 position = Vector2i(1886, 100)
 size = Vector2i(1920, 1080)
+max_size = Vector2i(1920, 1080)
 
 [node name="BlueCamera" parent="BlueWindow" unique_id=1185675382 instance=ExtResource("2_esfgm")]
 
