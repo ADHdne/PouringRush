@@ -32,14 +32,15 @@ func _process(delta):
 		shoot(buffered_ability)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(player.player_actions.attack):
-		try_shoot(basic_shot_data)
-	if event.is_action_pressed(player.player_actions.special_1):
-		try_shoot(special_shot_data)
-	if event.is_action_pressed(player.player_actions.special_2):
-		try_shoot(special_2_data)
-	if event.is_action_pressed(player.player_actions.reload):
-		begin_reload()
+	if not player.carry_component.is_carrying():
+		if event.is_action_pressed(player.player_actions.attack):
+			try_shoot(basic_shot_data)
+		if event.is_action_pressed(player.player_actions.special_1):
+			try_shoot(special_shot_data)
+		if event.is_action_pressed(player.player_actions.special_2):
+			try_shoot(special_2_data)
+		if event.is_action_pressed(player.player_actions.reload):
+			begin_reload()
 
 
 
