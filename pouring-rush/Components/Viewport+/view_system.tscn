@@ -10,14 +10,10 @@ script = ExtResource("1_jn0iy")
 oversampling_override = 1.0
 position = Vector2i(0, 100)
 
-[node name="RedViewport" type="SubViewport" parent="RedWindow" unique_id=803839444]
-
-[node name="RedCamera" parent="RedWindow/RedViewport" unique_id=511926268 instance=ExtResource("2_esfgm")]
+[node name="RedCamera" parent="RedWindow" unique_id=511926268 instance=ExtResource("2_esfgm")]
 
 [node name="BlueWindow" type="Window" parent="." unique_id=325505694]
 oversampling_override = 1.0
 position = Vector2i(1886, 100)
 
-[node name="BlueViewport" type="SubViewport" parent="BlueWindow" unique_id=347619260]
-
-[node name="BlueCamera" parent="BlueWindow/BlueViewport" unique_id=1185675382 instance=ExtResource("2_esfgm")]
+[node name="BlueCamera" parent="BlueWindow" unique_id=1185675382 instance=ExtResource("2_esfgm")]

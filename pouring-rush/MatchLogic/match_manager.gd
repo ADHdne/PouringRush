@@ -17,8 +17,8 @@ var players : Array[Player] = []
 
 var players_root : Node2D
 
-var red_zone
-var blue_zone
+var red_zone : TeamZone
+var blue_zone : TeamZone
 
 
 # this gets called from match_scene
