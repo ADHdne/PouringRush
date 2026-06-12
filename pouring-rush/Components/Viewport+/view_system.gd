@@ -2,17 +2,15 @@ extends Node
 class_name ViewSystem
 
 
-@onready var red_window: Window = $RedWindow
 @onready var blue_window: Window = $BlueWindow
 
 
-@onready var red_camera: TeamCamera = $RedWindow/RedCamera
+@onready var red_camera: TeamCamera = $RedCamera
 @onready var blue_camera: TeamCamera = $BlueWindow/BlueCamera
 
 var world : World
 
 func _ready() -> void:
-	red_window.show()
 	blue_window.show()
 
 	# called in match manager
@@ -29,8 +27,7 @@ func set_world(world : World):
 	
 	var shared_world = world.get_viewport().world_2d
 	
-	red_window.world_2d = shared_world
 	blue_window.world_2d = shared_world
 	
-	red_window.get_camera_2d().make_current()
+	red_camera.make_current()
 	blue_window.get_camera_2d().make_current()
