@@ -53,6 +53,3 @@ func apply_knockback(hit : HitData):
 
 	# moves the player with the calculated knockback force times direction
 	player.velocity += final_force
-	
-	# make the ko component check if player is on wall/Ceiling
-	player.KO_component.check_immedate_impact()
