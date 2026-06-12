@@ -2,6 +2,9 @@ extends Node
 class_name CarryComponent
 
 
+@export var pickup_state : State
+@export var put_down_state : State
+
 var player : Player
 
 var zone : TeamZone
@@ -19,6 +22,7 @@ func pick_up(zone : TeamZone):
 	
 	if zone.try_pick_up(player):
 		carried_zone = zone
+		player.state_machine.on_state_interupt_state(pickup_state)
 
 
 func drop():
@@ -26,6 +30,7 @@ func drop():
 	if not carried_zone:
 		return
 	
+	player.state_machine.on_state_interupt_state(put_down_state)
 	carried_zone.drop()
 	carried_zone = null
 	

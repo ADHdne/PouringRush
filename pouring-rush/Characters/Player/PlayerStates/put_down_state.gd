@@ -1,6 +1,5 @@
 extends State
-class_name PickupState
-
+class_name PutDownState
 
 @export var idle_state : State
 

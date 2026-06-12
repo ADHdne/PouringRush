@@ -22,7 +22,7 @@
 [ext_resource type="Script" uid="uid://cl3fv5nelqmvq" path="res://Characters/Player/PlayerStates/pickup_state.gd" id="20_1t7vx"]
 [ext_resource type="Script" uid="uid://flftotrrcgyd" path="res://Characters/Player/PlayerStates/tech_state.gd" id="20_6hnbq"]
 [ext_resource type="Script" uid="uid://c471yv64cmmrv" path="res://Characters/Player/PlayerStates/ko_state.gd" id="21_1t7vx"]
-[ext_resource type="Script" uid="uid://blvvlhwcsrp30" path="res://Characters/Player/PlayerStates/set_down_state.gd" id="21_tdp7v"]
+[ext_resource type="Script" uid="uid://blvvlhwcsrp30" path="res://Characters/Player/PlayerStates/put_down_state.gd" id="21_tdp7v"]
 [ext_resource type="Script" uid="uid://tc5e113761qt" path="res://Characters/Player/PlayerStates/reload_state.gd" id="23_11ayp"]
 
 [sub_resource type="Resource" id="Resource_6h4vt"]
@@ -151,12 +151,14 @@ script = ExtResource("23_11ayp")
 idle_state = NodePath("../Idle")
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
-[node name="Pickup" type="Node" parent="CharacterStateMachine" unique_id=141311973]
+[node name="Pickup" type="Node" parent="CharacterStateMachine" unique_id=141311973 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("20_1t7vx")
+idle_state = NodePath("../Idle")
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
-[node name="SetDown" type="Node" parent="CharacterStateMachine" unique_id=565212390]
+[node name="PutDown" type="Node" parent="CharacterStateMachine" unique_id=565212390 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("21_tdp7v")
+idle_state = NodePath("../Idle")
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="Timers" type="Node" parent="." unique_id=1220796725]
