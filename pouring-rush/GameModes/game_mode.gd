@@ -7,10 +7,17 @@ var arena
 var players : Array[Player]
 
 var match_in_progress = false
+var ko_check_timer := 0.0
 
 func _process(delta: float) -> void:
+
+	ko_check_timer += delta
+
+
 	if match_in_progress == true:
-		check_ko()
+		if ko_check_timer > 0.1:
+			ko_check_timer = 0
+			check_ko()
 
 
 # gets called in match manager
