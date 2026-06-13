@@ -4,13 +4,19 @@ class_name TumbleState
 @export var idle_state : State
 @export var tech_state : State
 
+var tumble_lock_timer : float = 0.2
+
 
 func  on_enter():
 	player.in_tumble = true
 
-func state_process(_delta):
+func state_process(delta):
 	
-	if player.movement.just_landed:
+	if tumble_lock_timer > 0:
+		tumble_lock_timer -= delta
+		return
+	
+	if player.is_on_floor():
 		next_state = idle_state
 	
 

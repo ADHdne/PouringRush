@@ -12,9 +12,6 @@ var dash_timer = 0
 # jump variables
 var jumps_remaining : int = 1
 
-# bools for landing after being hit
-var was_on_floor : bool = false
-var just_landed : bool = false
 
 func _process(delta: float) -> void:
 	## add gravity
@@ -46,11 +43,9 @@ func _process(delta: float) -> void:
 	else:
 		add_friction()
 		
-	was_on_floor = player.is_on_floor()
 	
 	player_movement()
 	
-	just_landed = not was_on_floor and player.is_on_floor()
 	
 	# dash timer
 	if dash_timer > 0:
