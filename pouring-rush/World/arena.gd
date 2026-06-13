@@ -8,29 +8,38 @@ class_name Arena
 @onready var red_base_spawn: Node2D = $RedBaseSpawn
 @onready var blue_base_spawn: Node2D = $BlueBaseSpawn
 
-var red_spawns : Array[SpawnPoint]
-var blue_spawns : Array[SpawnPoint]
+var red_spawns : Array[Node]
+var blue_spawns : Array[Node]
 
+var red_index : = 0
+var blue_index : = 0
 
-func get_spawn_point(team : Team.type) -> Array[SpawnPoint]:
+func _ready() -> void:
 	
+	red_spawns = red_spawn_points.get_children()
+	blue_spawns = blue_spawn_points.get_children()
+
+func get_team_spawns(points : SpawnPoints):
+	for c in points.get_children():
+		if c.team == Team.type.RED:
+			red_spawns.append(c)
+		else:
+			blue_spawns.append(c)
+
+func get_spawn_point(team: Team.type) -> SpawnPoint:
+
 	if team == Team.type.RED:
-		return red_spawns
-	
-	return blue_spawns
+		return red_spawns[red_index % red_spawns.size()]
 
-func assign_spawn_points(players : Array[Player]):
-	var red_index : = 0
-	var blue_index : = 0
+	return blue_spawns[blue_index % blue_spawns.size()]
+
+func assign_spawn_points(player : Player):
 	
-	for player in players:
-		match player.team:
-			Team.type.RED:
-				player.spawn = red_spawns[red_index]
-				red_index += 1
-			Team.type.BLUE:
-				player.spawn = blue_spawns[blue_index]
-				blue_index += 1
+	player.spawn = get_spawn_point(player.team)
+	if player.team == Team.type.RED:
+		red_index += 1
+	else:
+		blue_index += 1
 
 func get_objective_start():
 	pass

@@ -96,6 +96,10 @@ func spawn_player(config : PlayerConfig) -> Player:
 	# assigning match spesific state
 	p.team = config.team
 	
+	arena.assign_spawn_points(p)
+	
+	p.global_position = p.spawn.global_position
+	
 	# setting the spesific players teamzone
 	p.carry_component.zone = get_camera_zones(p.team)
 	
