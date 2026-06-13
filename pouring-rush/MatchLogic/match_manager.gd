@@ -170,7 +170,8 @@ func check_team_elimination(team: Team.type):
 
 		if player.alive:
 			return
-
+	
+	reset_team_zone(team)
 	respawn_team(team)
 
 
