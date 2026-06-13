@@ -32,10 +32,10 @@ position = Vector2(-1401, -440)
 position = Vector2(2484, 1144)
 
 [node name="RedBaseSpawn" parent="." index="3" unique_id=1788055153]
-position = Vector2(-1154, 595)
+position = Vector2(-1160, 504)
 
 [node name="BlueBaseSpawn" parent="." index="4" unique_id=783503134]
-position = Vector2(2090, 588)
+position = Vector2(2128, 463)
 
 [node name="Path2D" type="Path2D" parent="." index="5" unique_id=1730023111]
 curve = SubResource("Curve2D_8johc")
