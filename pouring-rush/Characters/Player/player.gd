@@ -35,6 +35,8 @@ class_name Player
 # have a reference of what team its on during runtime
 var team : Team.type
 
+var spawn = SpawnPoint
+
 # directions inputs
 var direction = Vector2.ZERO
 # aim directions inputs

@@ -64,6 +64,12 @@ func get_camera_zones(team : Team.type):
 		Team.type.BLUE:
 			return blue_zone
 
+func get_spawn_point(team : Team.type) -> Node2D:
+	var points = arena.red_spawn_points if team == Team.type.RED else arena.blue_sp0awn_points2
+	
+	return points.pick_random()
+
+
 
 func spawn_players():
 	# clearing players array just in case
@@ -72,14 +78,13 @@ func spawn_players():
 	for i in range(match_config.players.size()):
 		var config : PlayerConfig = match_config.players[i]
 		
-		var spawn_point : Node2D = arena.get_spawn_point(i)
 		
-		var player : Player = spawn_player(config, spawn_point)
+		var player : Player = spawn_player(config)
 		
 		players.append(player)
 		
 
-func spawn_player(config : PlayerConfig, spawn_point : Node2D) -> Player:
+func spawn_player(config : PlayerConfig) -> Player:
 	var p : Player = player_scene.instantiate()
 	
 	
@@ -93,8 +98,6 @@ func spawn_player(config : PlayerConfig, spawn_point : Node2D) -> Player:
 	
 	# setting the spesific players teamzone
 	p.carry_component.zone = get_camera_zones(p.team)
-	
-	p.global_position = spawn_point.global_position
 	
 	return p
 
@@ -121,7 +124,7 @@ func on_player_ko(player : Player):
 func respawn_player(player):
 	# respawns player
 	# this need to reflect what team the player is on
-	player.global_position = arena.get_spawn_point(0).global_position
+	player.global_position = player.spawn.global_position
 	
 	player.reset_for_respawn() # need to make this a function in player
 

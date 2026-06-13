@@ -107,15 +107,15 @@ format = 2
 
 [node name="SpawnPoint4" parent="RedSpawnPoints" unique_id=1170783101 instance=ExtResource("4_nwrlw")]
 
-[node name="BlueSpawnPoints2" parent="." unique_id=1129951106 instance=ExtResource("3_7cq58")]
+[node name="BlueSpawnPoints" parent="." unique_id=1129951106 instance=ExtResource("3_7cq58")]
 
-[node name="SpawnPoint1" parent="BlueSpawnPoints2" unique_id=105434315 instance=ExtResource("4_nwrlw")]
+[node name="SpawnPoint1" parent="BlueSpawnPoints" unique_id=105434315 instance=ExtResource("4_nwrlw")]
 
-[node name="SpawnPoint2" parent="BlueSpawnPoints2" unique_id=1287632479 instance=ExtResource("4_nwrlw")]
+[node name="SpawnPoint2" parent="BlueSpawnPoints" unique_id=1287632479 instance=ExtResource("4_nwrlw")]
 
-[node name="SpawnPoint3" parent="BlueSpawnPoints2" unique_id=1744255306 instance=ExtResource("4_nwrlw")]
+[node name="SpawnPoint3" parent="BlueSpawnPoints" unique_id=1744255306 instance=ExtResource("4_nwrlw")]
 
-[node name="SpawnPoint4" parent="BlueSpawnPoints2" unique_id=527364865 instance=ExtResource("4_nwrlw")]
+[node name="SpawnPoint4" parent="BlueSpawnPoints" unique_id=527364865 instance=ExtResource("4_nwrlw")]
 
 [node name="CameraBounds" parent="." unique_id=767753523 instance=ExtResource("3_ktx4i")]
 
