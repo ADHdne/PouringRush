@@ -12,6 +12,7 @@ func state_process(_delta):
 	
 	if player.movement.just_landed:
 		next_state = idle_state
+	
 
 func state_input(event : InputEvent):
 	if player.can_tech:

@@ -16,7 +16,7 @@ func apply_knockback(hit : HitData):
 	var weight = player.character_data.weight
 	var dir = hit.direction.normalized()
 	
-	var vertical_bias = Vector2(0, -1)
+	var vertical_bias = Vector2(0, -0.5)
 	
 	var horizontal_weight = 0.8
 	var vertical_weight = 0.4
@@ -37,7 +37,7 @@ func apply_knockback(hit : HitData):
 		HitData.KnockbackType.SPIKE:
 			weight = Vector2(1,-0.6)
 	
-	var final_dir = ((dir + vertical_bias) * weight).normalized()
+	var final_dir = (dir + vertical_bias).normalized()
 	
 	# checks if enough force to send in to tumble state
 	if tumble_state != null:
