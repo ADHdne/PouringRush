@@ -13,7 +13,9 @@ var view_system : ViewSystem
 var arena : Arena
 var game_mode : GameMode
 
-var players : Array[Player] = []
+var players : Array[Player]
+var red_team_players : Array[Player]
+var blue_team_players : Array[Player]
 
 var players_root : Node2D
 
@@ -31,6 +33,7 @@ func initialize(match_config : MatchConfig, world : World, view_system : ViewSys
 	load_arena(world.arena_root)
 	spawn_team_zones()
 	spawn_players()
+	set_team()
 	load_game_mode(world.game_mode_root)
 	
 	
@@ -104,6 +107,13 @@ func spawn_player(config : PlayerConfig) -> Player:
 	p.carry_component.zone = get_camera_zones(p.team)
 	
 	return p
+
+func set_team():
+	for p in players:
+		if p.team == Team.type.RED:
+			red_team_players.append(p)
+		else:
+			blue_team_players.append(p)
 
 func load_arena(arena_root : Node2D):
 	# adding the selected arena to the match scene
