@@ -34,6 +34,7 @@ class_name Player
 
 # have a reference of what team its on during runtime
 var team : Team.type
+var alive : bool = true
 
 var spawn = SpawnPoint
 
