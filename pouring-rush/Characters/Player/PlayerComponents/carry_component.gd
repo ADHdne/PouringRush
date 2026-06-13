@@ -16,7 +16,6 @@ func intialize(player : Player):
 
 
 func pick_up(zone : TeamZone):
-
 	if carried_zone:
 		return
 	

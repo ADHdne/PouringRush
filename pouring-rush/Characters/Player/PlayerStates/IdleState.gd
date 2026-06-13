@@ -19,6 +19,7 @@ func state_input(event : InputEvent):
 		if event.is_action_pressed(player.player_actions.jump):
 			_jump()
 		if event.is_action_pressed(player.player_actions.interact):
+			print("interact pressed")
 			if player.carry_component.is_carrying():
 				player.carry_component.drop()
 			else:

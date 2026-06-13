@@ -88,8 +88,10 @@ script = ExtResource("5_6h4vt")
 player = NodePath("..")
 shot_buffer = NodePath("../Timers/ShotBufferTimer")
 
-[node name="CarryComponent" type="Node" parent="." unique_id=193415765]
+[node name="CarryComponent" type="Node" parent="." unique_id=193415765 node_paths=PackedStringArray("pickup_state", "put_down_state")]
 script = ExtResource("9_u4bhk")
+pickup_state = NodePath("../CharacterStateMachine/Pickup")
+put_down_state = NodePath("../CharacterStateMachine/PutDown")
 
 [node name="CharacterStateMachine" type="Node" parent="." unique_id=840629580 node_paths=PackedStringArray("player", "current_state")]
 script = ExtResource("2_tok1r")
