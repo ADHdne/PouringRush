@@ -44,6 +44,13 @@ func _process(delta: float) -> void:
 		add_friction()
 		
 	
+	# bounce on walls in tumble
+	if player.in_tumble:
+		if player.is_on_wall():
+			player.velocity.x * -1
+		elif player.is_on_ceiling():
+			player.velocity.y * -1
+	
 	player_movement()
 	
 	
