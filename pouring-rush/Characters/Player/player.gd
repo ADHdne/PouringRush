@@ -51,6 +51,7 @@ var can_action_pressed : bool = true
 var can_jump : bool = true
 var can_attack : bool = true
 var can_tech : bool = false
+var in_tumble : bool = false
 
 # facing bool
 var facing_flipped : bool = false

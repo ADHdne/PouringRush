@@ -6,7 +6,7 @@ class_name TumbleState
 
 
 func  on_enter():
-	pass
+	player.in_tumble = true
 
 func state_process(_delta):
 	
@@ -24,4 +24,4 @@ func check_tech():
 			next_state = tech_state
 
 func on_exit():
-	pass
+	player.in_tumble = false
