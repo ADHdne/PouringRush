@@ -3,6 +3,7 @@ class_name State
 
 
 @export var can_move : bool = true
+@export var can_reload : bool = true
 
 var player : Player
 var playback : AnimationNodeStateMachinePlayback

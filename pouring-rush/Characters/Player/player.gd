@@ -17,6 +17,7 @@ class_name Player
 @export var state_machine : CharacterStateMachine
 @export var ko_state : State
 @export var respawn_state : State
+@export var reload_state : State
 
 @export var coyote_jump_timer : Timer
 @export var jump_buffer_timer : Timer

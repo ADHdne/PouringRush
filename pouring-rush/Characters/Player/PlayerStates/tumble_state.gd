@@ -10,17 +10,6 @@ func  on_enter():
 
 func state_process(_delta):
 	
-	# showing color for how fast you are knocked back (tumble state)
-	player.KO_component.check_killing_speed()
-	
-	# checking wall and ceiling and sending to ko component, and setting the was on surface flag to false
-	if player.is_on_ceiling():
-		player.KO_component.check_impact("Ceiling")
-		player.can_tech = false
-	elif player.is_on_wall():
-		player.KO_component.check_impact("Wall")
-		player.can_tech = false
-	
 	if player.movement.just_landed:
 		next_state = idle_state
 

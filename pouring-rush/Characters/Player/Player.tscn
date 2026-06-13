@@ -32,13 +32,14 @@ script = ExtResource("3_6fff4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(15, 32)
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "ko_state", "respawn_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 player_actions = SubResource("Resource_6h4vt")
 state_machine = NodePath("CharacterStateMachine")
 ko_state = NodePath("CharacterStateMachine/KO")
 respawn_state = NodePath("CharacterStateMachine/Respawn")
+reload_state = NodePath("CharacterStateMachine/Reload")
 coyote_jump_timer = NodePath("Timers/CoyoteJumpTimer")
 jump_buffer_timer = NodePath("Timers/JumpBufferTimer")
 footstep_timer = NodePath("Timers/FootStepTimer")
@@ -139,39 +140,47 @@ script = ExtResource("18_u61tb")
 idle_state = NodePath("../Idle")
 tech_state = NodePath("../Tech")
 can_move = false
+can_reload = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="Tech" type="Node" parent="CharacterStateMachine" unique_id=116458518 node_paths=PackedStringArray("idle_state", "fall_state")]
 script = ExtResource("20_6hnbq")
 idle_state = NodePath("../Idle")
 fall_state = NodePath("../Fall")
+can_reload = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="KO" type="Node" parent="CharacterStateMachine" unique_id=1388787417]
 script = ExtResource("21_1t7vx")
 can_move = false
+can_reload = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
-[node name="Reload" type="Node" parent="CharacterStateMachine" unique_id=861515978 node_paths=PackedStringArray("idle_state")]
+[node name="Reload" type="Node" parent="CharacterStateMachine" unique_id=861515978 node_paths=PackedStringArray("idle_state", "reload_timer")]
 script = ExtResource("23_11ayp")
 idle_state = NodePath("../Idle")
+reload_timer = NodePath("../../Timers/ReloadTimer")
+can_reload = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="Pickup" type="Node" parent="CharacterStateMachine" unique_id=141311973 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("20_1t7vx")
 idle_state = NodePath("../Idle")
 can_move = false
+can_reload = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="PutDown" type="Node" parent="CharacterStateMachine" unique_id=565212390 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("21_tdp7v")
 idle_state = NodePath("../Idle")
 can_move = false
+can_reload = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="Respawn" type="Node" parent="CharacterStateMachine" unique_id=315201414 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("22_tdp7v")
 idle_state = NodePath("../Idle")
+can_reload = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="Timers" type="Node" parent="." unique_id=1220796725]
@@ -191,6 +200,9 @@ one_shot = true
 wait_time = 0.1
 one_shot = true
 
+[node name="ReloadTimer" type="Timer" parent="Timers" unique_id=906034395]
+one_shot = true
+
 [node name="SoundEffects" type="Node2D" parent="." unique_id=403259885]
 script = ExtResource("8_14m2a")
 
@@ -206,3 +218,5 @@ text = "100"
 player = NodePath("..")
 
 [connection signal="timeout" from="Timers/ShotBufferTimer" to="CombatComponent" method="_on_shot_buffer_timer_timeout"]
+[connection signal="timeout" from="Timers/ReloadTimer" to="CombatComponent" method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="Timers/ReloadTimer" to="CharacterStateMachine/Reload" method="_on_reload_timer_timeout"]

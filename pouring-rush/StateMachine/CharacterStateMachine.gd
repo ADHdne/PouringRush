@@ -49,3 +49,9 @@ func _input(event : InputEvent):
 
 func on_state_interupt_state(new_state : State):
 	switch_states(new_state)
+
+# more spesific stuff
+
+func request_reload():
+	if current_state.can_reload:
+		switch_states(player.reload_state)

@@ -28,7 +28,7 @@ func _process(delta):
 		shoot(buffered_ability)
 
 func _input(event: InputEvent) -> void:
-	if not player.carry_component.is_carrying() or player.can_action_pressed:
+	if not player.carry_component.is_carrying() or player.can_action_pressed or player.can_attack:
 		if event.is_action_pressed(player.player_actions.attack):
 			try_shoot(basic_shot_data)
 		if event.is_action_pressed(player.player_actions.special_1):
@@ -36,7 +36,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed(player.player_actions.special_2):
 			try_shoot(special_2_data)
 		if event.is_action_pressed(player.player_actions.reload):
-			begin_reload()
+			request_reload()
 
 
 
@@ -109,8 +109,8 @@ func create_state(data : AbilityData) -> AbilityState:
 	return state
 
 ## reload logic
-func begin_reload():
-	pass
+func request_reload():
+	player.state_machine.request_reload()
 
 func reset_for_spawn(data : CharacterData):
 	clear_states()
@@ -121,3 +121,7 @@ func clear_states():
 	special_shot_data = null
 	special_2_data = null
 	utility_data = null
+
+
+func _on_reload_timer_timeout() -> void:
+	basic_shot_data.current_ammo = basic_shot_data.ability_data.max_ammo
