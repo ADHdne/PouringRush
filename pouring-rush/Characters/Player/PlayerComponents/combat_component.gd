@@ -18,11 +18,7 @@ var shoot_cooldown := 0.0
 ## basic shot
 
 func initialize(character_data : CharacterData):
-	basic_shot_data = create_state(character_data.basic_shot)
-	special_shot_data = create_state(character_data.special_1)
-	#special_2_data = create_state(character_data.special_2)
-	#utility_data = create_state(character_data.utility)
-	
+	create_states(character_data)
 
 func _process(delta):
 	# reset the shoot_coooldown after each shot
@@ -32,7 +28,7 @@ func _process(delta):
 		shoot(buffered_ability)
 
 func _input(event: InputEvent) -> void:
-	if not player.carry_component.is_carrying():
+	if not player.carry_component.is_carrying() or player.can_action_pressed:
 		if event.is_action_pressed(player.player_actions.attack):
 			try_shoot(basic_shot_data)
 		if event.is_action_pressed(player.player_actions.special_1):
@@ -95,6 +91,12 @@ func try_shoot(data : AbilityState):
 func _on_shot_buffer_timer_timeout() -> void:
 	shot_buffered = false
 
+func create_states(data : CharacterData):
+	basic_shot_data = create_state(data.basic_shot)
+	special_shot_data = create_state(data.special_1)
+	#special_2_data = create_state(data.special_2)
+	#utility_data = create_state(data.utility)
+
 func create_state(data : AbilityData) -> AbilityState:
 	
 	var state = AbilityState.new()
@@ -109,3 +111,13 @@ func create_state(data : AbilityData) -> AbilityState:
 ## reload logic
 func begin_reload():
 	pass
+
+func reset_for_spawn(data : CharacterData):
+	clear_states()
+	create_states(data)
+
+func clear_states():
+	basic_shot_data = null
+	special_shot_data = null
+	special_2_data = null
+	utility_data = null

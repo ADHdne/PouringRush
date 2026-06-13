@@ -15,6 +15,8 @@ class_name Player
 
 # reference to children
 @export var state_machine : CharacterStateMachine
+@export var ko_state : State
+@export var respawn_state : State
 
 @export var coyote_jump_timer : Timer
 @export var jump_buffer_timer : Timer
@@ -96,4 +98,9 @@ func aim_input() -> Vector2:
 	return aim_direction
 
 func reset_for_respawn():
-	pass
+	combat_component.reset_for_spawn(character_data)
+	state_machine.switch_states(respawn_state)
+	
+
+func ko():
+	state_machine.on_state_interupt_state(ko_state)

@@ -17,26 +17,29 @@ func _process(delta: float) -> void:
 func initialize(match_manager : MatchManager):
 	self.match_manager = match_manager
 	self.players = match_manager.players
+	
 
 
 func start_match():
 	match_in_progress = true
+	print("GameMode: Match started")
 
 func end_match():
 	match_in_progress = false
-	print("match ended")
+	print("GameMode: Match ended")
 
 
 func check_ko():
 	
 	for p in match_manager.players:
-		print("Hey")
+		
 		var zone = match_manager.get_camera_zones(p.team)
 		
-		if not zone.overlaps_body(p):
+		if not zone.overlaps_area(p.hurtbox):
 			on_player_ko(p)
 
 func on_player_ko(player : Player):
+	player.ko()
 	print("player ", player, " died")
 
 func check_win_condition():

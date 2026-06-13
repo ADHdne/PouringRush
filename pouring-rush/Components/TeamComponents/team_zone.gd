@@ -66,3 +66,6 @@ func try_pick_up(player : Player) -> bool:
 
 func drop():
 	carrier = null
+
+func contains_player(player : Player) -> bool:
+	return true # for now!!!
