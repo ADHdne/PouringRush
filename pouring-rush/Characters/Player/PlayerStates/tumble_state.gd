@@ -32,3 +32,4 @@ func check_tech():
 
 func on_exit():
 	player.in_tumble = false
+	tumble_lock_timer = 0.2
