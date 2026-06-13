@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bvxu56ycil7vo" path="res://World/arena.gd" id="1_udclw"]
 [ext_resource type="PackedScene" uid="uid://05kvo1nocej0" path="res://Components/SpawnStuff/spawn_points.tscn" id="3_7cq58"]
 [ext_resource type="PackedScene" uid="uid://cxl0h72jh2uik" path="res://Components/CameraStuff/camera_bounds.tscn" id="3_ktx4i"]
+[ext_resource type="PackedScene" uid="uid://bgbyl5hcyqi8s" path="res://Components/SpawnStuff/spawn_point.tscn" id="4_nwrlw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_24pi4"]
 texture = ExtResource("1_24pi4")
@@ -96,9 +97,25 @@ script = ExtResource("1_udclw")
 tile_set = SubResource("TileSet_udclw")
 format = 2
 
-[node name="SpawnPoints" parent="." unique_id=278151024 instance=ExtResource("3_7cq58")]
+[node name="RedSpawnPoints" parent="." unique_id=278151024 instance=ExtResource("3_7cq58")]
 
-[node name="Spawn1" type="Marker2D" parent="SpawnPoints" unique_id=594705747]
+[node name="SpawnPoint1" parent="RedSpawnPoints" unique_id=362896172 instance=ExtResource("4_nwrlw")]
+
+[node name="SpawnPoint2" parent="RedSpawnPoints" unique_id=1524626382 instance=ExtResource("4_nwrlw")]
+
+[node name="SpawnPoint3" parent="RedSpawnPoints" unique_id=1263752162 instance=ExtResource("4_nwrlw")]
+
+[node name="SpawnPoint4" parent="RedSpawnPoints" unique_id=1170783101 instance=ExtResource("4_nwrlw")]
+
+[node name="BlueSpawnPoints2" parent="." unique_id=1129951106 instance=ExtResource("3_7cq58")]
+
+[node name="SpawnPoint1" parent="BlueSpawnPoints2" unique_id=105434315 instance=ExtResource("4_nwrlw")]
+
+[node name="SpawnPoint2" parent="BlueSpawnPoints2" unique_id=1287632479 instance=ExtResource("4_nwrlw")]
+
+[node name="SpawnPoint3" parent="BlueSpawnPoints2" unique_id=1744255306 instance=ExtResource("4_nwrlw")]
+
+[node name="SpawnPoint4" parent="BlueSpawnPoints2" unique_id=527364865 instance=ExtResource("4_nwrlw")]
 
 [node name="CameraBounds" parent="." unique_id=767753523 instance=ExtResource("3_ktx4i")]
 
