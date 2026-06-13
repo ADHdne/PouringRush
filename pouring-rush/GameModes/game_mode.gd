@@ -47,6 +47,7 @@ func check_ko():
 
 func on_player_ko(player : Player):
 	player.ko()
+	match_manager.on_player_ko(player)
 	print("player ", player, " died")
 
 func check_win_condition():
