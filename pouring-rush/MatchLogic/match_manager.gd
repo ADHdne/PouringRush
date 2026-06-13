@@ -133,7 +133,16 @@ func start_match():
 	pass
 
 func on_player_ko(player : Player):
-	respawn_player(player)
+	check_team_elimination(player.team)
+
+func respawn_team(team : Team.type):
+	match team:
+		Team.type.RED:
+			for p in red_team_players:
+				respawn_player(p)
+		Team.type.BLUE:
+			for p in blue_team_players:
+				respawn_player(p)
 
 func respawn_player(player):
 	# respawns player
@@ -141,6 +150,28 @@ func respawn_player(player):
 	player.global_position = player.spawn.global_position
 	
 	player.reset_for_respawn() # need to make this a function in player
+
+func reset_team_zone(team: Team.type):
+
+	var zone = get_camera_zones(team)
+	var base = arena.get_base(team)
+
+	zone.carrier = null
+	zone.velocity = Vector2.ZERO
+
+	zone.global_position = base.global_position
+
+func check_team_elimination(team: Team.type):
+
+	for player in players:
+
+		if player.team != team:
+			continue
+
+		if player.alive:
+			return
+
+	respawn_team(team)
 
 
 func end_match():

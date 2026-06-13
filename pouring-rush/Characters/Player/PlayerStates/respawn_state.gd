@@ -6,6 +6,7 @@ class_name RespawnState
 
 func on_enter():
 	await get_tree().create_timer(1).timeout
+	player.alive = true
 	next_state = idle_state
 
 

@@ -49,3 +49,9 @@ func get_camera_bounds() -> Rect2:
 	var tl = camera_bounds.get_node("TopLeft").global_position
 	var br = camera_bounds.get_node("BottomRight").global_position
 	return Rect2(tl, br - tl)
+	
+func get_base(team : Team.type) -> Node2D:
+	if team == Team.type.RED:
+		return red_base_spawn
+	else:
+		return blue_base_spawn

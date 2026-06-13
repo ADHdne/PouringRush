@@ -103,4 +103,5 @@ func reset_for_respawn():
 	
 
 func ko():
+	alive = false
 	state_machine.on_state_interupt_state(ko_state)
