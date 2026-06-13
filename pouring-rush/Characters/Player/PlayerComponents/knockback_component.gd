@@ -7,7 +7,7 @@ class_name KnockbackComponent
 
 @export var tumble_state : State
 
-@export var tumble_threshold : float = 5
+@export var tumble_threshold : float = 100
 
 # getting hit_data from hurtbox
 
@@ -25,7 +25,6 @@ func apply_knockback(hit : HitData):
 	var vertical_weight = 0.4
 	# scaling like smash
 	var force = hit.base_knockback + percent * hit.knockback_growth
-	print("force: ", force)
 	# reduce based on weight
 	force *= (1 / weight)
 	
