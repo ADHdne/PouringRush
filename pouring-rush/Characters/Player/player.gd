@@ -99,7 +99,7 @@ func aim_input() -> Vector2:
 
 func reset_for_respawn():
 	combat_component.reset_for_spawn(character_data)
-	state_machine.switch_states(respawn_state)
+	state_machine.current_state.next_state = respawn_state
 	
 
 func ko():
