@@ -16,7 +16,6 @@ func _ready() -> void:
 	lifetime_timer.start(data.lifetime)
 
 func _physics_process(delta: float) -> void:
-	
 	# apply gravity
 	velocity.y += data.gravity * delta
 	
@@ -52,7 +51,10 @@ func _on_area_entered(area: Area2D) -> void:
 	# duplicating hit_data to make it unique
 	var _hit_data = data.hit_data.duplicate()
 	# adding its direction
-	_hit_data.direction = direction
+	# i can also have the velocity dictate direction
+	# then the bullets can send straight down if hit from the top
+	# _hit_data.direction = velocity.normalized()
+	_hit_data.direction = (area.global_position - global_position).normalized()
 	
 	# make sure you dont shoot your self
 	if area.owner == origin:
