@@ -25,7 +25,7 @@ func apply_knockback(hit : HitData):
 	var vertical_weight = 0.4
 	# scaling like smash
 	var force = hit.base_knockback + percent * hit.knockback_growth
-	
+	print("force: ", force)
 	# reduce based on weight
 	force *= (1 / weight)
 	
