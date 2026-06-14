@@ -12,8 +12,10 @@ var dash_timer = 0
 # jump variables
 var jumps_remaining : int = 1
 
+var impact_vel : Vector2
+var is_bouncing : bool = false
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	## add gravity
 	if player.is_on_wall_only() and player.velocity.y > 0 and not player.in_tumble:
 		## wall gravity
@@ -33,7 +35,14 @@ func _process(delta: float) -> void:
 		if player.velocity.y > player.character_data.max_fall_velocity:
 			player.velocity.y = player.character_data.max_fall_velocity
 	
-	# moves player woth adding acceleration to direction
+	player_movement()
+	
+	if player.in_tumble:
+		if abs(player.velocity.x) >= 1:
+			impact_vel = player.velocity
+		check_bounce(impact_vel)
+	
+	# moves player by adding acceleration to direction
 	if player.direction.x != 0 and player.state_machine.check_if_can_move() and player.can_action_pressed:
 		accelerate(player.direction.x)
 		if player.is_on_floor():
@@ -43,7 +52,6 @@ func _process(delta: float) -> void:
 	else:
 		add_friction()
 	
-	player_movement()
 	
 	
 	# dash timer
@@ -54,17 +62,18 @@ func _process(delta: float) -> void:
 	# reset jumps on landing
 	if player.is_on_floor() and jumps_remaining != 1:
 		jumps_remaining = 1
-	
-	
-
 
 func accelerate(direction):
+	if player.in_tumble:
+		return
 	if player.is_on_floor():
 		player.velocity.x = move_toward(player.velocity.x, player.character_data.run_speed * direction, player.character_data.acc)
 	else:
 		player.velocity.x = move_toward(player.velocity.x, player.character_data.run_speed * direction, player.character_data.air_acc)
 
 func add_friction():
+	if player.in_tumble:
+		return
 	if player.is_on_floor():
 		player.velocity.x = move_toward(player.velocity.x, 0, player.character_data.friction)
 	else:
@@ -77,6 +86,30 @@ func player_movement():
 	if just_left_ledge:
 		player.coyote_jump_timer.start()
 
+
+func check_bounce(vel : Vector2):
+	
+	for i in range(player.get_slide_collision_count()):
+
+		var collision = player.get_slide_collision(i)
+
+		if collision == null:
+			continue
+
+		var normal = collision.get_normal()
+
+		# Wall bounce
+		if abs(normal.x) > 0.9:
+			is_bouncing = true
+			# Only bounce if moving fast enough
+			if abs(vel.x) > 200:
+				player.velocity.x = vel.x * -0.6
+
+		# Ceiling bounce
+		elif normal.y > 0.9:
+			is_bouncing = true
+			if abs(vel.y) > 200:
+				player.velocity.y =  vel.y * -0.6
 
 func jump():
 	player.velocity.y = player.character_data.jump_power

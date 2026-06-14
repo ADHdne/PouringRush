@@ -10,7 +10,6 @@ class_name KnockbackComponent
 @export var tumble_threshold : float = 100
 
 # getting hit_data from hurtbox
-
 func apply_knockback(hit : HitData):
 	var percent = damage_component.percentage
 	var weight = player.character_data.weight
@@ -21,8 +20,6 @@ func apply_knockback(hit : HitData):
 	if dir.y >= -0.2:
 		dir.y = vertical_bias
 	
-	var horizontal_weight = 0.8
-	var vertical_weight = 0.4
 	# scaling like smash
 	var force = hit.base_knockback + percent * hit.knockback_growth
 	# reduce based on weight
@@ -44,6 +41,7 @@ func apply_knockback(hit : HitData):
 	# checks if enough force to send in to tumble state
 	if tumble_state != null:
 		if force > tumble_threshold:
+			player.in_tumble = true
 			player.state_machine.on_state_interupt_state(tumble_state)
 	
 	# sets the final force vector2 for use in moving the player

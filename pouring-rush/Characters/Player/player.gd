@@ -34,6 +34,7 @@ class_name Player
 
 @export var tech_zone : Area2D
 
+var player_index : int
 
 # have a reference of what team its on during runtime
 var team : Team.type
@@ -102,6 +103,8 @@ func aim_input() -> Vector2:
 func reset_for_respawn():
 	combat_component.reset_for_spawn(character_data)
 	state_machine.current_state.next_state = respawn_state
+	hurtbox.monitorable = true
+	damage_component.percentage = 0
 	
 
 func ko():

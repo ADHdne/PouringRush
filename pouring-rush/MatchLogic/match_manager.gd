@@ -84,6 +84,9 @@ func spawn_players():
 		
 		var player : Player = spawn_player(config)
 		
+		# setting id
+		player.player_index = i
+		
 		players.append(player)
 		
 

@@ -8,7 +8,7 @@ var tumble_lock_timer : float = 0.2
 
 
 func  on_enter():
-	player.in_tumble = true
+	pass
 
 func state_process(delta):
 	
