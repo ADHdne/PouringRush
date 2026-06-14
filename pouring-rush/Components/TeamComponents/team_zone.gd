@@ -1,12 +1,10 @@
-extends Area2D
+extends SafeZoneArea
 class_name TeamZone
 
 
 
 @onready var ray_cast: RayCast2D = $RayCast2D
 
-
-@export var team : Team.type
 
 
 var carrier : Player
@@ -66,6 +64,3 @@ func try_pick_up(player : Player) -> bool:
 
 func drop():
 	carrier = null
-
-func contains_player(player : Player) -> bool:
-	return true # for now!!!
