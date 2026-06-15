@@ -54,11 +54,11 @@ func spawn_team_zones():
 	red_zone.team = Team.type.RED
 	blue_zone.team = Team.type.BLUE
 	
-	arena.red_base_spawn.add_child(red_zone)
-	arena.blue_base_spawn.add_child(blue_zone)
+	arena.red_base.add_child(red_zone)
+	arena.blue_base.add_child(blue_zone)
 	
-	red_zone.global_position = arena.red_base_spawn.global_position
-	blue_zone.global_position = arena.blue_base_spawn.global_position
+	red_zone.global_position = arena.red_base.global_position
+	blue_zone.global_position = arena.blue_base.global_position
 	
 
 func get_team_zones(team : Team.type):
@@ -72,7 +72,7 @@ func get_team_zones(team : Team.type):
 			return blue_zone
 
 
-func get_zones(team : Team.type) -> Array[SafeZoneArea]:
+func get_safe_zones(team : Team.type) -> Array[SafeZoneArea]:
 	
 	var zones : Array[SafeZoneArea]
 	
@@ -179,7 +179,7 @@ func respawn_player(player):
 
 func reset_team_zone(team: Team.type):
 
-	var zone = get_zones(team)
+	var zone = get_team_zones(team)
 	var base = arena.get_base(team)
 
 	zone.carrier = null

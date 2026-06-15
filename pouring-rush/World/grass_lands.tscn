@@ -52,14 +52,14 @@ position = Vector2(-1401, -440)
 position = Vector2(2484, 1144)
 
 [node name="RedBase" parent="." index="4" unique_id=546653012]
-position = Vector2(2165, 576)
+position = Vector2(-1085, 576)
 
 [node name="CollisionShape2D" parent="RedBase" index="0" unique_id=2105911452]
 position = Vector2(-4, -248)
 shape = SubResource("RectangleShape2D_8johc")
 
 [node name="BlueBase" parent="." index="5" unique_id=1035964477]
-position = Vector2(-1131, 530)
+position = Vector2(2117, 531)
 
 [node name="CollisionShape2D" parent="BlueBase" index="0" unique_id=2105911452]
 position = Vector2(42, -202.5)
