@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://nwurj74d4di3"]
 
 [ext_resource type="Script" uid="uid://1qp7xj0c0dac" path="res://Components/TeamComponents/team_zone.gd" id="1_620r3"]
+[ext_resource type="Texture2D" uid="uid://cej8h4e437of4" path="res://Assets/Sprites/Tilesets/IMG_0205.png" id="2_1q1m2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jb0pr"]
+atlas = ExtResource("2_1q1m2")
+region = Rect2(288, 96, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcmky"]
+size = Vector2(40, 40)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6obsn"]
 radius = 540.0
@@ -11,23 +19,26 @@ collision_layer = 64
 collision_mask = 4
 script = ExtResource("1_620r3")
 
+[node name="CoreSprite" type="Sprite2D" parent="." unique_id=1830444331]
+texture_filter = 1
+position = Vector2(-9.536743e-07, 9.536743e-07)
+scale = Vector2(1.25, 1.25)
+texture = SubResource("AtlasTexture_jb0pr")
+
+[node name="TeamZoneCore" type="Area2D" parent="." unique_id=1621631690]
+collision_layer = 128
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TeamZoneCore" unique_id=791057057]
+shape = SubResource("RectangleShape2D_vcmky")
+
 [node name="SafeZone" type="CollisionShape2D" parent="." unique_id=424615567]
 position = Vector2(0, 1)
 rotation = -1.5707964
 shape = SubResource("CapsuleShape2D_6obsn")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1389758201]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [node name="RayCast2D" type="RayCast2D" parent="." unique_id=1360977702]
 target_position = Vector2(0, 22)
+
+[connection signal="area_entered" from="TeamZoneCore" to="." method="_on_team_zone_core_area_entered"]
+[connection signal="area_exited" from="TeamZoneCore" to="." method="_on_team_zone_core_area_exited"]

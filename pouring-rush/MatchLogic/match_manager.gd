@@ -174,10 +174,12 @@ func respawn_team(team : Team.type):
 	match team:
 		Team.type.RED:
 			for p in red_team_players:
-				respawn_player(p)
+				if not p.alive:
+					respawn_player(p)
 		Team.type.BLUE:
 			for p in blue_team_players:
-				respawn_player(p)
+				if not p.alive:
+					respawn_player(p)
 
 func respawn_player(player):
 	# respawns player

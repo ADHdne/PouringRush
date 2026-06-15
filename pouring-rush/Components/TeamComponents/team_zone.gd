@@ -4,6 +4,7 @@ class_name TeamZone
 
 
 @onready var ray_cast: RayCast2D = $RayCast2D
+@onready var core: Area2D = $Core
 
 
 
@@ -64,3 +65,13 @@ func try_pick_up(player : Player) -> bool:
 
 func drop():
 	carrier = null
+
+
+func _on_team_zone_core_area_entered(area: Area2D) -> void:
+	if area is TeamBase and area.team == team:
+		SignalBus.team_core_entered_base.emit(team)
+
+
+func _on_team_zone_core_area_exited(area: Area2D) -> void:
+	if area is TeamBase and area.team == team:
+		SignalBus.team_core_exited_base.emit(team)

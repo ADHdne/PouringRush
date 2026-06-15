@@ -1,0 +1,2 @@
+extends SafeZoneArea
+class_name TeamBase

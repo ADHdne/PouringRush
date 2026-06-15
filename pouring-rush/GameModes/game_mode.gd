@@ -9,17 +9,39 @@ var players : Array[Player]
 var match_in_progress = false
 var ko_check_timer := 0.0
 
-var red_respawn_charge : float = 0
-var blue_respawn_charge : float = 0
 
-const RESPAWN_TIME : = 1
+var core_in_base : ={
+	Team.type.RED: false,
+	Team.type.BLUE : false
+}
+
+var core_base_time := {
+	Team.type.RED : 0.0,
+	Team.type.BLUE : 0.0
+}
+
+
+const RESPAWN_TIME : = 5
+
+
+
+func _ready() -> void:
+	SignalBus.team_core_entered_base.connect(on_core_entered)
+	SignalBus.team_core_exited_base.connect(on_core_exited)
+
 
 func _process(delta: float) -> void:
 
-	update_respawn_charge(Team.type.RED, delta)
-	update_respawn_charge(Team.type.BLUE, delta)
 	ko_check_timer += delta
 
+
+	for team in core_in_base.keys():
+		if core_in_base[team]:
+			core_base_time[team] += delta
+			
+			if core_base_time[team] >= RESPAWN_TIME:
+				match_manager.respawn_team(team)
+				core_base_time[team] = 0.0
 
 	if match_in_progress == true:
 		if ko_check_timer > 0.1:
@@ -45,6 +67,10 @@ func end_match():
 
 func check_ko():
 	for p in match_manager.players:
+		
+		if not p.alive:
+			return
+		
 		var safe = false
 		for zone in match_manager.get_safe_zones(p.team):
 			
@@ -60,55 +86,26 @@ func on_player_ko(player : Player):
 	match_manager.on_player_ko(player)
 	print("player ", player, " died")
 
-func update_respawn_charge(team: Team.type, delta: float):
+func update_respawn_logic(team: Team.type, delta: float):
 
-	var zone = match_manager.get_team_zones(team)
-	var base = match_manager.get_base_zones(team)
-
-	if zone == null:
+	if not core_in_base[team]:
+		core_base_time[team] = 0.0
 		return
 
-	if base.overlaps_area(zone):
-		add_respawn_charge(team, delta)
-	else:
-		reset_respawn_charge(team)
+	core_base_time[team] += delta
 
-func add_respawn_charge(team: Team.type, delta: float):
-	
-	match team:
+	if core_base_time[team] >= RESPAWN_TIME:
+		match_manager.respawn_team(team)
+		core_base_time[team] = 0.0
 
-		Team.type.RED:
-			red_respawn_charge += delta
 
-			if red_respawn_charge >= RESPAWN_TIME:
-				respawn_dead_players(team)
-				red_respawn_charge = 0.0
+func on_core_entered(team : Team.type):
+	core_in_base[team] = true
+	core_base_time[team] = 0.0
 
-		Team.type.BLUE:
-			blue_respawn_charge += delta
-
-			if blue_respawn_charge >= RESPAWN_TIME:
-				respawn_dead_players(team)
-				blue_respawn_charge = 0.0
-
-func reset_respawn_charge(team: Team.type):
-	match team:
-		Team.type.RED:
-			red_respawn_charge = 0.0
-
-		Team.type.BLUE:
-			blue_respawn_charge = 0.0
-
-func respawn_dead_players(team: Team.type):
-	
-	for player in match_manager.players:
-
-		if player.team != team:
-			continue
-
-		if player.alive:
-			continue
-		match_manager.respawn_player(player)
+func on_core_exited(team : Team.type):
+	core_in_base[team] = false
+	core_base_time[team] = 0.0
 
 func check_win_condition():
 	pass
