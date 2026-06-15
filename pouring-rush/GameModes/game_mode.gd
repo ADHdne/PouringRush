@@ -30,7 +30,7 @@ func _ready() -> void:
 	SignalBus.team_core_exited_base.connect(on_core_exited)
 
 
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 
 	ko_check_timer += delta
 
