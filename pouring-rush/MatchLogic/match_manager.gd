@@ -22,6 +22,9 @@ var players_root : Node2D
 var red_zone : TeamZone
 var blue_zone : TeamZone
 
+var red_base : SafeZoneArea
+var blue_base : SafeZoneArea
+
 
 # this gets called from match_scene
 func initialize(match_config : MatchConfig, world : World, view_system : ViewSystem):
@@ -58,14 +61,34 @@ func spawn_team_zones():
 	blue_zone.global_position = arena.blue_base_spawn.global_position
 	
 
-
-func get_zones(team : Team.type):
+func get_team_zones(team : Team.type):
+	
+	var zones : Array[SafeZoneArea]
 	
 	match team:
 		Team.type.RED:
 			return red_zone
 		Team.type.BLUE:
 			return blue_zone
+
+
+func get_zones(team : Team.type) -> Array[SafeZoneArea]:
+	
+	var zones : Array[SafeZoneArea]
+	
+	match team:
+		Team.type.RED:
+			if red_zone:
+				zones.append(red_zone)
+			if red_base:
+				zones.append(red_base)
+		Team.type.BLUE:
+			if blue_zone:
+				zones.append(blue_zone)
+			if blue_base:
+				zones.append(blue_base)
+	
+	return zones
 
 func get_spawn_point(team : Team.type) -> Node2D:
 	var points = arena.red_spawn_points if team == Team.type.RED else arena.blue_sp0awn_points2
@@ -107,7 +130,7 @@ func spawn_player(config : PlayerConfig) -> Player:
 	p.global_position = p.spawn.global_position
 	
 	# setting the spesific players teamzone
-	p.carry_component.zone = get_zones(p.team)
+	p.carry_component.zone = get_team_zones(p.team)
 	
 	return p
 

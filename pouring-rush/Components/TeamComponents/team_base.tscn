@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b8s661cel7fns"]
+
+[ext_resource type="Script" uid="uid://88noefriev7w" path="res://Components/TeamComponents/safe_zone_area.gd" id="1_os5np"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuha1"]
+resource_local_to_scene = true
+
+[node name="TeamBase" type="Area2D" unique_id=546653012]
+script = ExtResource("1_os5np")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105911452]
+shape = SubResource("RectangleShape2D_kuha1")

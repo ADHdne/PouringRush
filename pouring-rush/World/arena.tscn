@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://05kvo1nocej0" path="res://Components/SpawnStuff/spawn_points.tscn" id="3_7cq58"]
 [ext_resource type="PackedScene" uid="uid://cxl0h72jh2uik" path="res://Components/CameraStuff/camera_bounds.tscn" id="3_ktx4i"]
 [ext_resource type="PackedScene" uid="uid://bgbyl5hcyqi8s" path="res://Components/SpawnStuff/spawn_point.tscn" id="4_nwrlw"]
+[ext_resource type="PackedScene" uid="uid://b8s661cel7fns" path="res://Components/TeamComponents/team_base.tscn" id="6_l5e5x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_24pi4"]
 texture = ExtResource("1_24pi4")
@@ -119,6 +120,7 @@ format = 2
 
 [node name="CameraBounds" parent="." unique_id=767753523 instance=ExtResource("3_ktx4i")]
 
-[node name="RedBaseSpawn" type="Node2D" parent="." unique_id=1788055153]
+[node name="RedBase" parent="." unique_id=546653012 instance=ExtResource("6_l5e5x")]
 
-[node name="BlueBaseSpawn" type="Node2D" parent="." unique_id=783503134]
+[node name="BlueBase" parent="." unique_id=1035964477 instance=ExtResource("6_l5e5x")]
+team = 1

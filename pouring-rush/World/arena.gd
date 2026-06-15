@@ -5,8 +5,9 @@ class_name Arena
 @onready var camera_bounds: CameraBounds = $CameraBounds
 @onready var red_spawn_points: SpawnPoints = $RedSpawnPoints
 @onready var blue_spawn_points: SpawnPoints = $BlueSpawnPoints
-@onready var red_base_spawn: Node2D = $RedBaseSpawn
-@onready var blue_base_spawn: Node2D = $BlueBaseSpawn
+@onready var red_base: SafeZoneArea = $RedBase
+@onready var blue_base: SafeZoneArea = $BlueBase
+
 
 var red_spawns : Array[Node]
 var blue_spawns : Array[Node]
@@ -50,8 +51,8 @@ func get_camera_bounds() -> Rect2:
 	var br = camera_bounds.get_node("BottomRight").global_position
 	return Rect2(tl, br - tl)
 	
-func get_base(team : Team.type) -> Node2D:
+func get_base(team : Team.type) -> SafeZoneArea:
 	if team == Team.type.RED:
-		return red_base_spawn
+		return red_base
 	else:
-		return blue_base_spawn
+		return blue_base
