@@ -35,6 +35,7 @@ func initialize(match_config : MatchConfig, world : World, view_system : ViewSys
 	
 	load_arena(world.arena_root)
 	spawn_team_zones()
+	get_team_bases()
 	spawn_players()
 	set_team()
 	load_game_mode(world.game_mode_root)
@@ -59,11 +60,12 @@ func spawn_team_zones():
 	
 	red_zone.global_position = arena.red_base.global_position
 	blue_zone.global_position = arena.blue_base.global_position
-	
+
+func get_team_bases():
+	red_base = arena.red_base
+	blue_base = arena.blue_base
 
 func get_team_zones(team : Team.type):
-	
-	var zones : Array[SafeZoneArea]
 	
 	match team:
 		Team.type.RED:
@@ -71,6 +73,13 @@ func get_team_zones(team : Team.type):
 		Team.type.BLUE:
 			return blue_zone
 
+func get_base_zones(team : Team.type):
+	
+	match team:
+		Team.type.RED:
+			return red_base
+		Team.type.BLUE:
+			return blue_base
 
 func get_safe_zones(team : Team.type) -> Array[SafeZoneArea]:
 	
@@ -174,6 +183,7 @@ func respawn_player(player):
 	# respawns player
 	# this need to reflect what team the player is on
 	player.global_position = player.spawn.global_position
+	print("global pos: ", player.global_position)
 	
 	player.reset_for_respawn() # need to make this a function in player
 
