@@ -40,7 +40,7 @@ func check_ko():
 	
 	for p in match_manager.players:
 		
-		var zone = match_manager.get_camera_zones(p.team)
+		var zone = match_manager.get_zones(p.team)
 		
 		if not zone.overlaps_area(p.hurtbox):
 			on_player_ko(p)

@@ -59,7 +59,7 @@ func spawn_team_zones():
 	
 
 
-func get_camera_zones(team : Team.type):
+func get_zones(team : Team.type):
 	
 	match team:
 		Team.type.RED:
@@ -107,7 +107,7 @@ func spawn_player(config : PlayerConfig) -> Player:
 	p.global_position = p.spawn.global_position
 	
 	# setting the spesific players teamzone
-	p.carry_component.zone = get_camera_zones(p.team)
+	p.carry_component.zone = get_zones(p.team)
 	
 	return p
 
@@ -156,7 +156,7 @@ func respawn_player(player):
 
 func reset_team_zone(team: Team.type):
 
-	var zone = get_camera_zones(team)
+	var zone = get_zones(team)
 	var base = arena.get_base(team)
 
 	zone.carrier = null
