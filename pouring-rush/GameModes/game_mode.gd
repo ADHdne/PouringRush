@@ -39,9 +39,8 @@ func end_match():
 func check_ko():
 	for p in match_manager.players:
 		var safe = false
-		print("player collision: ", p.hurtbox.get_overlapping_areas())
 		for zone in match_manager.get_safe_zones(p.team):
-			print("zone overlapping: ", zone.get_overlapping_areas())
+			
 			if zone.overlaps_area(p.hurtbox):
 				safe = true
 				break
