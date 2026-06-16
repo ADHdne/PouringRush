@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bljb6ows1k8al"]
+
+[ext_resource type="Script" uid="uid://dlg7qsnma3hq" path="res://GameModes/Push/push_lane.gd" id="1_7g6el"]
+[ext_resource type="PackedScene" uid="uid://bmg8s781sv220" path="res://GameModes/Push/pusher.tscn" id="1_vflec"]
+[ext_resource type="PackedScene" uid="uid://1xalpnn3nslc" path="res://GameModes/Push/team_barrier.tscn" id="2_clss1"]
+
+[sub_resource type="Curve2D" id="Curve2D_p7oax"]
+
+[node name="PushLane" type="Path2D" unique_id=1587464203]
+curve = SubResource("Curve2D_p7oax")
+script = ExtResource("1_7g6el")
+
+[node name="Pusher" parent="." unique_id=1039393299 instance=ExtResource("1_vflec")]
+
+[node name="RedBarrier" parent="." unique_id=1880023225 instance=ExtResource("2_clss1")]
+
+[node name="BlueBarrier" parent="." unique_id=498036718 instance=ExtResource("2_clss1")]

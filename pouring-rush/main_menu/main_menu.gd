@@ -26,7 +26,8 @@ var arenas : Array[PackedScene] = [
 ]
 
 var game_modes : Array[PackedScene] = [
-	preload("res://GameModes/stock_mode.tscn")
+	preload("res://GameModes/stock_mode.tscn"),
+	preload("res://GameModes/Push/push_mode.tscn")
 	
 ]
 
@@ -93,7 +94,7 @@ func start_match():
 	
 	# both arena and game mode should be choosable in this menu in the future
 	config.arena_scene = arenas[0]
-	config.game_mode = game_modes[0]
+	config.game_mode = game_modes[1]
 	
 	GameManager.match_config = config
 	

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c24gpb48ks2ve"]
+
+[ext_resource type="Script" uid="uid://c0vvfjsw4yxkf" path="res://GameModes/Push/push_mode.gd" id="1_751of"]
+[ext_resource type="PackedScene" uid="uid://bljb6ows1k8al" path="res://GameModes/Push/push_lane.tscn" id="2_jpwcs"]
+
+[node name="PushMode" type="Node" unique_id=1130939171]
+script = ExtResource("1_751of")
+
+[node name="PushLane" parent="." unique_id=1587464203 instance=ExtResource("2_jpwcs")]
+
+[editable path="PushLane"]

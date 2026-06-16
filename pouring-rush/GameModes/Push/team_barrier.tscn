@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://1xalpnn3nslc"]
+
+[ext_resource type="Script" uid="uid://bk8dy6jygpjle" path="res://GameModes/Push/team_barrier.gd" id="1_icpss"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uepwn"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dyomr"]
+size = Vector2(32, 32)
+
+[node name="TeamBarrier" type="PathFollow2D" unique_id=1880023225]
+script = ExtResource("1_icpss")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1492190059]
+texture_filter = 1
+texture = SubResource("PlaceholderTexture2D_uepwn")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1406950215]
+collision_layer = 256
+collision_mask = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=52594632]
+shape = SubResource("RectangleShape2D_dyomr")

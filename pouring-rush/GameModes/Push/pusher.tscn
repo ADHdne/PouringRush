@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bmg8s781sv220"]
+
+[ext_resource type="Script" uid="uid://cpya0drk2bmgo" path="res://GameModes/Push/pusher.gd" id="1_wmc3i"]
+[ext_resource type="Texture2D" uid="uid://cej8h4e437of4" path="res://Assets/Sprites/Tilesets/IMG_0205.png" id="2_n672m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_el2f3"]
+atlas = ExtResource("2_n672m")
+region = Rect2(384, 96, 32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmc3i"]
+size = Vector2(36, 36)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wmc3i"]
+radius = 138.2787
+
+[node name="Pusher" type="PathFollow2D" unique_id=1039393299]
+script = ExtResource("1_wmc3i")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=861754851]
+texture_filter = 1
+texture = SubResource("AtlasTexture_el2f3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1770698048]
+collision_layer = 128
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1124129856]
+shape = SubResource("RectangleShape2D_wmc3i")
+
+[node name="CaptureArea" type="Area2D" parent="." unique_id=1491967337]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CaptureArea" unique_id=1014616345]
+shape = SubResource("CircleShape2D_wmc3i")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="area_entered" from="CaptureArea" to="." method="_on_capture_area_area_entered"]
+[connection signal="area_exited" from="CaptureArea" to="." method="_on_capture_area_area_exited"]

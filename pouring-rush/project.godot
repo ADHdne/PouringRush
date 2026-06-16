@@ -257,6 +257,8 @@ Interact={
 2d_physics/layer_5="ProjectileLayer"
 2d_physics/layer_6="InteractablesLayer"
 2d_physics/layer_7="ZoneLayer"
+2d_physics/layer_8="PusherLayer"
+2d_physics/layer_9="BarrierLayer"
 
 [physics]
 
