@@ -22,7 +22,6 @@ var blue_count : int = 0
 var state : PusherStates.State = PusherStates.State.IDLE
 
 func _physics_process(delta: float) -> void:
-	
 	match state:
 		
 		PusherStates.State.IDLE:
@@ -97,13 +96,27 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
-	pass # Replace with function body.
+	
+	if area.owner is PushBarrier:
+
+		var barrier : PushBarrier = area.owner
+
+		match barrier.team:
+
+			Team.type.RED:
+				SignalBus.stopped_pushing_barrier.emit()
+
+			Team.type.BLUE:
+				SignalBus.stopped_pushing_barrier.emit()
 
 
 func _on_capture_area_area_entered(area: Area2D) -> void:
-	if area == HurtboxComponent:
+	
+	if area is HurtboxComponent:
+		
 		if area._owner.team == Team.type.RED:
 			red_count += 1
+
 		if area._owner.team == Team.type.BLUE:
 			blue_count += 1
 	
@@ -113,7 +126,7 @@ func _on_capture_area_area_entered(area: Area2D) -> void:
 
 
 func _on_capture_area_area_exited(area: Area2D) -> void:
-	if area == HurtboxComponent:
+	if area is HurtboxComponent:
 		if area._owner.team == Team.type.RED:
 			red_count -= 1
 		if area._owner.team == Team.type.BLUE:

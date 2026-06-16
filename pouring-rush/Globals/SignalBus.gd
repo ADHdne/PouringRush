@@ -7,3 +7,4 @@ signal team_core_exited_base(team)
 signal evaluate_control()
 
 signal pushing_barrier(team : Team.type)
+signal stopped_pushing_barrier()
