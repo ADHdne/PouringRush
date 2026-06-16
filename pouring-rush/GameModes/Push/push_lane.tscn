@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://1xalpnn3nslc" path="res://GameModes/Push/team_barrier.tscn" id="2_clss1"]
 
 [sub_resource type="Curve2D" id="Curve2D_p7oax"]
+resource_local_to_scene = true
 
 [node name="PushLane" type="Path2D" unique_id=1587464203]
 curve = SubResource("Curve2D_p7oax")

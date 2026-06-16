@@ -42,7 +42,9 @@ func initialize(match_config : MatchConfig, world : World, view_system : ViewSys
 	
 	
 	view_system.initialize(world, red_zone, blue_zone)
-	
+	match match_config.game_mode_type:
+		SelectedMode.Mode.PUSH:
+			game_mode.init(arena.push_lane, arena.push_lane.pusher, arena.push_lane.red_barrier, arena.push_lane.blue_barrier)
 	game_mode.initialize(self)
 	game_mode.start_match()
 

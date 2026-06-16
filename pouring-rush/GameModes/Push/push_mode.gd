@@ -6,10 +6,10 @@ var red_players_near : = 0
 var blue_players_near : = 0
 
 
-@onready var pusher: Pusher = $PushLane/Pusher
+var pusher: Pusher 
 
-@onready var red_barrier: PushBarrier = $PushLane/RedBarrier
-@onready var blue_barrier: PushBarrier = $PushLane/BlueBarrier
+var red_barrier: PushBarrier 
+var blue_barrier: PushBarrier
 
 var pushing_red : bool = false
 var pushing_blue : bool = false
@@ -38,8 +38,11 @@ func _physics_process(delta: float) -> void:
 		update_blue_push()
 
 
-func initialize(match_manager : MatchManager):
-	super(match_manager)
+func init(lane : PushLane, pusher : Pusher, red_barrier : PushBarrier, blue_barrier : PushBarrier):
+	self.lane = lane
+	self.pusher = pusher
+	self.red_barrier = red_barrier
+	self.blue_barrier = blue_barrier
 	set_up_pusher()
 	
 

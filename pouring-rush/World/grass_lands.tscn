@@ -65,7 +65,7 @@ position = Vector2(2117, 531)
 position = Vector2(42, -202.5)
 shape = SubResource("RectangleShape2D_mp40v")
 
-[node name="Path2D" type="Path2D" parent="." index="6" unique_id=1730023111]
+[node name="PushLane" parent="." index="6" unique_id=1587464203]
 curve = SubResource("Curve2D_8johc")
 
 [editable path="CameraBounds"]

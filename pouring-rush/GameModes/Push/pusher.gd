@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 func set_up(red_barrier : PushBarrier, blue_barrier : PushBarrier):
 	self.red_barrier = red_barrier
 	self.blue_barrier = blue_barrier
+	progress = 0.5
 
 
 # Durring match

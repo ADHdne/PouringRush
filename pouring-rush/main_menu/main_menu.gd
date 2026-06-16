@@ -95,6 +95,8 @@ func start_match():
 	# both arena and game mode should be choosable in this menu in the future
 	config.arena_scene = arenas[0]
 	config.game_mode = game_modes[1]
+	# also setting the game mode as matchable var
+	config.game_mode_type = SelectedMode.Mode.PUSH
 	
 	GameManager.match_config = config
 	

@@ -7,6 +7,8 @@ class_name Arena
 @onready var blue_spawn_points: SpawnPoints = $BlueSpawnPoints
 @onready var red_base: SafeZoneArea = $RedBase
 @onready var blue_base: SafeZoneArea = $BlueBase
+@onready var push_lane: PushLane = $PushLane
+
 
 
 var red_spawns : Array[Node]
