@@ -28,6 +28,7 @@ sprite_size = Vector2(1.2, 1.2)
 gravity = 500.0
 speed = 400.0
 lifetime = 4.0
+ammo_cost = 0
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]
