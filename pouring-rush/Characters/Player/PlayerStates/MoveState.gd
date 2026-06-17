@@ -23,6 +23,7 @@ func state_input(event : InputEvent):
 	if player.can_action_pressed:
 		if event.is_action_pressed(player.player_actions.jump):
 			_jump()
+		# for picking up team zone
 		if event.is_action_pressed(player.player_actions.interact):
 			if player.carry_component.is_carrying():
 				player.carry_component.drop()

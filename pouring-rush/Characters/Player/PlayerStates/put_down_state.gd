@@ -3,7 +3,7 @@ class_name PutDownState
 
 @export var idle_state : State
 
-@export var lag : float = 0.5
+@export var lag : float = 0.3
 
 func on_enter():
 	await get_tree().create_timer(lag).timeout
