@@ -114,12 +114,13 @@ move_state = NodePath("../Move")
 Jump_state = NodePath("../Jump")
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
-[node name="Fall" type="Node" parent="CharacterStateMachine" unique_id=1327168684 node_paths=PackedStringArray("move_state", "idle_state", "jump_state", "wall_slide_state")]
+[node name="Fall" type="Node" parent="CharacterStateMachine" unique_id=1327168684 node_paths=PackedStringArray("move_state", "idle_state", "jump_state", "wall_slide_state", "coyote_timer")]
 script = ExtResource("4_ddoul")
 move_state = NodePath("../Move")
 idle_state = NodePath("../Idle")
 jump_state = NodePath("../Jump")
 wall_slide_state = NodePath("../WallSlide")
+coyote_timer = NodePath("../../Timers/CoyoteJumpTimer")
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
 [node name="Jump" type="Node" parent="CharacterStateMachine" unique_id=2108050567 node_paths=PackedStringArray("fall_state", "idle_state", "move_state")]

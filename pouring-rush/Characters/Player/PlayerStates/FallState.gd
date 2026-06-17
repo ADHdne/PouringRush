@@ -7,6 +7,7 @@ class_name FallState
 @export var jump_state : State
 @export var wall_slide_state : State
 
+@export var coyote_timer : Timer
 
 
 func state_process(_delta):
@@ -21,7 +22,9 @@ func state_process(_delta):
 func state_input(event : InputEvent):
 	if player.can_action_pressed:
 		if event.is_action_pressed(player.player_actions.jump):
-			if player.movement.jumps_remaining > 0:
+			if not coyote_timer.is_stopped():
+				_jump()
+			elif player.movement.jumps_remaining > 0:
 				double_jump()
 			else:
 				player.jump_buffer_timer.start()
@@ -31,6 +34,10 @@ func state_input(event : InputEvent):
 				player.carry_component.drop()
 			else:
 				player.carry_component.pick_up(player.carry_component.zone)
+
+func _jump():
+	player.movement.jump()
+	next_state = jump_state
 
 func double_jump():
 	player.movement.jumps_remaining -= 1
