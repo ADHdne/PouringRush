@@ -6,6 +6,8 @@ class_name MovementComponent
 @export var player : Player
 
 
+var speed : float 
+
 ## dash vars
 var dash_timer = 0
 
@@ -16,6 +18,13 @@ var impact_vel : Vector2
 var is_bouncing : bool = false
 
 func _physics_process(delta: float) -> void:
+	
+	# sets speed based on carrying or not
+	if player.carry_component.is_carrying():
+		speed = player.character_data.carry_speed
+	else:
+		speed = player.character_data.run_speed
+	
 	## add gravity
 	if player.is_on_wall_only() and player.velocity.y > 0 and not player.in_tumble:
 		## wall gravity
@@ -67,9 +76,9 @@ func accelerate(direction):
 	if player.in_tumble:
 		return
 	if player.is_on_floor():
-		player.velocity.x = move_toward(player.velocity.x, player.character_data.run_speed * direction, player.character_data.acc)
+		player.velocity.x = move_toward(player.velocity.x, speed * direction, player.character_data.acc)
 	else:
-		player.velocity.x = move_toward(player.velocity.x, player.character_data.run_speed * direction, player.character_data.air_acc)
+		player.velocity.x = move_toward(player.velocity.x, speed * direction, player.character_data.air_acc)
 
 func add_friction():
 	if player.in_tumble:

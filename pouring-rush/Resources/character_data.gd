@@ -24,7 +24,9 @@ class_name CharacterData
 @export var wall_jump_power : float = -300.0
 @export var wall_jump_pushback : float = 360
 # run speed
-@export var run_speed : float = 185.0
+@export var run_speed : float = 200.0
+# carry speed
+@export var carry_speed : float = 130
 
 # stats
 @export_category("Stats")
