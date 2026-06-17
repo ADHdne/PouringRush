@@ -84,6 +84,7 @@ func set_control_state():
 
 func pushing_barrrier(team : Team.type):
 	
+	
 	if team == null:
 		pushing_red = false
 		pushing_blue = false
@@ -94,6 +95,7 @@ func pushing_barrrier(team : Team.type):
 	if team == Team.type.BLUE:
 		pushing_red = false
 		pushing_blue = true
+	
 
 
 func stopped_pushing():

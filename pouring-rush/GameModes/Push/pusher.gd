@@ -74,12 +74,12 @@ func push_red(delta : float):
 
 func push_blue(delta : float):
 	
-	if red_barrier == null:
+	if blue_barrier == null:
 		return
 	
 	var move_amount = push_speed * delta
 	progress -= move_amount
-	red_barrier.progress -= move_amount
+	blue_barrier.progress -= move_amount
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
