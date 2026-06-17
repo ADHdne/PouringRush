@@ -118,12 +118,39 @@ func update_blue_push():
 	else:
 		pusher.state = PusherStates.State.PUSH_BLUE
 
+func determine_winner_on_timeout():
+
+	var red_distance = red_barrier.progress
+	var blue_distance = lane.get_length() - blue_barrier.progress
+
+	if red_distance > blue_distance:
+		on_team_wins(Team.type.RED)
+
+	elif blue_distance > red_distance:
+		on_team_wins(Team.type.BLUE)
+
+	else:
+		on_draw()
 
 func check_win_condition():
+	
 	if match_in_progress == true:
 		if red_barrier.progress >= lane.get_length():
-			red_team_wins = true
-			print("red team wins")
+			on_team_wins(Team.type.RED)
 		if blue_barrier.progress <= 0:
 			blue_team_wins = true
-			print("Blue team wins")
+			on_team_wins(Team.type.BLUE)
+		else:
+			return
+
+func on_team_wins(team : Team.type):
+	match team:
+		Team.type.RED:
+			red_team_wins = true
+			end_match("Victory for the Red Team")
+		Team.type.BLUE:
+			blue_team_wins = true
+			end_match("Victory for the Red Team")
+
+func on_draw():
+	end_match("Draw: No Winning Team")

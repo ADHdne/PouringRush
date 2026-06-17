@@ -32,4 +32,4 @@ func check_win_condition():
 			alive.append(p)
 	
 	if alive.size() <= 1:
-		end_match()
+		end_match("i dont know who won")

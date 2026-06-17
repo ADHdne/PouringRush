@@ -61,9 +61,11 @@ func start_match():
 	match_in_progress = true
 	print("GameMode: Match started")
 
-func end_match():
+func end_match(winner : String):
 	match_in_progress = false
-	print("GameMode: Match ended")
+	GameManager.winning_team = winner
+	GameManager.match_ended()
+	print("match ended")
 
 
 func check_ko():

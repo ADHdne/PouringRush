@@ -14,5 +14,7 @@ script = ExtResource("1_7g6el")
 [node name="Pusher" parent="." unique_id=1039393299 instance=ExtResource("1_vflec")]
 
 [node name="RedBarrier" parent="." unique_id=1880023225 instance=ExtResource("2_clss1")]
+loop = false
 
 [node name="BlueBarrier" parent="." unique_id=498036718 instance=ExtResource("2_clss1")]
+loop = false
