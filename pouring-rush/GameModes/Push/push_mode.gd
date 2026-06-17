@@ -121,9 +121,9 @@ func update_blue_push():
 
 func check_win_condition():
 	if match_in_progress == true:
-		if red_barrier.progress >= lane.get_length() / 10 * 9:
+		if red_barrier.progress >= lane.get_length():
 			red_team_wins = true
 			print("red team wins")
-		if blue_barrier.progress <= lane.get_length() / 10 * 1:
+		if blue_barrier.progress <= 0:
 			blue_team_wins = true
 			print("Blue team wins")
