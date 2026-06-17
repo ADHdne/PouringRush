@@ -102,10 +102,11 @@ script = ExtResource("2_tok1r")
 player = NodePath("..")
 current_state = NodePath("Move")
 
-[node name="Move" type="Node" parent="CharacterStateMachine" unique_id=986578383 node_paths=PackedStringArray("jump_state", "idle_state")]
+[node name="Move" type="Node" parent="CharacterStateMachine" unique_id=986578383 node_paths=PackedStringArray("jump_state", "idle_state", "fall_state")]
 script = ExtResource("3_tok1r")
 jump_state = NodePath("../Jump")
 idle_state = NodePath("../Idle")
+fall_state = NodePath("../Fall")
 
 [node name="Idle" type="Node" parent="CharacterStateMachine" unique_id=1114626690 node_paths=PackedStringArray("move_state", "Jump_state")]
 script = ExtResource("8_dl42p")

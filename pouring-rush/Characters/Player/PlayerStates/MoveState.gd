@@ -15,6 +15,8 @@ func on_enter():
 func state_process(_delta):
 	if player.is_on_floor() and player.direction.x == 0:
 		next_state = idle_state
+	if not player.is_on_floor():
+		next_state = fall_state
 
 
 func state_input(event : InputEvent):
