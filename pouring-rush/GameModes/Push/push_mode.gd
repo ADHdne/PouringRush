@@ -24,6 +24,7 @@ func _ready() -> void:
 	SignalBus.pushing_barrier.connect(pushing_barrrier)
 	SignalBus.stopped_pushing_barrier.connect(stopped_pushing)
 
+
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	
@@ -31,7 +32,7 @@ func _physics_process(delta: float) -> void:
 	var controlling_team = set_control_state()
 	
 	if controlling_team == null:
-		return
+		stop()
 	
 	if controlling_team == Team.type.RED:
 		update_red_push()
@@ -99,9 +100,11 @@ func stopped_pushing():
 	pushing_red = false
 	pushing_blue = false
 
-func update_red_push():
+func stop():
+	pusher.state = PusherStates.State.IDLE
 
-	if pushing_red == true:
+func update_red_push():
+	if not pushing_red == true:
 		pusher.state = PusherStates.State.TO_RED
 	else:
 		pusher.state = PusherStates.State.PUSH_RED
@@ -109,7 +112,7 @@ func update_red_push():
 
 func update_blue_push():
 
-	if pushing_blue == true:
+	if not pushing_blue == true:
 		pusher.state = PusherStates.State.TO_BLUE
 	else:
 		pusher.state = PusherStates.State.PUSH_BLUE
