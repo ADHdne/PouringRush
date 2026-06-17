@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_fnseu"]
 [ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_qtc1u"]
 [ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="3_7vuwe"]
+[ext_resource type="Texture2D" uid="uid://caxvvruwjpf5" path="res://Assets/Sprites/rotating_orbs.png" id="3_fnseu"]
 [ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="4_lgm7l"]
 
 [sub_resource type="Resource" id="Resource_hlkmj"]
@@ -14,9 +15,16 @@ knockback_type = 1
 hit_stun = 1.0
 metadata/_custom_type_script = "uid://drphxsmjyfe1x"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtc1u"]
+atlas = ExtResource("3_fnseu")
+region = Rect2(4, 132, 24, 24)
+
 [sub_resource type="Resource" id="Resource_5ikm4"]
 script = ExtResource("2_qtc1u")
 hit_data = SubResource("Resource_hlkmj")
+texture = SubResource("AtlasTexture_qtc1u")
+radius = 12.0
+sprite_size = Vector2(1.2, 1.2)
 gravity = 500.0
 speed = 400.0
 lifetime = 4.0

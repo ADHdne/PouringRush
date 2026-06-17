@@ -5,6 +5,10 @@ class_name Projectile
 @export var data : ProjectileData
 @export var lifetime_timer : Timer
 
+# reference to children
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
+@onready var sprite: Sprite2D = $Sprite2D
+
 
 var direction : Vector2
 var velocity : Vector2
@@ -13,6 +17,9 @@ var origin : Node
 
 
 func _ready() -> void:
+	collision_shape.shape.radius = data.radius
+	sprite.texture = data.texture
+	sprite.scale = data.sprite_size
 	lifetime_timer.start(data.lifetime)
 
 func _physics_process(delta: float) -> void:

@@ -4,6 +4,12 @@ class_name ProjectileData
 
 @export var hit_data : HitData
 
+# texture and size and stuff
+@export var texture : Texture
+@export var radius : float = 8
+@export var sprite_size : Vector2 = Vector2(1,1)
+
+
 @export var gravity : float = 1000
 
 @export var speed: float = 800
