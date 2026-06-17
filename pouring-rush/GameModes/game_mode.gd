@@ -23,7 +23,8 @@ var core_base_time := {
 
 const RESPAWN_TIME : = 5
 
-
+var red_team_wins : bool = false
+var blue_team_wins : bool = false
 
 func _ready() -> void:
 	SignalBus.team_core_entered_base.connect(on_core_entered)

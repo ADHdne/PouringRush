@@ -11,7 +11,7 @@ region = Rect2(384, 96, 32, 32)
 size = Vector2(36, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmc3i"]
-radius = 138.2787
+radius = 203.0
 
 [node name="Pusher" type="PathFollow2D" unique_id=1039393299]
 script = ExtResource("1_wmc3i")

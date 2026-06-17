@@ -107,11 +107,9 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 			Team.type.RED:
 				SignalBus.stopped_pushing_barrier.emit()
-				print("red stopped")
 
 			Team.type.BLUE:
 				SignalBus.stopped_pushing_barrier.emit()
-				print("blue stopped")
 
 
 func _on_capture_area_area_entered(area: Area2D) -> void:

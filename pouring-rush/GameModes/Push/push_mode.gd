@@ -28,7 +28,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
 	
-	
 	var controlling_team = set_control_state()
 	
 	if controlling_team == null:
@@ -39,6 +38,8 @@ func _physics_process(delta: float) -> void:
 	
 	if controlling_team == Team.type.BLUE:
 		update_blue_push()
+	
+	check_win_condition()
 
 
 func init(lane : PushLane, pusher : Pusher, red_barrier : PushBarrier, blue_barrier : PushBarrier):
@@ -116,3 +117,13 @@ func update_blue_push():
 		pusher.state = PusherStates.State.TO_BLUE
 	else:
 		pusher.state = PusherStates.State.PUSH_BLUE
+
+
+func check_win_condition():
+	if match_in_progress == true:
+		if red_barrier.progress >= lane.get_length() / 10 * 9:
+			red_team_wins = true
+			print("red team wins")
+		if blue_barrier.progress <= lane.get_length() / 10 * 1:
+			blue_team_wins = true
+			print("Blue team wins")
