@@ -3,6 +3,7 @@
 [ext_resource type="Resource" uid="uid://craujuwyqxor6" path="res://Characters/Player/PlayerResources/basic_shot.tres" id="1_1vi2l"]
 [ext_resource type="Script" uid="uid://c26p6mh1s8fyn" path="res://Resources/character_data.gd" id="1_8ajqi"]
 [ext_resource type="Resource" uid="uid://c1urw7gwlpneg" path="res://Characters/Player/PlayerResources/Special_1_shot.tres" id="3_63t4j"]
+[ext_resource type="Resource" uid="uid://bp6wdom3pcmoi" path="res://Characters/Player/PlayerResources/Special_2_shot.tres" id="4_63t4j"]
 
 [resource]
 script = ExtResource("1_8ajqi")
@@ -11,4 +12,5 @@ run_speed = 190.0
 carry_speed = 140.0
 basic_shot = ExtResource("1_1vi2l")
 special_1 = ExtResource("3_63t4j")
+special_2 = ExtResource("4_63t4j")
 metadata/_custom_type_script = "uid://c26p6mh1s8fyn"

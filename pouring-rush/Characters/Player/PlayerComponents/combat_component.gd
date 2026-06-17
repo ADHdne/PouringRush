@@ -31,6 +31,7 @@ func _process(delta):
 		
 		if ability.cooldown_remaining > 0:
 			ability.cooldown_remaining = max(0.0, ability.cooldown_remaining - delta)
+			print("ability cooldown: ", ability.cooldown_remaining)
 	
 	if can_shoot(buffered_ability) and shot_buffered:
 		shoot(buffered_ability)
@@ -50,7 +51,7 @@ func _input(event: InputEvent) -> void:
 
 ## shooting logic
 func can_shoot(data : AbilityState) -> bool:
-	return shoot_cooldown <= 0 and player.can_attack
+	return shoot_cooldown <= 0 and player.can_attack and data.cooldown_remaining <= 0
 
 
 func shoot(data : AbilityState):
@@ -82,6 +83,8 @@ func shoot(data : AbilityState):
 	data.current_ammo -= data.ability_data.projectile_data.ammo_cost
 	
 	shoot_cooldown = data.ability_data.cooldown
+	
+	data.cooldown_remaining = data.ability_data.ability_cooldown
 
 
 func try_shoot(data : AbilityState):
