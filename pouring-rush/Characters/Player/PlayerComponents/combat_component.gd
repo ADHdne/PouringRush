@@ -94,7 +94,7 @@ func _on_shot_buffer_timer_timeout() -> void:
 func create_states(data : CharacterData):
 	basic_shot_data = create_state(data.basic_shot)
 	special_shot_data = create_state(data.special_1)
-	#special_2_data = create_state(data.special_2)
+	special_2_data = create_state(data.special_2)
 	#utility_data = create_state(data.utility)
 
 func create_state(data : AbilityData) -> AbilityState:

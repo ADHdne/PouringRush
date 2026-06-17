@@ -7,7 +7,6 @@ class_name AbilityData
 @export var cooldown : float = 1.0
 
 @export var ability_cooldown : float
-@export var ability_cooldown_time : float
 @export var max_ammo: int = 50
 @export var reload_time : float = 1
 

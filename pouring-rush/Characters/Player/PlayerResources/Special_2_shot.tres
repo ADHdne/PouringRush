@@ -5,4 +5,5 @@
 [resource]
 script = ExtResource("1_gdrkh")
 ability_name = "Special 2 "
+ability_cooldown = 15.0
 metadata/_custom_type_script = "uid://d1qs4e030ganv"
