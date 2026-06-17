@@ -10,8 +10,10 @@ class_name Pusher
 
 
 
-@export var return_speed : float = 300
-@export var push_speed : float = 100
+@export var return_speed : float = 100
+@export var push_speed : float = 50
+
+var lane : PushLane
 
 var red_barrier : PushBarrier
 var blue_barrier : PushBarrier
@@ -40,10 +42,10 @@ func _physics_process(delta: float) -> void:
 			push_blue(delta)
 
 
-func set_up(red_barrier : PushBarrier, blue_barrier : PushBarrier):
+func set_up(lane : PushLane, red_barrier : PushBarrier, blue_barrier : PushBarrier):
 	self.red_barrier = red_barrier
 	self.blue_barrier = blue_barrier
-	progress = 0.5
+	self.lane = lane
 
 
 # Durring match

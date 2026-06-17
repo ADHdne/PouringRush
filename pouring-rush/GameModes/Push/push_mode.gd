@@ -49,7 +49,7 @@ func init(lane : PushLane, pusher : Pusher, red_barrier : PushBarrier, blue_barr
 	
 
 func set_up_pusher():
-	pusher.set_up(red_barrier, blue_barrier)
+	pusher.set_up(lane, red_barrier, blue_barrier)
 	pusher.state = PusherStates.State.IDLE
 
 func set_up_barriers():
@@ -61,6 +61,12 @@ func set_up_barriers():
 
 # Durring match
 
+func start_match():
+	
+	super()
+	pusher.progress = lane.get_length() / 2
+	red_barrier.progress = lane.get_length() / 10 * 6
+	blue_barrier.progress = lane.get_length() / 10 * 4
 
 func get_controlling_team():
 	red_players_near = pusher.red_count

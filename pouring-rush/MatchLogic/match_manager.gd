@@ -187,7 +187,6 @@ func respawn_player(player):
 	# respawns player
 	# this need to reflect what team the player is on
 	player.global_position = player.spawn.global_position
-	print("global pos: ", player.global_position)
 	
 	player.reset_for_respawn() # need to make this a function in player
 
