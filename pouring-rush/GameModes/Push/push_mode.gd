@@ -47,6 +47,7 @@ func init(lane : PushLane, pusher : Pusher, red_barrier : PushBarrier, blue_barr
 	self.pusher = pusher
 	self.red_barrier = red_barrier
 	self.blue_barrier = blue_barrier
+	set_up_barriers()
 	set_up_pusher()
 	
 
@@ -57,9 +58,6 @@ func set_up_pusher():
 func set_up_barriers():
 	red_barrier.team = Team.type.RED
 	blue_barrier.team = Team.type.BLUE
-	
-	red_barrier.progress = 0.60
-	blue_barrier.progress = 0.40
 
 # Durring match
 
@@ -97,6 +95,7 @@ func pushing_barrrier(team : Team.type):
 		pushing_red = false
 		pushing_blue = true
 
+
 func stopped_pushing():
 	pushing_red = false
 	pushing_blue = false
@@ -105,15 +104,14 @@ func stop():
 	pusher.state = PusherStates.State.IDLE
 
 func update_red_push():
-	if not pushing_red == true:
+	if not pushing_red:
 		pusher.state = PusherStates.State.TO_RED
 	else:
 		pusher.state = PusherStates.State.PUSH_RED
 
 
 func update_blue_push():
-
-	if not pushing_blue == true:
+	if not pushing_blue:
 		pusher.state = PusherStates.State.TO_BLUE
 	else:
 		pusher.state = PusherStates.State.PUSH_BLUE

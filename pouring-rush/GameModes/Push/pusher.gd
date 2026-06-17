@@ -42,6 +42,7 @@ func _physics_process(delta: float) -> void:
 			push_blue(delta)
 
 
+# gets called from 
 func set_up(lane : PushLane, red_barrier : PushBarrier, blue_barrier : PushBarrier):
 	self.red_barrier = red_barrier
 	self.blue_barrier = blue_barrier
