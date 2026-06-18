@@ -11,7 +11,8 @@ enum UtilityType {
 	NONE,
 	DASH,
 	TELEPORT,
-	GRAPPLE
+	GRAPPLE,
+	REFLECT
 }
 
 
