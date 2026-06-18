@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://d33piyfffxpb5" path="res://Assets/Sprites/Tilesets/sandbrick_grass_alt_tileset_2.png" id="1_ilf7g"]
 [ext_resource type="PackedScene" uid="uid://dq0nnq8dnfdh" path="res://Characters/Player/Player.tscn" id="2_l2hm1"]
-[ext_resource type="Resource" uid="uid://dqvy2np3l3wud" path="res://Characters/Player/PlayerResources/player_1_actions.tres" id="2_w6c0v"]
-[ext_resource type="Resource" uid="uid://cq3rt54svka12" path="res://Characters/Player/PlayerResources/player_2_actions.tres" id="4_mb0kd"]
+[ext_resource type="Resource" uid="uid://dqvy2np3l3wud" path="res://Characters/Player/PlayerResources/PlayerControls/player_1_actions.tres" id="2_w6c0v"]
+[ext_resource type="Resource" uid="uid://cq3rt54svka12" path="res://Characters/Player/PlayerResources/PlayerControls/player_2_actions.tres" id="4_mb0kd"]
 [ext_resource type="PackedScene" uid="uid://nwurj74d4di3" path="res://Components/TeamComponents/TeamZone.tscn" id="5_mb0kd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l2hm1"]
