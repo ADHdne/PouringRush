@@ -87,7 +87,7 @@ func try_use_ability(data: AbilityState):
 
 ## shooting logic
 func can_shoot(data : AbilityState) -> bool:
-	return shoot_cooldown <= 0 and player.can_attack and data.cooldown_remaining <= 0
+	return shoot_cooldown <= 0 and player.can_attack and player.can_action_pressed and data.cooldown_remaining <= 0
 
 
 # Checks ammo

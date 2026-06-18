@@ -10,5 +10,6 @@ func state_process(_delta):
 	if player.hurtbox.monitorable == true:
 		player.hurtbox.monitorable = false
 
+
 func on_exit():
 	player.rotate(90)

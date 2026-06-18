@@ -38,5 +38,5 @@ enum UtilityType {
 
 
 # for utility
-@export var dash_speed : float
-@export var dash_duration : float
+@export var dash_speed : float = 800
+@export var dash_duration : float = 0.1
