@@ -35,9 +35,10 @@ func _physics_process(delta: float) -> void:
 	# applying dash
 	if is_dashing:
 		apply_dash(delta)
-		return
+	
+	
 	apply_gravity(delta)
-
+	
 	
 	if player.in_tumble:
 		if abs(player.velocity.x) >= 1:
@@ -63,6 +64,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		add_friction()
 	
+	player.move_and_slide()
+	
 	# reset jumps on landing
 	if player.is_on_floor() and jumps_remaining != 1:
 		jumps_remaining = 1
@@ -85,7 +88,6 @@ func add_friction():
 	
 func player_movement():
 	var was_on_the_flore = player.is_on_floor()
-	player.move_and_slide()
 	var just_left_ledge = was_on_the_flore and not player.is_on_floor() and player.velocity.y >= 0
 	if just_left_ledge:
 		player.coyote_jump_timer.start()
