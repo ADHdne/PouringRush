@@ -120,6 +120,7 @@ func spawn_players():
 		
 		# setting id
 		player.player_index = i
+		
 		# setting controls
 		player.player_actions = config.player_actions[i]
 		
