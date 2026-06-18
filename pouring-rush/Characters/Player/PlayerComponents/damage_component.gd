@@ -20,4 +20,6 @@ func apply_damage(hit : HitData, attacker : Player):
 func apply_heal(hit : HitData, attacker : Player):
 	if attacker.team == player.team:
 		percentage -= hit.healing
+		if percentage < 0:
+			percentage = 0
 	return
