@@ -33,25 +33,68 @@ func _process(delta):
 			ability.cooldown_remaining = max(0.0, ability.cooldown_remaining - delta)
 			print("ability cooldown: ", ability.cooldown_remaining)
 	
-	if can_shoot(buffered_ability) and shot_buffered:
-		shoot(buffered_ability)
+	if shot_buffered:
+		if can_shoot(buffered_ability):
+			shoot(buffered_ability)
 
 func _input(event: InputEvent) -> void:
 	if not player.carry_component.is_carrying() or player.can_action_pressed or player.can_attack:
 		if event.is_action_pressed(player.player_actions.attack):
-			try_shoot(basic_shot_data)
+			try_use_ability(basic_shot_data)
 		if event.is_action_pressed(player.player_actions.special_1):
-			try_shoot(special_shot_data)
+			try_use_ability(special_shot_data)
 		if event.is_action_pressed(player.player_actions.special_2):
-			try_shoot(special_2_data)
+			try_use_ability(special_2_data)
 		if event.is_action_pressed(player.player_actions.reload):
 			request_reload()
 
 
+func create_states(data : CharacterData):
+	basic_shot_data = create_state(data.basic_shot)
+	special_shot_data = create_state(data.special_1)
+	special_2_data = create_state(data.special_2)
+	#utility_data = create_state(data.utility)
+
+func create_state(data : AbilityData) -> AbilityState:
+	
+	var state = AbilityState.new()
+	
+	state.ability_data = data
+	state.current_ammo = data.max_ammo
+	state.cooldown_remaining = 0.0
+	state.is_reloading = false
+	
+	return state
+
+func try_use_ability(data: AbilityState):
+	# check for different things that you might want to buffer
+	if not can_shoot(data):
+		shot_buffered = true
+		buffered_ability = data
+		shot_buffer.start()
+		return
+
+	match data.ability_data.ability_type:
+
+		AbilityData.AbilityType.PROJECTILE:
+			try_shoot(data)
+
+		AbilityData.AbilityType.UTILITY:
+			use_utility(data)
+	
+	data.cooldown_remaining = data.ability_data.ability_cooldown
 
 ## shooting logic
 func can_shoot(data : AbilityState) -> bool:
 	return shoot_cooldown <= 0 and player.can_attack and data.cooldown_remaining <= 0
+
+
+# Checks ammo
+func try_shoot(data : AbilityState):
+	if data.current_ammo < data.ability_data.projectile_data.ammo_cost:
+		return
+	
+	shoot(data)
 
 
 func shoot(data : AbilityState):
@@ -83,41 +126,22 @@ func shoot(data : AbilityState):
 	data.current_ammo -= data.ability_data.projectile_data.ammo_cost
 	
 	shoot_cooldown = data.ability_data.cooldown
-	
-	data.cooldown_remaining = data.ability_data.ability_cooldown
 
 
-func try_shoot(data : AbilityState):
-	if data.current_ammo < data.ability_data.projectile_data.ammo_cost:
-		return
-	
-	if not can_shoot(data):
-		shot_buffered = true
-		buffered_ability = data
-		shot_buffer.start()
-		return
-	shoot(data)
+func use_utility(data : AbilityState):
+	match data.ability_data.UtilityType:
+		
+		AbilityData.UtilityType.DASH:
+			pass
+		
+		AbilityData.UtilityType.TELEPORT:
+			pass
+		
+		AbilityData.UtilityType.GRAPPLE:
+			pass
 
-
-func _on_shot_buffer_timer_timeout() -> void:
-	shot_buffered = false
-
-func create_states(data : CharacterData):
-	basic_shot_data = create_state(data.basic_shot)
-	special_shot_data = create_state(data.special_1)
-	special_2_data = create_state(data.special_2)
-	#utility_data = create_state(data.utility)
-
-func create_state(data : AbilityData) -> AbilityState:
-	
-	var state = AbilityState.new()
-	
-	state.ability_data = data
-	state.current_ammo = data.max_ammo
-	state.cooldown_remaining = 0.0
-	state.is_reloading = false
-	
-	return state
+func dash(data : AbilityState):
+	player.movement.dash()
 
 ## reload logic
 func request_reload():
@@ -133,6 +157,9 @@ func clear_states():
 	special_2_data = null
 	utility_data = null
 
+
+func _on_shot_buffer_timer_timeout() -> void:
+	shot_buffered = false
 
 func _on_reload_timer_timeout() -> void:
 	basic_shot_data.current_ammo = basic_shot_data.ability_data.max_ammo

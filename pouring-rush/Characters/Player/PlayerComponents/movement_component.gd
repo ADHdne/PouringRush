@@ -8,22 +8,32 @@ class_name MovementComponent
 
 var speed : float 
 
-## dash vars
-var dash_timer = 0
+# dash vars
+var is_dashing: bool = false
+var dash_direction: Vector2 = Vector2.ZERO
+
+var dash_speed: float = 0.0
+var dash_time_left: float = 0.0
+var dash_duration: float = 0.2
+
 
 # jump variables
 var jumps_remaining : int = 1
 
+# bouncing vars
 var impact_vel : Vector2
 var is_bouncing : bool = false
 
+
+
+
 func _physics_process(delta: float) -> void:
 	
-	# sets speed based on carrying or not
-	if player.carry_component.is_carrying():
-		speed = player.character_data.carry_speed
-	else:
-		speed = player.character_data.run_speed
+	
+	# dash timer
+	if dash_time_left > 0:
+		dash_time_left -= delta
+	
 	
 	## add gravity
 	if player.is_on_wall_only() and player.velocity.y > 0 and not player.in_tumble:
@@ -44,12 +54,21 @@ func _physics_process(delta: float) -> void:
 		if player.velocity.y > player.character_data.max_fall_velocity:
 			player.velocity.y = player.character_data.max_fall_velocity
 	
-	player_movement()
+
 	
 	if player.in_tumble:
 		if abs(player.velocity.x) >= 1:
 			impact_vel = player.velocity
 		check_bounce(impact_vel)
+	
+	
+		# sets speed based on carrying or not
+	if player.carry_component.is_carrying():
+		speed = player.character_data.carry_speed
+	else:
+		speed = player.character_data.run_speed
+	
+
 	
 	# moves player by adding acceleration to direction
 	if player.direction.x != 0 and player.state_machine.check_if_can_move() and player.can_action_pressed:
@@ -61,12 +80,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		add_friction()
 	
-	
-	
-	# dash timer
-	if dash_timer > 0:
-		dash_timer -= delta
-	
+	# normal movement
+	player_movement()
 	
 	# reset jumps on landing
 	if player.is_on_floor() and jumps_remaining != 1:
@@ -125,3 +140,6 @@ func jump():
 
 func wall_jump():
 	player.velocity = Vector2(player.character_data.wall_jump_pushback * -player.direction.x, player.character_data.wall_jump_power)
+
+func dash():
+	pass
