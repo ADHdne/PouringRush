@@ -25,7 +25,7 @@ class_name Player
 
 @export var sound_effects : CharacterSoundEffects
 
-@export var movement : MovementComponent
+@export var movement_component : MovementComponent
 @export var damage_component : DamageComponent
 @export var knockback_component : KnockbackComponent
 @export var combat_component : CombatComponent

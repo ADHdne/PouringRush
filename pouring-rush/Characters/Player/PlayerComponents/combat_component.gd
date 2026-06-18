@@ -141,7 +141,7 @@ func use_utility(data : AbilityState):
 			pass
 
 func dash(data : AbilityState):
-	player.movement.dash()
+	player.movement_component.dash()
 
 ## reload logic
 func request_reload():

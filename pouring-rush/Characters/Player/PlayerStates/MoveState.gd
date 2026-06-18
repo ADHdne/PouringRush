@@ -32,5 +32,5 @@ func state_input(event : InputEvent):
 
 
 func _jump():
-	player.movement.jump()
+	player.movement_component.jump()
 	next_state = jump_state

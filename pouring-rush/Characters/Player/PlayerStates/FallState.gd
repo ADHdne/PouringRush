@@ -24,7 +24,7 @@ func state_input(event : InputEvent):
 		if event.is_action_pressed(player.player_actions.jump):
 			if not coyote_timer.is_stopped():
 				_jump()
-			elif player.movement.jumps_remaining > 0:
+			elif player.movement_component.jumps_remaining > 0:
 				double_jump()
 			else:
 				player.jump_buffer_timer.start()
@@ -36,7 +36,7 @@ func state_input(event : InputEvent):
 				player.carry_component.pick_up(player.carry_component.zone)
 
 func _jump():
-	player.movement.jump()
+	player.movement_component.jump()
 	next_state = jump_state
 
 func double_jump():

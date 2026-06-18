@@ -26,5 +26,5 @@ func state_input(event : InputEvent):
 				player.carry_component.pick_up(player.carry_component.zone)
 
 func _jump():
-	player.movement.jump()
+	player.movement_component.jump()
 	next_state = Jump_state

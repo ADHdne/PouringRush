@@ -21,7 +21,7 @@ func state_input(event : InputEvent):
 	if player.can_action_pressed:
 		if Input.is_action_just_released(player.player_actions.jump) and player.velocity.y < 0:
 			player.velocity.y *= deceleration_on_jump_release
-		if event.is_action_pressed(player.player_actions.jump) and player.movement.jumps_remaining > 0:
+		if event.is_action_pressed(player.player_actions.jump) and player.movement_component.jumps_remaining > 0:
 			double_jump()
 		# for picking up team zone
 		if event.is_action_pressed(player.player_actions.interact):
@@ -31,6 +31,6 @@ func state_input(event : InputEvent):
 				player.carry_component.pick_up(player.carry_component.zone)
 
 func double_jump():
-	player.movement.jumps_remaining -= 1
+	player.movement_component.jumps_remaining -= 1
 	# the physical jump
 	player.velocity.y = player.character_data.double_jump_power

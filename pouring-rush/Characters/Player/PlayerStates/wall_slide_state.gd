@@ -22,5 +22,5 @@ func state_input(event : InputEvent):
 			wall_jump()
 
 func wall_jump():
-	player.movement.wall_jump()
+	player.movement_component.wall_jump()
 	next_state = jump_state
