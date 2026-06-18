@@ -36,26 +36,7 @@ func _physics_process(delta: float) -> void:
 	if is_dashing:
 		apply_dash(delta)
 		return
-	
-	## add gravity
-	if player.is_on_wall_only() and player.velocity.y > 0 and not player.in_tumble:
-		## wall gravity
-		player.velocity.y += player.character_data.wall_slide_gravity
-		player.velocity.y = min(player.velocity.y, player.character_data.wall_slide_gravity)
-	elif not player.is_on_floor():
-		## jump gravity
-		if player.velocity.y < -0.1:
-			player.velocity.y += player.character_data.jump_gravity * delta
-		## gravity at jumps peak
-		elif player.velocity.y > -0.2 and player.velocity.y < 0.7:
-			player.velocity.y += player.character_data.jump_hang_gravity * delta
-		## fall gravity
-		else:
-			player.velocity.y += player.character_data.fall_gravity * delta
-		## max fall velocity
-		if player.velocity.y > player.character_data.max_fall_velocity:
-			player.velocity.y = player.character_data.max_fall_velocity
-	
+	apply_gravity(delta)
 
 	
 	if player.in_tumble:
@@ -108,6 +89,26 @@ func player_movement():
 	var just_left_ledge = was_on_the_flore and not player.is_on_floor() and player.velocity.y >= 0
 	if just_left_ledge:
 		player.coyote_jump_timer.start()
+
+func apply_gravity(delta):
+		## add gravity
+	if player.is_on_wall_only() and player.velocity.y > 0 and not player.in_tumble:
+		## wall gravity
+		player.velocity.y += player.character_data.wall_slide_gravity
+		player.velocity.y = min(player.velocity.y, player.character_data.wall_slide_gravity)
+	elif not player.is_on_floor():
+		## jump gravity
+		if player.velocity.y < -0.1:
+			player.velocity.y += player.character_data.jump_gravity * delta
+		## gravity at jumps peak
+		elif player.velocity.y > -0.2 and player.velocity.y < 0.7:
+			player.velocity.y += player.character_data.jump_hang_gravity * delta
+		## fall gravity
+		else:
+			player.velocity.y += player.character_data.fall_gravity * delta
+		## max fall velocity
+		if player.velocity.y > player.character_data.max_fall_velocity:
+			player.velocity.y = player.character_data.max_fall_velocity
 
 
 func check_bounce(vel : Vector2):
