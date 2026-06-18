@@ -13,7 +13,7 @@ class_name Projectile
 var direction : Vector2
 var velocity : Vector2
 
-var origin : Node
+var origin : Player
 
 
 func _ready() -> void:
@@ -66,6 +66,6 @@ func _on_area_entered(area: Area2D) -> void:
 	
 	
 	if area.has_method("recieve_hit"):
-		area.recieve_hit(_hit_data)
+		area.recieve_hit(_hit_data, origin)
 	
 	disolve() # removes or subtract from pierce
