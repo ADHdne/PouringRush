@@ -11,7 +11,10 @@ class_name DamageComponent
 
 func apply_damage(hit : HitData, attacker : Player):
 	if attacker.team == player.team:
-		percentage += (hit.damage / 2)
+		if hit.healing > 0:
+			return
+		else:
+			percentage += (hit.damage / 2)
 	else:
 		percentage += hit.damage
 	return
