@@ -35,6 +35,8 @@ func _physics_process(delta: float) -> void:
 	# applying dash
 	if is_dashing:
 		apply_dash(delta)
+		player.move_and_slide()
+		return
 	
 	
 	apply_gravity(delta)
@@ -165,6 +167,9 @@ func apply_dash(delta: float):
 		end_dash()
 
 func end_dash():
+	# friction is working on the x axis, but not on y axis
 	is_dashing = false
 	dash_direction = Vector2.ZERO
 	dash_speed = 0.0
+	
+	player.velocity.y *= 0.3
