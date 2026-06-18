@@ -11,4 +11,6 @@ cooldown = 0.2
 ability_cooldown = 5.0
 max_ammo = 0
 reload_time = 0.0
+dash_speed = 1000.0
+dash_duration = 0.2
 metadata/_custom_type_script = "uid://d1qs4e030ganv"

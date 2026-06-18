@@ -172,4 +172,4 @@ func end_dash():
 	dash_direction = Vector2.ZERO
 	dash_speed = 0.0
 	
-	player.velocity.y *= 0.3
+	player.velocity *= Vector2(0.2, 0.2)
