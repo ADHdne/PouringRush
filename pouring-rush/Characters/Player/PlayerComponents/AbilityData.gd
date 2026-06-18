@@ -18,7 +18,7 @@ enum UtilityType {
 
 @export var ability_type : AbilityType
 
-@export var Utility_type : UtilityType = UtilityType.NONE
+@export var utility_type : UtilityType = UtilityType.NONE
 
 @export var ability_name : String
 
@@ -27,9 +27,16 @@ enum UtilityType {
 
 # cooldown for abilies
 @export var ability_cooldown : float
+
+# for projectiles
 @export var max_ammo: int = 50
 @export var reload_time : float = 1
 
 
 @export var projectile_scene : PackedScene
 @export var projectile_data : ProjectileData
+
+
+# for utility
+@export var dash_speed : float
+@export var dash_duration : float

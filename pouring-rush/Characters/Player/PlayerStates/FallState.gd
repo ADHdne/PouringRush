@@ -40,7 +40,7 @@ func _jump():
 	next_state = jump_state
 
 func double_jump():
-	player.movement.jumps_remaining -= 1
+	player.movement_component.jumps_remaining -= 1
 	# the physical jump
 	player.velocity.y = player.character_data.double_jump_power
 	next_state = jump_state

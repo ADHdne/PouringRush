@@ -29,11 +29,13 @@ var is_bouncing : bool = false
 
 func _physics_process(delta: float) -> void:
 	
+	# normal movement
+	player_movement()
 	
-	# dash timer
-	if dash_time_left > 0:
-		dash_time_left -= delta
-	
+	# applying dash
+	if is_dashing:
+		apply_dash(delta)
+		return
 	
 	## add gravity
 	if player.is_on_wall_only() and player.velocity.y > 0 and not player.in_tumble:
@@ -79,9 +81,6 @@ func _physics_process(delta: float) -> void:
 				player.footstep_timer.start(0.15)
 	else:
 		add_friction()
-	
-	# normal movement
-	player_movement()
 	
 	# reset jumps on landing
 	if player.is_on_floor() and jumps_remaining != 1:
@@ -141,5 +140,28 @@ func jump():
 func wall_jump():
 	player.velocity = Vector2(player.character_data.wall_jump_pushback * -player.direction.x, player.character_data.wall_jump_power)
 
-func dash():
-	pass
+func start_dash(direction : Vector2, speed : float, duration : float):
+	
+	if direction == Vector2.ZERO:
+		return
+	
+	is_dashing = true
+	dash_direction = direction.normalized()
+	
+	dash_speed = speed
+	dash_duration = duration
+	dash_time_left = duration
+
+func apply_dash(delta: float):
+
+	player.velocity = dash_direction * dash_speed
+
+	dash_time_left -= delta
+	
+	if dash_time_left <= 0:
+		end_dash()
+
+func end_dash():
+	is_dashing = false
+	dash_direction = Vector2.ZERO
+	dash_speed = 0.0

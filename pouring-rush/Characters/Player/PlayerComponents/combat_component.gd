@@ -31,11 +31,10 @@ func _process(delta):
 		
 		if ability.cooldown_remaining > 0:
 			ability.cooldown_remaining = max(0.0, ability.cooldown_remaining - delta)
-			print("ability cooldown: ", ability.cooldown_remaining)
 	
 	if shot_buffered:
 		if can_shoot(buffered_ability):
-			shoot(buffered_ability)
+			try_use_ability(buffered_ability)
 
 func _input(event: InputEvent) -> void:
 	if not player.carry_component.is_carrying() or player.can_action_pressed or player.can_attack:
@@ -45,6 +44,8 @@ func _input(event: InputEvent) -> void:
 			try_use_ability(special_shot_data)
 		if event.is_action_pressed(player.player_actions.special_2):
 			try_use_ability(special_2_data)
+		if event.is_action_pressed(player.player_actions.utility):
+			try_use_ability(utility_data)
 		if event.is_action_pressed(player.player_actions.reload):
 			request_reload()
 
@@ -53,7 +54,7 @@ func create_states(data : CharacterData):
 	basic_shot_data = create_state(data.basic_shot)
 	special_shot_data = create_state(data.special_1)
 	special_2_data = create_state(data.special_2)
-	#utility_data = create_state(data.utility)
+	utility_data = create_state(data.utility)
 
 func create_state(data : AbilityData) -> AbilityState:
 	
@@ -129,10 +130,10 @@ func shoot(data : AbilityState):
 
 
 func use_utility(data : AbilityState):
-	match data.ability_data.UtilityType:
+	match data.ability_data.utility_type:
 		
 		AbilityData.UtilityType.DASH:
-			pass
+			dash(data)
 		
 		AbilityData.UtilityType.TELEPORT:
 			pass
@@ -140,8 +141,15 @@ func use_utility(data : AbilityState):
 		AbilityData.UtilityType.GRAPPLE:
 			pass
 
-func dash(data : AbilityState):
-	player.movement_component.dash()
+func dash(data: AbilityState):
+
+	var ability := data.ability_data
+
+	player.movement_component.start_dash(
+		player.direction,
+		ability.dash_speed,
+		ability.dash_duration
+	)
 
 ## reload logic
 func request_reload():
