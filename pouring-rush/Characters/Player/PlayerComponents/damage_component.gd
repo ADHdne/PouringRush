@@ -11,6 +11,7 @@ class_name DamageComponent
 
 func apply_damage(hit : HitData, attacker : Player):
 	if attacker.team == player.team:
+		# healing shots cant damage teammates
 		if hit.healing > 0:
 			return
 		else:
