@@ -8,15 +8,11 @@ class_name ReloadState
 
 
 func on_enter():
-	player.is_reloading = true
-	
 	player.can_attack = false
 	reload_timer.start(player.combat_component.basic_shot_data.ability_data.reload_time)
 	
 
 func on_exit():
-	player.is_reloading = false
-	
 	player.can_attack = true
 
 

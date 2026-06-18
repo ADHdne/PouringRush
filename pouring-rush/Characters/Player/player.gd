@@ -53,8 +53,8 @@ var can_attack : bool = true
 var can_tech : bool = false
 var in_tumble : bool = false
 
+# player states
 var alive : bool = true
-var is_reloading : bool = false
 
 # facing bool
 var facing_flipped : bool = false
