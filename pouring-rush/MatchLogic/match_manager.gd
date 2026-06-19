@@ -29,7 +29,7 @@ var blue_base : SafeZoneArea
 
 
 # this gets called from match_scene
-func initialize(match_config : MatchConfig, world : World, view_system : ViewSystem, match_ui : MatchUI):
+func initialize(match_config : MatchConfig, world : World, view_system : ViewSystem):
 	
 	self.match_config = match_config
 	self.players_root = world.players_root
