@@ -6,7 +6,7 @@ var player: Player
 
 
 @export var portrait : TextureRect
-@onready var health_bar: ProgressBar = $ProgressBar
+@onready var percent: Label = $Percent
 
 
 func setup(p: Player):
@@ -18,4 +18,4 @@ func _process(delta):
 	if player == null:
 		return
 
-	health_bar.value = player.damage_component.percentage
+	percent.text = str(player.damage_component.percentage)

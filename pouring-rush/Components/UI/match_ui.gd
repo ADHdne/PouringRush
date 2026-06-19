@@ -5,7 +5,8 @@ class_name MatchUI
 
 @export var player_icon_scene: PackedScene
 
-@onready var team_panel: Panel = $TeamPanel
+@onready var h_box_container: HBoxContainer = $TeamPanel/HBoxContainer
+
 
 var team : Team.type
 
@@ -34,7 +35,7 @@ func initialize(players: Array[Player]):
 			player_icons[player] = icon
 
 
-			team_panel.add_child(icon)
+			h_box_container.add_child(icon)
 
 
 
