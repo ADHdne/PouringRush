@@ -5,6 +5,7 @@ class_name CharacterData
 
 @export var display_name : String
 @export var player_scene : PackedScene
+@export var portrait : Texture2D
 
 # physics
 @export var acc : float = 40.0

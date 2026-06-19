@@ -28,7 +28,7 @@ var blue_base : SafeZoneArea
 
 
 # this gets called from match_scene
-func initialize(match_config : MatchConfig, world : World, view_system : ViewSystem):
+func initialize(match_config : MatchConfig, world : World, view_system : ViewSystem, match_ui : MatchUI):
 	
 	self.match_config = match_config
 	self.players_root = world.players_root
@@ -42,7 +42,7 @@ func initialize(match_config : MatchConfig, world : World, view_system : ViewSys
 	load_game_mode(world.game_mode_root)
 	
 	
-	view_system.initialize(world, red_zone, blue_zone)
+	view_system.initialize(world, red_zone, blue_zone, players)
 	match match_config.game_mode_type:
 		SelectedMode.Mode.PUSH:
 			game_mode.init(arena.push_lane, arena.push_lane.pusher, arena.push_lane.red_barrier, arena.push_lane.blue_barrier)

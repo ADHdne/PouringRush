@@ -2,16 +2,21 @@
 
 [ext_resource type="Script" uid="uid://c77vu2jh8bwaq" path="res://Components/Viewport+/view_system.gd" id="1_jn0iy"]
 [ext_resource type="PackedScene" uid="uid://d4b8s7w5jnw78" path="res://Components/CameraStuff/TeamCamera.tscn" id="2_esfgm"]
+[ext_resource type="PackedScene" uid="uid://bwr504uk4sydr" path="res://Components/UI/MatchUI.tscn" id="3_bhx3v"]
 
 [node name="ViewSystem" type="Node" unique_id=1875535046]
 script = ExtResource("1_jn0iy")
 
 [node name="BlueWindow" type="Window" parent="." unique_id=325505694]
 oversampling_override = 1.0
-position = Vector2i(1886, 100)
+position = Vector2i(22, 36)
 size = Vector2i(1920, 1080)
 max_size = Vector2i(1920, 1080)
 
 [node name="BlueCamera" parent="BlueWindow" unique_id=1185675382 instance=ExtResource("2_esfgm")]
 
+[node name="BlueMatchUI" parent="BlueWindow" unique_id=1478391526 instance=ExtResource("3_bhx3v")]
+
 [node name="RedCamera" parent="." unique_id=511926268 instance=ExtResource("2_esfgm")]
+
+[node name="RedMatchUI" parent="." unique_id=1860532533 instance=ExtResource("3_bhx3v")]

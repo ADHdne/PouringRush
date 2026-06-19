@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bwr504uk4sydr"]
+
+[ext_resource type="Script" uid="uid://1t3eu1sv8cxo" path="res://Components/UI/match_ui.gd" id="1_bbvs7"]
+[ext_resource type="PackedScene" uid="uid://y4x6qs2gh7gn" path="res://Components/UI/player_icon.tscn" id="2_70ghe"]
+
+[node name="MatchUI" type="CanvasLayer" unique_id=1478391526]
+script = ExtResource("1_bbvs7")
+player_icon_scene = ExtResource("2_70ghe")
+
+[node name="TeamPanel" type="Panel" parent="." unique_id=60526621]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TeamPanel" unique_id=1395204517]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0

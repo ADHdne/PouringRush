@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://y4x6qs2gh7gn"]
+
+[ext_resource type="Script" uid="uid://bh0l4ood5f5mu" path="res://Components/UI/player_icon.gd" id="1_fomls"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fomls"]
+
+[node name="PlayerIcon" type="Control" unique_id=140911905 node_paths=PackedStringArray("portrait")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fomls")
+portrait = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=689839839]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CompressedTexture2D_fomls")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1455894914]
+layout_mode = 0
+offset_right = 4.0
+offset_bottom = 27.0
+
+[node name="RespawnTimerLabel" type="Label" parent="." unique_id=1744515435]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Bababoi"
