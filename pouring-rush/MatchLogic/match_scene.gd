@@ -15,4 +15,4 @@ func _ready() -> void:
 	
 	# both viewports renders the same world
 	
-	match_manager.initialize(GameManager.match_config, world, view_system, match_ui)
+	match_manager.initialize(GameManager.match_config, world, view_system)
