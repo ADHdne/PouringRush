@@ -57,6 +57,7 @@ func set_world(world : World):
 func set_ui():
 	red_match_ui.team = Team.type.RED
 	blue_match_ui.team = Team.type.BLUE
+	
 
 func setup_windows():
 	if DisplayServer.get_screen_count() > 1:
