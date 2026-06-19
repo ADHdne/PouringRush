@@ -23,6 +23,9 @@ func pick_up(zone : TeamZone):
 		carried_zone = zone
 		# switching states after picking up so cant shoot
 		player.state_machine.on_state_interupt_state(pickup_state)
+		
+		# player cant attack while carrying
+		player.can_attack = false
 
 
 func drop():
@@ -34,6 +37,9 @@ func drop():
 	player.state_machine.on_state_interupt_state(put_down_state)
 	carried_zone.drop()
 	carried_zone = null
+	
+	# player can attack after dropping
+	player.can_attack = true
 	
 
 func is_carrying() -> bool:
