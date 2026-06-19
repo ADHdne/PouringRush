@@ -10,7 +10,6 @@ player_scene = ExtResource("2_dempf")
 team_zone_scene = ExtResource("3_ry1cr")
 
 [node name="MatchTimer" type="Timer" parent="." unique_id=2027429020]
-wait_time = 4096.0
 one_shot = true
 
 [connection signal="timeout" from="MatchTimer" to="." method="_on_match_timer_timeout"]

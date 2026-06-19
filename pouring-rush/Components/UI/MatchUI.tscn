@@ -3,9 +3,17 @@
 [ext_resource type="Script" uid="uid://1t3eu1sv8cxo" path="res://Components/UI/match_ui.gd" id="1_bbvs7"]
 [ext_resource type="PackedScene" uid="uid://y4x6qs2gh7gn" path="res://Components/UI/player_icon.tscn" id="2_70ghe"]
 
-[node name="MatchUI" type="CanvasLayer" unique_id=1478391526]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_70ghe"]
+bg_color = Color(0.6, 0.6, 0.6, 0.15294118)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="MatchUI" type="CanvasLayer" unique_id=1478391526 node_paths=PackedStringArray("time_label")]
 script = ExtResource("1_bbvs7")
 player_icon_scene = ExtResource("2_70ghe")
+time_label = NodePath("TimeLabel")
 
 [node name="TeamPanel" type="CenterContainer" parent="." unique_id=1696999507]
 anchors_preset = 7
@@ -22,3 +30,20 @@ grow_vertical = 0
 [node name="HBoxContainer" type="HBoxContainer" parent="TeamPanel" unique_id=1395204517]
 layout_mode = 2
 theme_override_constants/separation = 200
+
+[node name="TimeLabel" type="Label" parent="." unique_id=398021742]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -62.0
+offset_right = 62.0
+offset_bottom = 42.0
+grow_horizontal = 2
+size_flags_horizontal = 8
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.39215687)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 3
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_70ghe")
+horizontal_alignment = 1

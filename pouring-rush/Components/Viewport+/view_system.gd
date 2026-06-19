@@ -20,13 +20,13 @@ func _ready() -> void:
 	blue_window.show()
 
 	# called in match manager
-func initialize(world : World, red_zone : TeamZone, blue_zone : TeamZone, players : Array[Player]):
+func initialize(match_manager : MatchManager, world : World, red_zone : TeamZone, blue_zone : TeamZone, players : Array[Player]):
 	
 	red_camera.target_zone = red_zone
 	blue_camera.target_zone = blue_zone
 	
-	red_match_ui.initialize(players)
-	blue_match_ui.initialize(players)
+	red_match_ui.initialize(players, match_manager)
+	blue_match_ui.initialize(players, match_manager)
 	
 	self.world = world
 	

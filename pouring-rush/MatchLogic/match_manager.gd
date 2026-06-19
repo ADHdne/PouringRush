@@ -27,6 +27,7 @@ var red_base : SafeZoneArea
 var blue_base : SafeZoneArea
 
 
+
 # this gets called from match_scene
 func initialize(match_config : MatchConfig, world : World, view_system : ViewSystem, match_ui : MatchUI):
 	
@@ -42,12 +43,12 @@ func initialize(match_config : MatchConfig, world : World, view_system : ViewSys
 	load_game_mode(world.game_mode_root)
 	
 	
-	view_system.initialize(world, red_zone, blue_zone, players)
+	view_system.initialize(self, world, red_zone, blue_zone, players)
 	match match_config.game_mode_type:
 		SelectedMode.Mode.PUSH:
 			game_mode.init(arena.push_lane, arena.push_lane.pusher, arena.push_lane.red_barrier, arena.push_lane.blue_barrier)
 	game_mode.initialize(self)
-	game_mode.start_match()
+	start_match()
 
 
 func spawn_team_zones():
@@ -171,7 +172,11 @@ func load_game_mode(game_mode_root : Node):
 # During runtime
 
 func start_match():
+	game_mode.start_match()
 	match_timer.start(game_mode.mach_time)
+
+func get_time_remaining() -> float:
+	return match_timer.time_left
 
 func on_player_ko(player : Player):
 	check_team_elimination(player.team)

@@ -2,11 +2,12 @@ extends CanvasLayer
 class_name MatchUI
 
 
+var match_manager : MatchManager
 
 @export var player_icon_scene: PackedScene
 
 @onready var h_box_container: HBoxContainer = $TeamPanel/HBoxContainer
-
+@export var time_label : Label
 
 var team : Team.type
 
@@ -15,8 +16,12 @@ var player_icons: Dictionary = {}
 
 
 
-func initialize(players: Array[Player]):
+func initialize(players: Array[Player], match_manager : MatchManager):
 	
+	# reference to matchmanager
+	self.match_manager = match_manager
+	
+	# getting players
 	var team_players : Array[Player]
 	
 	for p in players:
@@ -37,7 +42,10 @@ func initialize(players: Array[Player]):
 
 			h_box_container.add_child(icon)
 
-
+func _process(delta: float) -> void:
+	
+	if match_manager != null:
+		update_time(delta)
 
 func clear_icons():
 
@@ -67,3 +75,15 @@ func remove_player(player: Player):
 		icon.queue_free()
 
 	player_icons.erase(player)
+
+
+func update_time(delta):
+
+	var time_left = match_manager.get_time_remaining()
+
+	var total_seconds = int(ceil(time_left))
+
+	var minutes = total_seconds / 60
+	var seconds = total_seconds % 60
+
+	time_label.text = "%02d:%02d" % [minutes, seconds]
