@@ -18,27 +18,35 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvldt"]
+bg_color = Color(0.6, 0.6, 0.6, 0.023529412)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee3hu"]
-bg_color = Color(0.24477634, 0.24477643, 0.24477628, 0.5176471)
-corner_radius_top_left = 6
-corner_radius_top_right = 6
-corner_radius_bottom_right = 6
-corner_radius_bottom_left = 6
+bg_color = Color(0.14044744, 0.14044744, 0.1404475, 0.5176471)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1j5k"]
 atlas = ExtResource("3_ee3hu")
 region = Rect2(3.7807713, 131.83841, 24.333218, 24.207153)
 
 [node name="PlayerIcon" type="Control" unique_id=140911905 node_paths=PackedStringArray("portrait", "basic_shot", "magazine", "special_1", "special_1_bar", "special_2", "special_2_bar", "utility", "utility_bar")]
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 3
 anchors_preset = 0
-offset_right = 120.0
-offset_bottom = 120.0
+offset_right = 100.0
+offset_bottom = 100.0
 script = ExtResource("1_fomls")
 portrait = NodePath("TextureRect")
-basic_shot = NodePath("HBoxContainer/VBoxContainer2/BasicShot")
-magazine = NodePath("HBoxContainer/VBoxContainer2/BasicShot/Magazine")
+basic_shot = NodePath("HBoxContainer/VBoxContainer2/Panel/BasicShot")
+magazine = NodePath("HBoxContainer/VBoxContainer2/Panel/BasicShot/Magazine")
 special_1 = NodePath("HBoxContainer/VBoxContainer/Special1")
 special_1_bar = NodePath("HBoxContainer/VBoxContainer/Special1/Special1Bar")
 special_2 = NodePath("HBoxContainer/VBoxContainer/Special2")
@@ -58,7 +66,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_6ryjl")
 [node name="TextureRect" type="TextureRect" parent="." unique_id=689839839]
 modulate = Color(0.47843137, 0.47843137, 0.47843137, 0.6509804)
 texture_filter = 1
-custom_minimum_size = Vector2(120, 120)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,9 +78,10 @@ expand_mode = 1
 
 [node name="Percent" type="Label" parent="." unique_id=416068635]
 layout_mode = 0
-offset_top = 92.0
-offset_right = 83.0
-offset_bottom = 120.0
+offset_left = 1.0
+offset_top = 71.0
+offset_right = 67.0
+offset_bottom = 99.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 3
@@ -83,38 +92,57 @@ text = "1000%"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1412767178]
-layout_mode = 0
-offset_right = 120.0
-offset_bottom = 120.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=2065663480]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 theme_override_constants/separation = 1
 
-[node name="BasicShot" type="TextureRect" parent="HBoxContainer/VBoxContainer2" unique_id=935341958]
-custom_minimum_size = Vector2(30, 30)
+[node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer2" unique_id=1063244076]
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
+
+[node name="BasicShot" type="TextureRect" parent="HBoxContainer/VBoxContainer2/Panel" unique_id=935341958]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 expand_mode = 1
 
-[node name="Magazine" type="Label" parent="HBoxContainer/VBoxContainer2/BasicShot" unique_id=715175082]
-layout_mode = 0
-offset_left = -5.0
-offset_top = 23.0
-offset_right = 35.0
-offset_bottom = 46.0
+[node name="Magazine" type="Label" parent="HBoxContainer/VBoxContainer2/Panel/BasicShot" unique_id=715175082]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -19.0
+offset_right = 20.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
 text = "50"
 horizontal_alignment = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer" unique_id=86407393]
-custom_minimum_size = Vector2(48, 120)
+custom_minimum_size = Vector2(20, 100)
 layout_mode = 2
 theme_override_constants/separation = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1501489648]
-custom_minimum_size = Vector2(30, 120)
+custom_minimum_size = Vector2(30, 100)
 layout_mode = 2
 theme_override_constants/separation = 4
 
@@ -127,6 +155,7 @@ expand_mode = 1
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 30.0
+theme_override_styles/background = SubResource("StyleBoxFlat_uvldt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ee3hu")
 value = 40.0
 fill_mode = 3
@@ -141,6 +170,7 @@ expand_mode = 1
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 30.0
+theme_override_styles/background = SubResource("StyleBoxFlat_uvldt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ee3hu")
 fill_mode = 3
 show_percentage = false
@@ -156,6 +186,8 @@ expand_mode = 1
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 30.0
+theme_override_styles/background = SubResource("StyleBoxFlat_uvldt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ee3hu")
+value = 100.0
 fill_mode = 3
 show_percentage = false
