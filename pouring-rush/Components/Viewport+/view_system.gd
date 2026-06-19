@@ -6,10 +6,15 @@ class_name ViewSystem
 
 
 @onready var red_camera: TeamCamera = $RedCamera
-@onready var blue_camera: TeamCamera = $BlueWindow/BlueCamera
+@onready var blue_camera: TeamCamera = $BlueWindow/SubViewport/BlueCamera
+
 
 @onready var red_match_ui: MatchUI = $RedMatchUI
 @onready var blue_match_ui: MatchUI = $BlueWindow/BlueMatchUI
+
+@onready var sub_viewport: SubViewport = $BlueWindow/SubViewport
+@onready var texture_rect: TextureRect = $BlueWindow/TextureRect
+
 
 
 
@@ -36,10 +41,13 @@ func set_world(world : World):
 	
 	var shared_world = world.get_viewport().world_2d
 	
-	blue_window.world_2d = shared_world
+	sub_viewport.world_2d = shared_world
 	
 	red_camera.make_current()
-	blue_window.get_camera_2d().make_current()
+	blue_camera.make_current()
+	
+	texture_rect.texture = sub_viewport.get_texture()
+
 
 func set_ui():
 	red_match_ui.team = Team.type.RED
