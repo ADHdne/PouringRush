@@ -36,6 +36,9 @@ func _process(delta):
 	special_1_bar.value = combat_component.special_shot_data.cooldown_remaining
 	special_2_bar.value = combat_component.special_2_data.cooldown_remaining
 	utility_bar.value = combat_component.utility_data.cooldown_remaining
+	
+	# updating sprite if alive
+	check_player_alive(delta)
 
 
 func setup(p: Player):
@@ -57,4 +60,8 @@ func set_up_abilities(component : CombatComponent):
 	special_2_bar.max_value = component.special_2_data.ability_data.ability_cooldown
 	utility_bar.max_value = component.utility_data.ability_data.ability_cooldown
 	
-	
+func check_player_alive(delta):
+	if player.alive:
+		portrait.modulate = Color(1.0, 1.0, 1.0)
+	else:
+		portrait.modulate = Color(0.478, 0.478, 0.478, 0.651)
