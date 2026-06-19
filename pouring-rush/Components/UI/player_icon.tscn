@@ -2,8 +2,34 @@
 
 [ext_resource type="Script" uid="uid://bh0l4ood5f5mu" path="res://Components/UI/player_icon.gd" id="1_fomls"]
 [ext_resource type="Texture2D" uid="uid://d03qtt4hl0g1c" path="res://Assets/Sprites/Bobble.png" id="2_6ryjl"]
+[ext_resource type="Texture2D" uid="uid://caxvvruwjpf5" path="res://Assets/Sprites/rotating_orbs.png" id="3_ee3hu"]
 
-[node name="PlayerIcon" type="Control" unique_id=140911905 node_paths=PackedStringArray("portrait")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ryjl"]
+bg_color = Color(0.39308554, 0.39308554, 0.39308533, 0.2901961)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1j5k"]
+bg_color = Color(0, 0, 0, 0.16862746)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ee3hu"]
+bg_color = Color(0.24477634, 0.24477643, 0.24477628, 0.5176471)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1j5k"]
+atlas = ExtResource("3_ee3hu")
+region = Rect2(3.7807713, 131.83841, 24.333218, 24.207153)
+
+[node name="PlayerIcon" type="Control" unique_id=140911905 node_paths=PackedStringArray("portrait", "basic_shot", "magazine", "special_1", "special_1_bar", "special_2", "special_2_bar", "utility", "utility_bar")]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 3
 anchors_preset = 0
@@ -11,6 +37,23 @@ offset_right = 120.0
 offset_bottom = 120.0
 script = ExtResource("1_fomls")
 portrait = NodePath("TextureRect")
+basic_shot = NodePath("HBoxContainer/VBoxContainer2/BasicShot")
+magazine = NodePath("HBoxContainer/VBoxContainer2/BasicShot/Magazine")
+special_1 = NodePath("HBoxContainer/VBoxContainer/Special1")
+special_1_bar = NodePath("HBoxContainer/VBoxContainer/Special1/Special1Bar")
+special_2 = NodePath("HBoxContainer/VBoxContainer/Special2")
+special_2_bar = NodePath("HBoxContainer/VBoxContainer/Special2/Special2Bar")
+utility = NodePath("HBoxContainer/VBoxContainer/Utility")
+utility_bar = NodePath("HBoxContainer/VBoxContainer/Utility/UtilityBar")
+
+[node name="Panel" type="Panel" parent="." unique_id=349236297]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6ryjl")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=689839839]
 texture_filter = 1
@@ -24,21 +67,94 @@ grow_vertical = 2
 texture = ExtResource("2_6ryjl")
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1455894914]
-layout_mode = 0
-offset_right = 22.0
-offset_bottom = 27.0
-show_percentage = false
-
-[node name="RespawnTimerLabel" type="Label" parent="." unique_id=1744515435]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 91.0
-offset_right = 91.0
-offset_bottom = 114.0
-text = "Bababoi"
-
 [node name="Percent" type="Label" parent="." unique_id=416068635]
 layout_mode = 0
-offset_right = 118.0
-offset_bottom = 27.0
+offset_top = 92.0
+offset_right = 83.0
+offset_bottom = 120.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_b1j5k")
+text = "1000%"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1412767178]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 120.0
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=2065663480]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="BasicShot" type="TextureRect" parent="HBoxContainer/VBoxContainer2" unique_id=935341958]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Magazine" type="Label" parent="HBoxContainer/VBoxContainer2/BasicShot" unique_id=715175082]
+layout_mode = 0
+offset_left = -5.0
+offset_top = 23.0
+offset_right = 35.0
+offset_bottom = 46.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 3
+text = "50"
+horizontal_alignment = 1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer" unique_id=86407393]
+custom_minimum_size = Vector2(48, 120)
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1501489648]
+custom_minimum_size = Vector2(30, 120)
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Special1" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=1970582590]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Special1Bar" type="ProgressBar" parent="HBoxContainer/VBoxContainer/Special1" unique_id=1388866964]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ee3hu")
+value = 40.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Special2" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=2034611681]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+expand_mode = 1
+
+[node name="Special2Bar" type="ProgressBar" parent="HBoxContainer/VBoxContainer/Special2" unique_id=1472529445]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ee3hu")
+fill_mode = 3
+show_percentage = false
+
+[node name="Utility" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=1251282421]
+texture_filter = 1
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = SubResource("AtlasTexture_b1j5k")
+expand_mode = 1
+
+[node name="UtilityBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer/Utility" unique_id=477185529]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_ee3hu")
+fill_mode = 3
+show_percentage = false
