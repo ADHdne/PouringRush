@@ -32,7 +32,7 @@ script = ExtResource("3_6fff4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(15, 32)
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone", "sprite")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 player_actions = SubResource("Resource_6h4vt")
@@ -51,6 +51,9 @@ combat_component = NodePath("CombatComponent")
 hurtbox = NodePath("Hurtbox")
 carry_component = NodePath("CarryComponent")
 tech_zone = NodePath("TechZone")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=799234983]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
 shape = SubResource("RectangleShape2D_q3lat")
