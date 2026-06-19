@@ -7,6 +7,9 @@ var arena
 var players : Array[Player]
 
 var match_in_progress = false
+var mach_time : float = 600
+var overtime : bool = false
+
 var ko_check_timer := 0.0
 
 
@@ -109,6 +112,10 @@ func on_core_entered(team : Team.type):
 func on_core_exited(team : Team.type):
 	core_in_base[team] = false
 	core_base_time[team] = 0.0
+
+func match_timer_timeout():
+	pass
+
 
 func check_win_condition():
 	pass

@@ -101,6 +101,10 @@ func pushing_barrrier(team : Team.type):
 func stopped_pushing():
 	pushing_red = false
 	pushing_blue = false
+	
+	if overtime:
+		determine_winner_on_timeout()
+		overtime = false
 
 func stop():
 	pusher.state = PusherStates.State.IDLE
@@ -154,3 +158,14 @@ func on_team_wins(team : Team.type):
 
 func on_draw():
 	end_match("Draw: No Winning Team")
+
+
+func match_timer_timeout():
+	check_overtime()
+
+
+func check_overtime():
+	if pushing_blue or pushing_red:
+		overtime = true
+	else:
+		determine_winner_on_timeout()

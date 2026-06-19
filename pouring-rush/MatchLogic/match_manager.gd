@@ -2,6 +2,7 @@ extends Node
 class_name MatchManager
 
 
+@onready var match_timer: Timer = $MatchTimer
 
 @export var player_scene : PackedScene
 @export var team_zone_scene: PackedScene
@@ -170,7 +171,7 @@ func load_game_mode(game_mode_root : Node):
 # During runtime
 
 func start_match():
-	pass
+	match_timer.start(game_mode.mach_time)
 
 func on_player_ko(player : Player):
 	check_team_elimination(player.team)
@@ -219,3 +220,7 @@ func check_team_elimination(team: Team.type):
 
 func end_match():
 	pass
+
+
+func _on_match_timer_timeout() -> void:
+	game_mode.match_timer_timeout()
