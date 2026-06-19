@@ -11,8 +11,8 @@ region = Rect2(288, 96, 32, 32)
 size = Vector2(40, 40)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6obsn"]
-radius = 540.0
-height = 1640.0
+radius = 500.0
+height = 1500.0
 
 [node name="TeamZone" type="Area2D" unique_id=188268863]
 collision_layer = 64
