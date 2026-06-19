@@ -20,9 +20,17 @@ class_name ViewSystem
 
 var world : World
 
+
+
 func _ready() -> void:
-	set_ui()
-	blue_window.show()
+	
+	setup_windows()
+
+
+func _process(delta: float) -> void:
+		print("window blue: ", sub_viewport.render_target_update_mode)
+		print("window red: ", get_viewport())
+
 
 	# called in match manager
 func initialize(match_manager : MatchManager, world : World, red_zone : TeamZone, blue_zone : TeamZone, players : Array[Player]):
@@ -36,6 +44,8 @@ func initialize(match_manager : MatchManager, world : World, red_zone : TeamZone
 	self.world = world
 	
 	set_world(world)
+	
+	set_ui()
 
 func set_world(world : World):
 	
@@ -52,3 +62,12 @@ func set_world(world : World):
 func set_ui():
 	red_match_ui.team = Team.type.RED
 	blue_match_ui.team = Team.type.BLUE
+
+func setup_windows():
+	if DisplayServer.get_screen_count() > 1:
+
+		blue_window.show()
+		await get_tree().process_frame
+
+		blue_window.current_screen = 1
+		blue_window.mode = Window.MODE_FULLSCREEN
