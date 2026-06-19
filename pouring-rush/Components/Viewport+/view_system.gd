@@ -27,11 +27,6 @@ func _ready() -> void:
 	setup_windows()
 
 
-func _process(delta: float) -> void:
-		print("window blue: ", sub_viewport.render_target_update_mode)
-		print("window red: ", get_viewport())
-
-
 	# called in match manager
 func initialize(match_manager : MatchManager, world : World, red_zone : TeamZone, blue_zone : TeamZone, players : Array[Player]):
 	
