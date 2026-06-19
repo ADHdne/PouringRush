@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d3iuuhhslgqod" path="res://Characters/Player/player.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://dkmh855tvgk5t" path="res://StateMachine/CharacterStateMachine.gd" id="2_tok1r"]
 [ext_resource type="Script" uid="uid://bq3wd10ibsv6" path="res://Characters/Player/PlayerComponents/player_actions.gd" id="3_6fff4"]
+[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="3_11ayp"]
 [ext_resource type="Script" uid="uid://cm5uk4lupd14h" path="res://Characters/Player/PlayerStates/MoveState.gd" id="3_tok1r"]
 [ext_resource type="Script" uid="uid://k6vgsmgmifss" path="res://Characters/Player/PlayerComponents/damage_component.gd" id="4_2xv0b"]
 [ext_resource type="PackedScene" uid="uid://byiuwaeqsgmq5" path="res://Characters/Player/PlayerComponents/hurtbox_component.tscn" id="4_5xivi"]
@@ -29,6 +30,10 @@
 [sub_resource type="Resource" id="Resource_6h4vt"]
 script = ExtResource("3_6fff4")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfeqw"]
+atlas = ExtResource("3_11ayp")
+region = Rect2(144, 49, 16, 14)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(15, 32)
 
@@ -54,6 +59,10 @@ tech_zone = NodePath("TechZone")
 sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=799234983]
+texture_filter = 1
+position = Vector2(0, -4.7683716e-07)
+scale = Vector2(1, 2.2857141)
+texture = SubResource("AtlasTexture_bfeqw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
 shape = SubResource("RectangleShape2D_q3lat")
@@ -64,20 +73,6 @@ collision_mask = 88
 
 [node name="TechZone" parent="." unique_id=10040679 instance=ExtResource("7_tdp7v")]
 collision_layer = 0
-
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1497093350]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -8.0
-offset_top = -16.0
-offset_right = 8.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.486, 0.839, 0.431, 1)
 
 [node name="MovementComponent" type="Node" parent="." unique_id=2061918053 node_paths=PackedStringArray("player")]
 script = ExtResource("12_6h4vt")
