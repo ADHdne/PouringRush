@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="PlayerActions" format=3 uid="uid://cd3ihryju0nl5"]
+
+[ext_resource type="Script" uid="uid://bq3wd10ibsv6" path="res://Characters/Player/PlayerComponents/player_actions.gd" id="1_iu7qw"]
+
+[resource]
+script = ExtResource("1_iu7qw")
+move_left = &"P7 Left"
+move_right = &"P7 Right"
+move_up = &"P7 Up"
+move_down = &"P7 Down"
+jump = &"P7 Jump"
+attack = &"P7 Attack"
+reload = &"P7 Reload"
+special_1 = &"P7 Special 1"
+special_2 = &"P7 Special 2"
+utility = &"P7 Utility"
+block = &"P7 Block"
+interact = &"P7 Interact"
+aim_up = &"P7 Aim Up"
+aim_down = &"P7 Aim Down"
+aim_right = &"P7 Aim Right"
+aim_left = &"P7 Aim Left"
+metadata/_custom_type_script = "uid://bq3wd10ibsv6"

@@ -4,4 +4,20 @@
 
 [resource]
 script = ExtResource("1_f5ut4")
+move_left = &"P3 Left"
+move_right = &"P3 Right"
+move_up = &"P3 Up"
+move_down = &"P3 Down"
+jump = &"P3 Jump"
+attack = &"P3 Attack"
+reload = &"P3 Reload"
+special_1 = &"P3 Special 1"
+special_2 = &"P3 Special 2"
+utility = &"P3 Utility"
+block = &"P3 Block"
+interact = &"P3 Interact"
+aim_up = &"P3 Aim Up"
+aim_down = &"P3 Aim Down"
+aim_right = &"P3 Aim Right"
+aim_left = &"P3 Aim Left"
 metadata/_custom_type_script = "uid://bq3wd10ibsv6"
