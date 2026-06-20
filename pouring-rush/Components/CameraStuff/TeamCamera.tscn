@@ -3,4 +3,5 @@
 [ext_resource type="Script" uid="uid://djilvvassoryf" path="res://Components/CameraStuff/team_camera.gd" id="1_utsc4"]
 
 [node name="TeamCamera" type="Camera2D" unique_id=511926268]
+zoom = Vector2(1.08, 1.08)
 script = ExtResource("1_utsc4")
