@@ -39,6 +39,28 @@ corner_radius_top_right = 17
 corner_radius_bottom_right = 17
 corner_radius_bottom_left = 17
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d3a7t"]
+bg_color = Color(0, 0, 0, 0.4)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa53l"]
+bg_color = Color(0, 0, 0, 0.4)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
 [node name="MainMenue" type="Control" unique_id=898228504 node_paths=PackedStringArray("start_menu", "host_game_menu", "character_selection_menu", "choose_team_menu", "number_of_players_label", "game_text")]
 layout_mode = 3
 anchors_preset = 15
@@ -154,7 +176,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 12
 
-[node name="SelectCharacterButton" type="Button" parent="HostGameMenu" unique_id=1505489540]
+[node name="SelectTeamButtons" type="Button" parent="HostGameMenu" unique_id=1505489540]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -167,7 +189,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Select Character"
+text = "Select Team"
 
 [node name="AddPlayerButton" type="Button" parent="HostGameMenu" unique_id=914937387]
 layout_mode = 2
@@ -339,11 +361,13 @@ text = "Return"
 
 [node name="Number of players" type="Label" parent="." unique_id=1929643248]
 layout_mode = 0
-offset_left = 208.0
-offset_top = 202.0
-offset_right = 385.0
-offset_bottom = 225.0
-text = "Number of player: 1"
+offset_left = 561.0
+offset_top = 402.0
+offset_right = 738.0
+offset_bottom = 425.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_d3a7t")
+text = "Number of Players: 1"
+horizontal_alignment = 1
 
 [node name="GameTitle" type="Label" parent="." unique_id=598136969]
 layout_mode = 1
@@ -370,17 +394,27 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GameText" type="Label" parent="." unique_id=1251356793]
-layout_mode = 0
-offset_left = 418.0
-offset_top = 510.0
-offset_right = 737.0
-offset_bottom = 596.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.5
+offset_top = 168.0
+offset_right = 159.5
+offset_bottom = 254.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxFlat_oa53l")
+horizontal_alignment = 1
 
 [connection signal="pressed" from="StartMenu/HostGameButton" to="." method="_on_host_game_pressed"]
 [connection signal="pressed" from="StartMenu/JoinGameButton" to="." method="_on_join_game_pressed"]
 [connection signal="pressed" from="StartMenu/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="StartMenu/ExitButton" to="." method="_on_exit_button_pressed"]
-[connection signal="pressed" from="HostGameMenu/SelectCharacterButton" to="." method="_on_select_character_pressed"]
+[connection signal="pressed" from="HostGameMenu/SelectTeamButtons" to="." method="_on_select_team_buttons_pressed"]
 [connection signal="pressed" from="HostGameMenu/AddPlayerButton" to="." method="_on_add_player_button_pressed"]
 [connection signal="pressed" from="HostGameMenu/RemovePlayerButton" to="." method="_on_remove_player_button_pressed"]
 [connection signal="pressed" from="HostGameMenu/ReturnButton" to="." method="_on_return_button_pressed"]

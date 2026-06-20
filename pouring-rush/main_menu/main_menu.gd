@@ -82,11 +82,9 @@ func open_menu(menu : VBoxContainer):
 
 ## different logical functions
 
-func choose_team(character_data : CharacterData):
-	pass
 
 func update_nop_label(value : int):
-	number_of_players_label.text = ("Number of players: " + str(value))
+	number_of_players_label.text = ("Number of Players: " + str(value))
 
 func start_match():
 	var config = MatchConfig.new()
@@ -139,11 +137,16 @@ func _on_exit_button_pressed() -> void:
 
 ## host game menu
 
-func _on_select_character_pressed() -> void:
-	open_menu(character_selection_menu)
+func _on_select_team_buttons_pressed() -> void:
+	open_menu(choose_team_menu)
 	
 	# starting the new character
 	active_player = PlayerConfig.new()
+	
+	# setting first players caracters id
+	active_player.input_id = players.size()
+	
+	game_text.text = "Configuring Player " + str(active_player.input_id + 1)
 
 func _on_add_player_button_pressed() -> void:
 	number_of_players += 1
@@ -166,15 +169,6 @@ func _on_remove_player_button_pressed() -> void:
 
 
 
-## Character Selection Menu
-
-func _on_character_1_pressed() -> void:
-	# setting character_data to active character
-	active_player.character_data = rooster[0]
-	
-	open_menu(choose_team_menu)
-
-
 ## Choose Team Menu
 
 
@@ -182,7 +176,7 @@ func _on_team_1_button_pressed() -> void:
 	# chooses team
 	active_player.team = Team.type.RED
 	
-	add_and_check_player()
+	open_menu(character_selection_menu)
 	
 
 
@@ -190,9 +184,23 @@ func _on_team_2_button_pressed() -> void:
 	# chooses team
 	active_player.team = Team.type.BLUE
 	
+	open_menu(character_selection_menu)
+
+
+
+## Character Selection Menu
+
+func _on_character_1_pressed() -> void:
+	# setting character_data to active character
+	active_player.character_data = rooster[0]
+	
 	add_and_check_player()
 
+
+
+
 func add_and_check_player():
+	
 	# adds active player to players array
 	players.append(active_player)
 	
@@ -200,6 +208,14 @@ func add_and_check_player():
 	if number_of_players > players.size():
 		# go back to character select for next character?
 		active_player = PlayerConfig.new()
-		open_menu(character_selection_menu)
+		
+		# setting players id
+		active_player.input_id = players.size()
+		
+		# updating whitch players configuring label
+		game_text.text = "Configuring Player " + str(active_player.input_id + 1)
+		
+		# goes back to choose team for the same order again
+		open_menu(choose_team_menu)
 	else:
 		start_match()
