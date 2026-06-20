@@ -10,7 +10,8 @@ class_name ViewSystem
 
 
 @onready var red_match_ui: MatchUI = $RedMatchUI
-@onready var blue_match_ui: MatchUI = $BlueWindow/BlueMatchUI
+@onready var blue_match_ui: MatchUI = $BlueWindow/SubViewport/BlueMatchUI
+
 
 @onready var sub_viewport: SubViewport = $BlueWindow/SubViewport
 @onready var texture_rect: TextureRect = $BlueWindow/TextureRect
