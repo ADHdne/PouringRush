@@ -12,4 +12,3 @@ func _process(delta: float) -> void:
 		return
 	
 	global_position = target_zone.global_position
-	print("viewport : ", get_parent())
