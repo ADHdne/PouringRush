@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="PlayerActions" format=3 uid="uid://cfboj701bf7hh"]
+
+[ext_resource type="Script" uid="uid://bq3wd10ibsv6" path="res://Characters/Player/PlayerComponents/player_actions.gd" id="1_f5ut4"]
+
+[resource]
+script = ExtResource("1_f5ut4")
+metadata/_custom_type_script = "uid://bq3wd10ibsv6"
