@@ -61,7 +61,16 @@ expand_margin_top = 4.0
 expand_margin_right = 4.0
 expand_margin_bottom = 4.0
 
-[node name="MainMenue" type="Control" unique_id=898228504 node_paths=PackedStringArray("start_menu", "host_game_menu", "character_selection_menu", "choose_team_menu", "number_of_players_label", "game_text")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3shxk"]
+bg_color = Color(0.34229982, 0.32600805, 0.31399146, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[node name="MainMenue" type="Control" unique_id=898228504 node_paths=PackedStringArray("start_menu", "host_game_menu", "character_selection_menu", "choose_team_menu", "number_of_players_label", "game_text", "menu_title")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -75,6 +84,7 @@ character_selection_menu = NodePath("CharacterSelectionMenu")
 choose_team_menu = NodePath("ChooseTeamMenu")
 number_of_players_label = NodePath("Number of players")
 game_text = NodePath("GameText")
+menu_title = NodePath("MenuTitle")
 
 [node name="Panel" type="Panel" parent="." unique_id=476654495]
 layout_mode = 1
@@ -265,7 +275,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Character 1"
+text = "Pim"
 
 [node name="Character2Button" type="Button" parent="CharacterSelectionMenu" unique_id=1083693402]
 layout_mode = 2
@@ -280,7 +290,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Character 2"
+text = "Broshiv"
 
 [node name="ReturnButton" type="Button" parent="CharacterSelectionMenu" unique_id=1309601048]
 layout_mode = 2
@@ -408,6 +418,26 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxFlat_oa53l")
+horizontal_alignment = 1
+
+[node name="MenuTitle" type="Label" parent="." unique_id=1174135038]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.34375
+offset_top = -161.0
+offset_right = 181.34375
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.80670416, 0.7884135, 0.77622485, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 40
+theme_override_styles/normal = SubResource("StyleBoxFlat_3shxk")
 horizontal_alignment = 1
 
 [connection signal="pressed" from="StartMenu/HostGameButton" to="." method="_on_host_game_pressed"]

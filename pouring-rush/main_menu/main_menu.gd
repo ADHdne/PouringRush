@@ -14,6 +14,7 @@ class_name MainMenu
 # reference to other children
 @export var number_of_players_label : Label
 @export var game_text : Label
+@export var menu_title : Label
 
 
 # Characterr Rooster
@@ -77,6 +78,9 @@ func open_menu(menu : VBoxContainer):
 	# grab first buttons focus
 	first_button.grab_focus()
 	
+	# updating menu title
+	update_menu_title(menu)
+	
 	# set current menues
 	current_menu = menu
 
@@ -85,6 +89,21 @@ func open_menu(menu : VBoxContainer):
 
 func update_nop_label(value : int):
 	number_of_players_label.text = ("Number of Players: " + str(value))
+
+func update_menu_title(menu : VBoxContainer):
+	match menu.name:
+		"HostGameMenu":
+			menu_title.text = "Host Game Menu"
+			
+		"ChooseTeamMenu":
+			menu_title.text = "Select Team"
+			
+		"CharacterSelectionMenu":
+			menu_title.text = "Select Character"
+			
+		"StartMenu":
+			menu_title.text = "Start Menu"
+		
 
 func start_match():
 	var config = MatchConfig.new()
@@ -119,8 +138,10 @@ func _on_return_button_pressed() -> void:
 ## Start Menu
 
 func _on_host_game_pressed() -> void:
+	# opening the next menu
 	open_menu(host_game_menu)
 	
+
 
 func _on_join_game_pressed() -> void:
 	pass # Replace with function body.
@@ -138,6 +159,7 @@ func _on_exit_button_pressed() -> void:
 ## host game menu
 
 func _on_select_team_buttons_pressed() -> void:
+	# opening the next menu
 	open_menu(choose_team_menu)
 	
 	# starting the new character
@@ -176,17 +198,17 @@ func _on_team_1_button_pressed() -> void:
 	# chooses team
 	active_player.team = Team.type.RED
 	
+	# open the menu
 	open_menu(character_selection_menu)
-	
+
 
 
 func _on_team_2_button_pressed() -> void:
 	# chooses team
 	active_player.team = Team.type.BLUE
 	
+	# opening the menu
 	open_menu(character_selection_menu)
-
-
 
 ## Character Selection Menu
 
@@ -217,5 +239,6 @@ func add_and_check_player():
 		
 		# goes back to choose team for the same order again
 		open_menu(choose_team_menu)
+		
 	else:
 		start_match()
