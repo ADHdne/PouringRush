@@ -54,6 +54,7 @@ func set_up_abilities(component : CombatComponent):
 	basic_shot.texture = component.basic_shot_data.ability_data.projectile_data.texture
 	special_1.texture = component.special_shot_data.ability_data.projectile_data.texture
 	special_2.texture = component.special_2_data.ability_data.projectile_data.texture
+	utility.texture = component.utility_data.ability_data.projectile_data.texture
 	
 	# setting progressbars max_value
 	special_1_bar.max_value = component.special_shot_data.ability_data.ability_cooldown

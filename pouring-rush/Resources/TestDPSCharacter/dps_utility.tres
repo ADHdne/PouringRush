@@ -1,6 +1,17 @@
 [gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://dih6d5lo5ltfp"]
 
+[ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="1_gk6gt"]
+[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="2_73vl8"]
 [ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="3_v1f3k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk6gt"]
+atlas = ExtResource("2_73vl8")
+region = Rect2(81, 163, 15, 12)
+
+[sub_resource type="Resource" id="Resource_73vl8"]
+script = ExtResource("1_gk6gt")
+texture = SubResource("AtlasTexture_gk6gt")
+metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]
 script = ExtResource("3_v1f3k")
@@ -11,6 +22,7 @@ cooldown = 0.2
 ability_cooldown = 5.0
 max_ammo = 0
 reload_time = 0.0
+projectile_data = SubResource("Resource_73vl8")
 dash_speed = 1000.0
 dash_duration = 0.25
 metadata/_custom_type_script = "uid://d1qs4e030ganv"
