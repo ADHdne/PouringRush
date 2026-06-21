@@ -1,39 +1,40 @@
 [gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://bp6wdom3pcmoi"]
 
-[ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_k534h"]
-[ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_fl1xa"]
-[ext_resource type="Texture2D" uid="uid://caxvvruwjpf5" path="res://Assets/Sprites/rotating_orbs.png" id="3_8mlqw"]
-[ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="4_ktlfc"]
-[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="5_f6q8g"]
+[ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_05lvr"]
+[ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_ar30b"]
+[ext_resource type="Texture2D" uid="uid://caxvvruwjpf5" path="res://Assets/Sprites/rotating_orbs.png" id="3_ut4cg"]
+[ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="4_4jlmf"]
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="5_hm17f"]
 
 [sub_resource type="Resource" id="Resource_0pgyb"]
-script = ExtResource("1_k534h")
-damage = 0.0
-healing = 15.0
-knockback_growth = 0.0
+script = ExtResource("1_05lvr")
+damage = 40.0
+base_knockback = 10.0
+knockback_growth = 10.0
 hit_stun = 10.0
 metadata/_custom_type_script = "uid://drphxsmjyfe1x"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vftk8"]
-atlas = ExtResource("3_8mlqw")
+atlas = ExtResource("3_ut4cg")
 region = Rect2(4, 100, 24, 24)
 
 [sub_resource type="Resource" id="Resource_kxr04"]
-script = ExtResource("2_fl1xa")
+script = ExtResource("2_ar30b")
 hit_data = SubResource("Resource_0pgyb")
 texture = SubResource("AtlasTexture_vftk8")
-radius = 10.0
+radius = 20.0
+sprite_size = Vector2(2, 2)
+speed = 600.0
 lifetime = 3.0
 can_be_reflected = false
-pierces = 2
 ammo_cost = 0
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]
-script = ExtResource("5_f6q8g")
+script = ExtResource("5_hm17f")
 ability_name = "Special 2 "
 ability_cooldown = 15.0
 max_ammo = 0
-projectile_scene = ExtResource("4_ktlfc")
+projectile_scene = ExtResource("4_4jlmf")
 projectile_data = SubResource("Resource_kxr04")
 metadata/_custom_type_script = "uid://d1qs4e030ganv"
