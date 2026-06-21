@@ -67,7 +67,7 @@ func setup_windows():
 		blue_window.show()
 		await get_tree().process_frame
 
-		blue_window.current_screen = 0
+		blue_window.current_screen = 1
 		blue_window.mode = Window.MODE_FULLSCREEN
 
-		get_window().current_screen = 1
+		get_window().current_screen = 0

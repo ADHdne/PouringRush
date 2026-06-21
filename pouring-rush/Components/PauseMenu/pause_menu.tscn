@@ -41,17 +41,6 @@ corner_radius_top_right = 17
 corner_radius_bottom_right = 17
 corner_radius_bottom_left = 17
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwash"]
-content_margin_left = 10.0
-content_margin_top = 5.0
-content_margin_right = 5.0
-content_margin_bottom = 5.0
-bg_color = Color(0.72156864, 0.5764706, 0.45882353, 1)
-corner_radius_top_left = 17
-corner_radius_top_right = 17
-corner_radius_bottom_right = 17
-corner_radius_bottom_left = 17
-
 [sub_resource type="Animation" id="Animation_r18g1"]
 resource_name = "Blur"
 length = 0.20000334
@@ -137,7 +126,7 @@ _data = {
 &"RESET": SubResource("Animation_8xikt")
 }
 
-[node name="PauseMenu" type="Control" unique_id=358262798 node_paths=PackedStringArray("animation", "pause_window", "htp_window", "resume_button", "return_button")]
+[node name="PauseMenu" type="Control" unique_id=358262798 node_paths=PackedStringArray("animation", "pause_window", "resume_button", "return_button")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -148,9 +137,8 @@ grow_vertical = 2
 script = ExtResource("1_gvdwd")
 animation = NodePath("AnimationPlayer")
 pause_window = NodePath("PanelContainer/PauseWindow")
-htp_window = NodePath("PanelContainer/HTPWindow")
 resume_button = NodePath("PanelContainer/PauseWindow/Resume")
-return_button = NodePath("PanelContainer/HTPWindow/Return")
+return_button = NodePath("")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=7933295]
 material = SubResource("ShaderMaterial_3ammu")
@@ -207,22 +195,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7up1a")
 theme_override_styles/focus = SubResource("StyleBoxFlat_7fm2m")
 text = "Resume"
 
-[node name="To checkpoint" type="Button" parent="PanelContainer/PauseWindow" unique_id=21380838]
-texture_filter = 2
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_ts4xy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6ewm1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7up1a")
-theme_override_styles/focus = SubResource("StyleBoxFlat_7fm2m")
-text = "To Checkpoint"
-
 [node name="Objective" type="Button" parent="PanelContainer/PauseWindow" unique_id=992976739]
 texture_filter = 2
 layout_mode = 2
@@ -255,56 +227,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_7up1a")
 theme_override_styles/focus = SubResource("StyleBoxFlat_7fm2m")
 text = "Quit To Menu"
 
-[node name="HTPWindow" type="VBoxContainer" parent="PanelContainer" unique_id=597680468]
-visible = false
-layout_mode = 2
-
-[node name="Label" type="Label" parent="PanelContainer/HTPWindow" unique_id=978581945]
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.21176471)
-theme_override_constants/line_spacing = 2
-theme_override_font_sizes/font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_rwash")
-text = "Objective:
-Get the most sun and find the exit.
-
-The premiss:
-You need to jugle the seed while exploring
-these lands for abilities and sun. When the 
-seed lands on the ground you will warp to
-its location. As long as you have more seeds.
-
-Buttons:
-Hold Y to charge and aim the seed shot
-Press and/or hold B to jump
-Press A + Up to warp to teammate "
-
-[node name="Return" type="Button" parent="PanelContainer/HTPWindow" unique_id=133535864]
-texture_filter = 2
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 18
-theme_override_styles/normal = SubResource("StyleBoxFlat_ts4xy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6ewm1")
-theme_override_styles/hover = SubResource("StyleBoxFlat_7up1a")
-theme_override_styles/focus = SubResource("StyleBoxFlat_7fm2m")
-text = "Resume"
-icon_alignment = 1
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1825521715]
 libraries/ = SubResource("AnimationLibrary_7fm2m")
 
 [connection signal="focus_entered" from="PanelContainer/PauseWindow/Resume" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="PanelContainer/PauseWindow/Resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="PanelContainer/PauseWindow/To checkpoint" to="." method="_on_to_checkpoint_pressed"]
 [connection signal="focus_entered" from="PanelContainer/PauseWindow/Objective" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="PanelContainer/PauseWindow/Objective" to="." method="_on_objective_pressed"]
 [connection signal="focus_entered" from="PanelContainer/PauseWindow/QuitToMenu" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="PanelContainer/PauseWindow/QuitToMenu" to="." method="_on_quit_to_menu_pressed"]
-[connection signal="pressed" from="PanelContainer/HTPWindow/Return" to="." method="_on_return_pressed"]

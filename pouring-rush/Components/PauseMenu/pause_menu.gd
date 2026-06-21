@@ -5,7 +5,6 @@ class_name PauseMenu
 ## references
 @export var animation : AnimationPlayer
 @export var pause_window : VBoxContainer
-@export var htp_window : VBoxContainer
 @export var resume_button : Button
 @export var return_button : Button
 @export var menu_open : bool = false
@@ -30,7 +29,6 @@ func resume():
 func pause():
 	# adds visibility and moves it in front
 	pause_window.visible = true
-	htp_window.visible = false
 	
 	show()
 	move_to_front()
@@ -51,17 +49,9 @@ func _on_resume_pressed() -> void:
 	resume()
 
 
-func _on_objective_pressed() -> void:
-	SoundManager.confirm.play()
-	
-	pause_window.visible = false
-	htp_window.visible = true
-	return_button.grab_focus()
-
 func _on_return_pressed() -> void:
 	SoundManager.confirm.play()
 	
-	htp_window.visible = false
 	pause_window.visible = true
 	resume_button.grab_focus()
 	
