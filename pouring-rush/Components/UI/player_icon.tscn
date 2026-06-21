@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bh0l4ood5f5mu" path="res://Components/UI/player_icon.gd" id="1_fomls"]
 [ext_resource type="Texture2D" uid="uid://d03qtt4hl0g1c" path="res://Assets/Sprites/Bobble.png" id="2_6ryjl"]
-[ext_resource type="Texture2D" uid="uid://caxvvruwjpf5" path="res://Assets/Sprites/rotating_orbs.png" id="3_ee3hu"]
+[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="3_ee3hu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ryjl"]
 bg_color = Color(0.39308554, 0.39308554, 0.39308533, 0.2901961)
@@ -35,7 +35,7 @@ corner_detail = 20
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b1j5k"]
 atlas = ExtResource("3_ee3hu")
-region = Rect2(3.7807713, 131.83841, 24.333218, 24.207153)
+region = Rect2(81, 163, 15, 12)
 
 [node name="PlayerIcon" type="Control" unique_id=140911905 node_paths=PackedStringArray("portrait", "basic_shot", "magazine", "special_1", "special_1_bar", "special_2", "special_2_bar", "utility", "utility_bar")]
 custom_minimum_size = Vector2(100, 100)

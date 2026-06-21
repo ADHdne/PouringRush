@@ -20,6 +20,7 @@ func _ready() -> void:
 	collision_shape.shape.radius = data.radius
 	sprite.texture = data.texture
 	sprite.scale = data.sprite_size
+	sprite.rotation_degrees = data.sprite_rotation
 	lifetime_timer.start(data.lifetime)
 
 func _physics_process(delta: float) -> void:

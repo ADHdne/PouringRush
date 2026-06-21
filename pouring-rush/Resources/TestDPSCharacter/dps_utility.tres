@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://dih6d5lo5ltfp"]
 
-[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="1_o7crt"]
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="3_v1f3k"]
 
 [resource]
-script = ExtResource("1_o7crt")
+script = ExtResource("3_v1f3k")
 ability_type = 1
 utility_type = 1
 ability_name = "Dash"
@@ -12,5 +12,5 @@ ability_cooldown = 5.0
 max_ammo = 0
 reload_time = 0.0
 dash_speed = 1000.0
-dash_duration = 0.2
+dash_duration = 0.25
 metadata/_custom_type_script = "uid://d1qs4e030ganv"

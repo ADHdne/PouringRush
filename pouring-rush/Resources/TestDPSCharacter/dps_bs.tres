@@ -9,7 +9,9 @@
 [sub_resource type="Resource" id="Resource_8kog8"]
 script = ExtResource("1_l8wfl")
 damage = 15.0
-base_knockback = 1.0
+base_knockback = 5.0
+knockback_growth = 5.0
+knockback_type = 1
 metadata/_custom_type_script = "uid://drphxsmjyfe1x"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcdb1"]
@@ -20,13 +22,18 @@ region = Rect2(80, 128, 16, 16)
 script = ExtResource("2_p7sgg")
 hit_data = SubResource("Resource_8kog8")
 texture = SubResource("AtlasTexture_rcdb1")
+radius = 14.0
+sprite_size = Vector2(1.5, 1.5)
+sprite_rotation = 40.0
+gravity = 800.0
 speed = 1000.0
+lifetime = 4.0
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]
 script = ExtResource("5_v34u7")
 ability_name = "Basic Shot"
-cooldown = 0.4
+cooldown = 0.8
 max_ammo = 15
 projectile_scene = ExtResource("4_blhtq")
 projectile_data = SubResource("Resource_1auey")
