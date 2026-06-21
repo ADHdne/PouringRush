@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://c77vu2jh8bwaq" path="res://Components/Viewport+/view_system.gd" id="1_jn0iy"]
 [ext_resource type="PackedScene" uid="uid://d4b8s7w5jnw78" path="res://Components/CameraStuff/TeamCamera.tscn" id="2_esfgm"]
 [ext_resource type="PackedScene" uid="uid://bwr504uk4sydr" path="res://Components/UI/MatchUI.tscn" id="3_bhx3v"]
-[ext_resource type="PackedScene" uid="uid://bcp0ijokg4sd4" path="res://Components/PauseMenu/pause_menu.tscn" id="4_8seun"]
 
 [node name="ViewSystem" type="Node" unique_id=1875535046]
 script = ExtResource("1_jn0iy")
@@ -43,5 +42,3 @@ stretch_mode = 5
 [node name="RedCamera" parent="." unique_id=511926268 instance=ExtResource("2_esfgm")]
 
 [node name="RedMatchUI" parent="." unique_id=1860532533 instance=ExtResource("3_bhx3v")]
-
-[node name="RedPauseMenu" parent="." unique_id=913172433 instance=ExtResource("4_8seun")]

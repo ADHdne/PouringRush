@@ -16,7 +16,9 @@ class_name ViewSystem
 @onready var sub_viewport: SubViewport = $BlueWindow/SubViewport
 @onready var texture_rect: TextureRect = $BlueWindow/TextureRect
 
-@onready var pause_menu: PauseMenu = $PauseMenu
+var red_pause = preload("res://Components/PauseMenu/pause_menu.tscn").instantiate()
+var blue_pause = preload("res://Components/PauseMenu/pause_menu.tscn").instantiate()
+
 
 
 
@@ -35,14 +37,17 @@ func initialize(match_manager : MatchManager, world : World, red_zone : TeamZone
 	red_camera.target_zone = red_zone
 	blue_camera.target_zone = blue_zone
 	
-	red_match_ui.initialize(players, match_manager)
-	blue_match_ui.initialize(players, match_manager)
+	red_match_ui.initialize(players, match_manager, red_pause)
+	blue_match_ui.initialize(players, match_manager, blue_pause)
 	
 	self.world = world
 	
 	set_world(world)
 	
 	set_ui()
+	
+	print("RED viewport:", red_pause.get_viewport())
+	print("BLUE viewport:", blue_pause.get_viewport())
 
 func set_world(world : World):
 	
@@ -69,5 +74,9 @@ func setup_windows():
 
 		blue_window.current_screen = 1
 		blue_window.mode = Window.MODE_FULLSCREEN
+		
+		
+
 
 		get_window().current_screen = 0
+		get_window().mode = Window.MODE_FULLSCREEN

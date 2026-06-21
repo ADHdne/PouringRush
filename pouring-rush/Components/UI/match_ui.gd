@@ -16,7 +16,7 @@ var player_icons: Dictionary = {}
 
 
 
-func initialize(players: Array[Player], match_manager : MatchManager):
+func initialize(players: Array[Player], match_manager : MatchManager, pause : PauseMenu):
 	
 	# reference to matchmanager
 	self.match_manager = match_manager
@@ -41,6 +41,8 @@ func initialize(players: Array[Player], match_manager : MatchManager):
 
 
 			h_box_container.add_child(icon)
+	
+	add_pause_menu(pause)
 
 func _process(delta: float) -> void:
 	
@@ -87,3 +89,6 @@ func update_time(delta):
 	var seconds = total_seconds % 60
 
 	time_label.text = "%02d:%02d" % [minutes, seconds]
+
+func add_pause_menu(pause : PauseMenu):
+	self.add_child(pause)
