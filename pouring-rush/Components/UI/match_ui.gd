@@ -32,7 +32,6 @@ func initialize(players: Array[Player], match_manager : MatchManager, pause : Pa
 
 	if team_players != null:
 		for player in team_players:
-			print("player")
 			var icon: PlayerIcon = player_icon_scene.instantiate()
 
 			icon.setup(player)
@@ -41,8 +40,9 @@ func initialize(players: Array[Player], match_manager : MatchManager, pause : Pa
 
 
 			h_box_container.add_child(icon)
+		
+		add_pause_menu(pause)
 	
-	add_pause_menu(pause)
 
 func _process(delta: float) -> void:
 	

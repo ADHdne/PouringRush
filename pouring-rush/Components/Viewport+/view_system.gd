@@ -37,6 +37,9 @@ func initialize(match_manager : MatchManager, world : World, red_zone : TeamZone
 	red_camera.target_zone = red_zone
 	blue_camera.target_zone = blue_zone
 	
+	
+	set_ui()
+	
 	red_match_ui.initialize(players, match_manager, red_pause)
 	blue_match_ui.initialize(players, match_manager, blue_pause)
 	
@@ -44,10 +47,7 @@ func initialize(match_manager : MatchManager, world : World, red_zone : TeamZone
 	
 	set_world(world)
 	
-	set_ui()
-	
-	print("RED viewport:", red_pause.get_viewport())
-	print("BLUE viewport:", blue_pause.get_viewport())
+
 
 func set_world(world : World):
 	
