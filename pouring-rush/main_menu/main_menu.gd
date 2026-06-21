@@ -19,7 +19,8 @@ class_name MainMenu
 
 # Characterr Rooster
 var rooster : Array[CharacterData] = [
-	preload("res://Resources/TestCharacter1.tres"), # test character 1
+	preload("res://Resources/TestDPSCharacter/test_dps_character.tres"), # test dps character
+	preload("res://Resources/TestSupportCharacter/test_support_character.tres")
 ]
 
 var arenas : Array[PackedScene] = [

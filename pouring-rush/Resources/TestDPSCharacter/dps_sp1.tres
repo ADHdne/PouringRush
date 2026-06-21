@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://c1urw7gwlpneg"]
 
-[ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_fnseu"]
-[ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_qtc1u"]
-[ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="3_7vuwe"]
-[ext_resource type="Texture2D" uid="uid://caxvvruwjpf5" path="res://Assets/Sprites/rotating_orbs.png" id="3_fnseu"]
-[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="4_lgm7l"]
+[ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_yyoas"]
+[ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_bs1q6"]
+[ext_resource type="Texture2D" uid="uid://caxvvruwjpf5" path="res://Assets/Sprites/rotating_orbs.png" id="3_1kxbp"]
+[ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="4_ptxw7"]
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="5_lx68u"]
 
 [sub_resource type="Resource" id="Resource_hlkmj"]
-script = ExtResource("1_fnseu")
+script = ExtResource("1_yyoas")
 damage = 40.0
 base_knockback = 10.0
 knockback_growth = 5.0
@@ -16,11 +16,11 @@ hit_stun = 1.0
 metadata/_custom_type_script = "uid://drphxsmjyfe1x"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qtc1u"]
-atlas = ExtResource("3_fnseu")
+atlas = ExtResource("3_1kxbp")
 region = Rect2(4, 132, 24, 24)
 
 [sub_resource type="Resource" id="Resource_5ikm4"]
-script = ExtResource("2_qtc1u")
+script = ExtResource("2_bs1q6")
 hit_data = SubResource("Resource_hlkmj")
 texture = SubResource("AtlasTexture_qtc1u")
 radius = 12.0
@@ -32,10 +32,10 @@ ammo_cost = 0
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]
-script = ExtResource("4_lgm7l")
+script = ExtResource("5_lx68u")
 ability_name = "Special 1"
 ability_cooldown = 10.0
 max_ammo = 0
-projectile_scene = ExtResource("3_7vuwe")
+projectile_scene = ExtResource("4_ptxw7")
 projectile_data = SubResource("Resource_5ikm4")
 metadata/_custom_type_script = "uid://d1qs4e030ganv"

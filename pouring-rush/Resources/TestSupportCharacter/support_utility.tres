@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://c1rsdbn46ew2d"]
+
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="1_635gn"]
+
+[resource]
+script = ExtResource("1_635gn")
+ability_type = 1
+utility_type = 1
+ability_name = "Support Utility"
+metadata/_custom_type_script = "uid://d1qs4e030ganv"

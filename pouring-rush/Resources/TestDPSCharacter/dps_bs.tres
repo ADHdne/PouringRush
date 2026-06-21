@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://craujuwyqxor6"]
+
+[ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_l8wfl"]
+[ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_p7sgg"]
+[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="3_wk8tj"]
+[ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="4_blhtq"]
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="5_v34u7"]
+
+[sub_resource type="Resource" id="Resource_8kog8"]
+script = ExtResource("1_l8wfl")
+damage = 15.0
+base_knockback = 1.0
+metadata/_custom_type_script = "uid://drphxsmjyfe1x"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcdb1"]
+atlas = ExtResource("3_wk8tj")
+region = Rect2(80, 128, 16, 16)
+
+[sub_resource type="Resource" id="Resource_1auey"]
+script = ExtResource("2_p7sgg")
+hit_data = SubResource("Resource_8kog8")
+texture = SubResource("AtlasTexture_rcdb1")
+speed = 1000.0
+metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
+
+[resource]
+script = ExtResource("5_v34u7")
+ability_name = "Basic Shot"
+cooldown = 0.4
+max_ammo = 15
+projectile_scene = ExtResource("4_blhtq")
+projectile_data = SubResource("Resource_1auey")
+metadata/_custom_type_script = "uid://d1qs4e030ganv"

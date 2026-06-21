@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://1kwact2tf208"]
+
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="1_bp7sc"]
+[ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_mg5cg"]
+[ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_t0id1"]
+[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="3_kc7oj"]
+[ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="4_66lay"]
+
+[sub_resource type="Resource" id="Resource_oem55"]
+script = ExtResource("1_mg5cg")
+damage = 20.0
+healing = 60.0
+knockback_growth = 0.0
+metadata/_custom_type_script = "uid://drphxsmjyfe1x"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idyne"]
+atlas = ExtResource("3_kc7oj")
+region = Rect2(162, 64, 13, 16)
+
+[sub_resource type="Resource" id="Resource_x4jjt"]
+script = ExtResource("2_t0id1")
+hit_data = SubResource("Resource_oem55")
+texture = SubResource("AtlasTexture_idyne")
+radius = 12.0
+sprite_size = Vector2(1.2, 1.2)
+gravity = 600.0
+speed = 400.0
+can_be_absorbed = true
+ammo_cost = 0
+metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
+
+[resource]
+script = ExtResource("1_bp7sc")
+ability_name = "Support Special 2"
+cooldown = 0.4
+ability_cooldown = 20.0
+max_ammo = 0
+reload_time = 0.0
+projectile_scene = ExtResource("4_66lay")
+projectile_data = SubResource("Resource_x4jjt")
+metadata/_custom_type_script = "uid://d1qs4e030ganv"

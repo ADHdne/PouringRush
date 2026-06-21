@@ -290,7 +290,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Broshiv"
+text = "Pom"
 
 [node name="ReturnButton" type="Button" parent="CharacterSelectionMenu" unique_id=1309601048]
 layout_mode = 2

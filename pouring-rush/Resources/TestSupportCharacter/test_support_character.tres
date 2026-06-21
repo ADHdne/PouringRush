@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://d1sslh2setsns"]
+
+[ext_resource type="Resource" uid="uid://w7jffe2j62rq" path="res://Resources/TestSupportCharacter/support_bs.tres" id="1_sjgap"]
+[ext_resource type="Script" uid="uid://c26p6mh1s8fyn" path="res://Resources/character_data.gd" id="1_ss8ch"]
+[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="2_jmmu4"]
+[ext_resource type="Resource" uid="uid://dp6pl7nskj8cr" path="res://Resources/TestSupportCharacter/support_sp1.tres" id="4_sw7ym"]
+[ext_resource type="Resource" uid="uid://1kwact2tf208" path="res://Resources/TestSupportCharacter/support_sp2.tres" id="5_2vt7t"]
+[ext_resource type="Resource" uid="uid://c1rsdbn46ew2d" path="res://Resources/TestSupportCharacter/support_utility.tres" id="6_o1ydh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6sd1l"]
+atlas = ExtResource("2_jmmu4")
+region = Rect2(64, 176, 16, 16)
+
+[resource]
+script = ExtResource("1_ss8ch")
+display_name = "Pom"
+portrait = SubResource("AtlasTexture_6sd1l")
+basic_shot = ExtResource("1_sjgap")
+special_1 = ExtResource("4_sw7ym")
+special_2 = ExtResource("5_2vt7t")
+utility = ExtResource("6_o1ydh")
+metadata/_custom_type_script = "uid://c26p6mh1s8fyn"
