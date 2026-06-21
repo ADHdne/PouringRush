@@ -19,6 +19,7 @@ config/features=PackedStringArray("4.6", "Mobile")
 GameManager="*uid://cagm8f82g5h6w"
 SignalBus="*uid://b6wxjl4pq806j"
 SaveManager="*uid://bqmgavpmw27yo"
+SoundManager="*uid://bnhq2bbnj5ii4"
 
 [display]
 

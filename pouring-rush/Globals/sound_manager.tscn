@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bnhq2bbnj5ii4"]
+
+[ext_resource type="Script" uid="uid://bdhq8dydh2tco" path="res://Globals/sound_manager.gd" id="1_buv3b"]
+[ext_resource type="AudioStream" uid="uid://kdd7acc5xlg1" path="res://Assets/Sound/Menu/button1.3.wav" id="2_w0nvu"]
+[ext_resource type="AudioStream" uid="uid://cx86gt2edrjnk" path="res://Assets/Sound/Menu/button2.3.wav" id="3_cxppg"]
+[ext_resource type="AudioStream" uid="uid://osgfba1hyunl" path="res://Assets/Sound/Menu/press start.wav" id="4_yoalf"]
+[ext_resource type="AudioStream" uid="uid://bkcavtv8njqgb" path="res://Assets/Sound/Menu/get ability.wav" id="5_kmas0"]
+[ext_resource type="AudioStream" uid="uid://cnbyr13jnkhef" path="res://Assets/Sound/Menu/menu close.wav" id="6_gfr0g"]
+[ext_resource type="AudioStream" uid="uid://4orsda23spin" path="res://Assets/Sound/droplet.wav" id="7_phelm"]
+[ext_resource type="AudioStream" uid="uid://dqklk5iy8p0ds" path="res://Assets/Sound/Magic_Spells_Impact_Water_Low23.wav" id="8_o2xjt"]
+[ext_resource type="AudioStream" uid="uid://choftr3o0u6gf" path="res://Assets/Sound/Droplet with bass.wav" id="9_4evgj"]
+[ext_resource type="AudioStream" uid="uid://bibktvnpvienh" path="res://Assets/Sound/Menu/WhisperingLeaves.wav" id="10_yjs0j"]
+
+[node name="SoundManager" type="Node" unique_id=1134612659]
+script = ExtResource("1_buv3b")
+
+[node name="Confirm" type="AudioStreamPlayer" parent="." unique_id=541941140]
+stream = ExtResource("2_w0nvu")
+
+[node name="Deny" type="AudioStreamPlayer" parent="." unique_id=385005365]
+stream = ExtResource("3_cxppg")
+
+[node name="PressStart" type="AudioStreamPlayer" parent="." unique_id=851738211]
+stream = ExtResource("4_yoalf")
+volume_db = -15.0
+
+[node name="MenuOpen" type="AudioStreamPlayer" parent="." unique_id=384131867]
+stream = ExtResource("5_kmas0")
+
+[node name="MenuClose" type="AudioStreamPlayer" parent="." unique_id=1787034834]
+stream = ExtResource("6_gfr0g")
+
+[node name="Button" type="AudioStreamPlayer" parent="." unique_id=720701687]
+stream = ExtResource("7_phelm")
+
+[node name="Enterance" type="AudioStreamPlayer" parent="." unique_id=1029506134]
+stream = ExtResource("8_o2xjt")
+volume_db = -30.0
+pitch_scale = 2.5
+
+[node name="BigDroplet" type="AudioStreamPlayer" parent="." unique_id=652592230]
+stream = ExtResource("9_4evgj")
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=2059390738]
+stream = ExtResource("10_yjs0j")
+volume_db = -20.0
+
+[node name="MainMusic" type="AudioStreamPlayer" parent="." unique_id=1019441953]
+process_mode = 3
+volume_db = -20.0
