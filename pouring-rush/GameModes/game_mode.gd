@@ -24,7 +24,7 @@ var core_base_time := {
 }
 
 
-const RESPAWN_TIME : = 5
+const RESPAWN_TIME : = 8
 
 var red_team_wins : bool = false
 var blue_team_wins : bool = false

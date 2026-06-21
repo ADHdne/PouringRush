@@ -74,9 +74,6 @@ func setup_windows():
 
 		blue_window.current_screen = 1
 		blue_window.mode = Window.MODE_FULLSCREEN
-		
-		
-
 
 		get_window().current_screen = 0
 		get_window().mode = Window.MODE_FULLSCREEN
