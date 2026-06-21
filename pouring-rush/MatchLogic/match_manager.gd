@@ -175,6 +175,7 @@ func start_match():
 	game_mode.start_match()
 	match_timer.start(game_mode.mach_time)
 
+
 func get_time_remaining() -> float:
 	return match_timer.time_left
 

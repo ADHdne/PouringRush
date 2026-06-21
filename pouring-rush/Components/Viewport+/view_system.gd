@@ -16,6 +16,7 @@ class_name ViewSystem
 @onready var sub_viewport: SubViewport = $BlueWindow/SubViewport
 @onready var texture_rect: TextureRect = $BlueWindow/TextureRect
 
+@onready var pause_menu: PauseMenu = $PauseMenu
 
 
 

@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://bcp0ijokg4sd4"]
 
 [ext_resource type="Script" uid="uid://ch05isvekermg" path="res://Components/PauseMenu/pause_menu.gd" id="1_gvdwd"]
+[ext_resource type="Shader" uid="uid://4aj0vti5bpdr" path="res://Components/PauseMenu/pause_menu.gdshader" id="2_napfa"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3ammu"]
+shader = ExtResource("2_napfa")
+shader_parameter/lod = 0.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ts4xy"]
 bg_color = Color(0.723484, 0.576639, 0.460241, 1)
@@ -134,7 +137,7 @@ _data = {
 &"RESET": SubResource("Animation_8xikt")
 }
 
-[node name="PauseMenu" type="Control" unique_id=358262798]
+[node name="PauseMenu" type="Control" unique_id=358262798 node_paths=PackedStringArray("animation", "pause_window", "htp_window", "resume_button", "return_button")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -143,6 +146,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gvdwd")
+animation = NodePath("AnimationPlayer")
+pause_window = NodePath("PanelContainer/PauseWindow")
+htp_window = NodePath("PanelContainer/HTPWindow")
+resume_button = NodePath("PanelContainer/PauseWindow/Resume")
+return_button = NodePath("PanelContainer/HTPWindow/Return")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=7933295]
 material = SubResource("ShaderMaterial_3ammu")
