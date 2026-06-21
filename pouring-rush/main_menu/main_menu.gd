@@ -96,7 +96,7 @@ func update_nop_label(value : int):
 func update_menu_title(menu : VBoxContainer):
 	match menu.name:
 		"HostGameMenu":
-			menu_title.text = "Host Game Menu"
+			menu_title.text = "Player Amount"
 			
 		"ChooseTeamMenu":
 			menu_title.text = "Select Team"
@@ -136,6 +136,7 @@ func _on_return_button_pressed() -> void:
 	elif current_menu == character_selection_menu or choose_team_menu:
 		last_menu = host_game_menu
 		players.clear()
+		game_text.text = ""
 		active_player = null
 	
 	SoundManager.deny.play()
