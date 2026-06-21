@@ -41,8 +41,6 @@ func initialize(players: Array[Player], match_manager : MatchManager, pause : Pa
 
 
 			h_box_container.add_child(icon)
-		
-	pause_menu = pause
 	
 
 func _process(delta: float) -> void:
@@ -90,3 +88,7 @@ func update_time(delta):
 	var seconds = total_seconds % 60
 
 	time_label.text = "%02d:%02d" % [minutes, seconds]
+
+func show_pause_menu(pause : PauseMenu):
+	pause_menu = pause
+	

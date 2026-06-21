@@ -26,7 +26,7 @@ var blue_zone : TeamZone
 var red_base : SafeZoneArea
 var blue_base : SafeZoneArea
 
-
+var is_paused : bool = false
 
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -54,12 +54,14 @@ func initialize(match_config : MatchConfig, world : World, view_system : ViewSys
 	start_match()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Start") and not view_system.pause_menu.is_paused:
-		view_system.pause_menu.pause()
-		print("pause, is paused: ", view_system.pause_menu.is_paused)
-	elif event.is_action_pressed("Start") and view_system.pause_menu.is_paused:
-		view_system.pause_menu.resume()
-		print("resume is paused: ", view_system.pause_menu.is_paused)
+	if event.is_action_pressed("Start") and not is_paused:
+		is_paused = true
+		view_system.red_pause_menu.pause()
+		view_system.blue_pause_menu.pause()
+	elif event.is_action_pressed("Start") and is_paused:
+		view_system.red_pause_menu.resume()
+		view_system.blue_pause_menu.resume()
+		is_paused = false
 
 
 
