@@ -211,6 +211,8 @@ func _on_team_2_button_pressed() -> void:
 	# opening the menu
 	open_menu(character_selection_menu)
 
+
+
 ## Character Selection Menu
 
 func _on_character_1_pressed() -> void:
@@ -219,7 +221,11 @@ func _on_character_1_pressed() -> void:
 	
 	add_and_check_player()
 
-
+func _on_character_2_button_pressed() -> void:
+	# setting character_data to active character
+	active_player.character_data = rooster[1]
+	
+	add_and_check_player()
 
 
 func add_and_check_player():
