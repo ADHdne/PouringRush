@@ -32,6 +32,7 @@ stream = ExtResource("6_gfr0g")
 
 [node name="Button" type="AudioStreamPlayer" parent="." unique_id=720701687]
 stream = ExtResource("7_phelm")
+volume_db = -15.0
 
 [node name="Enterance" type="AudioStreamPlayer" parent="." unique_id=1029506134]
 stream = ExtResource("8_o2xjt")
@@ -43,7 +44,7 @@ stream = ExtResource("9_4evgj")
 
 [node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=2059390738]
 stream = ExtResource("10_yjs0j")
-volume_db = -20.0
+volume_db = -15.0
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="." unique_id=1019441953]
 process_mode = 3

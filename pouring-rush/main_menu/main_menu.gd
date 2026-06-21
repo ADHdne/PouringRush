@@ -53,6 +53,8 @@ func _ready() -> void:
 	
 	# set number of player label
 	number_of_players_label.text = "Number Of Players: 2"
+	
+	SoundManager.menu_music.play()
 
 
 
@@ -118,8 +120,11 @@ func start_match():
 	
 	GameManager.match_config = config
 	
+	SoundManager.press_start.play()
+	
+	SoundManager.menu_music.stop()
+	
 	GameManager.start_match()
-
 
 ## General buttons
 
@@ -133,6 +138,8 @@ func _on_return_button_pressed() -> void:
 		players.clear()
 		active_player = null
 	
+	SoundManager.deny.play()
+	
 	open_menu(last_menu)
 
 
@@ -142,6 +149,7 @@ func _on_host_game_pressed() -> void:
 	# opening the next menu
 	open_menu(host_game_menu)
 	
+	SoundManager.confirm.play()
 
 
 func _on_join_game_pressed() -> void:
@@ -149,6 +157,9 @@ func _on_join_game_pressed() -> void:
 
 
 func _on_options_button_pressed() -> void:
+	
+	SoundManager.confirm.play()
+	
 	print("Setting pressed")
 
 
@@ -170,6 +181,8 @@ func _on_select_team_buttons_pressed() -> void:
 	active_player.input_id = players.size()
 	
 	game_text.text = "Configuring Player " + str(active_player.input_id + 1)
+	
+	SoundManager.confirm.play()
 
 func _on_add_player_button_pressed() -> void:
 	number_of_players += 1
@@ -179,6 +192,8 @@ func _on_add_player_button_pressed() -> void:
 		print("max players reached")
 	
 	update_nop_label(number_of_players)
+	
+	SoundManager.confirm.play()
 
 
 func _on_remove_player_button_pressed() -> void:
@@ -189,6 +204,8 @@ func _on_remove_player_button_pressed() -> void:
 		# need at least 2 players
 	
 	update_nop_label(number_of_players)
+	
+	SoundManager.confirm.play()
 
 
 
@@ -201,6 +218,8 @@ func _on_team_1_button_pressed() -> void:
 	
 	# open the menu
 	open_menu(character_selection_menu)
+	
+	SoundManager.confirm.play()
 
 
 
@@ -210,6 +229,8 @@ func _on_team_2_button_pressed() -> void:
 	
 	# opening the menu
 	open_menu(character_selection_menu)
+	
+	SoundManager.confirm.play()
 
 
 
@@ -220,12 +241,16 @@ func _on_character_1_pressed() -> void:
 	active_player.character_data = rooster[0]
 	
 	add_and_check_player()
+	
+	SoundManager.confirm.play()
 
 func _on_character_2_button_pressed() -> void:
 	# setting character_data to active character
 	active_player.character_data = rooster[1]
 	
 	add_and_check_player()
+	
+	SoundManager.confirm.play()
 
 
 func add_and_check_player():
@@ -249,3 +274,7 @@ func add_and_check_player():
 		
 	else:
 		start_match()
+
+# adding a sound for when buttons are hovered
+func _on_focus_entered() -> void:
+	SoundManager.button.play(0.18)
