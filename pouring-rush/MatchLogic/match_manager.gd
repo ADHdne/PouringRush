@@ -28,6 +28,9 @@ var blue_base : SafeZoneArea
 
 
 
+func _ready():
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 # this gets called from match_scene
 func initialize(match_config : MatchConfig, world : World, view_system : ViewSystem):
 	
@@ -49,6 +52,15 @@ func initialize(match_config : MatchConfig, world : World, view_system : ViewSys
 			game_mode.init(arena.push_lane, arena.push_lane.pusher, arena.push_lane.red_barrier, arena.push_lane.blue_barrier)
 	game_mode.initialize(self)
 	start_match()
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Start") and not view_system.pause_menu.is_paused:
+		view_system.pause_menu.pause()
+		print("pause, is paused: ", view_system.pause_menu.is_paused)
+	elif event.is_action_pressed("Start") and view_system.pause_menu.is_paused:
+		view_system.pause_menu.resume()
+		print("resume is paused: ", view_system.pause_menu.is_paused)
+
 
 
 func spawn_team_zones():

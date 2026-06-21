@@ -16,14 +16,11 @@ class_name ViewSystem
 @onready var sub_viewport: SubViewport = $BlueWindow/SubViewport
 @onready var texture_rect: TextureRect = $BlueWindow/TextureRect
 
-var red_pause = preload("res://Components/PauseMenu/pause_menu.tscn").instantiate()
-var blue_pause = preload("res://Components/PauseMenu/pause_menu.tscn").instantiate()
-
+@export var pause_menu: PauseMenu
 
 
 
 var world : World
-
 
 
 func _ready() -> void:
@@ -40,13 +37,13 @@ func initialize(match_manager : MatchManager, world : World, red_zone : TeamZone
 	
 	set_ui()
 	
-	red_match_ui.initialize(players, match_manager, red_pause)
-	blue_match_ui.initialize(players, match_manager, blue_pause)
+	red_match_ui.initialize(players, match_manager, pause_menu)
+	blue_match_ui.initialize(players, match_manager, pause_menu)
 	
 	self.world = world
 	
 	set_world(world)
-	
+
 
 
 func set_world(world : World):

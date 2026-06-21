@@ -9,6 +9,8 @@ class_name PauseMenu
 @export var return_button : Button
 @export var menu_open : bool = false
 
+var is_paused = false
+
 func _ready() -> void:
 	# grabs first buttons focus
 	resume_button.grab_focus()
@@ -20,11 +22,15 @@ func _ready() -> void:
 
 
 func resume():
+	
+	is_paused = false
+	
 	resume_button.grab_focus()
 	resume_button.release_focus()
 	get_tree().paused = false
 	animation.play_backwards("Blur")
 	SoundManager.menu_close.play()
+	
 
 func pause():
 	# adds visibility and moves it in front
@@ -33,16 +39,12 @@ func pause():
 	show()
 	move_to_front()
 	
+	is_paused = true
+	
 	resume_button.grab_focus()
 	get_tree().paused = true
 	animation.play("Blur")
 	SoundManager.menu_open.play()
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Start") and not get_tree().paused:
-		pause()
-	elif event.is_action_pressed("Start") and get_tree().paused:
-		resume()
 
 
 func _on_resume_pressed() -> void:
