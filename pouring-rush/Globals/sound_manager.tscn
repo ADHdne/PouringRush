@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://4orsda23spin" path="res://Assets/Sound/droplet.wav" id="7_phelm"]
 [ext_resource type="AudioStream" uid="uid://dqklk5iy8p0ds" path="res://Assets/Sound/Magic_Spells_Impact_Water_Low23.wav" id="8_o2xjt"]
 [ext_resource type="AudioStream" uid="uid://choftr3o0u6gf" path="res://Assets/Sound/Droplet with bass.wav" id="9_4evgj"]
-[ext_resource type="AudioStream" uid="uid://bibktvnpvienh" path="res://Assets/Sound/Menu/WhisperingLeaves.wav" id="10_yjs0j"]
+[ext_resource type="AudioStream" uid="uid://dae72eqs5yujl" path="res://Assets/Sound/Menu/WhisperingLeaves.wav" id="10_yjs0j"]
 
 [node name="SoundManager" type="Node" unique_id=1134612659]
 script = ExtResource("1_buv3b")
