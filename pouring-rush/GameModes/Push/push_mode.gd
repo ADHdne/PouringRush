@@ -58,6 +58,9 @@ func set_up_pusher():
 func set_up_barriers():
 	red_barrier.team = Team.type.RED
 	blue_barrier.team = Team.type.BLUE
+	
+	red_barrier.set_color()
+	blue_barrier.set_color()
 
 # Durring match
 

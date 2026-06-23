@@ -6,8 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dyomr"]
 size = Vector2(32, 32)
 
-[node name="TeamBarrier" type="PathFollow2D" unique_id=1880023225]
+[node name="TeamBarrier" type="PathFollow2D" unique_id=1880023225 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_icpss")
+sprite = NodePath("Sprite2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1492190059]
 texture_filter = 1
