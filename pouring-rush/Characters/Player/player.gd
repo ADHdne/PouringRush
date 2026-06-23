@@ -79,9 +79,9 @@ func _ready() -> void:
 	
 	# setting up outline
 	if team == Team.type.RED:
-		outline.modulate = Color(1,0,0)
+		outline.modulate = Color(0.7,0.2,0.2)
 	else:
-		outline.modulate = Color(0,0,1)
+		outline.modulate = Color(0.2,0.2,0.7)
 	
 
 # match manager calles this
