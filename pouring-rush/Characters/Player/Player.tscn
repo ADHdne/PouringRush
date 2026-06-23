@@ -26,6 +26,17 @@
 [ext_resource type="Script" uid="uid://blvvlhwcsrp30" path="res://Characters/Player/PlayerStates/put_down_state.gd" id="21_tdp7v"]
 [ext_resource type="Script" uid="uid://yjpqcy8o4axk" path="res://Characters/Player/PlayerStates/respawn_state.gd" id="22_tdp7v"]
 [ext_resource type="Script" uid="uid://tc5e113761qt" path="res://Characters/Player/PlayerStates/reload_state.gd" id="23_11ayp"]
+[ext_resource type="AudioStream" uid="uid://ciakoykpxviev" path="res://Assets/Sound/PlayerSounds/SwordSwoosh/SwordSwoosh1.wav" id="25_bfeqw"]
+[ext_resource type="AudioStream" uid="uid://dg5cic6qwojum" path="res://Assets/Sound/PlayerSounds/SwordSwoosh/SwordSwoosh2.wav" id="26_fvyiu"]
+[ext_resource type="AudioStream" uid="uid://ddbyatnqx2vb0" path="res://Assets/Sound/PlayerSounds/SwordSwoosh/SwordSwoosh3.wav" id="27_5qm8w"]
+[ext_resource type="AudioStream" uid="uid://dmevds1iwug0j" path="res://Assets/Sound/PlayerSounds/SwordSwoosh/SwordSwoosh4.wav" id="28_k6jdo"]
+[ext_resource type="AudioStream" uid="uid://bfe6c01i6466b" path="res://Assets/Sound/PlayerSounds/SwordSwoosh/SwordSwoosh5.wav" id="29_bx0yf"]
+[ext_resource type="AudioStream" uid="uid://b6ofpuqfdqyba" path="res://Assets/Sound/PlayerSounds/Hit/BlockedHit.wav" id="30_14yy5"]
+[ext_resource type="AudioStream" uid="uid://b32agvcio4gsv" path="res://Assets/Sound/PlayerSounds/Hit/HitRock.wav" id="31_2jhbk"]
+[ext_resource type="AudioStream" uid="uid://4xdfk3ex1d1m" path="res://Assets/Sound/PlayerSounds/Shieldbreak/ShieldBreak.wav" id="32_327au"]
+[ext_resource type="AudioStream" uid="uid://dll6mw68ihxno" path="res://Assets/Sound/PlayerSounds/Hit/Splatt1.wav" id="33_icnpe"]
+[ext_resource type="AudioStream" uid="uid://dx7gm83m471qm" path="res://Assets/Sound/PlayerSounds/Footsteps/Footstep1.wav" id="34_p8656"]
+[ext_resource type="AudioStream" uid="uid://bg2uvp05ohmkq" path="res://Assets/Sound/PlayerSounds/Swoosh3.wav" id="35_82jp0"]
 
 [sub_resource type="Resource" id="Resource_6h4vt"]
 script = ExtResource("3_6fff4")
@@ -36,6 +47,14 @@ region = Rect2(144, 49, 16, 14)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(16, 32)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_mb2uo"]
+streams_count = 5
+stream_0/stream = ExtResource("25_bfeqw")
+stream_1/stream = ExtResource("26_fvyiu")
+stream_2/stream = ExtResource("27_5qm8w")
+stream_3/stream = ExtResource("28_k6jdo")
+stream_4/stream = ExtResource("29_bx0yf")
 
 [node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone", "sprite")]
 collision_layer = 2
@@ -205,6 +224,34 @@ one_shot = true
 
 [node name="SoundEffects" type="Node2D" parent="." unique_id=403259885]
 script = ExtResource("8_14m2a")
+
+[node name="Dash" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=1729972859]
+stream = SubResource("AudioStreamRandomizer_mb2uo")
+volume_db = -20.0
+
+[node name="HitThud" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=694216642]
+stream = ExtResource("30_14yy5")
+volume_db = -20.0
+
+[node name="HitRock" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=513874861]
+stream = ExtResource("31_2jhbk")
+volume_db = -10.0
+
+[node name="BreakGlass" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=418071717]
+stream = ExtResource("32_327au")
+volume_db = -20.0
+
+[node name="Splatt" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=816372860]
+stream = ExtResource("33_icnpe")
+volume_db = -15.0
+
+[node name="Footstep" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=1007235933]
+stream = ExtResource("34_p8656")
+volume_db = -30.0
+
+[node name="JumpSwoosh" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=738420404]
+stream = ExtResource("35_82jp0")
+volume_db = -25.0
 
 [node name="StateDebugLabel" parent="." unique_id=18120675 node_paths=PackedStringArray("state_machine") instance=ExtResource("13_wraqo")]
 state_machine = NodePath("../CharacterStateMachine")
