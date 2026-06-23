@@ -92,6 +92,7 @@ func initialize(character_data : CharacterData, match_manager : Node):
 	combat_component.initialize(character_data)
 	carry_component.intialize(self)
 
+
 func _process(delta: float) -> void:
 	
 	# flip player based on direction

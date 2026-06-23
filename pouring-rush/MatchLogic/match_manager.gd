@@ -162,6 +162,13 @@ func spawn_player(config : PlayerConfig) -> Player:
 	# setting the spesific players teamzone
 	p.carry_component.zone = get_team_zones(p.team)
 	
+	# setting outline color
+	match p.team:
+		Team.type.RED:
+			p.outline.modulate = Color(1,0,0)
+		Team.type.BLUE:
+			p.outline.modulate = Color(0,0,1)
+	
 	return p
 
 func set_team():
