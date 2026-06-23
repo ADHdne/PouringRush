@@ -17,8 +17,8 @@ func set_color():
 	
 	match team:
 		Team.type.RED:
-			color = Color(1,0,0)
+			color = Color(0.7,0.2,0.2)
 		Team.type.BLUE:
-			color = Color(0,0,1)
+			color = Color(0.2,0.2,0.7)
 	
 	sprite.modulate = color
