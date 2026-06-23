@@ -1,9 +1,7 @@
 [gd_scene format=3 uid="uid://1xalpnn3nslc"]
 
 [ext_resource type="Script" uid="uid://bk8dy6jygpjle" path="res://GameModes/Push/team_barrier.gd" id="1_icpss"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_uepwn"]
-size = Vector2(32, 32)
+[ext_resource type="Texture2D" uid="uid://cbdrb35aaf7b6" path="res://Assets/Sprites/TeamBarrier32x32.png" id="2_uepwn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dyomr"]
 size = Vector2(32, 32)
@@ -13,7 +11,9 @@ script = ExtResource("1_icpss")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1492190059]
 texture_filter = 1
-texture = SubResource("PlaceholderTexture2D_uepwn")
+position = Vector2(0, -9.536743e-07)
+scale = Vector2(1, 0.96969694)
+texture = ExtResource("2_uepwn")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1406950215]
 collision_layer = 256

@@ -1,11 +1,7 @@
 [gd_scene format=3 uid="uid://bmg8s781sv220"]
 
 [ext_resource type="Script" uid="uid://cpya0drk2bmgo" path="res://GameModes/Push/pusher.gd" id="1_wmc3i"]
-[ext_resource type="Texture2D" uid="uid://cej8h4e437of4" path="res://Assets/Sprites/Tilesets/IMG_0205.png" id="2_n672m"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_el2f3"]
-atlas = ExtResource("2_n672m")
-region = Rect2(384, 96, 32, 32)
+[ext_resource type="Texture2D" uid="uid://s5kti0keprnw" path="res://Assets/Sprites/Pusher36x36.png" id="2_wmc3i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmc3i"]
 size = Vector2(36, 36)
@@ -18,7 +14,7 @@ script = ExtResource("1_wmc3i")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=861754851]
 texture_filter = 1
-texture = SubResource("AtlasTexture_el2f3")
+texture = ExtResource("2_wmc3i")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1770698048]
 collision_layer = 128
