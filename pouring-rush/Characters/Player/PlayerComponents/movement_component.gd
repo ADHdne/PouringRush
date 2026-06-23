@@ -59,10 +59,7 @@ func _physics_process(delta: float) -> void:
 	# moves player by adding acceleration to direction
 	if player.direction.x != 0 and player.state_machine.check_if_can_move() and player.can_action_pressed:
 		accelerate(player.direction.x)
-		if player.is_on_floor():
-			if player.footstep_timer.time_left <= 0:
-				#sound_effects.run()
-				player.footstep_timer.start(0.15)
+
 	else:
 		add_friction()
 	

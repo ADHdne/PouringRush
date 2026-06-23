@@ -209,6 +209,8 @@ wait_time = 0.15
 one_shot = true
 
 [node name="FootStepTimer" type="Timer" parent="Timers" unique_id=1057524813]
+process_callback = 0
+wait_time = 0.28
 one_shot = true
 
 [node name="JumpBufferTimer" type="Timer" parent="Timers" unique_id=1824565787]
@@ -222,8 +224,15 @@ one_shot = true
 [node name="ReloadTimer" type="Timer" parent="Timers" unique_id=906034395]
 one_shot = true
 
-[node name="SoundEffects" type="Node2D" parent="." unique_id=403259885]
+[node name="SoundEffects" type="Node2D" parent="." unique_id=403259885 node_paths=PackedStringArray("dash_sound", "hit_sound", "hit_rock_sound", "glass_break_sound", "splatt_sound", "footstep_sound", "jumpswoosh_sound")]
 script = ExtResource("8_14m2a")
+dash_sound = NodePath("Dash")
+hit_sound = NodePath("HitThud")
+hit_rock_sound = NodePath("HitRock")
+glass_break_sound = NodePath("BreakGlass")
+splatt_sound = NodePath("Splatt")
+footstep_sound = NodePath("Footstep")
+jumpswoosh_sound = NodePath("JumpSwoosh")
 
 [node name="Dash" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=1729972859]
 stream = SubResource("AudioStreamRandomizer_mb2uo")

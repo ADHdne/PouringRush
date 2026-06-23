@@ -15,7 +15,7 @@ class_name CharacterSoundEffects
 
 
 func run():
-	footstep_sound.pitch_scale = randf_range(0.8, 1.2)
+	footstep_sound.pitch_scale = randf_range(1, 1.4)
 	footstep_sound.play()
 
 
