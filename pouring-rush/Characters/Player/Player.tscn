@@ -237,7 +237,7 @@ volume_db = -10.0
 
 [node name="BreakGlass" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=418071717]
 stream = ExtResource("32_327au")
-volume_db = -20.0
+volume_db = -30.0
 
 [node name="Splatt" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=816372860]
 stream = ExtResource("33_icnpe")
@@ -249,7 +249,8 @@ volume_db = -30.0
 
 [node name="JumpSwoosh" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=738420404]
 stream = ExtResource("35_82jp0")
-volume_db = -25.0
+volume_db = -40.0
+pitch_scale = 1.4
 
 [node name="StateDebugLabel" parent="." unique_id=18120675 node_paths=PackedStringArray("state_machine") instance=ExtResource("13_wraqo")]
 state_machine = NodePath("../CharacterStateMachine")

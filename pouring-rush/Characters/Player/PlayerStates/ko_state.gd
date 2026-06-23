@@ -5,6 +5,9 @@ func on_enter():
 	player.hurtbox.monitorable = false
 	player.can_action_pressed = false
 	player.rotate(-90)
+	
+	# play sound
+	player.sound_effects.ko()
 
 func state_process(_delta):
 	if player.hurtbox.monitorable == true:

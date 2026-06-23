@@ -10,7 +10,7 @@ class_name JumpState
 
 
 func on_enter():
-	pass
+	player.sound_effects.jump()
 
 
 func state_process(_delta):

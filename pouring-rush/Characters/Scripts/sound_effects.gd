@@ -20,7 +20,7 @@ func run():
 
 
 func jump():
-	jumpswoosh_sound.pitch_scale = randf_range(0.8, 1.2)
+	jumpswoosh_sound.pitch_scale = randf_range(1.2, 1.6)
 	jumpswoosh_sound.play()
 
 
@@ -31,3 +31,8 @@ func hit():
 func dash():
 	dash_sound.pitch_scale = randf_range(0.8, 1.2)
 	dash_sound.play(0.11)
+
+
+func ko():
+	hit_rock_sound.play()
+	glass_break_sound.play()
