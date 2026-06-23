@@ -14,6 +14,8 @@ script = ExtResource("1_wmc3i")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=861754851]
 texture_filter = 1
+position = Vector2(9.23872e-07, 9.23872e-07)
+scale = Vector2(0.9729729, 0.9729729)
 texture = ExtResource("2_wmc3i")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1770698048]
