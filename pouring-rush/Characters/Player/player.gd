@@ -14,6 +14,7 @@ class_name Player
 
 
 # reference to children
+@export var outline : Sprite2D
 @export var state_machine : CharacterStateMachine
 @export var ko_state : State
 @export var respawn_state : State
@@ -75,6 +76,12 @@ func _ready() -> void:
 	
 	if damage_component != null:
 		damage_component.player = self
+	
+	# setting up outline
+	if team == Team.type.RED:
+		outline.modulate = Color(1,0,0)
+	else:
+		outline.modulate = Color(0,0,1)
 	
 
 # match manager calles this

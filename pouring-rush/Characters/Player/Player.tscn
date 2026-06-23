@@ -40,10 +40,11 @@ script = ExtResource("3_6fff4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
 size = Vector2(16, 32)
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone", "sprite")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("outline", "state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone", "sprite")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 player_actions = SubResource("Resource_6h4vt")
+outline = NodePath("PlayerOutline")
 state_machine = NodePath("CharacterStateMachine")
 ko_state = NodePath("CharacterStateMachine/KO")
 respawn_state = NodePath("CharacterStateMachine/Respawn")
@@ -61,13 +62,16 @@ carry_component = NodePath("CarryComponent")
 tech_zone = NodePath("TechZone")
 sprite = NodePath("PlayerSprite")
 
+[node name="PlayerOutline" type="Sprite2D" parent="." unique_id=827724481]
+position = Vector2(5.364418e-07, 5.662441e-07)
+scale = Vector2(0.625, 1.030303)
+texture = ExtResource("3_xqos4")
+
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=799234983]
 texture_filter = 1
 position = Vector2(0, -4.4703484e-07)
 scale = Vector2(0.5, 0.96969694)
 texture = ExtResource("3_xqos4")
-
-[node name="PlayerOutline" type="Sprite2D" parent="." unique_id=827724481]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
 shape = SubResource("RectangleShape2D_q3lat")
