@@ -13,6 +13,7 @@ config_version=5
 config/name="PouringRush"
 run/main_scene="uid://crhyafy0tdaol"
 config/features=PackedStringArray("4.6", "Mobile")
+config/icon="uid://d03qtt4hl0g1c"
 
 [autoload]
 
