@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1qp7xj0c0dac" path="res://Components/TeamComponents/team_zone.gd" id="1_620r3"]
 [ext_resource type="Texture2D" uid="uid://cej8h4e437of4" path="res://Assets/Sprites/Tilesets/IMG_0205.png" id="2_1q1m2"]
+[ext_resource type="Texture2D" uid="uid://cv87dsylapl4n" path="res://Assets/Sprites/TeamZoneCapsuleShape.png" id="2_jb0pr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jb0pr"]
 atlas = ExtResource("2_1q1m2")
@@ -18,6 +19,13 @@ height = 1500.0
 collision_layer = 64
 collision_mask = 4
 script = ExtResource("1_620r3")
+
+[node name="SafeZoneSprite" type="Sprite2D" parent="." unique_id=797932899]
+self_modulate = Color(1, 0.8039216, 0, 0.09019608)
+position = Vector2(0, 2.0000002)
+rotation = 1.5707964
+scale = Vector2(5.1, 5.1)
+texture = ExtResource("2_jb0pr")
 
 [node name="CoreSprite" type="Sprite2D" parent="." unique_id=1830444331]
 texture_filter = 1
