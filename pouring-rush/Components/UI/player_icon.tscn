@@ -4,12 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://d03qtt4hl0g1c" path="res://Assets/Sprites/Bobble.png" id="2_6ryjl"]
 [ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="3_ee3hu"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ryjl"]
-bg_color = Color(0.39308554, 0.39308554, 0.39308533, 0.2901961)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dl35q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b1j5k"]
 bg_color = Color(0, 0, 0, 0.16862746)
@@ -17,6 +13,13 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mbans"]
+bg_color = Color(0.18000486, 0.1800049, 0.18000478, 0.28235295)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uvldt"]
 bg_color = Color(0.6, 0.6, 0.6, 0.023529412)
@@ -38,13 +41,13 @@ atlas = ExtResource("3_ee3hu")
 region = Rect2(81, 163, 15, 12)
 
 [node name="PlayerIcon" type="Control" unique_id=140911905 node_paths=PackedStringArray("portrait", "basic_shot", "magazine", "special_1", "special_1_bar", "special_2", "special_2_bar", "utility", "utility_bar")]
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(150, 150)
 layout_mode = 3
 anchors_preset = 0
 offset_right = 100.0
 offset_bottom = 100.0
 script = ExtResource("1_fomls")
-portrait = NodePath("TextureRect")
+portrait = NodePath("TexturePanel/TextureRect")
 basic_shot = NodePath("HBoxContainer/VBoxContainer2/Panel/BasicShot")
 magazine = NodePath("HBoxContainer/VBoxContainer2/Panel/BasicShot/Magazine")
 special_1 = NodePath("HBoxContainer/VBoxContainer/Special1")
@@ -54,19 +57,26 @@ special_2_bar = NodePath("HBoxContainer/VBoxContainer/Special2/Special2Bar")
 utility = NodePath("HBoxContainer/VBoxContainer/Utility")
 utility_bar = NodePath("HBoxContainer/VBoxContainer/Utility/UtilityBar")
 
-[node name="Panel" type="Panel" parent="." unique_id=349236297]
+[node name="TexturePanel" type="Panel" parent="." unique_id=573230665]
+custom_minimum_size = Vector2(140, 140)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -70.0
+offset_top = -70.0
+offset_right = 70.0
+offset_bottom = 70.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_6ryjl")
+theme_override_styles/panel = SubResource("StyleBoxFlat_dl35q")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=689839839]
+[node name="TextureRect" type="TextureRect" parent="TexturePanel" unique_id=689839839]
 modulate = Color(0.47843137, 0.47843137, 0.47843137, 0.6509804)
 texture_filter = 1
-custom_minimum_size = Vector2(100, 100)
+custom_minimum_size = Vector2(120, 120)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,34 +89,34 @@ expand_mode = 1
 [node name="Percent" type="Label" parent="." unique_id=416068635]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 71.0
-offset_right = 67.0
-offset_bottom = 99.0
+offset_top = 4.0
+offset_right = 99.0
+offset_bottom = 46.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 3
 theme_override_constants/outline_size = 3
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_b1j5k")
 text = "1000%"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1412767178]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 150.0
+offset_bottom = 150.0
+theme_override_constants/separation = 0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=2065663480]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(50, 150)
 layout_mode = 2
 theme_override_constants/separation = 1
+alignment = 2
 
 [node name="Panel" type="Panel" parent="HBoxContainer/VBoxContainer2" unique_id=1063244076]
-custom_minimum_size = Vector2(40, 40)
+custom_minimum_size = Vector2(60, 60)
 layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_mbans")
 
 [node name="BasicShot" type="TextureRect" parent="HBoxContainer/VBoxContainer2/Panel" unique_id=935341958]
 custom_minimum_size = Vector2(30, 30)
@@ -133,28 +143,33 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 20
 text = "50"
 horizontal_alignment = 1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="HBoxContainer" unique_id=86407393]
-custom_minimum_size = Vector2(20, 100)
+custom_minimum_size = Vector2(40, 150)
 layout_mode = 2
-theme_override_constants/separation = 1
+theme_override_constants/separation = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1501489648]
-custom_minimum_size = Vector2(30, 100)
+custom_minimum_size = Vector2(50, 150)
 layout_mode = 2
 theme_override_constants/separation = 4
 
 [node name="Special1" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=1970582590]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(46, 46)
 layout_mode = 2
 expand_mode = 1
 
 [node name="Special1Bar" type="ProgressBar" parent="HBoxContainer/VBoxContainer/Special1" unique_id=1388866964]
-layout_mode = 0
-offset_right = 30.0
-offset_bottom = 30.0
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_uvldt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ee3hu")
 value = 40.0
@@ -162,14 +177,18 @@ fill_mode = 3
 show_percentage = false
 
 [node name="Special2" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=2034611681]
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(46, 46)
 layout_mode = 2
 expand_mode = 1
 
 [node name="Special2Bar" type="ProgressBar" parent="HBoxContainer/VBoxContainer/Special2" unique_id=1472529445]
-layout_mode = 0
-offset_right = 30.0
-offset_bottom = 30.0
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_uvldt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ee3hu")
 fill_mode = 3
@@ -177,15 +196,19 @@ show_percentage = false
 
 [node name="Utility" type="TextureRect" parent="HBoxContainer/VBoxContainer" unique_id=1251282421]
 texture_filter = 1
-custom_minimum_size = Vector2(30, 30)
+custom_minimum_size = Vector2(46, 46)
 layout_mode = 2
 texture = SubResource("AtlasTexture_b1j5k")
 expand_mode = 1
 
 [node name="UtilityBar" type="ProgressBar" parent="HBoxContainer/VBoxContainer/Utility" unique_id=477185529]
-layout_mode = 0
-offset_right = 30.0
-offset_bottom = 30.0
+custom_minimum_size = Vector2(46, 46)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_uvldt")
 theme_override_styles/fill = SubResource("StyleBoxFlat_ee3hu")
 value = 100.0

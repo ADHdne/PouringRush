@@ -137,6 +137,8 @@ func spawn_players():
 		# setting id
 		player.player_index = i
 		
+		player.set_color()
+		
 		# setting controls
 		player.player_actions = config.player_actions[i]
 		

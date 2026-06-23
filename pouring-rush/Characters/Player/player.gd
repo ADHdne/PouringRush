@@ -103,6 +103,7 @@ func _process(delta: float) -> void:
 	
 	input()
 
+
 func input() -> Vector2:
 	direction = Input.get_vector(player_actions.move_left, player_actions.move_right, player_actions.move_up, player_actions.move_down)
 	direction = direction.normalized()
@@ -123,3 +124,25 @@ func reset_for_respawn():
 func ko():
 	alive = false
 	state_machine.on_state_interupt_state(ko_state)
+
+func set_color():
+	var color : Color
+	
+	match player_index:
+		0:
+			color = Color(0.4,0.8,0)
+		1:
+			color = Color(1,0.5,0)
+		2:
+			color = Color(1,0.3,0.3)
+		3:
+			color = Color(0.3,0.3,1)
+		4:
+			color = Color(0.5,0.5,0)
+		5:
+			color = Color(0.3,0.3,0.3)
+		6:
+			color = Color(0.7,0.7,0.7)
+		7:
+			color = Color(0.8,0,0.9)
+	sprite.modulate = color
