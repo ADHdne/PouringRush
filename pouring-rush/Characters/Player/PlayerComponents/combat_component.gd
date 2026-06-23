@@ -150,6 +150,9 @@ func dash(data: AbilityState):
 		ability.dash_speed,
 		ability.dash_duration
 	)
+	
+	# play dash sound
+	player.sound_effects.dash()
 
 ## reload logic
 func request_reload():

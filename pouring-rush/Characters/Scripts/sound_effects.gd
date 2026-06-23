@@ -29,4 +29,5 @@ func hit():
 	splatt_sound.play()
 
 func dash():
-	dash_sound.play()
+	dash_sound.pitch_scale = randf_range(0.8, 1.2)
+	dash_sound.play(0.11)
