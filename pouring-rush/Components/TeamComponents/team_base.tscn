@@ -5,12 +5,28 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kuha1"]
 resource_local_to_scene = true
 
-[node name="TeamBase" type="Area2D" unique_id=546653012]
+[node name="TeamBase" type="Area2D" unique_id=546653012 node_paths=PackedStringArray("area_visual", "collision_shape")]
 collision_layer = 64
 collision_mask = 68
 script = ExtResource("1_os5np")
+area_visual = NodePath("CollisionShape2D/ColorRect")
+collision_shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2105911452]
 shape = SubResource("RectangleShape2D_kuha1")
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=224014222]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.8039216, 0, 0.09019608)
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
