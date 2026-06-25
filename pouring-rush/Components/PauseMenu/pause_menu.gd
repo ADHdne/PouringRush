@@ -6,7 +6,6 @@ class_name PauseMenu
 @export var animation : AnimationPlayer
 @export var pause_window : VBoxContainer
 @export var resume_button : Button
-@export var return_button : Button
 @export var menu_open : bool = false
 
 
