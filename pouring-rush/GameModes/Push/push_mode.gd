@@ -44,6 +44,11 @@ func _physics_process(delta: float) -> void:
 	if overtime:
 		if controlling_team == null:
 			determine_winner_on_timeout()
+	
+	if match_manager.match_timer.time_left <= 30 and not SoundManager.clock_tick_slow.playing:
+		SoundManager.clock_tick_slow.play()
+	if overtime and not SoundManager.clock_tick_fast.playing:
+		SoundManager.clock_tick_fast.play()
 
 
 func init(lane : PushLane, pusher : Pusher, red_barrier : PushBarrier, blue_barrier : PushBarrier):
@@ -161,9 +166,11 @@ func on_team_wins(team : Team.type):
 		Team.type.BLUE:
 			blue_team_wins = true
 			end_match("Victory for the Blue Team")
+	match_manager.end_match()
 
 func on_draw():
 	end_match("Draw: No Winning Team")
+	match_manager.end_match()
 
 
 func match_timer_timeout():

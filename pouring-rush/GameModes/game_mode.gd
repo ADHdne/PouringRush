@@ -7,7 +7,7 @@ var arena
 var players : Array[Player]
 
 var match_in_progress = false
-var match_time : float = 600
+var match_time : float = 20
 var overtime : bool = false
 
 var ko_check_timer := 0.0
