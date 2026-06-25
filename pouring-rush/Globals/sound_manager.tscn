@@ -50,7 +50,8 @@ volume_db = -15.0
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="." unique_id=1019441953]
 process_mode = 3
-volume_db = -20.0
+stream = ExtResource("10_yjs0j")
+volume_db = -30.0
 
 [node name="ClockTickFast" type="AudioStreamPlayer" parent="." unique_id=660978842]
 stream = ExtResource("11_yoalf")

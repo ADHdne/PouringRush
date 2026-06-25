@@ -124,6 +124,8 @@ func start_match():
 	
 	SoundManager.menu_music.stop()
 	
+	SoundManager.main_music.play()
+	
 	GameManager.start_match()
 
 ## General buttons
