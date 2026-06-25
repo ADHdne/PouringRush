@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cpya0drk2bmgo" path="res://GameModes/Push/pusher.gd" id="1_wmc3i"]
 [ext_resource type="Texture2D" uid="uid://s5kti0keprnw" path="res://Assets/Sprites/Pusher36x36.png" id="2_wmc3i"]
 [ext_resource type="Script" uid="uid://wyhwioa3cdkn" path="res://GameModes/Push/pusher_sound_effects.gd" id="3_n672m"]
+[ext_resource type="AudioStream" uid="uid://dx7gm83m471qm" path="res://Assets/Sound/PlayerSounds/Footsteps/Footstep1.wav" id="4_el2f3"]
+[ext_resource type="AudioStream" uid="uid://roxk2f34enk1" path="res://Assets/Sound/LeatherArmor_Rustle_03.wav" id="4_gi3hb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmc3i"]
 size = Vector2(36, 36)
@@ -10,9 +12,11 @@ size = Vector2(36, 36)
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmc3i"]
 radius = 203.0
 
-[node name="Pusher" type="PathFollow2D" unique_id=1039393299 node_paths=PackedStringArray("sound_effects")]
+[node name="Pusher" type="PathFollow2D" unique_id=1039393299 node_paths=PackedStringArray("sound_effects", "footstep_timer", "push_sound_timer")]
 script = ExtResource("1_wmc3i")
 sound_effects = NodePath("SoundEffects")
+footstep_timer = NodePath("FootstepTimer")
+push_sound_timer = NodePath("PushSoundTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=861754851]
 texture_filter = 1
@@ -34,12 +38,25 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaptureArea" unique_id=1014616345]
 shape = SubResource("CircleShape2D_wmc3i")
 
-[node name="SoundEffects" type="Node2D" parent="." unique_id=1504047599]
+[node name="SoundEffects" type="Node2D" parent="." unique_id=1504047599 node_paths=PackedStringArray("pushing_sound", "walking_sound")]
 script = ExtResource("3_n672m")
+pushing_sound = NodePath("Pushing")
+walking_sound = NodePath("Walking")
 
 [node name="Pushing" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=958921030]
+stream = ExtResource("4_gi3hb")
+volume_db = -20.0
 
 [node name="Walking" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=1954502500]
+stream = ExtResource("4_el2f3")
+volume_db = -20.0
+
+[node name="FootstepTimer" type="Timer" parent="." unique_id=1162820404]
+wait_time = 0.3
+one_shot = true
+
+[node name="PushSoundTimer" type="Timer" parent="." unique_id=2008727480]
+one_shot = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

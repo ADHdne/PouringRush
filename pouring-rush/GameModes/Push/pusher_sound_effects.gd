@@ -9,8 +9,10 @@ class_name PusherSoundEffects
 
 
 
-func pushing():
-	pass
+func push():
+	pushing_sound.pitch_scale = randf_range(0.8, 1.2)
+	pushing_sound.play()
 
-func walking():
-	pass
+func walk():
+	walking_sound.pitch_scale = randf_range(0.6, 1)
+	walking_sound.play()

@@ -8,6 +8,8 @@ class_name Pusher
 @onready var area: Area2D = $Area2D
 @onready var capture_area: Area2D = $CaptureArea
 @export var sound_effects : Node
+@export var footstep_timer : Timer
+@export var push_sound_timer : Timer
 
 
 
@@ -41,7 +43,14 @@ func _physics_process(delta: float) -> void:
 		
 		PusherStates.State.PUSH_BLUE:
 			push_blue(delta)
-
+	
+	# playing movement sounds
+	if state != PusherStates.State.IDLE:
+		if footstep_timer.time_left <= 0:
+			walking_sound()
+	if state == PusherStates.State.PUSH_RED or state == PusherStates.State.PUSH_BLUE:
+		if push_sound_timer.time_left <= 0:
+			pushing_sound()
 
 # gets called from 
 func set_up(lane : PushLane, red_barrier : PushBarrier, blue_barrier : PushBarrier):
@@ -82,11 +91,13 @@ func push_blue(delta : float):
 	progress -= move_amount
 	blue_barrier.progress -= move_amount
 
-func pushing_soung(delta : float):
-	pass
+func pushing_sound():
+	sound_effects.push()
+	push_sound_timer.start(0.8)
 
-func walking_sound(delta : float):
-	pass
+func walking_sound():
+	sound_effects.walk()
+	footstep_timer.start(0.7)
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
