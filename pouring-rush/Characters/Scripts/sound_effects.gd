@@ -45,6 +45,8 @@ func shoot(audio : AudioStream):
 	shoot_sound.play()
 
 func reload():
+	
 	reload_2_sound.play()
 	await get_tree().create_timer(1.1).timeout
 	reload_1_sound.play()
+	reload_2_sound.stop()

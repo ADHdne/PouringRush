@@ -33,8 +33,8 @@
 [ext_resource type="AudioStream" uid="uid://4xdfk3ex1d1m" path="res://Assets/Sound/PlayerSounds/Shieldbreak/ShieldBreak.wav" id="32_327au"]
 [ext_resource type="AudioStream" uid="uid://dll6mw68ihxno" path="res://Assets/Sound/PlayerSounds/Hit/Splatt1.wav" id="33_icnpe"]
 [ext_resource type="AudioStream" uid="uid://233ie1dny1ai" path="res://Assets/Sound/PlayerSounds/Reload/Reload sound.wav" id="33_qy8ba"]
-[ext_resource type="AudioStream" uid="uid://6tyw2dxuccjf" path="res://Assets/Sound/PlayerSounds/Reload/pouring_007.wav" id="34_fvyiu"]
 [ext_resource type="AudioStream" uid="uid://dx7gm83m471qm" path="res://Assets/Sound/PlayerSounds/Footsteps/Footstep1.wav" id="34_p8656"]
+[ext_resource type="AudioStream" uid="uid://cpmw7ew1a46ga" path="res://Assets/Sound/PlayerSounds/Reload/SmallGearSpin.wav" id="34_qy8ba"]
 [ext_resource type="AudioStream" uid="uid://bg2uvp05ohmkq" path="res://Assets/Sound/PlayerSounds/Swoosh3.wav" id="35_82jp0"]
 
 [sub_resource type="Resource" id="Resource_6h4vt"]
@@ -268,7 +268,7 @@ stream = ExtResource("33_qy8ba")
 volume_db = -20.0
 
 [node name="Reload2" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=307545857]
-stream = ExtResource("34_fvyiu")
+stream = ExtResource("34_qy8ba")
 volume_db = -20.0
 
 [node name="StateDebugLabel" parent="." unique_id=18120675 node_paths=PackedStringArray("state_machine") instance=ExtResource("13_wraqo")]
