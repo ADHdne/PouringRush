@@ -51,7 +51,23 @@ func disolve():
 	if data.pierces > 0:
 		data.pierces -= 1
 	elif data.pierces == 0:
+		play_hit_sound()
 		queue_free()
+
+func play_hit_sound():
+
+	var player := AudioStreamPlayer2D.new()
+
+	player.global_position = global_position
+	player.stream = data.hit_sound
+	player.volume_db = data.hit_sound_volume
+
+	get_tree().current_scene.add_child(player)
+
+	player.finished.connect(player.queue_free)
+
+	player.play()
+
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Ground"):
