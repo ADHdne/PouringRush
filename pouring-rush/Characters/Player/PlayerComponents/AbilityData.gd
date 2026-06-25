@@ -15,6 +15,9 @@ enum UtilityType {
 	REFLECT
 }
 
+@export var shoot_shound : AudioStream
+@export var reload_sound : AudioStream
+@export var hit_sound : AudioStream
 
 
 @export var ability_type : AbilityType

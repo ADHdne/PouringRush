@@ -13,6 +13,10 @@ var buffered_ability : AbilityState
 @export var shot_buffer : Timer
 var shot_buffered : bool = false
 
+# sound
+@export var generic_shot_sound : AudioStream
+
+
 var shoot_cooldown := 0.0
 
 ## basic shot
@@ -127,6 +131,11 @@ func shoot(data : AbilityState):
 	data.current_ammo -= data.ability_data.projectile_data.ammo_cost
 	
 	shoot_cooldown = data.ability_data.cooldown
+	
+	if data.ability_data.shoot_shound != null:
+		player.sound_effects.shoot(data.ability_data.shoot_shound)
+	else:
+		player.sound_effects.shoot(generic_shot_sound)
 
 
 func use_utility(data : AbilityState):

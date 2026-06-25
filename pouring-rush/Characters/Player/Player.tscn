@@ -15,6 +15,7 @@
 [ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
 [ext_resource type="Script" uid="uid://ch51j4onl3j1j" path="res://Characters/Player/PlayerStates/IdleState.gd" id="8_dl42p"]
 [ext_resource type="Script" uid="uid://c3exafj8k1lqv" path="res://Characters/Player/PlayerComponents/carry_component.gd" id="9_u4bhk"]
+[ext_resource type="AudioStream" uid="uid://4orsda23spin" path="res://Assets/Sound/droplet.wav" id="10_xxflj"]
 [ext_resource type="Script" uid="uid://dy3hvkt1q1r7t" path="res://Characters/Player/PlayerComponents/movement_component.gd" id="12_6h4vt"]
 [ext_resource type="PackedScene" uid="uid://djkt86xwm70xd" path="res://Components/DebugTools/state_debug_label.tscn" id="13_wraqo"]
 [ext_resource type="Script" uid="uid://gkrxyqf3tr7g" path="res://Characters/Player/PlayerStates/wall_slide_state.gd" id="14_u61tb"]
@@ -98,6 +99,7 @@ tumble_state = NodePath("../CharacterStateMachine/Tumble")
 script = ExtResource("5_6h4vt")
 player = NodePath("..")
 shot_buffer = NodePath("../Timers/ShotBufferTimer")
+generic_shot_sound = ExtResource("10_xxflj")
 
 [node name="CarryComponent" type="Node" parent="." unique_id=193415765 node_paths=PackedStringArray("pickup_state", "put_down_state")]
 script = ExtResource("9_u4bhk")
