@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://ck15g42v7um28"
+path="res://.godot/imported/LIQUID HIT Lake, Branch, Splash, Lake, Seaweed in Water, Small, CU 04.wav-97042863c74299ef0233200ec694bd10.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/PlayerSounds/Abilities/LIQUID HIT Lake, Branch, Splash, Lake, Seaweed in Water, Small, CU 04.wav"
+dest_files=["res://.godot/imported/LIQUID HIT Lake, Branch, Splash, Lake, Seaweed in Water, Small, CU 04.wav-97042863c74299ef0233200ec694bd10.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
