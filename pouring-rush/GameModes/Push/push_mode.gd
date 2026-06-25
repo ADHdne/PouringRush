@@ -169,9 +169,11 @@ func on_draw():
 func match_timer_timeout():
 	check_overtime()
 
-
 func check_overtime():
 	if pushing_blue or pushing_red:
 		overtime = true
+		# setting time label to overtime
+		match_manager.view_system.red_match_ui.time_label.text = " Overtime"
+		match_manager.view_system.blue_match_ui.time_label.text = "Overtime"
 	else:
 		determine_winner_on_timeout()

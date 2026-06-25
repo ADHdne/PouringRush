@@ -198,7 +198,7 @@ func load_game_mode(game_mode_root : Node):
 
 func start_match():
 	game_mode.start_match()
-	match_timer.start(game_mode.mach_time)
+	match_timer.start(game_mode.match_time)
 
 func pause():
 	match_timer.paused = true
