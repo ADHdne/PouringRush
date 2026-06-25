@@ -2,9 +2,11 @@
 
 [ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="1_bp7sc"]
 [ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_mg5cg"]
+[ext_resource type="AudioStream" uid="uid://5s1gl4jyhba7" path="res://Assets/Sound/PlayerSounds/Abilities/Bluezone_BC0274_glass_impact_break_002.wav" id="2_kc7oj"]
 [ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_t0id1"]
 [ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="3_kc7oj"]
 [ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="4_66lay"]
+[ext_resource type="AudioStream" uid="uid://b6w42b6ah2y4y" path="res://Assets/Sound/PlayerSounds/Abilities/CLOTHING_MATERIAL_MOVEMENT_08.wav" id="7_kc7oj"]
 
 [sub_resource type="Resource" id="Resource_oem55"]
 script = ExtResource("1_mg5cg")
@@ -23,6 +25,8 @@ hit_data = SubResource("Resource_oem55")
 texture = SubResource("AtlasTexture_idyne")
 radius = 12.0
 sprite_size = Vector2(1.2, 1.2)
+hit_sound = ExtResource("2_kc7oj")
+hit_sound_volume = -30.0
 gravity = 600.0
 speed = 400.0
 can_be_absorbed = true
@@ -31,6 +35,8 @@ metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]
 script = ExtResource("1_bp7sc")
+shoot_shound = ExtResource("7_kc7oj")
+shoot_sound_volume = -20.0
 ability_name = "Support Special 2"
 cooldown = 0.4
 ability_cooldown = 20.0

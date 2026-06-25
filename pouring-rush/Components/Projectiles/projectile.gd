@@ -8,6 +8,8 @@ class_name Projectile
 # reference to children
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var hit: AudioStreamPlayer2D = $Hit
+
 
 
 var direction : Vector2
@@ -21,6 +23,7 @@ func _ready() -> void:
 	sprite.texture = data.texture
 	sprite.scale = data.sprite_size
 	sprite.rotation_degrees = data.sprite_rotation
+	hit.stream = data.hit_sound
 	lifetime_timer.start(data.lifetime)
 
 func _physics_process(delta: float) -> void:
