@@ -15,6 +15,7 @@ var shot_buffered : bool = false
 
 # sound
 @export var generic_shot_sound : AudioStream
+@export var generic_reload_sound : AudioStream
 
 
 var shoot_cooldown := 0.0

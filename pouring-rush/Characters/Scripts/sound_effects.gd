@@ -11,6 +11,8 @@ class_name CharacterSoundEffects
 @export var footstep_sound : AudioStreamPlayer2D
 @export var jumpswoosh_sound : AudioStreamPlayer2D
 @export var shoot_sound : AudioStreamPlayer2D
+@export var reload_1_sound : AudioStreamPlayer2D
+@export var reload_2_sound : AudioStreamPlayer2D
 
 
 
@@ -41,3 +43,8 @@ func ko():
 func shoot(audio : AudioStream):
 	shoot_sound.stream = audio
 	shoot_sound.play()
+
+func reload():
+	reload_2_sound.play()
+	await get_tree().create_timer(1.1).timeout
+	reload_1_sound.play()

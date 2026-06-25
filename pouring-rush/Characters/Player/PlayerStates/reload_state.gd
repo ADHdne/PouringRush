@@ -11,6 +11,9 @@ func on_enter():
 	player.can_attack = false
 	reload_timer.start(player.combat_component.basic_shot_data.ability_data.reload_time)
 	
+	# playes reload sound
+	player.sound_effects.reload()
+	
 
 func on_exit():
 	player.can_attack = true

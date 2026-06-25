@@ -16,7 +16,6 @@ enum UtilityType {
 }
 
 @export var shoot_shound : AudioStream
-@export var reload_sound : AudioStream
 @export var hit_sound : AudioStream
 
 
