@@ -56,6 +56,10 @@ func _on_return_pressed() -> void:
 func _on_quit_to_menu_pressed() -> void:
 	resume()
 	
+	# stop clock ticks sound if playing
+	SoundManager.clock_tick_fast.stop()
+	SoundManager.clock_tick_slow.stop()
+	
 	SoundManager.main_music.stop()
 	SoundManager.deny.play()
 	
