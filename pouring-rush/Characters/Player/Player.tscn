@@ -214,7 +214,7 @@ one_shot = true
 [node name="ReloadTimer" type="Timer" parent="Timers" unique_id=906034395]
 one_shot = true
 
-[node name="SoundEffects" type="Node2D" parent="." unique_id=403259885 node_paths=PackedStringArray("dash_sound", "hit_sound", "hit_rock_sound", "glass_break_sound", "splatt_sound", "footstep_sound", "jumpswoosh_sound")]
+[node name="SoundEffects" type="Node2D" parent="." unique_id=403259885 node_paths=PackedStringArray("dash_sound", "hit_sound", "hit_rock_sound", "glass_break_sound", "splatt_sound", "footstep_sound", "jumpswoosh_sound", "shoot_sound")]
 script = ExtResource("8_14m2a")
 dash_sound = NodePath("Dash")
 hit_sound = NodePath("HitThud")
@@ -223,6 +223,7 @@ glass_break_sound = NodePath("BreakGlass")
 splatt_sound = NodePath("Splatt")
 footstep_sound = NodePath("Footstep")
 jumpswoosh_sound = NodePath("JumpSwoosh")
+shoot_sound = NodePath("Shoot")
 
 [node name="Dash" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=1729972859]
 stream = ExtResource("29_bx0yf")
@@ -253,6 +254,8 @@ volume_db = -30.0
 stream = ExtResource("35_82jp0")
 volume_db = -40.0
 pitch_scale = 1.4
+
+[node name="Shoot" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=875209143]
 
 [node name="StateDebugLabel" parent="." unique_id=18120675 node_paths=PackedStringArray("state_machine") instance=ExtResource("13_wraqo")]
 state_machine = NodePath("../CharacterStateMachine")

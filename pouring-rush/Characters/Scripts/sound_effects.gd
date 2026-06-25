@@ -10,6 +10,7 @@ class_name CharacterSoundEffects
 @export var splatt_sound : AudioStreamPlayer2D
 @export var footstep_sound : AudioStreamPlayer2D
 @export var jumpswoosh_sound : AudioStreamPlayer2D
+@export var shoot_sound : AudioStreamPlayer2D
 
 
 
@@ -36,3 +37,7 @@ func dash():
 func ko():
 	hit_rock_sound.play()
 	glass_break_sound.play()
+
+func shoot(audio : AudioStream):
+	shoot_sound.stream = audio
+	shoot_sound.play()
