@@ -31,6 +31,12 @@ var is_paused : bool = false
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
+func _process(delta: float) -> void:
+	if match_timer.time_left <= 30 and not SoundManager.clock_tick_slow.playing:
+		SoundManager.clock_tick_slow.play()
+	if match_timer.time_left <= 10 and not SoundManager.clock_tick_fast.playing:
+		SoundManager.clock_tick_fast.play()
+
 # this gets called from match_scene
 func initialize(match_config : MatchConfig, world : World, view_system : ViewSystem):
 	
@@ -256,8 +262,10 @@ func check_team_elimination(team: Team.type):
 
 
 func end_match():
-	pass
+	SoundManager.clock_tick_fast.stop()
+	SoundManager.clock_tick_slow.stop()
 
 
 func _on_match_timer_timeout() -> void:
 	game_mode.match_timer_timeout()
+	end_match()

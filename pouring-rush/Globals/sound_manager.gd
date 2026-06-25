@@ -12,3 +12,5 @@ extends Node
 @onready var big_droplet: AudioStreamPlayer = $BigDroplet
 @onready var menu_music: AudioStreamPlayer = $MenuMusic
 @onready var main_music: AudioStreamPlayer = $MainMusic
+@onready var clock_tick_fast: AudioStreamPlayer = $ClockTickFast
+@onready var clock_tick_slow: AudioStreamPlayer = $ClockTickSlow
