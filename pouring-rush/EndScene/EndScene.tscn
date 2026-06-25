@@ -11,6 +11,15 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1demh")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1829902435]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.6542321, 0.6542321, 0.654232, 1)
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=247706213]
 layout_mode = 1
 anchors_preset = 8
@@ -30,5 +39,6 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=260146368]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "Red Team Wins!"

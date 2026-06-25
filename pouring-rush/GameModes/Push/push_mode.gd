@@ -40,6 +40,10 @@ func _physics_process(delta: float) -> void:
 		update_blue_push()
 	
 	check_win_condition()
+	
+	if overtime:
+		if controlling_team == null:
+			determine_winner_on_timeout()
 
 
 func init(lane : PushLane, pusher : Pusher, red_barrier : PushBarrier, blue_barrier : PushBarrier):
@@ -140,7 +144,6 @@ func determine_winner_on_timeout():
 		on_draw()
 
 func check_win_condition():
-	
 	if match_in_progress == true:
 		if red_barrier.progress >= lane.get_length():
 			on_team_wins(Team.type.RED)
@@ -157,7 +160,7 @@ func on_team_wins(team : Team.type):
 			end_match("Victory for the Red Team")
 		Team.type.BLUE:
 			blue_team_wins = true
-			end_match("Victory for the Red Team")
+			end_match("Victory for the Blue Team")
 
 func on_draw():
 	end_match("Draw: No Winning Team")

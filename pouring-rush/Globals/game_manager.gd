@@ -28,3 +28,4 @@ func start_match():
 
 func match_ended():
 	get_tree().change_scene_to_file(ENDSCENE)
+	print("going to end scene")
