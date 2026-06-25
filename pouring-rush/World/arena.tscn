@@ -98,6 +98,16 @@ resource_local_to_scene = true
 [node name="Arena" type="Node2D" unique_id=790477264]
 script = ExtResource("1_udclw")
 
+[node name="BackgroundColor" type="ColorRect" parent="." unique_id=288019978]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=409014965]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1956126086]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer" unique_id=1194270186]
+
 [node name="TileMap" type="TileMap" parent="." unique_id=1316477682 groups=["Ground"]]
 tile_set = SubResource("TileSet_udclw")
 format = 2
