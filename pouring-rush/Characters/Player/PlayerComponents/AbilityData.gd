@@ -16,7 +16,9 @@ enum UtilityType {
 }
 
 @export var shoot_shound : AudioStream
+@export var shoot_sound_volume : float
 @export var hit_sound : AudioStream
+@export var hit_sound_volume : float
 
 
 @export var ability_type : AbilityType

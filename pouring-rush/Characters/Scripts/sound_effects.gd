@@ -40,8 +40,13 @@ func ko():
 	hit_rock_sound.play()
 	glass_break_sound.play()
 
-func shoot(audio : AudioStream):
+func shoot(audio : AudioStream, volume : float):
 	shoot_sound.stream = audio
+	
+	shoot_sound.pitch_scale = randf_range(0.8, 1.2)
+	
+	shoot_sound.volume_db = volume
+	
 	shoot_sound.play()
 
 func reload():

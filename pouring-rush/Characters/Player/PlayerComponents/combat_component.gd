@@ -15,6 +15,7 @@ var shot_buffered : bool = false
 
 # sound
 @export var generic_shot_sound : AudioStream
+var generic_shot_volume : float = -10
 @export var generic_reload_sound : AudioStream
 
 
@@ -134,9 +135,9 @@ func shoot(data : AbilityState):
 	shoot_cooldown = data.ability_data.cooldown
 	
 	if data.ability_data.shoot_shound != null:
-		player.sound_effects.shoot(data.ability_data.shoot_shound)
+		player.sound_effects.shoot(data.ability_data.shoot_shound, data.ability_data.shoot_sound_volume)
 	else:
-		player.sound_effects.shoot(generic_shot_sound)
+		player.sound_effects.shoot(generic_shot_sound, generic_shot_volume)
 
 
 func use_utility(data : AbilityState):
