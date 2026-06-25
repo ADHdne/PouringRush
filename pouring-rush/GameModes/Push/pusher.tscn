@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cpya0drk2bmgo" path="res://GameModes/Push/pusher.gd" id="1_wmc3i"]
 [ext_resource type="Texture2D" uid="uid://s5kti0keprnw" path="res://Assets/Sprites/Pusher36x36.png" id="2_wmc3i"]
+[ext_resource type="Script" uid="uid://wyhwioa3cdkn" path="res://GameModes/Push/pusher_sound_effects.gd" id="3_n672m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmc3i"]
 size = Vector2(36, 36)
@@ -9,8 +10,9 @@ size = Vector2(36, 36)
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmc3i"]
 radius = 203.0
 
-[node name="Pusher" type="PathFollow2D" unique_id=1039393299]
+[node name="Pusher" type="PathFollow2D" unique_id=1039393299 node_paths=PackedStringArray("sound_effects")]
 script = ExtResource("1_wmc3i")
+sound_effects = NodePath("SoundEffects")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=861754851]
 texture_filter = 1
@@ -31,6 +33,13 @@ collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaptureArea" unique_id=1014616345]
 shape = SubResource("CircleShape2D_wmc3i")
+
+[node name="SoundEffects" type="Node2D" parent="." unique_id=1504047599]
+script = ExtResource("3_n672m")
+
+[node name="Pushing" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=958921030]
+
+[node name="Walking" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=1954502500]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

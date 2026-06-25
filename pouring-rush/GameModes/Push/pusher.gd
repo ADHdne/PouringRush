@@ -7,6 +7,7 @@ class_name Pusher
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var area: Area2D = $Area2D
 @onready var capture_area: Area2D = $CaptureArea
+@export var sound_effects : Node
 
 
 
@@ -80,6 +81,12 @@ func push_blue(delta : float):
 	var move_amount = push_speed * delta
 	progress -= move_amount
 	blue_barrier.progress -= move_amount
+
+func pushing_soung(delta : float):
+	pass
+
+func walking_sound(delta : float):
+	pass
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
