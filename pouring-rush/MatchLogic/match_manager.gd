@@ -55,13 +55,9 @@ func initialize(match_config : MatchConfig, world : World, view_system : ViewSys
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Start") and not is_paused:
-		is_paused = true
-		view_system.red_pause_menu.pause()
-		view_system.blue_pause_menu.pause()
+		pause()
 	elif event.is_action_pressed("Start") and is_paused:
-		view_system.red_pause_menu.resume()
-		view_system.blue_pause_menu.resume()
-		is_paused = false
+		unpause()
 
 
 
@@ -197,6 +193,18 @@ func load_game_mode(game_mode_root : Node):
 func start_match():
 	game_mode.start_match()
 	match_timer.start(game_mode.mach_time)
+
+func pause():
+	match_timer.paused = true
+	is_paused = true
+	view_system.red_pause_menu.pause()
+	view_system.blue_pause_menu.pause()
+
+func unpause():
+	match_timer.paused = false
+	view_system.red_pause_menu.resume()
+	view_system.blue_pause_menu.resume()
+	is_paused = false
 
 
 func get_time_remaining() -> float:
