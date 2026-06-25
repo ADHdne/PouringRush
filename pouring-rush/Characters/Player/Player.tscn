@@ -226,7 +226,7 @@ jumpswoosh_sound = NodePath("JumpSwoosh")
 
 [node name="Dash" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=1729972859]
 stream = ExtResource("29_bx0yf")
-volume_db = -20.0
+volume_db = -30.0
 pitch_scale = 0.8
 
 [node name="HitThud" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=694216642]
