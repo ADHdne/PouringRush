@@ -6,12 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="4_4jlmf"]
 [ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="5_hm17f"]
 [ext_resource type="AudioStream" uid="uid://ddltwpx5d3phx" path="res://Assets/Sound/PlayerSounds/Abilities/water_blast_projectile_spell_03.wav" id="6_ar30b"]
+[ext_resource type="AudioStream" uid="uid://bja5o5uljn33x" path="res://Assets/Sound/PlayerSounds/Hit/Parry1.wav" id="7_ut4cg"]
 
 [sub_resource type="Resource" id="Resource_0pgyb"]
 script = ExtResource("1_05lvr")
 damage = 40.0
 base_knockback = 10.0
-knockback_growth = 10.0
+knockback_growth = 20.0
 hit_stun = 10.0
 metadata/_custom_type_script = "uid://drphxsmjyfe1x"
 
@@ -25,6 +26,8 @@ hit_data = SubResource("Resource_0pgyb")
 texture = SubResource("AtlasTexture_vftk8")
 radius = 16.0
 sprite_size = Vector2(1.6, 2)
+hit_sound = ExtResource("6_ar30b")
+hit_sound_volume = -20.0
 gravity = 700.0
 speed = 600.0
 lifetime = 3.0
@@ -34,8 +37,8 @@ metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]
 script = ExtResource("5_hm17f")
-shoot_shound = ExtResource("6_ar30b")
-shoot_sound_volume = -30.0
+shoot_shound = ExtResource("7_ut4cg")
+shoot_sound_volume = -20.0
 ability_name = "Special 2 "
 ability_cooldown = 15.0
 max_ammo = 0

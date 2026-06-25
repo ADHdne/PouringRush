@@ -61,6 +61,7 @@ func play_hit_sound():
 	player.global_position = global_position
 	player.stream = data.hit_sound
 	player.volume_db = data.hit_sound_volume
+	player.pitch_scale = randf_range(0.8, 1.2)
 
 	get_tree().current_scene.add_child(player)
 
