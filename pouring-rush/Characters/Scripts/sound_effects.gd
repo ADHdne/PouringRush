@@ -13,6 +13,7 @@ class_name CharacterSoundEffects
 @export var shoot_sound : AudioStreamPlayer2D
 @export var reload_1_sound : AudioStreamPlayer2D
 @export var reload_2_sound : AudioStreamPlayer2D
+@export var pick_up_sound : AudioStreamPlayer2D
 
 
 
@@ -55,3 +56,6 @@ func reload():
 	await get_tree().create_timer(1.1).timeout
 	reload_1_sound.play()
 	reload_2_sound.stop()
+
+func pick_up():
+	pick_up_sound.play()
