@@ -17,9 +17,7 @@
 [ext_resource type="Script" uid="uid://c3exafj8k1lqv" path="res://Characters/Player/PlayerComponents/carry_component.gd" id="9_u4bhk"]
 [ext_resource type="AudioStream" uid="uid://bxw5elnly7opc" path="res://Assets/Sound/PlayerSounds/ShootSounds/shoot2.wav" id="10_xxflj"]
 [ext_resource type="Script" uid="uid://dy3hvkt1q1r7t" path="res://Characters/Player/PlayerComponents/movement_component.gd" id="12_6h4vt"]
-[ext_resource type="PackedScene" uid="uid://djkt86xwm70xd" path="res://Components/DebugTools/state_debug_label.tscn" id="13_wraqo"]
 [ext_resource type="Script" uid="uid://gkrxyqf3tr7g" path="res://Characters/Player/PlayerStates/wall_slide_state.gd" id="14_u61tb"]
-[ext_resource type="PackedScene" uid="uid://bqkyds65ymdao" path="res://Components/DebugTools/Precentage.tscn" id="16_7jpmk"]
 [ext_resource type="Script" uid="uid://buxclsp28a2e2" path="res://Characters/Player/PlayerStates/tumble_state.gd" id="18_u61tb"]
 [ext_resource type="Script" uid="uid://cl3fv5nelqmvq" path="res://Characters/Player/PlayerStates/pickup_state.gd" id="20_1t7vx"]
 [ext_resource type="Script" uid="uid://flftotrrcgyd" path="res://Characters/Player/PlayerStates/tech_state.gd" id="20_6hnbq"]
@@ -282,17 +280,6 @@ volume_db = -20.0
 [node name="Drop" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=1578442035]
 stream = ExtResource("36_5qm8w")
 volume_db = -30.0
-
-[node name="StateDebugLabel" parent="." unique_id=18120675 node_paths=PackedStringArray("state_machine") instance=ExtResource("13_wraqo")]
-state_machine = NodePath("../CharacterStateMachine")
-
-[node name="Precentage" parent="." unique_id=1974832711 node_paths=PackedStringArray("player") instance=ExtResource("16_7jpmk")]
-offset_left = -16.0
-offset_top = -66.0
-offset_right = 12.0
-offset_bottom = -43.0
-text = "100"
-player = NodePath("..")
 
 [connection signal="timeout" from="Timers/ShotBufferTimer" to="CombatComponent" method="_on_shot_buffer_timer_timeout"]
 [connection signal="timeout" from="Timers/ReloadTimer" to="CombatComponent" method="_on_reload_timer_timeout"]

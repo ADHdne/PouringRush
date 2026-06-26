@@ -36,6 +36,7 @@ class_name Player
 @export var tech_zone : Area2D
 
 var player_index : int
+var color : Color
 
 # have a reference of what team its on during runtime
 var team : Team.type
@@ -119,14 +120,17 @@ func reset_for_respawn():
 	state_machine.current_state.next_state = respawn_state
 	hurtbox.monitorable = true
 	damage_component.percentage = 0
-	
+
+func hit_visual():
+	sprite.modulate = Color(1,1,1)
+	await get_tree().create_timer(0.1).timeout
+	sprite.modulate = color
 
 func ko():
 	alive = false
 	state_machine.on_state_interupt_state(ko_state)
 
 func set_color():
-	var color : Color
 	
 	match player_index:
 		0:
