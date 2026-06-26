@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://dqklk5iy8p0ds" path="res://Assets/Sound/Magic_Spells_Impact_Water_Low23.wav" id="8_o2xjt"]
 [ext_resource type="AudioStream" uid="uid://choftr3o0u6gf" path="res://Assets/Sound/Droplet with bass.wav" id="9_4evgj"]
 [ext_resource type="AudioStream" uid="uid://dae72eqs5yujl" path="res://Assets/Sound/Menu/WhisperingLeaves.wav" id="10_yjs0j"]
+[ext_resource type="AudioStream" uid="uid://p0u2nnixgquw" path="res://Assets/Sound/Menu/Pouring Rush.wav" id="11_kmas0"]
 [ext_resource type="AudioStream" uid="uid://cjpee5o476efr" path="res://Assets/Sound/GameModeFeatures/CLOCKTick_Antique Pocket Watch Ticking 01_JSE_CM_Mono.wav" id="11_yoalf"]
 [ext_resource type="AudioStream" uid="uid://ethe7phml23d" path="res://Assets/Sound/GameModeFeatures/CLOCKTick_InsJ_Clock-03_Ticking_Multi_LOOP.wav" id="12_kmas0"]
 
@@ -50,7 +51,7 @@ volume_db = -15.0
 
 [node name="MainMusic" type="AudioStreamPlayer" parent="." unique_id=1019441953]
 process_mode = 3
-stream = ExtResource("10_yjs0j")
+stream = ExtResource("11_kmas0")
 volume_db = -30.0
 
 [node name="ClockTickFast" type="AudioStreamPlayer" parent="." unique_id=660978842]
