@@ -229,7 +229,7 @@ func respawn_player(player):
 	# this need to reflect what team the player is on
 	player.global_position = player.spawn.global_position
 	
-	player.reset_for_respawn() # need to make this a function in player
+	player.reset_for_respawn()
 
 func reset_team_zone(team: Team.type):
 
@@ -252,6 +252,9 @@ func check_team_elimination(team: Team.type):
 			return
 	
 	reset_team_zone(team)
+	
+	# waiting before respawning team
+	await get_tree().create_timer(10).timeout
 	respawn_team(team)
 
 
