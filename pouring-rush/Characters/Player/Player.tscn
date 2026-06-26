@@ -240,7 +240,7 @@ pitch_scale = 0.8
 
 [node name="HitThud" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=694216642]
 stream = ExtResource("30_14yy5")
-volume_db = -20.0
+volume_db = -25.0
 
 [node name="HitRock" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=513874861]
 stream = ExtResource("31_2jhbk")
@@ -252,7 +252,7 @@ volume_db = -30.0
 
 [node name="Splatt" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=816372860]
 stream = ExtResource("33_icnpe")
-volume_db = -15.0
+volume_db = -25.0
 
 [node name="Footstep" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=1007235933]
 stream = ExtResource("34_p8656")
