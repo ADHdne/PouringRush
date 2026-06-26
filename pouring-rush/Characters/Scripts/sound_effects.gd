@@ -14,7 +14,7 @@ class_name CharacterSoundEffects
 @export var reload_1_sound : AudioStreamPlayer2D
 @export var reload_2_sound : AudioStreamPlayer2D
 @export var pick_up_sound : AudioStreamPlayer2D
-
+@export var drop_sound : AudioStreamPlayer2D
 
 
 
@@ -59,3 +59,6 @@ func reload():
 
 func pick_up():
 	pick_up_sound.play()
+
+func drop():
+	drop_sound.play()

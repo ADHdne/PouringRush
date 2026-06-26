@@ -6,5 +6,6 @@ class_name PutDownState
 @export var lag : float = 0.3
 
 func on_enter():
+	player.sound_effects.drop()
 	await get_tree().create_timer(lag).timeout
 	next_state = idle_state
