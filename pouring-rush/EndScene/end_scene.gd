@@ -20,3 +20,8 @@ func _ready() -> void:
 		color_rect.color = Color(0.1, 0.1, 0.4)
 	else:
 		color_rect.color = Color(0.2, 0.4, 0)
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Start"):
+		get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
