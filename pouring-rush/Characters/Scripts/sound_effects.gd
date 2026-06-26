@@ -1,20 +1,20 @@
-extends Node2D
+extends Node
 class_name CharacterSoundEffects
 
 
 
-@export var dash_sound : AudioStreamPlayer2D
-@export var hit_sound : AudioStreamPlayer2D
-@export var hit_rock_sound : AudioStreamPlayer2D
-@export var glass_break_sound : AudioStreamPlayer2D
-@export var splatt_sound : AudioStreamPlayer2D
-@export var footstep_sound : AudioStreamPlayer2D
-@export var jumpswoosh_sound : AudioStreamPlayer2D
-@export var shoot_sound : AudioStreamPlayer2D
-@export var reload_1_sound : AudioStreamPlayer2D
-@export var reload_2_sound : AudioStreamPlayer2D
-@export var pick_up_sound : AudioStreamPlayer2D
-@export var drop_sound : AudioStreamPlayer2D
+@export var dash_sound : AudioStreamPlayer
+@export var hit_sound : AudioStreamPlayer
+@export var hit_rock_sound : AudioStreamPlayer
+@export var glass_break_sound : AudioStreamPlayer
+@export var splatt_sound : AudioStreamPlayer
+@export var footstep_sound : AudioStreamPlayer
+@export var jumpswoosh_sound : AudioStreamPlayer
+@export var shoot_sound : AudioStreamPlayer
+@export var reload_1_sound : AudioStreamPlayer
+@export var reload_2_sound : AudioStreamPlayer
+@export var pick_up_sound : AudioStreamPlayer
+@export var drop_sound : AudioStreamPlayer
 
 
 

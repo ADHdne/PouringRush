@@ -1,11 +1,11 @@
-extends Node2D
+extends Node
 class_name PusherSoundEffects
 
 
 
 
-@export var pushing_sound : AudioStreamPlayer2D
-@export var walking_sound : AudioStreamPlayer2D
+@export var pushing_sound : AudioStreamPlayer
+@export var walking_sound : AudioStreamPlayer
 
 
 

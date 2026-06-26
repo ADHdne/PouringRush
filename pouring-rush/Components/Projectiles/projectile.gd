@@ -8,7 +8,8 @@ class_name Projectile
 # reference to children
 @onready var collision_shape: CollisionShape2D = $CollisionShape2D
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var hit: AudioStreamPlayer2D = $Hit
+@onready var hit: AudioStreamPlayer = $Hit
+
 
 
 

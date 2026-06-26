@@ -38,16 +38,16 @@ collision_mask = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CaptureArea" unique_id=1014616345]
 shape = SubResource("CircleShape2D_wmc3i")
 
-[node name="SoundEffects" type="Node2D" parent="." unique_id=1504047599 node_paths=PackedStringArray("pushing_sound", "walking_sound")]
+[node name="SoundEffects" type="Node" parent="." unique_id=2101597936 node_paths=PackedStringArray("pushing_sound", "walking_sound")]
 script = ExtResource("3_n672m")
 pushing_sound = NodePath("Pushing")
 walking_sound = NodePath("Walking")
 
-[node name="Pushing" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=958921030]
+[node name="Pushing" type="AudioStreamPlayer" parent="SoundEffects" unique_id=479239710]
 stream = ExtResource("4_gi3hb")
 volume_db = -20.0
 
-[node name="Walking" type="AudioStreamPlayer2D" parent="SoundEffects" unique_id=1954502500]
+[node name="Walking" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1404152038]
 stream = ExtResource("4_el2f3")
 volume_db = -20.0
 
