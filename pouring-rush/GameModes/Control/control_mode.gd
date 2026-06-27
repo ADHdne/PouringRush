@@ -18,7 +18,7 @@ var control_time : float = 5
 var red_score : float
 var blue_score : float
 
-var winning_amount : int = 5
+var winning_amount : int = 420
 
 func _ready() -> void:
 	pass
@@ -66,6 +66,12 @@ func set_progress_bars():
 	red_ui.capture_bar.max_value = 1
 	blue_ui.capture_bar.max_value = 1
 
+func leading_team() -> Team.type:
+	if red_score > blue_score:
+		return Team.type.RED
+	else: 
+		return Team.type.BLUE
+
 func check_overtime(team : Team.type):
 	match team:
 		Team.type.RED:
@@ -76,3 +82,6 @@ func check_overtime(team : Team.type):
 			if control_zone.red_count <= 0:
 				end_match("Victory for the Blue Team")
 				match_manager.end_match()
+
+func match_timer_timeout():
+	check_overtime(leading_team())
