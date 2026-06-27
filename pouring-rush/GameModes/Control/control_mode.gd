@@ -26,7 +26,6 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if control_zone.owner_team == Team.type.RED:
-		print("bah")
 		red_score += delta
 
 	elif control_zone.owner_team == Team.type.BLUE:
