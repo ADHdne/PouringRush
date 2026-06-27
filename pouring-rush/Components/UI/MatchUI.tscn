@@ -10,6 +10,12 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1fid"]
+bg_color = Color(1, 0.24313726, 0.13333334, 0.25882354)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b44pg"]
+bg_color = Color(0.13333334, 0.24313726, 1, 0.25882354)
+
 [node name="MatchUI" type="CanvasLayer" unique_id=1478391526 node_paths=PackedStringArray("time_label")]
 script = ExtResource("1_bbvs7")
 player_icon_scene = ExtResource("2_70ghe")
@@ -48,3 +54,21 @@ theme_override_constants/shadow_outline_size = 3
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_70ghe")
 horizontal_alignment = 1
+
+[node name="RedBar" type="ProgressBar" parent="." unique_id=230020540]
+offset_left = 400.0
+offset_top = 10.0
+offset_right = 820.0
+offset_bottom = 37.0
+theme_override_styles/background = SubResource("StyleBoxFlat_k1fid")
+
+[node name="BlueBar" type="ProgressBar" parent="." unique_id=1592562107]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -820.0
+offset_top = 10.0
+offset_right = -400.0
+offset_bottom = 37.0
+grow_horizontal = 0
+theme_override_styles/background = SubResource("StyleBoxFlat_b44pg")

@@ -75,3 +75,9 @@ func setup_windows():
 		get_window().current_screen = 0
 		get_window().mode = Window.MODE_FULLSCREEN
 	
+func deactivate_bars():
+	red_match_ui.red_bar.visible = false
+	red_match_ui.blue_bar.visible = false
+
+	blue_match_ui.red_bar.visible = false
+	blue_match_ui.blue_bar.visible = false

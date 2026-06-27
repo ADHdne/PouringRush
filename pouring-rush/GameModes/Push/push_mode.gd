@@ -56,8 +56,6 @@ func _physics_process(delta: float) -> void:
 	if overtime and not SoundManager.clock_tick_fast.playing:
 		SoundManager.clock_tick_fast.play()
 		
-	
-	print("overtime time left: ", overtime_timer.time_left)
 
 
 func init(lane : PushLane, pusher : Pusher, red_barrier : PushBarrier, blue_barrier : PushBarrier):
