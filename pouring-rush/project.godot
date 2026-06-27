@@ -753,6 +753,7 @@ Interact={
 2d_physics/layer_7="ZoneLayer"
 2d_physics/layer_8="PusherLayer"
 2d_physics/layer_9="BarrierLayer"
+2d_physics/layer_10="ControlZoneLayer"
 
 [physics]
 

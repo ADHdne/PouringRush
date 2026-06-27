@@ -3,5 +3,6 @@ class_name Team
 
 enum type {
 	RED,
-	BLUE
+	BLUE,
+	GREY
 }

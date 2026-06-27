@@ -5,3 +5,5 @@
 
 [node name="ControlMode" unique_id=457060701 instance=ExtResource("1_avokl")]
 script = ExtResource("2_72l7q")
+
+[connection signal="timeout" from="OvertimeTimer" to="." method="_on_overtime_timer_timeout"]

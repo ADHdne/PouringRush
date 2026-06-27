@@ -6,6 +6,8 @@
 size = Vector2(334, 279)
 
 [node name="ControlZone" type="Area2D" unique_id=705497711]
+collision_layer = 512
+collision_mask = 4
 script = ExtResource("1_woylw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1824435944]
@@ -18,3 +20,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.2784314, 0.2784314, 0.2784314, 0.3372549)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
