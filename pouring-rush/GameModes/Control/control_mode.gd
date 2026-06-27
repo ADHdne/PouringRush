@@ -38,6 +38,9 @@ func _process(delta: float) -> void:
 	
 	blue_ui.red_bar.value = red_score
 	blue_ui.blue_bar.value = blue_score
+	
+	red_ui.capture_bar.value = control_zone.capture_progress
+	blue_ui.capture_bar.value = control_zone.capture_progress
 
 	if red_score >= winning_amount:
 		check_overtime(Team.type.RED)

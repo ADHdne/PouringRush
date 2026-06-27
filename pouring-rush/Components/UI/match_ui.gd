@@ -8,8 +8,12 @@ var match_manager : MatchManager
 
 @onready var h_box_container: HBoxContainer = $TeamPanel/HBoxContainer
 @export var time_label : Label
-@onready var red_bar: ProgressBar = $RedBar
-@onready var blue_bar: ProgressBar = $BlueBar
+
+@onready var progressbars: Control = $Progressbars
+@onready var blue_bar: ProgressBar = $Progressbars/BlueBar
+@onready var red_bar: ProgressBar = $Progressbars/RedBar
+@onready var capture_bar: ProgressBar = $Progressbars/CaptureBar
+
 
 var team : Team.type
 

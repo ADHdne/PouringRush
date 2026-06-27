@@ -6,6 +6,7 @@
 size = Vector2(334, 279)
 
 [node name="ControlZone" type="Area2D" unique_id=705497711]
+visible = false
 collision_layer = 512
 collision_mask = 4
 script = ExtResource("1_woylw")
