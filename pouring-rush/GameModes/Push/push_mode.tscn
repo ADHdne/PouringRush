@@ -4,3 +4,6 @@
 
 [node name="PushMode" type="Node" unique_id=1130939171]
 script = ExtResource("1_751of")
+
+[node name="OvertimeTimer" type="Timer" parent="." unique_id=554761180]
+one_shot = true

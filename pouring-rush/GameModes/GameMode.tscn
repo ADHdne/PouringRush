@@ -4,3 +4,7 @@
 
 [node name="GameMode" type="Node" unique_id=457060701]
 script = ExtResource("1_j8xau")
+
+[node name="OvertimeTimer" type="Timer" parent="." unique_id=682461091]
+
+[connection signal="timeout" from="OvertimeTimer" to="." method="_on_overtime_timer_timeout"]

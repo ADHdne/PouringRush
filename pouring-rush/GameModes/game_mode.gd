@@ -2,6 +2,9 @@ extends Node
 class_name GameMode
 
 
+@onready var overtime_timer: Timer = $OvertimeTimer
+
+
 var match_manager : MatchManager
 var arena
 var players : Array[Player]
@@ -116,6 +119,12 @@ func on_core_exited(team : Team.type):
 func match_timer_timeout():
 	pass
 
+func determine_winner_on_timeout():
+	pass
 
 func check_win_condition():
 	pass
+
+
+func _on_overtime_timer_timeout() -> void:
+	pass # Replace with function body.

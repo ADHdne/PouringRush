@@ -1,6 +1,8 @@
 extends GameMode
 class_name PushMode
 
+
+
 # how many players from each team in range
 var red_players_near : = 0
 var blue_players_near : = 0
@@ -179,8 +181,15 @@ func match_timer_timeout():
 func check_overtime():
 	if pushing_blue or pushing_red:
 		overtime = true
+		
+		# stopping the overtime timer
+		overtime_timer.stop()
+		
 		# setting time label to overtime
 		match_manager.view_system.red_match_ui.time_label.text = " Overtime"
 		match_manager.view_system.blue_match_ui.time_label.text = "Overtime"
 	else:
-		determine_winner_on_timeout()
+		overtime_timer.start(3)
+
+func _on_overtime_timer_timeout() -> void:
+	determine_winner_on_timeout()
