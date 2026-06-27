@@ -6,5 +6,4 @@
 script = ExtResource("1_j8xau")
 
 [node name="OvertimeTimer" type="Timer" parent="." unique_id=682461091]
-
-[connection signal="timeout" from="OvertimeTimer" to="." method="_on_overtime_timer_timeout"]
+one_shot = true

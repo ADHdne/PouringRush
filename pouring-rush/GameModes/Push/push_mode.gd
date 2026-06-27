@@ -25,6 +25,7 @@ func _ready() -> void:
 	SignalBus.evaluate_control.connect(get_controlling_team)
 	SignalBus.pushing_barrier.connect(pushing_barrrier)
 	SignalBus.stopped_pushing_barrier.connect(stopped_pushing)
+	
 
 
 func _physics_process(delta: float) -> void:
@@ -45,12 +46,18 @@ func _physics_process(delta: float) -> void:
 	
 	if overtime:
 		if controlling_team == null:
-			determine_winner_on_timeout()
+			if overtime_timer.is_stopped():
+				overtime_timer.start(3)
+		else:
+			overtime_timer.stop()
 	
 	if match_manager.match_timer.time_left <= 30 and not SoundManager.clock_tick_slow.playing:
 		SoundManager.clock_tick_slow.play()
 	if overtime and not SoundManager.clock_tick_fast.playing:
 		SoundManager.clock_tick_fast.play()
+		
+	
+	print("overtime time left: ", overtime_timer.time_left)
 
 
 func init(lane : PushLane, pusher : Pusher, red_barrier : PushBarrier, blue_barrier : PushBarrier):
@@ -188,8 +195,7 @@ func check_overtime():
 		# setting time label to overtime
 		match_manager.view_system.red_match_ui.time_label.text = " Overtime"
 		match_manager.view_system.blue_match_ui.time_label.text = "Overtime"
-	else:
-		overtime_timer.start(3)
+
 
 func _on_overtime_timer_timeout() -> void:
 	determine_winner_on_timeout()
