@@ -44,35 +44,43 @@ func _physics_process(delta: float) -> void:
 	if red_count == 0 and blue_count == 0:
 		return
 
-	# Contested
+# contested
 	if red_count > 0 and blue_count > 0:
 		SignalBus.contested.emit()
 		return
-	
-	var team : Team.type
+
+	var active_team: Team.type
+	var enemy_team: Team.type
 
 	if red_count > 0:
-		team = Team.type.RED
+		active_team = Team.type.RED
+		enemy_team = Team.type.BLUE
 	else:
-		team = Team.type.BLUE
+		active_team = Team.type.BLUE
+		enemy_team = Team.type.RED
 
-	# Already owned
-	if owner_team == team:
+	# CASE: owner is in zone but attacker left -> RESET
+	if owner_team == active_team:
+		# defenders are present but no attackers
+		if capture_team != owner_team:
+			capture_progress = 0.0
+			capture_team = Team.type.GREY
 		return
 
-	# New team begins capturing
-	if capture_team != team:
-		capture_team = team
+	# CASE: switching capture team
+	if capture_team != active_team:
+		capture_team = active_team
 		capture_progress = 0.0
 
+	# progress
 	capture_progress += delta / capture_time
-
 	SignalBus.progress_changed.emit(capture_team, capture_progress)
 
+	# capture complete
 	if capture_progress >= 1.0:
 		owner_team = capture_team
+		capture_team = Team.type.GREY
 		capture_progress = 0.0
-
 		SignalBus.owner_changed.emit(owner)
 	
 
