@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cprx1vvgduo12"]
 
 [ext_resource type="PackedScene" uid="uid://48sy0yiotlye" path="res://GameModes/GameMode.tscn" id="1_5wri4"]
-[ext_resource type="Script" uid="uid://dbb2ktvsxxwfn" path="res://GameModes/stock_mode.gd" id="2_7pr6p"]
+[ext_resource type="Script" uid="uid://dbb2ktvsxxwfn" path="res://GameModes/Stock/stock_mode.gd" id="2_7pr6p"]
 
 [node name="StockMode" unique_id=457060701 instance=ExtResource("1_5wri4")]
 script = ExtResource("2_7pr6p")

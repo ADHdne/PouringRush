@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dnp0p0kqdb266"]
+
+[ext_resource type="Script" uid="uid://b3mhhbd2ywh7g" path="res://GameModes/Control/control_zone.gd" id="1_woylw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_woylw"]
+
+[node name="ControlZone" type="Area2D" unique_id=705497711]
+script = ExtResource("1_woylw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1824435944]
+shape = SubResource("RectangleShape2D_woylw")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1153500432]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.2784314, 0.2784314, 0.2784314, 0.3372549)

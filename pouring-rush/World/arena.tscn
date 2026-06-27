@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bgbyl5hcyqi8s" path="res://Components/SpawnStuff/spawn_point.tscn" id="4_nwrlw"]
 [ext_resource type="PackedScene" uid="uid://b8s661cel7fns" path="res://Components/TeamComponents/team_base.tscn" id="6_l5e5x"]
 [ext_resource type="PackedScene" uid="uid://bljb6ows1k8al" path="res://GameModes/Push/push_lane.tscn" id="7_m07qw"]
+[ext_resource type="PackedScene" uid="uid://dnp0p0kqdb266" path="res://GameModes/Control/control_zone.tscn" id="8_a3mop"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_24pi4"]
 texture = ExtResource("1_24pi4")
@@ -92,7 +93,7 @@ texture = ExtResource("1_24pi4")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_24pi4")
 
-[sub_resource type="Curve2D" id="Curve2D_m07qw"]
+[sub_resource type="Curve2D" id="Curve2D_acm5k"]
 resource_local_to_scene = true
 
 [node name="Arena" type="Node2D" unique_id=790477264]
@@ -140,4 +141,6 @@ format = 2
 team = 1
 
 [node name="PushLane" parent="." unique_id=1587464203 instance=ExtResource("7_m07qw")]
-curve = SubResource("Curve2D_m07qw")
+curve = SubResource("Curve2D_acm5k")
+
+[node name="ControlZone" parent="." unique_id=705497711 instance=ExtResource("8_a3mop")]
