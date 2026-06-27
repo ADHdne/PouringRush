@@ -47,11 +47,14 @@ func initialize(match_config : MatchConfig, world : World, view_system : ViewSys
 	
 	
 	view_system.initialize(self, world, red_zone, blue_zone, players)
+	
 	match match_config.game_mode_type:
 		SelectedMode.Mode.PUSH:
 			game_mode.init(arena.push_lane, arena.push_lane.pusher, arena.push_lane.red_barrier, arena.push_lane.blue_barrier)
+			arena.control_zone.deactivate()
 		SelectedMode.Mode.CONTROL:
-			game_mode.init()
+			game_mode.init(arena.control_zone)
+			arena.push_lane.deactivate()
 	game_mode.initialize(self)
 	start_match()
 

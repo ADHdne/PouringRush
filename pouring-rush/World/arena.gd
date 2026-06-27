@@ -8,6 +8,7 @@ class_name Arena
 @onready var red_base: SafeZoneArea = $RedBase
 @onready var blue_base: SafeZoneArea = $BlueBase
 @onready var push_lane: PushLane = $PushLane
+@onready var control_zone: ControlZone = $ControlZone
 
 
 

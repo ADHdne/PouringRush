@@ -173,6 +173,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
 text = "Exit"
 
 [node name="ChooseGameMode" type="VBoxContainer" parent="." unique_id=805518725]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -200,10 +201,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Start Game"
+text = "Push"
 
 [node name="Control" type="Button" parent="ChooseGameMode" unique_id=833932703]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -216,7 +216,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Join Game"
+text = "Control"
 
 [node name="ReturnButton" type="Button" parent="ChooseGameMode" unique_id=104820460]
 layout_mode = 2
@@ -231,7 +231,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Exit"
+text = "Return"
 
 [node name="HostGameMenu" type="VBoxContainer" parent="." unique_id=503903644]
 visible = false
@@ -504,6 +504,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_3shxk")
 horizontal_alignment = 1
 
 [connection signal="focus_entered" from="StartMenu/HostGameButton" to="." method="_on_focus_entered"]
+[connection signal="pressed" from="StartMenu/HostGameButton" to="." method="_on_host_game_button_pressed"]
 [connection signal="focus_entered" from="StartMenu/JoinGameButton" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="StartMenu/JoinGameButton" to="." method="_on_join_game_pressed"]
 [connection signal="focus_entered" from="StartMenu/OptionsButton" to="." method="_on_focus_entered"]

@@ -93,7 +93,7 @@ texture = ExtResource("1_24pi4")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_24pi4")
 
-[sub_resource type="Curve2D" id="Curve2D_acm5k"]
+[sub_resource type="Curve2D" id="Curve2D_a3mop"]
 resource_local_to_scene = true
 
 [node name="Arena" type="Node2D" unique_id=790477264]
@@ -141,6 +141,6 @@ format = 2
 team = 1
 
 [node name="PushLane" parent="." unique_id=1587464203 instance=ExtResource("7_m07qw")]
-curve = SubResource("Curve2D_acm5k")
+curve = SubResource("Curve2D_a3mop")
 
 [node name="ControlZone" parent="." unique_id=705497711 instance=ExtResource("8_a3mop")]

@@ -70,6 +70,7 @@ func _ready() -> void:
 
 func close_menu():
 	start_menu.visible = false
+	choose_game_mode_menu.visible = false
 	host_game_menu.visible = false
 	character_selection_menu.visible = false
 	choose_team_menu.visible = false
@@ -78,7 +79,7 @@ func open_menu(menu : VBoxContainer):
 	# close all menues
 	close_menu()
 	
-	# make the correct menu visible
+	# make the currect menu visible
 	menu.visible = true
 	
 	# find the first button in menu
@@ -121,15 +122,18 @@ func update_menu_title(menu : VBoxContainer):
 
 func start_match():
 	
-	
-	config.game_mode = game_modes[game_mode_selected]
 	config.players = players
 	
 	
 	# both arena and game mode should be choosable in this menu in the future
 	config.arena_scene = arenas[0]
+	
+	config.game_mode = game_modes[game_mode_selected]
 	# also setting the game mode as matchable var
-	config.game_mode_type = SelectedMode.Mode.PUSH
+	if game_mode_selected == 1:
+		config.game_mode_type = SelectedMode.Mode.PUSH
+	elif game_mode_selected == 2:
+		config.game_mode_type = SelectedMode.Mode.CONTROL
 	
 	GameManager.match_config = config
 	
@@ -161,12 +165,12 @@ func _on_return_button_pressed() -> void:
 
 ## Start Menu
 
-func _on_host_game_pressed() -> void:
+
+func _on_host_game_button_pressed() -> void:
 	# opening the next menu
 	open_menu(choose_game_mode_menu)
 	
 	SoundManager.confirm.play()
-
 
 func _on_join_game_pressed() -> void:
 	SoundManager.confirm.play()
