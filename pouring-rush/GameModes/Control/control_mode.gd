@@ -1,0 +1,2 @@
+extends GameMode
+class_name ControlMode

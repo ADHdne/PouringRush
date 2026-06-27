@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b3mhhbd2ywh7g" path="res://GameModes/Control/control_zone.gd" id="1_woylw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_woylw"]
+size = Vector2(334, 279)
 
 [node name="ControlZone" type="Area2D" unique_id=705497711]
 script = ExtResource("1_woylw")
