@@ -19,6 +19,7 @@ var carrier : Player
 @export var velocity : Vector2
 
 
+
 func _process(delta: float) -> void:
 	
 	# following player if carried
@@ -67,6 +68,7 @@ func drop():
 	carrier = null
 
 
+# signal sendt to gameMode
 func _on_team_zone_core_area_entered(area: Area2D) -> void:
 	if area is TeamBase and area.team == team:
 		SignalBus.team_core_entered_base.emit(team)
