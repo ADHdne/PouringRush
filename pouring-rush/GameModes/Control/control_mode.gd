@@ -62,6 +62,9 @@ func set_progress_bars():
 	
 	blue_ui.red_bar.max_value = winning_amount
 	blue_ui.blue_bar.max_value = winning_amount
+	
+	red_ui.capture_bar.max_value = 1
+	blue_ui.capture_bar.max_value = 1
 
 func check_overtime(team : Team.type):
 	match team:
