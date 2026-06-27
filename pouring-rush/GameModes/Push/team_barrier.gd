@@ -8,9 +8,7 @@ var team : Team.type
 
 var start_progress : float
 
-func _ready() -> void:
-	start_progress = progress
-	
+
 
 func set_color():
 	var color : Color

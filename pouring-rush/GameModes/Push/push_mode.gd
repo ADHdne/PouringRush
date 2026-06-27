@@ -13,6 +13,7 @@ var pusher: Pusher
 var red_barrier: PushBarrier 
 var blue_barrier: PushBarrier
 
+
 var pushing_red : bool = false
 var pushing_blue : bool = false
 
@@ -55,6 +56,8 @@ func _physics_process(delta: float) -> void:
 		SoundManager.clock_tick_slow.play()
 	if overtime and not SoundManager.clock_tick_fast.playing:
 		SoundManager.clock_tick_fast.play()
+	
+	update_progress_bars(delta)
 		
 
 
@@ -65,6 +68,7 @@ func init(lane : PushLane, pusher : Pusher, red_barrier : PushBarrier, blue_barr
 	self.blue_barrier = blue_barrier
 	set_up_barriers()
 	set_up_pusher()
+	set_progress_bars()
 	
 
 func set_up_pusher():
@@ -77,6 +81,23 @@ func set_up_barriers():
 	
 	red_barrier.set_color()
 	blue_barrier.set_color()
+
+func set_progress_bars():
+	return
+	## red ui
+	#match_manager.view_system.red_match_ui.red_bar.max_value = red_barrier.progress
+	#match_manager.view_system.red_match_ui.blue_bar.max_value = blue_barrier.progress
+	#
+	#match_manager.view_system.red_match_ui.red_bar.min_value = red_barrier.progress
+	#match_manager.view_system.red_match_ui.blue_bar.min_value = blue_barrier.progress
+	#
+	## blue ui
+	#match_manager.view_system.blue_match_ui.red_bar.max_value = red_barrier.progress
+	#match_manager.view_system.blue_match_ui.blue_bar.max_value = blue_barrier.progress
+	#
+	#match_manager.view_system.blue_match_ui.red_bar.min_value = red_barrier.progress
+	#match_manager.view_system.blue_match_ui.blue_bar.min_value = blue_barrier.progress
+
 
 # Durring match
 
@@ -140,6 +161,15 @@ func update_blue_push():
 		pusher.state = PusherStates.State.TO_BLUE
 	else:
 		pusher.state = PusherStates.State.PUSH_BLUE
+
+
+func update_progress_bars(delta : float):
+	match_manager.view_system.red_match_ui.red_bar.value = red_barrier.progress
+	match_manager.view_system.red_match_ui.blue_bar.value = blue_barrier.progress
+	
+	match_manager.view_system.blue_match_ui.red_bar.value = red_barrier.progress
+	match_manager.view_system.blue_match_ui.blue_bar.value = blue_barrier.progress
+
 
 func determine_winner_on_timeout():
 
