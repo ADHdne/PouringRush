@@ -31,21 +31,35 @@ func _process(delta: float) -> void:
 
 	elif control_zone.owner_team == Team.type.BLUE:
 		blue_score += delta
+	
+	# setting the ui bars to the right score
+	red_ui.red_bar.value = red_score
+	red_ui.blue_bar.value = blue_score
+	
+	blue_ui.red_bar.value = red_score
+	blue_ui.blue_bar.value = blue_score
 
 	if red_score >= winning_amount:
 		check_overtime(Team.type.RED)
 	if blue_score >= winning_amount:
 		check_overtime(Team.type.BLUE)
 	
-	print("owner: ", control_zone.owner_team)
-	print("red score: ", red_score)
-	#print("blue score: ", blue_score)
 
 
 func init(control_zone : ControlZone, view_system : ViewSystem):
 	self.control_zone = control_zone
 	red_ui = view_system.red_match_ui
 	blue_ui = view_system.blue_match_ui
+	set_progress_bars()
+
+
+
+func set_progress_bars():
+	red_ui.red_bar.max_value = winning_amount
+	red_ui.blue_bar.max_value = winning_amount
+	
+	blue_ui.red_bar.max_value = winning_amount
+	blue_ui.blue_bar.max_value = winning_amount
 
 func check_overtime(team : Team.type):
 	match team:
