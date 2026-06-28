@@ -195,12 +195,14 @@ func _on_exit_button_pressed() -> void:
 ## Choose Game Mode Menu
 
 func _on_push_mode_pressed() -> void:
+	SoundManager.confirm.play()
 	
 	game_mode_selected = 1
 	
 	open_menu(host_game_menu)
 
 func _on_control_pressed() -> void:
+	SoundManager.confirm.play()
 	
 	game_mode_selected = 2
 	
