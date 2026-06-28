@@ -27,7 +27,7 @@ hit_data = SubResource("Resource_37252")
 texture = SubResource("AtlasTexture_1dd26")
 radius = 10.0
 hit_sound = ExtResource("2_4i8w8")
-hit_sound_volume = -25.0
+hit_sound_volume = -15.0
 gravity = 20.0
 speed = 300.0
 lifetime = 3.0
@@ -38,7 +38,7 @@ metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 [resource]
 script = ExtResource("1_3l8y4")
 shoot_shound = ExtResource("6_jaqce")
-shoot_sound_volume = -40.0
+shoot_sound_volume = -30.0
 ability_name = "Support Special 1"
 ability_cooldown = 15.0
 projectile_scene = ExtResource("4_ltuq3")

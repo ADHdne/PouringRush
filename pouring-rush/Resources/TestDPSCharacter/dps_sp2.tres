@@ -27,7 +27,7 @@ texture = SubResource("AtlasTexture_vftk8")
 radius = 16.0
 sprite_size = Vector2(1.6, 2)
 hit_sound = ExtResource("6_ar30b")
-hit_sound_volume = -20.0
+hit_sound_volume = -10.0
 gravity = 700.0
 speed = 600.0
 lifetime = 3.0
@@ -38,7 +38,7 @@ metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 [resource]
 script = ExtResource("5_hm17f")
 shoot_shound = ExtResource("7_ut4cg")
-shoot_sound_volume = -20.0
+shoot_sound_volume = -10.0
 ability_name = "Special 2 "
 ability_cooldown = 15.0
 max_ammo = 0

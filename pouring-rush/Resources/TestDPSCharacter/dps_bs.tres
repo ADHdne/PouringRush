@@ -28,7 +28,7 @@ radius = 14.0
 sprite_size = Vector2(1.5, 1.5)
 sprite_rotation = 40.0
 hit_sound = ExtResource("2_wk8tj")
-hit_sound_volume = -25.0
+hit_sound_volume = -15.0
 gravity = 800.0
 speed = 1000.0
 lifetime = 4.0
@@ -37,7 +37,7 @@ metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 [resource]
 script = ExtResource("5_v34u7")
 shoot_shound = ExtResource("6_p7sgg")
-shoot_sound_volume = -25.0
+shoot_sound_volume = -15.0
 ability_name = "Basic Shot"
 cooldown = 0.8
 max_ammo = 15

@@ -19,7 +19,7 @@ hit_data = SubResource("Resource_okge0")
 texture = ExtResource("3_og8h1")
 sprite_size = Vector2(0.3, 0.3)
 hit_sound = ExtResource("1_og8h1")
-hit_sound_volume = -30.0
+hit_sound_volume = -20.0
 gravity = 0.0
 lifetime = 1.6
 can_be_absorbed = true
@@ -28,6 +28,7 @@ metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 [resource]
 script = ExtResource("1_tvgki")
 shoot_shound = ExtResource("7_2erwe")
+shoot_sound_volume = 10.0
 ability_name = "Support Basic Shot"
 cooldown = 0.3
 max_ammo = 25
