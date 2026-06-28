@@ -240,7 +240,7 @@ pitch_scale = 0.8
 
 [node name="HitThud" type="AudioStreamPlayer" parent="SoundEffects" unique_id=344988435]
 stream = ExtResource("30_14yy5")
-volume_db = -15.0
+volume_db = -30.0
 
 [node name="HitRock" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1743223274]
 stream = ExtResource("31_2jhbk")
@@ -251,34 +251,34 @@ volume_db = -20.0
 
 [node name="Splatt" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1316212251]
 stream = ExtResource("33_icnpe")
-volume_db = -15.0
+volume_db = -30.0
 
 [node name="Footstep" type="AudioStreamPlayer" parent="SoundEffects" unique_id=744647737]
 stream = ExtResource("34_p8656")
-volume_db = -30.0
+volume_db = -35.0
 
 [node name="JumpSwoosh" type="AudioStreamPlayer" parent="SoundEffects" unique_id=258848409]
 stream = ExtResource("35_82jp0")
-volume_db = -25.0
+volume_db = -35.0
 pitch_scale = 1.4
 
 [node name="Shoot" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1796857698]
 
 [node name="Reload1" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1219982983]
 stream = ExtResource("33_qy8ba")
-volume_db = -20.0
+volume_db = -35.0
 
 [node name="Reload2" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1877749861]
 stream = ExtResource("34_qy8ba")
-volume_db = -20.0
+volume_db = -40.0
 
 [node name="PickUp" type="AudioStreamPlayer" parent="SoundEffects" unique_id=160952219]
 stream = ExtResource("35_fvyiu")
-volume_db = -10.0
+volume_db = -30.0
 
 [node name="Drop" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1815926365]
 stream = ExtResource("36_5qm8w")
-volume_db = -20.0
+volume_db = -30.0
 
 [connection signal="timeout" from="Timers/ShotBufferTimer" to="CombatComponent" method="_on_shot_buffer_timer_timeout"]
 [connection signal="timeout" from="Timers/ReloadTimer" to="CombatComponent" method="_on_reload_timer_timeout"]

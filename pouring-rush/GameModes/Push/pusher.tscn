@@ -45,11 +45,11 @@ walking_sound = NodePath("Walking")
 
 [node name="Pushing" type="AudioStreamPlayer" parent="SoundEffects" unique_id=479239710]
 stream = ExtResource("4_gi3hb")
-volume_db = -20.0
+volume_db = -30.0
 
 [node name="Walking" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1404152038]
 stream = ExtResource("4_el2f3")
-volume_db = -20.0
+volume_db = -25.0
 
 [node name="FootstepTimer" type="Timer" parent="." unique_id=1162820404]
 wait_time = 0.3

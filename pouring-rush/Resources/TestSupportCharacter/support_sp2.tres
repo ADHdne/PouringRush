@@ -26,7 +26,7 @@ texture = SubResource("AtlasTexture_idyne")
 radius = 12.0
 sprite_size = Vector2(1.2, 1.2)
 hit_sound = ExtResource("2_kc7oj")
-hit_sound_volume = -20.0
+hit_sound_volume = -25.0
 gravity = 600.0
 speed = 400.0
 can_be_absorbed = true
@@ -36,7 +36,7 @@ metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 [resource]
 script = ExtResource("1_bp7sc")
 shoot_shound = ExtResource("7_kc7oj")
-shoot_sound_volume = -20.0
+shoot_sound_volume = -30.0
 ability_name = "Support Special 2"
 cooldown = 0.4
 ability_cooldown = 20.0
