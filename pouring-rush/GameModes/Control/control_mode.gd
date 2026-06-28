@@ -18,7 +18,7 @@ var control_time : float = 5
 var red_score : float
 var blue_score : float
 
-var winning_amount : int = 420
+var winning_amount : int = 5 #420
 
 func _ready() -> void:
 	pass
@@ -82,11 +82,11 @@ func leading_team() -> Team.type:
 func check_overtime(team : Team.type):
 	match team:
 		Team.type.RED:
-			if control_zone.blue_count <= 0:
+			if control_zone.blue_count <= 0 and control_zone.owner_team == Team.type.RED:
 				end_match("Victory for the Red Team")
 				match_manager.end_match()
 		Team.type.BLUE:
-			if control_zone.red_count <= 0:
+			if control_zone.red_count <= 0 and control_zone.owner_team == Team.type.BLUE:
 				end_match("Victory for the Blue Team")
 				match_manager.end_match()
 
