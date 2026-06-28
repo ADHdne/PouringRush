@@ -29,9 +29,6 @@ var is_bouncing : bool = false
 
 func _physics_process(delta: float) -> void:
 	
-	# normal movement
-	player_movement()
-	
 	# applying dash
 	if is_dashing:
 		apply_dash(delta)
@@ -84,12 +81,6 @@ func add_friction():
 		player.velocity.x = move_toward(player.velocity.x, 0, player.character_data.friction)
 	else:
 		player.velocity.x = move_toward(player.velocity.x, 0, player.character_data.air_friction)
-	
-func player_movement():
-	var was_on_the_flore = player.is_on_floor()
-	var just_left_ledge = was_on_the_flore and not player.is_on_floor() and player.velocity.y >= 0
-	if just_left_ledge:
-		player.coyote_jump_timer.start()
 
 func apply_gravity(delta):
 		## add gravity

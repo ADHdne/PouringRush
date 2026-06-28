@@ -10,6 +10,10 @@ class_name FallState
 @export var coyote_timer : Timer
 
 
+
+func on_enter():
+	coyote_timer.start()
+
 func state_process(_delta):
 	if player.is_on_floor():
 		if player.direction.x == 0:

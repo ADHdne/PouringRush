@@ -109,6 +109,7 @@ func _process(delta: float) -> void:
 		input()
 
 
+
 func input() -> Vector2:
 	direction = Input.get_vector(player_actions.move_left, player_actions.move_right, player_actions.move_up, player_actions.move_down)
 	direction = direction.normalized()
