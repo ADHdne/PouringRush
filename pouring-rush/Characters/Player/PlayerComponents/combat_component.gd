@@ -43,7 +43,7 @@ func _process(delta):
 			try_use_ability(buffered_ability)
 
 func _input(event: InputEvent) -> void:
-	if not player.carry_component.is_carrying() or player.can_action_pressed or player.can_attack:
+	if not player.carry_component.is_carrying() and player.can_action_pressed and player.can_attack:
 		if event.is_action_pressed(player.player_actions.attack):
 			try_use_ability(basic_shot_data)
 		if event.is_action_pressed(player.player_actions.special_1):

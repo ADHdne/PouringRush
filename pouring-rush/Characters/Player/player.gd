@@ -96,13 +96,17 @@ func initialize(character_data : CharacterData, match_manager : Node):
 
 func _process(delta: float) -> void:
 	
+	if not match_manager.match_in_progress:
+		can_action_pressed = false
+	
 	# flip player based on direction
 	if direction.x > 0 and facing_flipped:
 		facing_flipped = false
 	elif direction.x < 0 and not facing_flipped:
 		facing_flipped = true
 	
-	input()
+	if can_action_pressed:
+		input()
 
 
 func input() -> Vector2:
