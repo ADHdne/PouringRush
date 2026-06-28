@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://crhyafy0tdaol"]
 
 [ext_resource type="Script" uid="uid://brx0wllm262sv" path="res://main_menu/main_menu.gd" id="1_rxt62"]
+[ext_resource type="Texture2D" uid="uid://cv87dsylapl4n" path="res://Assets/Sprites/TeamZoneCapsuleShape.png" id="2_d3a7t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mxu81"]
-modulate_color = Color(0.847474, 0.847474, 0.847474, 1)
+texture = ExtResource("2_d3a7t")
+modulate_color = Color(0.22745098, 0.3372549, 0, 0.61960787)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lpiua"]
 bg_color = Color(0.723484, 0.576639, 0.460241, 1)
@@ -86,6 +88,15 @@ choose_game_mode_menu = NodePath("ChooseGameMode")
 number_of_players_label = NodePath("Number of players")
 game_text = NodePath("GameText")
 menu_title = NodePath("MenuTitle")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=724334920]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Panel" type="Panel" parent="." unique_id=476654495]
 layout_mode = 1

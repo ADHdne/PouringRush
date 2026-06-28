@@ -256,7 +256,7 @@ volume_db = -20.0
 
 [node name="Footstep" type="AudioStreamPlayer" parent="SoundEffects" unique_id=744647737]
 stream = ExtResource("34_p8656")
-volume_db = -20.0
+volume_db = -25.0
 
 [node name="JumpSwoosh" type="AudioStreamPlayer" parent="SoundEffects" unique_id=258848409]
 stream = ExtResource("35_82jp0")

@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://baayi1twijxjl"]
 
 [ext_resource type="Script" uid="uid://dd6053b7evt7k" path="res://EndScene/end_scene.gd" id="1_1demh"]
+[ext_resource type="Texture2D" uid="uid://cv87dsylapl4n" path="res://Assets/Sprites/TeamZoneCapsuleShape.png" id="2_ixulw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7wa61"]
+texture = ExtResource("2_ixulw")
+modulate_color = Color(0.47843137, 0.15686275, 0.1254902, 0.61960787)
 
 [node name="Control" type="Control" unique_id=1902025636]
 layout_mode = 3
@@ -11,14 +16,23 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1demh")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1829902435]
+[node name="BackGroundColor" type="ColorRect" parent="." unique_id=1319161293]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.6542321, 0.6542321, 0.654232, 1)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect" type="Panel" parent="." unique_id=961997262]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_7wa61")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=247706213]
 layout_mode = 1
