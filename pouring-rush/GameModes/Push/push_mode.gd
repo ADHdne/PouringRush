@@ -31,7 +31,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	
-	if not match_in_progress:
+	if not match_manager.match_in_progress:
 		return
 	
 	super._physics_process(delta)
@@ -204,7 +204,7 @@ func determine_winner_on_timeout():
 		on_draw()
 
 func check_win_condition():
-	if match_in_progress == true:
+	if match_manager.match_in_progress == true:
 		if red_barrier.progress >= lane.get_length():
 			on_team_wins(Team.type.RED)
 		if blue_barrier.progress <= 0:

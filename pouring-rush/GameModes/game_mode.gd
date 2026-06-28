@@ -9,7 +9,6 @@ var match_manager : MatchManager
 var arena
 var players : Array[Player]
 
-var match_in_progress = false
 var match_time : float = 600
 var overtime : bool = false
 
@@ -38,7 +37,11 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-
+	
+	if not match_manager.match_in_progress:
+		return
+	
+	
 	ko_check_timer += delta
 
 
@@ -50,10 +53,10 @@ func _physics_process(delta: float) -> void:
 				match_manager.respawn_team(team)
 				core_base_time[team] = 0.0
 
-	if match_in_progress == true:
-		if ko_check_timer > 0.1:
-			ko_check_timer = 0
-			check_ko()
+
+	if ko_check_timer > 0.1:
+		ko_check_timer = 0
+		check_ko()
 
 
 # gets called in match manager
@@ -64,7 +67,6 @@ func initialize(match_manager : MatchManager):
 
 
 func start_match():
-	match_in_progress = true
 	print("GameMode: Match started")
 
 
@@ -127,7 +129,6 @@ func _on_overtime_timer_timeout() -> void:
 
 
 func end_match(winner : String):
-	match_in_progress = false
 	
 	# gives winning team to game manager (that is not being used)
 	GameManager.winning_team = winner

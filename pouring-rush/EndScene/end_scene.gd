@@ -2,21 +2,28 @@ extends Control
 class_name EndScreen
 
 
+var match_manager : MatchManager
+
 @onready var label: Label = $HBoxContainer/VBoxContainer/Label
 @onready var color_rect: Panel = $ColorRect
 
 
-
-
 var panel_stylebox : StyleBoxTexture
 
+
+var match_ended : bool = false
+
+
 func _ready() -> void:
+	
+	match_ended = false
 	
 	panel_stylebox = color_rect.get_theme_stylebox("panel") as StyleBoxTexture
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Start"):
-		get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
+	if match_ended:
+		if event.is_action_pressed("Start"):
+			get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
 
 
 func end_game(winning_team : String):
@@ -36,4 +43,6 @@ func end_game(winning_team : String):
 	
 	# playes end scene music 
 	SoundManager.big_droplet.play() # only big droplet
+	
+	match_ended = true
 	print("playing music")

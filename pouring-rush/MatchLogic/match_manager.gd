@@ -28,6 +28,8 @@ var blue_base : SafeZoneArea
 
 var is_paused : bool = false
 
+var match_in_progress : bool = false
+
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
@@ -199,6 +201,8 @@ func load_game_mode(game_mode_root : Node):
 func start_match():
 	game_mode.start_match()
 	match_timer.start(game_mode.match_time)
+	
+	match_in_progress = true
 
 func pause():
 	match_timer.paused = true
@@ -265,6 +269,9 @@ func check_team_elimination(team: Team.type):
 
 
 func end_match():
+	
+	match_in_progress = false
+	
 	# stops clocks from ticking down if time out
 	SoundManager.clock_tick_fast.stop()
 	SoundManager.clock_tick_slow.stop()

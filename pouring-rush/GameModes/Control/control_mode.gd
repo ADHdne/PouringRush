@@ -26,7 +26,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	
-	if not match_in_progress:
+	if not match_manager.match_in_progress:
 		return
 	
 	super._physics_process(delta)
