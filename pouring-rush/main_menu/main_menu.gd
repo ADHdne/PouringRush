@@ -150,8 +150,10 @@ func start_match():
 func _on_return_button_pressed() -> void:
 	var last_menu : VBoxContainer
 	
-	if current_menu == host_game_menu:
+	if current_menu == choose_game_mode_menu:
 		last_menu = start_menu
+	elif current_menu == host_game_menu:
+		last_menu = choose_game_mode_menu
 	elif current_menu == character_selection_menu or choose_team_menu:
 		last_menu = host_game_menu
 		players.clear()
@@ -316,4 +318,4 @@ func add_and_check_player():
 
 # adding a sound for when buttons are hovered
 func _on_focus_entered() -> void:
-	SoundManager.button.play(0.18)
+	SoundManager.button.play()

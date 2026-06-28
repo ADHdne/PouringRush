@@ -19,9 +19,11 @@ script = ExtResource("1_buv3b")
 
 [node name="Confirm" type="AudioStreamPlayer" parent="." unique_id=541941140]
 stream = ExtResource("2_w0nvu")
+volume_db = -10.0
 
 [node name="Deny" type="AudioStreamPlayer" parent="." unique_id=385005365]
 stream = ExtResource("3_cxppg")
+volume_db = -10.0
 
 [node name="PressStart" type="AudioStreamPlayer" parent="." unique_id=851738211]
 stream = ExtResource("4_yoalf")
@@ -35,7 +37,7 @@ stream = ExtResource("6_gfr0g")
 
 [node name="Button" type="AudioStreamPlayer" parent="." unique_id=720701687]
 stream = ExtResource("7_phelm")
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="Enterance" type="AudioStreamPlayer" parent="." unique_id=1029506134]
 stream = ExtResource("8_o2xjt")
