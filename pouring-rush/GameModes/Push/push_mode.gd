@@ -57,8 +57,8 @@ func _physics_process(delta: float) -> void:
 	if overtime and not SoundManager.clock_tick_fast.playing:
 		SoundManager.clock_tick_fast.play()
 	
-	update_progress_bars(delta)
-		
+	# updating the ui progress bars
+	update_progress_bars()
 
 
 func init(lane : PushLane, pusher : Pusher, red_barrier : PushBarrier, blue_barrier : PushBarrier):
@@ -68,7 +68,6 @@ func init(lane : PushLane, pusher : Pusher, red_barrier : PushBarrier, blue_barr
 	self.blue_barrier = blue_barrier
 	set_up_barriers()
 	set_up_pusher()
-	set_progress_bars()
 	
 
 func set_up_pusher():
@@ -83,20 +82,13 @@ func set_up_barriers():
 	blue_barrier.set_color()
 
 func set_progress_bars():
-	return
-	## red ui
-	#match_manager.view_system.red_match_ui.red_bar.max_value = red_barrier.progress
-	#match_manager.view_system.red_match_ui.blue_bar.max_value = blue_barrier.progress
-	#
-	#match_manager.view_system.red_match_ui.red_bar.min_value = red_barrier.progress
-	#match_manager.view_system.red_match_ui.blue_bar.min_value = blue_barrier.progress
-	#
-	## blue ui
-	#match_manager.view_system.blue_match_ui.red_bar.max_value = red_barrier.progress
-	#match_manager.view_system.blue_match_ui.blue_bar.max_value = blue_barrier.progress
-	#
-	#match_manager.view_system.blue_match_ui.red_bar.min_value = red_barrier.progress
-	#match_manager.view_system.blue_match_ui.blue_bar.min_value = blue_barrier.progress
+	
+	match_manager.view_system.red_match_ui.red_bar.max_value = 1
+	match_manager.view_system.red_match_ui.blue_bar.max_value = 1
+	
+	match_manager.view_system.blue_match_ui.red_bar.max_value = 1
+	match_manager.view_system.blue_match_ui.blue_bar.max_value = 1
+
 
 
 # Durring match
@@ -104,9 +96,29 @@ func set_progress_bars():
 func start_match():
 	
 	super()
+	
+	set_progress_bars()
+	
+	lane.set_progress()
+	
 	pusher.progress = lane.get_length() / 2
-	red_barrier.progress = lane.get_length() / 10 * 6
-	blue_barrier.progress = lane.get_length() / 10 * 4
+	red_barrier.progress = lane.red_start_progress
+	blue_barrier.progress = lane.blue_start_progress
+
+
+func get_red_progress() -> float:
+	return inverse_lerp(
+		lane.red_start_progress,
+		lane.get_length(),
+		red_barrier.progress
+	)
+
+func get_blue_progress() -> float:
+	return inverse_lerp(
+		lane.blue_start_progress,
+		0.0,
+		blue_barrier.progress
+	)
 
 func get_controlling_team():
 	red_players_near = pusher.red_count
@@ -163,25 +175,27 @@ func update_blue_push():
 		pusher.state = PusherStates.State.PUSH_BLUE
 
 
-func update_progress_bars(delta : float):
-	match_manager.view_system.red_match_ui.red_bar.value = red_barrier.progress
-	match_manager.view_system.red_match_ui.blue_bar.value = blue_barrier.progress
-	
-	match_manager.view_system.blue_match_ui.red_bar.value = red_barrier.progress
-	match_manager.view_system.blue_match_ui.blue_bar.value = blue_barrier.progress
+func update_progress_bars():
 
+	var red_progress = get_red_progress()
+	var blue_progress = get_blue_progress()
+
+	match_manager.view_system.red_match_ui.red_bar.value = red_progress
+	match_manager.view_system.red_match_ui.blue_bar.value = blue_progress
+
+	match_manager.view_system.blue_match_ui.red_bar.value = red_progress
+	match_manager.view_system.blue_match_ui.blue_bar.value = blue_progress
+	
 
 func determine_winner_on_timeout():
 
-	var red_distance = red_barrier.progress
-	var blue_distance = lane.get_length() - blue_barrier.progress
+	var red_progress = get_red_progress()
+	var blue_progress = get_blue_progress()
 
-	if red_distance > blue_distance:
+	if red_progress > blue_progress:
 		on_team_wins(Team.type.RED)
-
-	elif blue_distance > red_distance:
+	elif blue_progress > red_progress:
 		on_team_wins(Team.type.BLUE)
-
 	else:
 		on_draw()
 
