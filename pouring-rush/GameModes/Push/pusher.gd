@@ -26,7 +26,16 @@ var blue_count : int = 0
 
 var state : PusherStates.State = PusherStates.State.IDLE
 
+var match_ended : bool = false
+
+func _ready() -> void:
+	match_ended = false
+
 func _physics_process(delta: float) -> void:
+	
+	if match_ended:
+		return
+	
 	match state:
 		
 		PusherStates.State.IDLE:
@@ -154,3 +163,6 @@ func _on_capture_area_area_exited(area: Area2D) -> void:
 			blue_count -= 1
 
 		SignalBus.evaluate_control.emit()
+
+func end_match():
+	match_ended = true

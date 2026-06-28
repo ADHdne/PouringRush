@@ -245,3 +245,8 @@ func check_overtime():
 
 func _on_overtime_timer_timeout() -> void:
 	determine_winner_on_timeout()
+
+func end_match(winner : String):
+	super.end_match(winner)
+	
+	pusher.end_match()
