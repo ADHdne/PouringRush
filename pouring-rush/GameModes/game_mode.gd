@@ -67,11 +67,7 @@ func start_match():
 	match_in_progress = true
 	print("GameMode: Match started")
 
-func end_match(winner : String):
-	match_in_progress = false
-	GameManager.winning_team = winner
-	GameManager.match_ended()
-	print("match ended")
+
 
 
 func check_ko():
@@ -128,3 +124,13 @@ func check_win_condition():
 
 func _on_overtime_timer_timeout() -> void:
 	pass # Replace with function body.
+
+
+func end_match(winner : String):
+	match_in_progress = false
+	
+	# gives winning team to game manager (that is not being used)
+	GameManager.winning_team = winner
+	
+	match_manager.view_system.red_match_ui.end_game(winner)
+	match_manager.view_system.blue_match_ui.end_game(winner)

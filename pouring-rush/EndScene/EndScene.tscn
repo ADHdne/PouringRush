@@ -7,7 +7,7 @@
 texture = ExtResource("2_ixulw")
 modulate_color = Color(0.47843137, 0.15686275, 0.1254902, 0.61960787)
 
-[node name="Control" type="Control" unique_id=1902025636]
+[node name="EndScene" type="Control" unique_id=1902025636]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

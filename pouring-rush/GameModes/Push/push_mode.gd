@@ -30,6 +30,10 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	
+	if not match_in_progress:
+		return
+	
 	super._physics_process(delta)
 	
 	var controlling_team = set_control_state()

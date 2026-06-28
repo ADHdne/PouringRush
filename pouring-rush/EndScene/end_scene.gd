@@ -7,16 +7,21 @@ class_name EndScreen
 
 
 
-@export var winning_team : String
 
+var panel_stylebox : StyleBoxTexture
 
 func _ready() -> void:
-	winning_team = GameManager.winning_team
+	
+	panel_stylebox = color_rect.get_theme_stylebox("panel") as StyleBoxTexture
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Start"):
+		get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
+
+
+func end_game(winning_team : String):
 	
 	label.text = winning_team
-	
-	var panel_stylebox = color_rect.get_theme_stylebox("panel") as StyleBoxTexture
-	
 	
 	# 3. Modify the texture modulate color
 	if winning_team == "Victory for the Red Team":
@@ -28,7 +33,7 @@ func _ready() -> void:
 	
 	# 4. Re-apply the updated StyleBox back to the Panel's theme overrides
 	add_theme_stylebox_override("panel", panel_stylebox)
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Start"):
-		get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
+	
+	# playes end scene music 
+	SoundManager.big_droplet.play() # only big droplet
+	print("playing music")

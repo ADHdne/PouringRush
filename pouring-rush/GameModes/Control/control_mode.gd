@@ -18,13 +18,20 @@ var control_time : float = 5
 var red_score : float
 var blue_score : float
 
-var winning_amount : int = 420
+var winning_amount : int = 5 #420
 
 func _ready() -> void:
 	pass
 
 
 func _process(delta: float) -> void:
+	
+	if not match_in_progress:
+		return
+	
+	super._physics_process(delta)
+	
+	
 	if control_zone.owner_team == Team.type.RED:
 		red_score += delta
 

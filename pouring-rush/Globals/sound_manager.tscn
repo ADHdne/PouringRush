@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://ethe7phml23d" path="res://Assets/Sound/GameModeFeatures/CLOCKTick_InsJ_Clock-03_Ticking_Multi_LOOP.wav" id="12_kmas0"]
 
 [node name="SoundManager" type="Node" unique_id=1134612659]
+process_mode = 3
 script = ExtResource("1_buv3b")
 
 [node name="Confirm" type="AudioStreamPlayer" parent="." unique_id=541941140]

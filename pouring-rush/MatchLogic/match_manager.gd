@@ -265,8 +265,12 @@ func check_team_elimination(team: Team.type):
 
 
 func end_match():
+	# stops clocks from ticking down if time out
 	SoundManager.clock_tick_fast.stop()
 	SoundManager.clock_tick_slow.stop()
+	
+	# stopping the music
+	SoundManager.main_music.stop()
 
 
 func _on_match_timer_timeout() -> void:

@@ -15,18 +15,25 @@ var match_manager : MatchManager
 @onready var capture_bar: ProgressBar = $Progressbars/CaptureBar
 
 
+@onready var end_scene: EndScreen = $EndScene
+
+
 var team : Team.type
 
 var pause_menu : PauseMenu
 
 var player_icons: Dictionary = {}
 
-
+func _ready() -> void:
+	end_scene.visible = false
 
 func initialize(players: Array[Player], match_manager : MatchManager, pause : PauseMenu):
 	
 	# reference to matchmanager
 	self.match_manager = match_manager
+	
+	# reference to pause menu
+	pause_menu = pause
 	
 	# getting players
 	var team_players : Array[Player]
@@ -98,4 +105,15 @@ func update_time(delta):
 
 func show_pause_menu(pause : PauseMenu):
 	pause_menu = pause
+
+func end_game(str : String):
+	
+	# hide non end scene
+	pause_menu.hide()
+	progressbars.hide()
+	h_box_container.hide()
+	
+	end_scene.end_game(str)
+	
+	end_scene.show()
 	
