@@ -87,7 +87,7 @@ curve = SubResource("Curve2D_8johc")
 position = Vector2(502, -141)
 
 [node name="CollisionShape2D" parent="ControlZone" index="0" unique_id=1824435944]
-position = Vector2(34, -31.5)
+position = Vector2(34, -31)
 
 [editable path="CameraBounds"]
 [editable path="RedBase"]
