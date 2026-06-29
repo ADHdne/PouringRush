@@ -19,6 +19,7 @@ var blue_count : int
 var capture_time : float = 5
 
 
+
 func _ready() -> void:
 	setup_size()
 
