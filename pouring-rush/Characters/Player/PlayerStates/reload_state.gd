@@ -14,6 +14,9 @@ func on_enter():
 	# playes reload sound
 	player.sound_effects.reload()
 	
+	# make the player slightly see through when reloading
+	# This should be an animation
+	player.sprite.modulate -= Color(0, 0, 0, 0.3)
 
 func on_exit():
 	player.can_attack = true
@@ -21,3 +24,5 @@ func on_exit():
 
 func _on_reload_timer_timeout() -> void:
 	next_state = idle_state
+	
+	player.sprite.modulate = player.color
