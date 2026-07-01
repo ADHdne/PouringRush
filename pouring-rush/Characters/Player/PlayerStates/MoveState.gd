@@ -7,6 +7,8 @@ class_name MoveState
 @export var idle_state : State
 @export var fall_state : State
 
+@export var coyote_timer : Timer
+
 
 func on_enter():
 	if not player.jump_buffer_timer.is_stopped():
@@ -46,3 +48,6 @@ func _jump():
 
 func on_exit():
 	player.footstep_timer.stop()
+	
+	if next_state == fall_state:
+		coyote_timer.start()

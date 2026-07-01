@@ -10,10 +10,6 @@ class_name FallState
 @export var coyote_timer : Timer
 
 
-
-func on_enter():
-	coyote_timer.start()
-
 func state_process(_delta):
 	if player.is_on_floor():
 		if player.direction.x == 0:
@@ -28,8 +24,10 @@ func state_input(event : InputEvent):
 		if event.is_action_pressed(player.player_actions.jump):
 			if not coyote_timer.is_stopped():
 				_jump()
+				print("coyote")
 			elif player.movement_component.jumps_remaining > 0:
 				double_jump()
+				print("double")
 			else:
 				player.jump_buffer_timer.start()
 		# for picking up team zone
