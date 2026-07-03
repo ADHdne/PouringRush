@@ -3,12 +3,18 @@ class_name RespawnState
 
 @export var idle_state : State
 
+@export var alive_timer : Timer
+
 
 func on_enter():
-	await get_tree().create_timer(1).timeout
-	player.alive = true
-	next_state = idle_state
+	alive_timer.start()
 
 
 func on_exit():
+	player.can_action_pressed = true
+
+
+func _on_alive_timer_timeout() -> void:
+	player.alive = true
+	next_state = idle_state
 	player.can_action_pressed = true

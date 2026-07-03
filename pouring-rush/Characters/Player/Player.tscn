@@ -192,9 +192,10 @@ can_move = false
 can_reload = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
-[node name="Respawn" type="Node" parent="CharacterStateMachine" unique_id=315201414 node_paths=PackedStringArray("idle_state")]
+[node name="Respawn" type="Node" parent="CharacterStateMachine" unique_id=315201414 node_paths=PackedStringArray("idle_state", "alive_timer")]
 script = ExtResource("22_tdp7v")
 idle_state = NodePath("../Idle")
+alive_timer = NodePath("../../Timers/AliveTimer")
 can_reload = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
@@ -218,6 +219,9 @@ wait_time = 0.1
 one_shot = true
 
 [node name="ReloadTimer" type="Timer" parent="Timers" unique_id=906034395]
+one_shot = true
+
+[node name="AliveTimer" type="Timer" parent="Timers" unique_id=936522042]
 one_shot = true
 
 [node name="SoundEffects" type="Node" parent="." unique_id=624573972 node_paths=PackedStringArray("dash_sound", "hit_sound", "hit_rock_sound", "glass_break_sound", "splatt_sound", "footstep_sound", "jumpswoosh_sound", "shoot_sound", "reload_1_sound", "reload_2_sound", "pick_up_sound", "drop_sound")]
@@ -289,3 +293,5 @@ state_machine = NodePath("../CharacterStateMachine")
 [connection signal="timeout" from="Timers/ShotBufferTimer" to="CombatComponent" method="_on_shot_buffer_timer_timeout"]
 [connection signal="timeout" from="Timers/ReloadTimer" to="CombatComponent" method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="Timers/ReloadTimer" to="CharacterStateMachine/Reload" method="_on_reload_timer_timeout"]
+[connection signal="timeout" from="Timers/AliveTimer" to="." method="_on_alive_timer_timeout"]
+[connection signal="timeout" from="Timers/AliveTimer" to="CharacterStateMachine/Respawn" method="_on_alive_timer_timeout"]

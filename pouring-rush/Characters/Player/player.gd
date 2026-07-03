@@ -134,6 +134,8 @@ func hit_visual():
 func ko():
 	alive = false
 	state_machine.on_state_interupt_state(ko_state)
+	hurtbox.monitorable = false
+	can_action_pressed = false
 
 func set_color():
 	
@@ -155,3 +157,10 @@ func set_color():
 		7:
 			color = Color(0.8,0,0.9)
 	sprite.modulate = color
+
+
+func _on_alive_timer_timeout() -> void:
+	alive = true
+	hurtbox.monitorable = true
+	can_action_pressed = true
+	
