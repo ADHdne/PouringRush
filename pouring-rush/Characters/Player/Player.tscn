@@ -68,8 +68,8 @@ tech_zone = NodePath("TechZone")
 sprite = NodePath("PlayerSprite")
 
 [node name="PlayerOutline" type="Sprite2D" parent="." unique_id=827724481]
-position = Vector2(5.364418e-07, 5.662441e-07)
-scale = Vector2(0.625, 1.030303)
+position = Vector2(-2.0861626e-07, -1.4999987)
+scale = Vector2(0.75000006, 1.1212121)
 texture = ExtResource("3_xqos4")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=799234983]
