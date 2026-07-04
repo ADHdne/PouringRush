@@ -8,7 +8,6 @@ func on_enter():
 	player.hurtbox.monitorable = false
 
 func teching():
-	await get_tree().create_timer(1).timeout
 	if player.is_on_floor():
 		next_state = idle_state
 	else:
