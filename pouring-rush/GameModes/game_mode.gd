@@ -80,7 +80,8 @@ func check_ko():
 		
 		var safe = false
 		for zone in match_manager.get_safe_zones(p.team):
-			
+			if p.player_index == 0:
+				print("player: ", p.player_index, " , zones: ", zone)
 			if zone.overlaps_area(p.hurtbox):
 				safe = true
 				break

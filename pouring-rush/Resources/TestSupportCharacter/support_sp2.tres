@@ -13,6 +13,7 @@ script = ExtResource("1_mg5cg")
 damage = 20.0
 healing = 60.0
 knockback_growth = 0.0
+knockback_type = 2
 metadata/_custom_type_script = "uid://drphxsmjyfe1x"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idyne"]
