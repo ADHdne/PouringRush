@@ -48,7 +48,7 @@ func ground_check():
 			grounded = true
 
 func can_be_picked_up(player : Player) -> bool:
-	if player.team!= team:
+	if player.team != team:
 		return false
 	
 	if carrier != null:

@@ -10,9 +10,6 @@ func on_enter():
 	alive_timer.start()
 
 
-func on_exit():
-	player.can_action_pressed = true
-
 
 func _on_alive_timer_timeout() -> void:
 	player.alive = true

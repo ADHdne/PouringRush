@@ -37,6 +37,7 @@
 [ext_resource type="AudioStream" uid="uid://ktow8xuecig1" path="res://Assets/Sound/PlayerSounds/PlayerActions/Pick_up2.wav" id="35_fvyiu"]
 [ext_resource type="AudioStream" uid="uid://c5cdpeld3hspl" path="res://Assets/Sound/PlayerSounds/PlayerActions/CLOTHING_MATERIAL_MOVEMENT_08.wav" id="36_5qm8w"]
 [ext_resource type="PackedScene" uid="uid://djkt86xwm70xd" path="res://Components/DebugTools/state_debug_label.tscn" id="37_fvyiu"]
+[ext_resource type="PackedScene" uid="uid://bqkyds65ymdao" path="res://Components/DebugTools/Precentage.tscn" id="38_5qm8w"]
 
 [sub_resource type="Resource" id="Resource_6h4vt"]
 script = ExtResource("3_6fff4")
@@ -289,6 +290,12 @@ volume_db = -20.0
 
 [node name="StateDebugLabel" parent="." unique_id=18120675 node_paths=PackedStringArray("state_machine") instance=ExtResource("37_fvyiu")]
 state_machine = NodePath("../CharacterStateMachine")
+
+[node name="Precentage" parent="." unique_id=1974832711 node_paths=PackedStringArray("player") instance=ExtResource("38_5qm8w")]
+offset_top = -67.0
+offset_right = 1.0
+offset_bottom = -44.0
+player = NodePath("..")
 
 [connection signal="timeout" from="Timers/ShotBufferTimer" to="CombatComponent" method="_on_shot_buffer_timer_timeout"]
 [connection signal="timeout" from="Timers/ReloadTimer" to="CombatComponent" method="_on_reload_timer_timeout"]

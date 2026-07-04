@@ -120,6 +120,7 @@ func get_safe_zones(team : Team.type) -> Array[SafeZoneArea]:
 				zones.append(blue_base)
 	
 	return zones
+	
 
 func get_spawn_point(team : Team.type) -> Node2D:
 	var points = arena.red_spawn_points if team == Team.type.RED else arena.blue_sp0awn_points2
@@ -264,7 +265,7 @@ func check_team_elimination(team: Team.type):
 	reset_team_zone(team)
 	
 	# waiting before respawning team
-	await get_tree().create_timer(10).timeout
+	await get_tree().create_timer(5).timeout
 	respawn_team(team)
 
 

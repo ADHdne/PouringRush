@@ -163,4 +163,3 @@ func _on_alive_timer_timeout() -> void:
 	alive = true
 	hurtbox.monitorable = true
 	can_action_pressed = true
-	
