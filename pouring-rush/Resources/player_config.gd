@@ -7,6 +7,7 @@ var team : Team.type
 var input_id : int
 
 var device : int
+var ready : bool = false
 
 var player_actions : Array[PlayerActions] = [
 	preload("res://Characters/Player/PlayerResources/PlayerControls/player_1_actions.tres"),

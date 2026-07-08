@@ -149,7 +149,7 @@ func update_ui():
 
 	controller_label.text = "P" + str(controller_id + 1)
 
-	character_name_label.text = player_config.character_data.character_name
+	character_name_label.text = player_config.character_data.display_name
 
 	match player_config.team:
 

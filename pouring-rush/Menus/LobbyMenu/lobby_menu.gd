@@ -173,14 +173,35 @@ func start_match():
 	GameManager.start_match()
 
 
-func join_player(device_id):
+func _unhandled_input(event):
 
+	if event.is_action_pressed("Start"):
+
+		var device_id = event.device
+
+		add_player(device_id)
+
+
+
+func add_player(device_id : int):
+
+	# Check if this controller is already joined
+	for slot in player_slots:
+
+		if slot.has_player() and slot.controller_id == device_id:
+			return
+
+
+	# Find empty slot
 	for slot in player_slots:
 
 		if !slot.has_player():
 
 			slot.join(device_id)
 			return
+
+
+	print("Lobby full")
 
 ## buttons
 
