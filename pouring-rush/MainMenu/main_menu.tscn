@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://crhyafy0tdaol"]
 
-[ext_resource type="Script" uid="uid://brx0wllm262sv" path="res://main_menu/main_menu.gd" id="1_rxt62"]
+[ext_resource type="Script" uid="uid://brx0wllm262sv" path="res://MainMenu/main_menu.gd" id="1_rxt62"]
 [ext_resource type="Texture2D" uid="uid://cv87dsylapl4n" path="res://Assets/Sprites/TeamZoneCapsuleShape.png" id="2_d3a7t"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mxu81"]
@@ -135,10 +135,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Start Game"
+text = "Host Game"
 
 [node name="JoinGameButton" type="Button" parent="StartMenu" unique_id=666550901]
-visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
