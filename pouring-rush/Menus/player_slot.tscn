@@ -7,11 +7,14 @@
 
 [node name="PlayerSlot" type="Control" unique_id=1950497164 node_paths=PackedStringArray("character_name_label", "team_label", "ready_label", "controller_label", "portrait")]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("1_qdjbm")
 character_name_label = NodePath("VBoxContainer/CharacterNameLabel")
 team_label = NodePath("VBoxContainer/TeamLabel")
@@ -27,10 +30,8 @@ offset_bottom = 40.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1115964331]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-grow_horizontal = 2
+offset_right = 100.0
+offset_bottom = 140.0
 
 [node name="TeamLabel" type="Label" parent="VBoxContainer" unique_id=1101832108]
 layout_mode = 2

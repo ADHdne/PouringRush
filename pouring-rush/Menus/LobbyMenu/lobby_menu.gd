@@ -9,10 +9,8 @@ class_name Lobby
 
 @export var player_slots : Array[PlayerSlot]
 
-@export var first_button : Button
 @export var game_mode_label : Label
 @export var arena_label : Label
-@export var start_button : Button
 @export var ready_label : Label
 
 const MAX_PLAYERS : int = 8
@@ -49,7 +47,10 @@ func _ready() -> void:
 
 	update_lobby()
 
-	first_button.grab_focus()
+
+
+
+
 
 # ------------------------
 # Lobby status
@@ -180,6 +181,22 @@ func _unhandled_input(event):
 		var device_id = event.device
 
 		add_player(device_id)
+
+	# only player 1 controls lobby settings
+	if event.device != 0:
+		return
+
+
+	if event.is_action_pressed("ui_right"):
+		next_game_mode()
+
+
+	if event.is_action_pressed("ui_left"):
+		previous_game_mode()
+
+
+	if event.is_action_pressed("ui_accept"):
+		start_match()
 
 
 

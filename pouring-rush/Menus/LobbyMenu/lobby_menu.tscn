@@ -17,24 +17,6 @@ corner_radius_bottom_left = 17
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ov8ax"]
-bg_color = Color(0.118622, 0.110167, 0.0966475, 1)
-corner_radius_top_left = 17
-corner_radius_top_right = 17
-corner_radius_bottom_right = 17
-corner_radius_bottom_left = 17
-shadow_size = 5
-shadow_offset = Vector2(0, 3.4)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7h1w"]
-bg_color = Color(0.691353, 0.691359, 0.691356, 1)
-corner_radius_top_left = 17
-corner_radius_top_right = 17
-corner_radius_bottom_right = 17
-corner_radius_bottom_left = 17
-shadow_size = 5
-shadow_offset = Vector2(0, 3.4)
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44yg8"]
 bg_color = Color(0.385493, 0.385492, 0.385492, 0.823529)
 corner_radius_top_left = 17
@@ -58,9 +40,7 @@ expand_margin_top = 10.0
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1nc4h"]
-
-[node name="LobbyMenu" type="Control" unique_id=1824882435 node_paths=PackedStringArray("player_slots", "first_button", "game_mode_label", "arena_label", "start_button", "ready_label")]
+[node name="LobbyMenu" type="Control" unique_id=1824882435 node_paths=PackedStringArray("game_mode_label", "arena_label", "ready_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,11 +48,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jw10o")
-player_slots = [NodePath("PlayerSlots/PlayerSlot1"), NodePath("PlayerSlots/PlayerSlot2"), NodePath("PlayerSlots/PlayerSlot3"), NodePath("PlayerSlots/PlayerSlot4"), NodePath("PlayerSlots/PlayerSlot5"), NodePath("PlayerSlots/PlayerSlot6"), NodePath("PlayerSlots/PlayerSlot7"), NodePath("PlayerSlots/PlayerSlot8")]
-first_button = NodePath("HBoxContainer/MatchSettings/GameModeButton")
-game_mode_label = NodePath("HBoxContainer/MatchSettings/GameModeLabel")
-arena_label = NodePath("HBoxContainer/MatchSettings/ArenaLabel")
-start_button = NodePath("HBoxContainer/MatchSettings/StartButton")
+game_mode_label = NodePath("HBoxContainer/MatchSettings/GameModeValue")
+arena_label = NodePath("HBoxContainer/MatchSettings/ArenaValue")
 ready_label = NodePath("ReadyLabel")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1270254195]
@@ -125,10 +102,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -91.5
-offset_top = -137.0
-offset_right = 91.5
-offset_bottom = 137.0
+offset_left = -124.0
+offset_top = 56.0
+offset_right = 125.0
+offset_bottom = 330.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -136,22 +113,17 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 12
 
-[node name="GameModeButton" type="Button" parent="HBoxContainer/MatchSettings" unique_id=600606710]
+[node name="GameModeTitle" type="Label" parent="HBoxContainer/MatchSettings" unique_id=1566377679]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_hweht")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ov8ax")
-theme_override_styles/hover = SubResource("StyleBoxFlat_j7h1w")
 theme_override_styles/focus = SubResource("StyleBoxFlat_44yg8")
 text = "Game Mode"
+horizontal_alignment = 1
 
-[node name="GameModeLabel" type="Label" parent="HBoxContainer/MatchSettings" unique_id=1242840784]
+[node name="GameModeValue" type="Label" parent="HBoxContainer/MatchSettings" unique_id=1242840784]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -160,22 +132,17 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_i4b0a")
 text = "Push"
 horizontal_alignment = 1
 
-[node name="ArenaButton" type="Button" parent="HBoxContainer/MatchSettings" unique_id=2131058346]
+[node name="ArenaTitle" type="Label" parent="HBoxContainer/MatchSettings" unique_id=57803998]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_hweht")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ov8ax")
-theme_override_styles/hover = SubResource("StyleBoxFlat_j7h1w")
 theme_override_styles/focus = SubResource("StyleBoxFlat_44yg8")
 text = "Arena"
+horizontal_alignment = 1
 
-[node name="ArenaLabel" type="Label" parent="HBoxContainer/MatchSettings" unique_id=1043833307]
+[node name="ArenaValue" type="Label" parent="HBoxContainer/MatchSettings" unique_id=1043833307]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -184,55 +151,38 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_yir1a")
 text = "GrassLands"
 horizontal_alignment = 1
 
-[node name="StartButton" type="Button" parent="HBoxContainer/MatchSettings" unique_id=1399507673]
+[node name="StartButton" type="Label" parent="HBoxContainer/MatchSettings" unique_id=2067387803]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_hweht")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ov8ax")
-theme_override_styles/hover = SubResource("StyleBoxFlat_j7h1w")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_1nc4h")
 theme_override_styles/focus = SubResource("StyleBoxFlat_44yg8")
-text = "Start Game"
+text = "Press A To Start"
 
-[node name="BackButton" type="Button" parent="HBoxContainer/MatchSettings" unique_id=1068022955]
+[node name="BackButton" type="Label" parent="HBoxContainer/MatchSettings" unique_id=1974025380]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_hweht")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ov8ax")
-theme_override_styles/hover = SubResource("StyleBoxFlat_j7h1w")
 theme_override_styles/focus = SubResource("StyleBoxFlat_44yg8")
-text = "Back
-
-"
+text = "Press B to return"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=346542840]
 layout_mode = 2
 
 [node name="PlayerSlots" type="GridContainer" parent="." unique_id=518045096]
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -511.0
-offset_top = -137.0
-offset_right = -211.0
-offset_bottom = 13.0
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_top = 177.0
+offset_right = 150.0
+offset_bottom = 327.0
+grow_horizontal = 2
 theme_override_constants/h_separation = 100
 theme_override_constants/v_separation = 150
 columns = 4
@@ -261,11 +211,7 @@ layout_mode = 2
 [node name="PlayerSlot8" parent="PlayerSlots" unique_id=2091982545 instance=ExtResource("3_ov8ax")]
 layout_mode = 2
 
-[connection signal="focus_entered" from="HBoxContainer/MatchSettings/GameModeButton" to="." method="_on_focus_entered"]
-[connection signal="pressed" from="HBoxContainer/MatchSettings/GameModeButton" to="." method="_on_game_mode_button_pressed"]
-[connection signal="focus_entered" from="HBoxContainer/MatchSettings/ArenaButton" to="." method="_on_focus_entered"]
-[connection signal="pressed" from="HBoxContainer/MatchSettings/ArenaButton" to="." method="_on_arena_button_pressed"]
+[connection signal="focus_entered" from="HBoxContainer/MatchSettings/GameModeTitle" to="." method="_on_focus_entered"]
+[connection signal="focus_entered" from="HBoxContainer/MatchSettings/ArenaTitle" to="." method="_on_focus_entered"]
 [connection signal="focus_entered" from="HBoxContainer/MatchSettings/StartButton" to="." method="_on_focus_entered"]
-[connection signal="pressed" from="HBoxContainer/MatchSettings/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="focus_entered" from="HBoxContainer/MatchSettings/BackButton" to="." method="_on_focus_entered"]
-[connection signal="pressed" from="HBoxContainer/MatchSettings/BackButton" to="." method="_on_back_button_pressed"]

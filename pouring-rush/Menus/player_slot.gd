@@ -27,6 +27,31 @@ func _ready():
 	update_ui()
 
 
+
+
+func _unhandled_input(event):
+
+	if !has_player():
+		return
+
+	if event.device != controller_id:
+		return
+
+
+	if event.is_action_pressed("ui_right"):
+		next_character()
+
+
+	if event.is_action_pressed("ui_left"):
+		previous_character()
+
+
+	if event.is_action_pressed("Start"):
+		toggle_ready()
+		if event.device == 0:
+			handle_lobby_settings(event)
+
+
 func has_player() -> bool:
 	return joined
 
