@@ -118,7 +118,14 @@ func next_arena():
 
 	update_settings_ui()
 
+func previous_arena():
+	
+	selected_arena -= 1
 
+	if selected_arena < 0:
+		selected_arena = arenas.size() - 1
+
+	update_settings_ui()
 
 func update_settings_ui():
 
@@ -262,10 +269,12 @@ func _unhandled_input(event):
 
 
 
-	if event.is_action_pressed("D-Pad Down"):
+	if event.is_action_pressed("D-Pad Up"):
 
 		next_arena()
 
+	if event.is_action_pressed("D-Pad Down"):
+		previous_arena()
 
 
 	if event.is_action_pressed("Start"):
