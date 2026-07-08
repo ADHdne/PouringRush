@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://ckvjar50p1lsy"]
+
+[ext_resource type="Script" uid="uid://cg52fj3772gf3" path="res://Menus/player_slot.gd" id="1_qdjbm"]
+[ext_resource type="Script" uid="uid://c26p6mh1s8fyn" path="res://Resources/character_data.gd" id="2_3tacp"]
+[ext_resource type="Resource" uid="uid://dfelift0tkp3c" path="res://Resources/TestDPSCharacter/test_dps_character.tres" id="3_ayy4j"]
+[ext_resource type="Resource" uid="uid://d1sslh2setsns" path="res://Resources/TestSupportCharacter/test_support_character.tres" id="4_opa1w"]
+
+[node name="PlayerSlot" type="Control" unique_id=1950497164 node_paths=PackedStringArray("character_name_label", "team_label", "ready_label", "controller_label", "portrait")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qdjbm")
+character_name_label = NodePath("VBoxContainer/CharacterNameLabel")
+team_label = NodePath("VBoxContainer/TeamLabel")
+ready_label = NodePath("VBoxContainer/ReadyLabel")
+controller_label = NodePath("VBoxContainer/ControllerLabel")
+portrait = NodePath("Portrait")
+roster = Array[ExtResource("2_3tacp")]([ExtResource("3_ayy4j"), ExtResource("4_opa1w")])
+
+[node name="Portrait" type="TextureRect" parent="." unique_id=1776692055]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1115964331]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="TeamLabel" type="Label" parent="VBoxContainer" unique_id=1101832108]
+layout_mode = 2
+text = "RED"
+
+[node name="ReadyLabel" type="Label" parent="VBoxContainer" unique_id=1103007954]
+layout_mode = 2
+text = "Ready"
+
+[node name="ControllerLabel" type="Label" parent="VBoxContainer" unique_id=769515716]
+layout_mode = 2
+text = "Device 1"
+
+[node name="CharacterNameLabel" type="Label" parent="VBoxContainer" unique_id=1804411511]
+layout_mode = 2
+text = "Mr. pooper"
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=724870782]
+layout_mode = 2

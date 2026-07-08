@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://baayi1twijxjl"]
 
-[ext_resource type="Script" uid="uid://dd6053b7evt7k" path="res://EndScene/end_scene.gd" id="1_1demh"]
+[ext_resource type="Script" uid="uid://dd6053b7evt7k" path="res://Menus/EndScene/end_scene.gd" id="1_1demh"]
 [ext_resource type="Texture2D" uid="uid://cv87dsylapl4n" path="res://Assets/Sprites/TeamZoneCapsuleShape.png" id="2_ixulw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7wa61"]

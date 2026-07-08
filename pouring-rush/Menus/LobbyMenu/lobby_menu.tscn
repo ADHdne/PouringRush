@@ -1,0 +1,218 @@
+[gd_scene format=3 uid="uid://cnr0d5c4e7mj4"]
+
+[ext_resource type="Script" uid="uid://cg5050mpfumd6" path="res://Menus/LobbyMenu/lobby_menu.gd" id="1_jw10o"]
+[ext_resource type="Texture2D" uid="uid://cv87dsylapl4n" path="res://Assets/Sprites/TeamZoneCapsuleShape.png" id="2_ut34e"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ka22y"]
+texture = ExtResource("2_ut34e")
+modulate_color = Color(0.22745098, 0.3372549, 0, 0.61960787)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hweht"]
+bg_color = Color(0.723484, 0.576639, 0.460241, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ov8ax"]
+bg_color = Color(0.118622, 0.110167, 0.0966475, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7h1w"]
+bg_color = Color(0.691353, 0.691359, 0.691356, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_44yg8"]
+bg_color = Color(0.385493, 0.385492, 0.385492, 0.823529)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i4b0a"]
+bg_color = Color(0.5497966, 0.421491, 0.31632993, 1)
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+expand_margin_top = 10.0
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yir1a"]
+bg_color = Color(0.5497966, 0.421491, 0.31632993, 1)
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+expand_margin_top = 10.0
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[node name="LobbyMenu" type="Control" unique_id=1824882435]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jw10o")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1270254195]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=1648176908]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ka22y")
+
+[node name="Title" type="Label" parent="." unique_id=1939703274]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 88.0
+offset_right = 20.0
+offset_bottom = 111.0
+grow_horizontal = 2
+text = "Lobby"
+
+[node name="ReadyLabel" type="Label" parent="." unique_id=259265533]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=330985953]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.5
+offset_top = -137.0
+offset_right = 91.5
+offset_bottom = 137.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MatchSettings2" type="VBoxContainer" parent="HBoxContainer" unique_id=1985195717]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="GameModeButton" type="Button" parent="HBoxContainer/MatchSettings2" unique_id=600606710]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_hweht")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ov8ax")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j7h1w")
+theme_override_styles/focus = SubResource("StyleBoxFlat_44yg8")
+text = "Game Mode"
+
+[node name="GameModeLabel" type="Label" parent="HBoxContainer/MatchSettings2" unique_id=1242840784]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_i4b0a")
+text = "Push"
+horizontal_alignment = 1
+
+[node name="ArenaButton" type="Button" parent="HBoxContainer/MatchSettings2" unique_id=2131058346]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_hweht")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ov8ax")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j7h1w")
+theme_override_styles/focus = SubResource("StyleBoxFlat_44yg8")
+text = "Arena"
+
+[node name="ArenaLabel" type="Label" parent="HBoxContainer/MatchSettings2" unique_id=1043833307]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_yir1a")
+text = "GrassLands"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="HBoxContainer/MatchSettings2" unique_id=1399507673]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_hweht")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ov8ax")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j7h1w")
+theme_override_styles/focus = SubResource("StyleBoxFlat_44yg8")
+text = "Start Game"
+
+[node name="BackButton" type="Button" parent="HBoxContainer/MatchSettings2" unique_id=1068022955]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_hweht")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ov8ax")
+theme_override_styles/hover = SubResource("StyleBoxFlat_j7h1w")
+theme_override_styles/focus = SubResource("StyleBoxFlat_44yg8")
+text = "Back
+
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=346542840]
+layout_mode = 2
+
+[node name="PlayerSlots" type="VBoxContainer" parent="." unique_id=484488581]
+layout_mode = 0
+offset_left = 868.5
+offset_top = 403.0
+offset_right = 868.5
+offset_bottom = 677.0

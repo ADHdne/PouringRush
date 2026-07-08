@@ -18,22 +18,7 @@ class_name MainMenu
 @export var menu_title : Label
 
 
-# Characterr Rooster
-var rooster : Array[CharacterData] = [
-	preload("res://Resources/TestDPSCharacter/test_dps_character.tres"), # test dps character
-	preload("res://Resources/TestSupportCharacter/test_support_character.tres")
-]
 
-var arenas : Array[PackedScene] = [
-	preload("res://World/grass_lands.tscn"), # grass land arena
-]
-
-var game_modes : Array[PackedScene] = [
-	preload("res://GameModes/Stock/stock_mode.tscn"),
-	preload("res://GameModes/Push/push_mode.tscn"),
-	preload("res://GameModes/Control/control_mode.tscn")
-	
-]
 
  # Different variables for logic
 var saved_location : StringName
@@ -44,7 +29,6 @@ var current_menu : VBoxContainer
 var players : Array[PlayerConfig]
 var number_of_players : int = 2
 
-var config : MatchConfig
 
 var active_player : PlayerConfig
 
