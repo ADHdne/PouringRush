@@ -117,7 +117,6 @@ func next_arena():
 		selected_arena = 0
 
 	update_settings_ui()
-	print("next arena")
 
 
 
@@ -216,9 +215,13 @@ func can_start_match() -> bool:
 
 func _unhandled_input(event):
 
+	# assign host
+	if host_id == -1:
 
+		host_id = event.device
+		
 
-	if !event.is_action_pressed("Start"):
+	if !event.is_action_pressed("Start"): # this makes the other loby inputs not work. How should the host tell lobby that its done with character options and ready for match settings without fucking up this logic for the other characters?
 		return
 
 
@@ -238,22 +241,20 @@ func _unhandled_input(event):
 	
 
 
-	# assign host
-	if host_id == -1:
 
-		host_id = event.device
-		
 
 	
 
 	# only host controls lobby
 	if event.device != host_id:
 		return
+	
+	print("oi")
 
 	if event.is_action_pressed("D-Pad Right"):
 		next_game_mode()
 
-
+	print("oi")
 
 	if event.is_action_pressed("D-Pad Left"):
 

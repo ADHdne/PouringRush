@@ -45,6 +45,8 @@ func _unhandled_input(event):
 	if event.is_action_pressed("D-Pad Left"):
 		previous_character()
 
+	if event.is_action_pressed("D-Pad Down") or event.is_action_pressed("D-Pad Up"):
+		swap_team()
 
 	if event.is_action_pressed("Start"):
 		toggle_ready()
