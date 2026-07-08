@@ -117,6 +117,7 @@ func next_arena():
 		selected_arena = 0
 
 	update_settings_ui()
+	print("next arena")
 
 
 
@@ -243,26 +244,24 @@ func _unhandled_input(event):
 		host_id = event.device
 		
 
+	
 
 	# only host controls lobby
 	if event.device != host_id:
 		return
 
-
-
-	if event.is_action_pressed("ui_right"):
-
+	if event.is_action_pressed("D-Pad Right"):
 		next_game_mode()
 
 
 
-	if event.is_action_pressed("ui_left"):
+	if event.is_action_pressed("D-Pad Left"):
 
 		previous_game_mode()
 
 
 
-	if event.is_action_pressed("ui_down"):
+	if event.is_action_pressed("D-Pad Down"):
 
 		next_arena()
 

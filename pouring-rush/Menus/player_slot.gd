@@ -38,11 +38,11 @@ func _unhandled_input(event):
 		return
 
 
-	if event.is_action_pressed("ui_right"):
+	if event.is_action_pressed("D-Pad Right"):
 		next_character()
 
 
-	if event.is_action_pressed("ui_left"):
+	if event.is_action_pressed("D-Pad Left"):
 		previous_character()
 
 
