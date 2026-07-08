@@ -15,7 +15,7 @@ class_name Lobby
 @export var start_button : Button
 @export var ready_label : Label
 
-
+const MAX_PLAYERS : int = 8
 
 var arenas : Array[PackedScene] = [
 	preload("res://World/grass_lands.tscn"), # grass land arena
@@ -171,6 +171,18 @@ func start_match():
 
 
 	GameManager.start_match()
+
+
+func join_player(device_id):
+
+	for slot in player_slots:
+
+		if !slot.has_player():
+
+			slot.join(device_id)
+			return
+
+## buttons
 
 
 func _on_game_mode_button_pressed() -> void:

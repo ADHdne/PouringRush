@@ -60,7 +60,7 @@ shadow_offset = Vector2(0, 3.4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1nc4h"]
 
-[node name="LobbyMenu" type="Control" unique_id=1824882435 node_paths=PackedStringArray("first_button", "game_mode_label", "arena_label", "start_button", "ready_label")]
+[node name="LobbyMenu" type="Control" unique_id=1824882435 node_paths=PackedStringArray("player_slots", "first_button", "game_mode_label", "arena_label", "start_button", "ready_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -68,6 +68,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jw10o")
+player_slots = [NodePath("PlayerSlots/PlayerSlot1"), NodePath("PlayerSlots/PlayerSlot2"), NodePath("PlayerSlots/PlayerSlot3"), NodePath("PlayerSlots/PlayerSlot4"), NodePath("PlayerSlots/PlayerSlot5"), NodePath("PlayerSlots/PlayerSlot6"), NodePath("PlayerSlots/PlayerSlot7"), NodePath("PlayerSlots/PlayerSlot8")]
 first_button = NodePath("HBoxContainer/MatchSettings/GameModeButton")
 game_mode_label = NodePath("HBoxContainer/MatchSettings/GameModeLabel")
 arena_label = NodePath("HBoxContainer/MatchSettings/ArenaLabel")

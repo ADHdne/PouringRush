@@ -50,3 +50,4 @@ text = "Mr. pooper"
 
 [node name="Button" type="Button" parent="VBoxContainer" unique_id=724870782]
 layout_mode = 2
+text = "Press Start"
