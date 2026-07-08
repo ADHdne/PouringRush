@@ -135,9 +135,10 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lpiua")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rxt62")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mxu81")
 theme_override_styles/focus = SubResource("StyleBoxFlat_t1rgs")
-text = "Host Game"
+text = "Start Game"
 
 [node name="JoinGameButton" type="Button" parent="StartMenu" unique_id=666550901]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
