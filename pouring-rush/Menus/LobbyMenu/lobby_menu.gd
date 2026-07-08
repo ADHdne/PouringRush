@@ -215,6 +215,28 @@ func can_start_match() -> bool:
 
 func _unhandled_input(event):
 
+
+
+	if !event.is_action_pressed("Start"):
+		return
+
+
+# If this controller is not already in the lobby, join
+	if !player_has_joined(event.device):
+
+		add_player(event.device)
+
+		get_viewport().set_input_as_handled()
+
+		return
+
+
+
+# Host controls match settings/start
+	if event.device == host_id:
+
+		start_match()
+
 	# New player joining
 	if event.is_action_pressed("Start"):
 
@@ -264,6 +286,9 @@ func _unhandled_input(event):
 # ------------------------
 
 func add_player(device_id : int):
+	
+	if host_id == -1:
+		host_id = device_id
 
 	for slot in player_slots:
 
@@ -287,7 +312,18 @@ func add_player(device_id : int):
 
 	print("Lobby full")
 
+func player_has_joined(device_id : int) -> bool:
 
+	for slot in player_slots:
+
+		if slot.has_player():
+
+			if slot.controller_id == device_id:
+
+				return true
+
+
+	return false
 
 # ------------------------
 # Buttons

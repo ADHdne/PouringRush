@@ -38,6 +38,7 @@ layout_mode = 2
 text = "RED"
 
 [node name="ReadyLabel" type="Label" parent="VBoxContainer" unique_id=1103007954]
+custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Ready"
 

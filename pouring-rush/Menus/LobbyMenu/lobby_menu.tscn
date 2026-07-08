@@ -40,7 +40,7 @@ expand_margin_top = 10.0
 shadow_size = 5
 shadow_offset = Vector2(0, 3.4)
 
-[node name="LobbyMenu" type="Control" unique_id=1824882435 node_paths=PackedStringArray("game_mode_label", "arena_label", "ready_label")]
+[node name="LobbyMenu" type="Control" unique_id=1824882435 node_paths=PackedStringArray("player_slots", "game_mode_label", "arena_label", "ready_label", "start_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,9 +48,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jw10o")
+player_slots = [NodePath("PlayerSlots/PlayerSlot1"), NodePath("PlayerSlots/PlayerSlot2"), NodePath("PlayerSlots/PlayerSlot3"), NodePath("PlayerSlots/PlayerSlot4"), NodePath("PlayerSlots/PlayerSlot5"), NodePath("PlayerSlots/PlayerSlot6"), NodePath("PlayerSlots/PlayerSlot7"), NodePath("PlayerSlots/PlayerSlot8")]
 game_mode_label = NodePath("HBoxContainer/MatchSettings/GameModeValue")
 arena_label = NodePath("HBoxContainer/MatchSettings/ArenaValue")
 ready_label = NodePath("ReadyLabel")
+start_label = NodePath("HBoxContainer/MatchSettings/StartLabel")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1270254195]
 layout_mode = 1
@@ -151,7 +153,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_yir1a")
 text = "GrassLands"
 horizontal_alignment = 1
 
-[node name="StartButton" type="Label" parent="HBoxContainer/MatchSettings" unique_id=2067387803]
+[node name="StartLabel" type="Label" parent="HBoxContainer/MatchSettings" unique_id=2067387803]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -213,5 +215,5 @@ layout_mode = 2
 
 [connection signal="focus_entered" from="HBoxContainer/MatchSettings/GameModeTitle" to="." method="_on_focus_entered"]
 [connection signal="focus_entered" from="HBoxContainer/MatchSettings/ArenaTitle" to="." method="_on_focus_entered"]
-[connection signal="focus_entered" from="HBoxContainer/MatchSettings/StartButton" to="." method="_on_focus_entered"]
+[connection signal="focus_entered" from="HBoxContainer/MatchSettings/StartLabel" to="." method="_on_focus_entered"]
 [connection signal="focus_entered" from="HBoxContainer/MatchSettings/BackButton" to="." method="_on_focus_entered"]

@@ -48,8 +48,8 @@ func _unhandled_input(event):
 
 	if event.is_action_pressed("Start"):
 		toggle_ready()
-		if event.device == 0:
-			handle_lobby_settings(event)
+		#if event.device == 0:
+			#handle_lobby_settings(event)
 
 
 func has_player() -> bool:
