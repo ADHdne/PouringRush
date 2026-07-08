@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cg5050mpfumd6" path="res://Menus/LobbyMenu/lobby_menu.gd" id="1_jw10o"]
 [ext_resource type="Texture2D" uid="uid://cv87dsylapl4n" path="res://Assets/Sprites/TeamZoneCapsuleShape.png" id="2_ut34e"]
+[ext_resource type="PackedScene" uid="uid://ckvjar50p1lsy" path="res://Menus/player_slot.tscn" id="3_ov8ax"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ka22y"]
 texture = ExtResource("2_ut34e")
@@ -218,12 +219,46 @@ text = "Back
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=346542840]
 layout_mode = 2
 
-[node name="PlayerSlots" type="VBoxContainer" parent="." unique_id=484488581]
-layout_mode = 0
-offset_left = 868.5
-offset_top = 403.0
-offset_right = 868.5
-offset_bottom = 677.0
+[node name="PlayerSlots" type="GridContainer" parent="." unique_id=518045096]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -511.0
+offset_top = -137.0
+offset_right = -211.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/h_separation = 100
+theme_override_constants/v_separation = 150
+columns = 4
+
+[node name="PlayerSlot1" parent="PlayerSlots" unique_id=1950497164 instance=ExtResource("3_ov8ax")]
+layout_mode = 2
+
+[node name="PlayerSlot2" parent="PlayerSlots" unique_id=180406674 instance=ExtResource("3_ov8ax")]
+layout_mode = 2
+
+[node name="PlayerSlot3" parent="PlayerSlots" unique_id=302520273 instance=ExtResource("3_ov8ax")]
+layout_mode = 2
+
+[node name="PlayerSlot4" parent="PlayerSlots" unique_id=164840431 instance=ExtResource("3_ov8ax")]
+layout_mode = 2
+
+[node name="PlayerSlot5" parent="PlayerSlots" unique_id=1332515514 instance=ExtResource("3_ov8ax")]
+layout_mode = 2
+
+[node name="PlayerSlot6" parent="PlayerSlots" unique_id=650621301 instance=ExtResource("3_ov8ax")]
+layout_mode = 2
+
+[node name="PlayerSlot7" parent="PlayerSlots" unique_id=1747827256 instance=ExtResource("3_ov8ax")]
+layout_mode = 2
+
+[node name="PlayerSlot8" parent="PlayerSlots" unique_id=2091982545 instance=ExtResource("3_ov8ax")]
+layout_mode = 2
 
 [connection signal="focus_entered" from="HBoxContainer/MatchSettings/GameModeButton" to="." method="_on_focus_entered"]
 [connection signal="pressed" from="HBoxContainer/MatchSettings/GameModeButton" to="." method="_on_game_mode_button_pressed"]
