@@ -226,8 +226,6 @@ func _unhandled_input(event):
 
 		add_player(event.device)
 
-		get_viewport().set_input_as_handled()
-
 		return
 
 
@@ -238,14 +236,12 @@ func _unhandled_input(event):
 		start_match()
 	
 
-	print("id: ", host_id)
 
 	# assign host
 	if host_id == -1:
 
 		host_id = event.device
 		
-	print("2 id: ", host_id)
 
 
 	# only host controls lobby
