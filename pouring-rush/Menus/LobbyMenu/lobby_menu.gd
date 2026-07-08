@@ -2,22 +2,23 @@ extends Control
 class_name Lobby
 
 
-
-
-
-## player list
+## Player list
 
 @export var player_slots : Array[PlayerSlot]
 
 @export var game_mode_label : Label
 @export var arena_label : Label
 @export var ready_label : Label
+@export var start_label : Label
+
 
 const MAX_PLAYERS : int = 8
 
+
 var arenas : Array[PackedScene] = [
-	preload("res://World/grass_lands.tscn"), # grass land arena
+	preload("res://World/grass_lands.tscn")
 ]
+
 
 var game_modes : Array[PackedScene] = [
 	preload("res://GameModes/Stock/stock_mode.tscn"),
@@ -25,17 +26,17 @@ var game_modes : Array[PackedScene] = [
 	preload("res://GameModes/Control/control_mode.tscn")
 ]
 
-## match settings
+
+## Match settings
 
 var selected_arena := 0
 var selected_game_mode := 0
 
-var config : MatchConfig
+
+var host_id : int = -1
 
 
 func _ready() -> void:
-
-	config = MatchConfig.new()
 
 	update_settings_ui()
 
@@ -46,9 +47,6 @@ func _ready() -> void:
 		slot.ready_changed.connect(update_lobby)
 
 	update_lobby()
-
-
-
 
 
 
@@ -72,17 +70,16 @@ func update_lobby():
 				players_ready = false
 
 
-	# need at least 2 players
 	var can_start := player_count >= 2 and players_ready
 
 
-	start_button.disabled = !can_start
+	if can_start:
+		start_label.text = "Press Start to Begin"
+	else:
+		start_label.text = "Waiting for players..."
 
 
-	ready_label.text = (
-		str(player_count) 
-		+ " Players"
-	)
+	ready_label.text = str(player_count) + " Players"
 
 
 
@@ -101,6 +98,17 @@ func next_game_mode():
 
 
 
+func previous_game_mode():
+
+	selected_game_mode -= 1
+
+	if selected_game_mode < 0:
+		selected_game_mode = game_modes.size() - 1
+
+	update_settings_ui()
+
+
+
 func next_arena():
 
 	selected_arena += 1
@@ -114,9 +122,20 @@ func next_arena():
 
 func update_settings_ui():
 
-	game_mode_label.text = game_modes[selected_game_mode].resource_path.get_file().get_basename()
+	game_mode_label.text = (
+		game_modes[selected_game_mode]
+		.resource_path
+		.get_file()
+		.get_basename()
+	)
 
-	arena_label.text = arenas[selected_arena].resource_path.get_file().get_basename()
+
+	arena_label.text = (
+		arenas[selected_arena]
+		.resource_path
+		.get_file()
+		.get_basename()
+	)
 
 
 
@@ -126,24 +145,20 @@ func update_settings_ui():
 
 func start_match():
 
-	if start_button.disabled:
+	if !can_start_match():
 		return
 
 
-	var players : Array[PlayerConfig] = []
+	var match_config := MatchConfig.new()
 
 
 	for slot in player_slots:
 
 		if slot.has_player():
 
-			players.append(slot.player_config)
+			match_config.players.append(slot.player_config)
 
 
-
-	var match_config := MatchConfig.new()
-
-	match_config.players = players
 
 	match_config.arena_scene = arenas[selected_arena]
 
@@ -174,71 +189,112 @@ func start_match():
 	GameManager.start_match()
 
 
+
+func can_start_match() -> bool:
+
+	var player_count := 0
+
+
+	for slot in player_slots:
+
+		if slot.has_player():
+
+			player_count += 1
+
+			if !slot.player_config.ready:
+				return false
+
+
+	return player_count >= 2
+
+
+
+# ------------------------
+# Input
+# ------------------------
+
 func _unhandled_input(event):
 
+	# New player joining
 	if event.is_action_pressed("Start"):
 
-		var device_id = event.device
+		add_player(event.device)
 
-		add_player(device_id)
 
-	# only player 1 controls lobby settings
-	if event.device != 0:
+
+	# assign host
+	if host_id == -1:
+
+		host_id = event.device
+
+
+
+	# only host controls lobby
+	if event.device != host_id:
 		return
 
 
+
 	if event.is_action_pressed("ui_right"):
+
 		next_game_mode()
 
 
+
 	if event.is_action_pressed("ui_left"):
+
 		previous_game_mode()
 
 
-	if event.is_action_pressed("ui_accept"):
+
+	if event.is_action_pressed("ui_down"):
+
+		next_arena()
+
+
+
+	if event.is_action_pressed("Start"):
+
 		start_match()
 
 
 
+# ------------------------
+# Player joining
+# ------------------------
+
 func add_player(device_id : int):
 
-	# Check if this controller is already joined
 	for slot in player_slots:
 
 		if slot.has_player() and slot.controller_id == device_id:
+
 			return
 
 
-	# Find empty slot
+
 	for slot in player_slots:
 
 		if !slot.has_player():
 
 			slot.join(device_id)
+
+			if host_id == -1:
+				host_id = device_id
+
 			return
 
 
 	print("Lobby full")
 
-## buttons
 
 
-func _on_game_mode_button_pressed() -> void:
-	next_game_mode()
-
-
-func _on_arena_button_pressed() -> void:
-	next_arena()
-
-
-func _on_start_button_pressed() -> void:
-	start_match()
-
+# ------------------------
+# Buttons
+# ------------------------
 
 func _on_back_button_pressed() -> void:
-	# goes to main menu
-	get_tree().change_scene_to_file("res://Menus/MainMenu/main_menu.tscn")
 
-
-func _on_focus_entered() -> void:
-	SoundManager.button.play()
+	get_tree().change_scene_to_file(
+		"res://Menus/MainMenu/main_menu.tscn"
+	)
