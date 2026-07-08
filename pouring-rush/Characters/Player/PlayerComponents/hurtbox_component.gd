@@ -20,3 +20,6 @@ func recieve_hit(hit_data : HitData, player : Player):
 	
 	# show hit visual
 	_owner.hit_visual()
+	
+	# lose team zone if carrying
+	_owner.carry_component.drop()
