@@ -236,19 +236,16 @@ func _unhandled_input(event):
 	if event.device == host_id:
 
 		start_match()
+	
 
-	# New player joining
-	if event.is_action_pressed("Start"):
-
-		add_player(event.device)
-
-
+	print("id: ", host_id)
 
 	# assign host
 	if host_id == -1:
 
 		host_id = event.device
-
+		
+	print("2 id: ", host_id)
 
 
 	# only host controls lobby

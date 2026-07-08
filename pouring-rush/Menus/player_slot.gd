@@ -48,8 +48,8 @@ func _unhandled_input(event):
 
 	if event.is_action_pressed("Start"):
 		toggle_ready()
-		#if event.device == 0:
-			#handle_lobby_settings(event)
+		if event.device == 0:
+			handle_lobby_settings()
 
 
 func has_player() -> bool:
@@ -191,3 +191,6 @@ func update_ui():
 
 	if portrait:
 		portrait.texture = player_config.character_data.portrait
+
+func handle_lobby_settings():
+	pass
