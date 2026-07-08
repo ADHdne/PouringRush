@@ -9,6 +9,7 @@ class_name Lobby
 
 @export var player_slots : Array[PlayerSlot]
 
+@export var first_button : Button
 @export var game_mode_label : Label
 @export var arena_label : Label
 @export var start_button : Button
@@ -48,7 +49,7 @@ func _ready() -> void:
 
 	update_lobby()
 
-
+	first_button.grab_focus()
 
 # ------------------------
 # Lobby status
@@ -170,3 +171,24 @@ func start_match():
 
 
 	GameManager.start_match()
+
+
+func _on_game_mode_button_pressed() -> void:
+	next_game_mode()
+
+
+func _on_arena_button_pressed() -> void:
+	next_arena()
+
+
+func _on_start_button_pressed() -> void:
+	start_match()
+
+
+func _on_back_button_pressed() -> void:
+	# goes to main menu
+	get_tree().change_scene_to_file("res://Menus/MainMenu/main_menu.tscn")
+
+
+func _on_focus_entered() -> void:
+	SoundManager.button.play()
