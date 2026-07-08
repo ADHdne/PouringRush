@@ -222,12 +222,6 @@ func can_start_match() -> bool:
 
 func _unhandled_input(event):
 
-	# assign host
-	if host_id == -1:
-
-		host_id = event.device
-		
-
 	if !event.is_action_pressed("Start"): # this makes the other loby inputs not work. How should the host tell lobby that its done with character options and ready for match settings without fucking up this logic for the other characters?
 		return
 
@@ -326,6 +320,8 @@ func player_has_joined(device_id : int) -> bool:
 
 
 	return false
+
+
 
 # ------------------------
 # Buttons
