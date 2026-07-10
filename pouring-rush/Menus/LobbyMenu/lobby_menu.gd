@@ -14,6 +14,11 @@ class_name Lobby
 
 const MAX_PLAYERS : int = 8
 
+enum HostState {
+	PLAYER_SETUP,
+	MATCH_SETTINGS
+}
+
 
 var arenas : Array[PackedScene] = [
 	preload("res://World/grass_lands.tscn")
@@ -34,6 +39,7 @@ var selected_game_mode := 0
 
 
 var host_id : int = -1
+var host_state : HostState
 
 
 func _ready() -> void:
@@ -80,6 +86,14 @@ func update_lobby():
 
 
 	ready_label.text = str(player_count) + " Players"
+	
+	var host_slot := get_host_slot()
+	
+	if host_slot:
+		if host_slot.player_config.ready:
+			host_state = HostState.MATCH_SETTINGS
+		else:
+			host_state = HostState.PLAYER_SETUP
 
 
 
@@ -221,58 +235,46 @@ func can_start_match() -> bool:
 # ------------------------
 
 func _unhandled_input(event):
-
-	if !event.is_action_pressed("Start"): # this makes the other loby inputs not work. How should the host tell lobby that its done with character options and ready for match settings without fucking up this logic for the other characters?
-		return
-
-
-# If this controller is not already in the lobby, join
-	if !player_has_joined(event.device):
-
-		add_player(event.device)
-
-		return
-
-
-
-# Host controls match settings/start
-	if event.device == host_id:
-
-		start_match()
+# this makes the other loby inputs not work. How should the host tell lobby that its done with character options and ready for match settings without fucking up this logic for the other characters?
 	
-
-
-
-
+	# If this controller is not already in the lobby, join on press start
+	if event.is_action_pressed("Start"):
 	
+		if !player_has_joined(event.device):
 
+			add_player(event.device)
+
+			return
+	
+	
 	# only host controls lobby
 	if event.device != host_id:
 		return
 	
-	print("oi")
-
+	
+	# ignore inputs til host is ready for match settings
+	if host_state != HostState.MATCH_SETTINGS:
+		return
+	
 	if event.is_action_pressed("D-Pad Right"):
 		next_game_mode()
-
-	print("oi")
-
+	
+	
 	if event.is_action_pressed("D-Pad Left"):
-
+	
 		previous_game_mode()
-
-
-
+	
+	
 	if event.is_action_pressed("D-Pad Up"):
-
+	
 		next_arena()
-
+	
 	if event.is_action_pressed("D-Pad Down"):
 		previous_arena()
-
-
+	
+	
 	if event.is_action_pressed("Start"):
-
+	
 		start_match()
 
 
@@ -322,12 +324,20 @@ func player_has_joined(device_id : int) -> bool:
 	return false
 
 
+func get_host_slot() -> PlayerSlot:
+
+	for slot in player_slots:
+
+		if slot.controller_id == host_id:
+			return slot
+	return null
+
 
 # ------------------------
 # Buttons
 # ------------------------
 
-func _on_back_button_pressed() -> void:
+func _on_back_button_pressed() -> void: # this does not work per now
 
 	get_tree().change_scene_to_file(
 		"res://Menus/MainMenu/main_menu.tscn"
