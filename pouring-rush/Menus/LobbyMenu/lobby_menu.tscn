@@ -148,10 +148,17 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_ov8ax")
 
 [node name="RedTeamLabel" type="Label" parent="MarginContainer/HBoxContainer/RedTeamPanel" unique_id=105820845]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -958.0
+offset_top = -44.0
+offset_right = 958.0
+offset_bottom = -21.0
+grow_horizontal = 2
 text = "Red Team"
+horizontal_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/RedTeamPanel" unique_id=1874118833]
 layout_mode = 1
@@ -247,10 +254,18 @@ size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_j7h1w")
 
 [node name="BlueTeamLabel" type="Label" parent="MarginContainer/HBoxContainer/BlueTeamPanel" unique_id=1218487040]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_top = -44.0
+offset_right = 41.0
+offset_bottom = -21.0
+grow_horizontal = 2
 text = "Blue Team"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/BlueTeamPanel" unique_id=1931452350]
 layout_mode = 1
