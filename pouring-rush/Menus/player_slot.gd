@@ -7,6 +7,10 @@ signal player_joined()
 signal player_left()
 signal player_changed_team()
 
+
+
+var lobby : Lobby
+
 @export var character_name_label : Label
 @export var ready_label : Label
 @export var controller_label : Label
@@ -29,7 +33,7 @@ func _ready():
 
 
 
-func _unhandled_input(event):
+func _input(event):
 
 	if !has_player():
 		return
@@ -49,7 +53,14 @@ func _unhandled_input(event):
 		swap_team()
 
 	if event.is_action_pressed("Start"):
+		
+		# host has moved to match settings
+		if controller_id == lobby.host_id and player_config.ready:
+			return
+		
 		toggle_ready()
+		
+		get_viewport().set_input_as_handled()
 
 
 func has_player() -> bool:

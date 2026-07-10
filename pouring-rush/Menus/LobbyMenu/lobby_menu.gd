@@ -50,7 +50,11 @@ func _ready() -> void:
 	update_settings_ui()
 
 	for slot in player_slots:
+		
+		# giving reference to self to slots
+		slot.lobby = self
 
+		# connecting signals to each slot
 		slot.player_joined.connect(refresh_lobby)
 		slot.player_left.connect(refresh_lobby)
 		slot.ready_changed.connect(refresh_lobby)
@@ -94,6 +98,9 @@ func update_lobby():
 
 func update_host_state():
 	var host_slot := get_host_slot()
+	
+	if host_slot == null:
+		return
 	
 	if host_slot:
 		if host_slot.player_config.ready:
@@ -196,7 +203,7 @@ func update_settings_ui():
 # ------------------------
 
 func start_match():
-
+	
 	if !can_start_match():
 		return
 
@@ -243,20 +250,22 @@ func start_match():
 
 
 func can_start_match() -> bool:
-
+	
 	var player_count := 0
-
-
+	
+	if host_state != HostState.MATCH_SETTINGS:
+		return false 
+	
 	for slot in player_slots:
-
+	
 		if slot.has_player():
-
+	
 			player_count += 1
-
+	
 			if !slot.player_config.ready:
 				return false
-
-
+	
+	
 	return player_count >= 2
 
 
@@ -266,7 +275,6 @@ func can_start_match() -> bool:
 # ------------------------
 
 func _unhandled_input(event):
-# this makes the other loby inputs not work. How should the host tell lobby that its done with character options and ready for match settings without fucking up this logic for the other characters?
 	
 	# If this controller is not already in the lobby, join on press start
 	if event.is_action_pressed("Start"):
@@ -303,6 +311,9 @@ func _unhandled_input(event):
 	if event.is_action_pressed("D-Pad Down"):
 		previous_arena()
 	
+	if event.is_action_pressed("Utility"):
+		get_host_slot().toggle_ready()
+		return
 	
 	if event.is_action_pressed("Start"):
 	
