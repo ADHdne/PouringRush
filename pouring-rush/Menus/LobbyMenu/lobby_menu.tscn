@@ -20,6 +20,15 @@ expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1nc4h"]
+bg_color = Color(0.8745098, 0.21960784, 0, 0.53333336)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 11.0
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hweht"]
 bg_color = Color(0.723484, 0.576639, 0.460241, 1)
 corner_radius_top_left = 17
@@ -62,6 +71,15 @@ expand_margin_left = 10.0
 expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqvsl"]
+bg_color = Color(0.129, 0.22, 1, 0.533)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 11.0
 
 [node name="LobbyMenu" type="Control" unique_id=1824882435 node_paths=PackedStringArray("player_slots", "red_team_container", "blue_team_container", "game_mode_label", "arena_label", "ready_label", "start_label")]
 layout_mode = 3
@@ -152,13 +170,17 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -958.0
-offset_top = -44.0
-offset_right = 958.0
+offset_left = -71.5
+offset_top = -63.0
+offset_right = 71.5
 offset_bottom = -21.0
 grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_1nc4h")
 text = "Red Team"
 horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/RedTeamPanel" unique_id=1874118833]
 layout_mode = 1
@@ -258,11 +280,13 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -41.0
-offset_top = -44.0
-offset_right = 41.0
+offset_left = -76.0
+offset_top = -63.0
+offset_right = 76.0
 offset_bottom = -21.0
 grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_jqvsl")
 text = "Blue Team"
 horizontal_alignment = 1
 vertical_alignment = 1
