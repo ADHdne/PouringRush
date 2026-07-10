@@ -8,7 +8,6 @@ signal player_left()
 signal player_changed_team()
 
 @export var character_name_label : Label
-@export var team_label : Label
 @export var ready_label : Label
 @export var controller_label : Label
 @export var portrait : TextureRect
@@ -166,7 +165,6 @@ func update_ui():
 
 		controller_label.text = "Press Start"
 		character_name_label.text = "-"
-		team_label.text = "-"
 		ready_label.text = ""
 
 		if portrait:
@@ -177,14 +175,6 @@ func update_ui():
 	controller_label.text = "P" + str(controller_id + 1)
 
 	character_name_label.text = player_config.character_data.display_name
-
-	match player_config.team:
-
-		Team.type.RED:
-			team_label.text = "RED"
-
-		Team.type.BLUE:
-			team_label.text = "BLUE"
 
 	if player_config.ready:
 		ready_label.text = "READY"

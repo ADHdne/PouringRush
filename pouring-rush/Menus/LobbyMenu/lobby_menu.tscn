@@ -15,6 +15,10 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hweht"]
 bg_color = Color(0.723484, 0.576639, 0.460241, 1)
@@ -54,6 +58,10 @@ corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
 
 [node name="LobbyMenu" type="Control" unique_id=1824882435 node_paths=PackedStringArray("player_slots", "red_team_container", "blue_team_container", "game_mode_label", "arena_label", "ready_label", "start_label")]
 layout_mode = 3
@@ -121,16 +129,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=330985953]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 20
 alignment = 1
 
 [node name="RedTeamPanel" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=189794652]
-custom_minimum_size = Vector2(700, 400)
+custom_minimum_size = Vector2(550, 350)
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_ov8ax")
 
 [node name="RedTeamLabel" type="Label" parent="MarginContainer/HBoxContainer/RedTeamPanel" unique_id=105820845]
@@ -140,18 +154,18 @@ offset_bottom = 23.0
 text = "Red Team"
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/RedTeamPanel" unique_id=1874118833]
-custom_minimum_size = Vector2(700, 400)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 2
+theme_override_constants/h_separation = 140
+theme_override_constants/v_separation = 200
+columns = 4
 
 [node name="PlayerSlot1" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=1950497164 instance=ExtResource("3_ov8ax")]
 layout_mode = 2
-size_flags_vertical = 4
 
 [node name="PlayerSlot3" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=302520273 instance=ExtResource("3_ov8ax")]
 layout_mode = 2
@@ -163,8 +177,10 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="MatchSettings" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=1985195717]
+custom_minimum_size = Vector2(300, 500)
 layout_mode = 2
 theme_override_constants/separation = 12
+alignment = 1
 
 [node name="GameModeTitle" type="Label" parent="MarginContainer/HBoxContainer/MatchSettings" unique_id=1566377679]
 layout_mode = 2
@@ -212,6 +228,7 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_hweht")
 theme_override_styles/focus = SubResource("StyleBoxFlat_44yg8")
 text = "Press A To Start"
+horizontal_alignment = 1
 
 [node name="BackButton" type="Label" parent="MarginContainer/HBoxContainer/MatchSettings" unique_id=1974025380]
 layout_mode = 2
@@ -221,10 +238,12 @@ theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_hweht")
 theme_override_styles/focus = SubResource("StyleBoxFlat_44yg8")
 text = "Press B to return"
+horizontal_alignment = 1
 
 [node name="BlueTeamPanel" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=1249367040]
-custom_minimum_size = Vector2(700, 400)
+custom_minimum_size = Vector2(500, 350)
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_j7h1w")
 
 [node name="BlueTeamLabel" type="Label" parent="MarginContainer/HBoxContainer/BlueTeamPanel" unique_id=1218487040]
@@ -234,14 +253,15 @@ offset_bottom = 23.0
 text = "Blue Team"
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/BlueTeamPanel" unique_id=1931452350]
-custom_minimum_size = Vector2(700, 400)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 2
+theme_override_constants/h_separation = 140
+theme_override_constants/v_separation = 200
+columns = 4
 
 [node name="PlayerSlot2" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=180406674 instance=ExtResource("3_ov8ax")]
 layout_mode = 2

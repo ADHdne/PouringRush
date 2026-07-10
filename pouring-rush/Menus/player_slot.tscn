@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://dfelift0tkp3c" path="res://Resources/TestDPSCharacter/test_dps_character.tres" id="3_ayy4j"]
 [ext_resource type="Resource" uid="uid://d1sslh2setsns" path="res://Resources/TestSupportCharacter/test_support_character.tres" id="4_opa1w"]
 
-[node name="PlayerSlot" type="Control" unique_id=1950497164 node_paths=PackedStringArray("character_name_label", "team_label", "ready_label", "controller_label", "portrait")]
+[node name="PlayerSlot" type="Control" unique_id=1950497164 node_paths=PackedStringArray("character_name_label", "ready_label", "controller_label", "portrait")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -17,7 +17,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 script = ExtResource("1_qdjbm")
 character_name_label = NodePath("VBoxContainer/CharacterNameLabel")
-team_label = NodePath("VBoxContainer/TeamLabel")
 ready_label = NodePath("VBoxContainer/ReadyLabel")
 controller_label = NodePath("VBoxContainer/ControllerLabel")
 portrait = NodePath("Portrait")
@@ -32,10 +31,6 @@ offset_bottom = 40.0
 layout_mode = 1
 offset_right = 100.0
 offset_bottom = 140.0
-
-[node name="TeamLabel" type="Label" parent="VBoxContainer" unique_id=1101832108]
-layout_mode = 2
-text = "RED"
 
 [node name="ReadyLabel" type="Label" parent="VBoxContainer" unique_id=1103007954]
 custom_minimum_size = Vector2(100, 0)
