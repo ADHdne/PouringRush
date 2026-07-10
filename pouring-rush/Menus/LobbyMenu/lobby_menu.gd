@@ -328,7 +328,7 @@ func get_host_slot() -> PlayerSlot:
 
 	for slot in player_slots:
 
-		if slot.controller_id == host_id:
+		if slot.has_player() and slot.controller_id == host_id:
 			return slot
 	return null
 

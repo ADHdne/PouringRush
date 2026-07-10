@@ -191,6 +191,3 @@ func update_ui():
 
 	if portrait:
 		portrait.texture = player_config.character_data.portrait
-
-func handle_lobby_settings():
-	pass
