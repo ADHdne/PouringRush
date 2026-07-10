@@ -6,6 +6,9 @@ class_name Lobby
 
 @export var player_slots : Array[PlayerSlot]
 
+@export var red_team_container : GridContainer
+@export var blue_team_container : GridContainer
+
 @export var game_mode_label : Label
 @export var arena_label : Label
 @export var ready_label : Label
@@ -48,9 +51,10 @@ func _ready() -> void:
 
 	for slot in player_slots:
 
-		slot.player_joined.connect(update_lobby)
-		slot.player_left.connect(update_lobby)
-		slot.ready_changed.connect(update_lobby)
+		slot.player_joined.connect(refresh_lobby)
+		slot.player_left.connect(refresh_lobby)
+		slot.ready_changed.connect(refresh_lobby)
+		slot.player_changed_team.connect(refresh_lobby)
 
 	update_lobby()
 
@@ -86,7 +90,9 @@ func update_lobby():
 
 
 	ready_label.text = str(player_count) + " Players"
-	
+
+
+func update_host_state():
 	var host_slot := get_host_slot()
 	
 	if host_slot:
@@ -95,6 +101,31 @@ func update_lobby():
 		else:
 			host_state = HostState.PLAYER_SETUP
 
+
+
+func update_slot_parent(slot: PlayerSlot):
+	
+	if !slot.has_player():
+		return
+	
+	match slot.player_config.team:
+	
+		Team.type.RED:
+			slot.reparent(red_team_container)
+	
+		Team.type.BLUE:
+			slot.reparent(blue_team_container)
+
+
+
+func refresh_lobby():
+	
+	for slot in player_slots:
+	
+		update_slot_parent(slot)
+	
+	update_host_state()
+	update_lobby()
 
 
 # ------------------------

@@ -5,6 +5,7 @@ class_name PlayerSlot
 signal ready_changed()
 signal player_joined()
 signal player_left()
+signal player_changed_team()
 
 @export var character_name_label : Label
 @export var team_label : Label
@@ -154,7 +155,8 @@ func swap_team():
 
 		Team.type.BLUE:
 			player_config.team = Team.type.RED
-
+	
+	player_changed_team.emit()
 	update_ui()
 
 
