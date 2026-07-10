@@ -10,6 +10,11 @@ modulate_color = Color(0.22745098, 0.3372549, 0, 0.61960787)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ov8ax"]
 bg_color = Color(0.8745098, 0.21960784, 0, 0.53333336)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hweht"]
 bg_color = Color(0.723484, 0.576639, 0.460241, 1)
@@ -45,6 +50,10 @@ shadow_offset = Vector2(0, 3.4)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j7h1w"]
 bg_color = Color(0.12941177, 0.21960784, 1, 0.53333336)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="LobbyMenu" type="Control" unique_id=1824882435 node_paths=PackedStringArray("player_slots", "red_team_container", "blue_team_container", "game_mode_label", "arena_label", "ready_label", "start_label")]
 layout_mode = 3
