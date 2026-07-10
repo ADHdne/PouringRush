@@ -63,7 +63,7 @@ func _on_quit_to_menu_pressed() -> void:
 	SoundManager.deny.play()
 	
 	await get_tree().create_timer(0.20).timeout
-	get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
+	get_tree().change_scene_to_file("res://Menus/MainMenu/main_menu.tscn")
 
 
 # making sound when button is focused
