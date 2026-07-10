@@ -270,7 +270,7 @@ text = "Press B to return"
 horizontal_alignment = 1
 
 [node name="BlueTeamPanel" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=1249367040]
-custom_minimum_size = Vector2(500, 350)
+custom_minimum_size = Vector2(550, 350)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_j7h1w")
