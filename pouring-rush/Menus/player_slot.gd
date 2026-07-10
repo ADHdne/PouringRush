@@ -62,6 +62,7 @@ func join(device_id : int):
 		return
 
 	joined = true
+	visible = true
 	controller_id = device_id
 
 	player_config = PlayerConfig.new()
@@ -162,14 +163,8 @@ func swap_team():
 func update_ui():
 
 	if !joined:
-
-		controller_label.text = "Press Start"
-		character_name_label.text = "-"
-		ready_label.text = ""
-
-		if portrait:
-			portrait.texture = null
-
+		
+		visible = false
 		return
 
 	controller_label.text = "P" + str(controller_id + 1)
