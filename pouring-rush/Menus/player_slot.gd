@@ -38,14 +38,14 @@ func _unhandled_input(event):
 		return
 
 
-	if event.is_action_pressed("D-Pad Right"):
+	if event.is_action_pressed("D-Pad Up"):
 		next_character()
 
 
-	if event.is_action_pressed("D-Pad Left"):
+	if event.is_action_pressed("D-Pad Down"):
 		previous_character()
 
-	if event.is_action_pressed("D-Pad Down") or event.is_action_pressed("D-Pad Up"):
+	if event.is_action_pressed("D-Pad Right") or event.is_action_pressed("D-Pad Left"):
 		swap_team()
 
 	if event.is_action_pressed("Start"):
