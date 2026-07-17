@@ -140,15 +140,18 @@ push_sound_timer = NodePath("PushSoundTimer")
 
 [node name="Top" type="Sprite2D" parent="." unique_id=861754851]
 texture_filter = 1
+scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_2f4cu")
 hframes = 3
 
 [node name="Bot" type="Sprite2D" parent="." unique_id=1052142965]
 texture_filter = 1
+scale = Vector2(1.2, 1.2)
 texture = SubResource("AtlasTexture_fsaxn")
 hframes = 3
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1770698048]
+scale = Vector2(1.2, 1.2)
 collision_layer = 128
 collision_mask = 256
 

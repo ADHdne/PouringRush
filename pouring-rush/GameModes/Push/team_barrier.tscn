@@ -13,15 +13,17 @@ sprite = NodePath("Crystal")
 
 [node name="Crystal" type="Sprite2D" parent="." unique_id=381192478]
 texture_filter = 1
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("2_dyomr")
 
 [node name="Case" type="Sprite2D" parent="." unique_id=1492190059]
 texture_filter = 1
 position = Vector2(0, -9.536743e-07)
-scale = Vector2(1, 0.96969694)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_qsbi3")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1406950215]
+scale = Vector2(1.2, 1.2)
 collision_layer = 256
 collision_mask = 128
 
