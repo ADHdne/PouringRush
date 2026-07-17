@@ -43,8 +43,8 @@
 [sub_resource type="Resource" id="Resource_6h4vt"]
 script = ExtResource("3_6fff4")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q3lat"]
-size = Vector2(16, 32)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6jdo"]
+height = 32.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("outline", "gear", "state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone", "sprite")]
 collision_layer = 2
@@ -87,7 +87,7 @@ position = Vector2(0, -4.4703484e-07)
 texture = ExtResource("3_k6jdo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
-shape = SubResource("RectangleShape2D_q3lat")
+shape = SubResource("CapsuleShape2D_k6jdo")
 
 [node name="Hurtbox" parent="." unique_id=935006614 instance=ExtResource("4_5xivi")]
 visibility_layer = 0
