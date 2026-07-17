@@ -16,6 +16,9 @@ func on_enter():
 func state_process(_delta):
 	if not player.is_on_floor() and player.velocity.y > 0:
 		next_state = fall_state
+	
+	if player.is_on_floor():
+		next_state = move_state
 
 func state_input(event : InputEvent):
 	if player.can_action_pressed:

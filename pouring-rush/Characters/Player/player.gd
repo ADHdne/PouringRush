@@ -108,6 +108,8 @@ func _process(delta: float) -> void:
 	
 	if can_action_pressed:
 		input()
+	
+
 
 
 func input() -> Vector2:
@@ -179,5 +181,11 @@ func flip_sprite(flipped : bool):
 		
 		facing_flipped = true
 
-func rotate_gear():
-	pass
+func rotate_gear(delta : float):
+	if direction.x == 0:
+		return
+	
+	if direction.x > 0:
+		gear.rotation_degrees += 120 * delta
+	else:
+		gear.rotation_degrees -= 120 * delta

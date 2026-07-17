@@ -16,7 +16,7 @@ func on_enter():
 	
 	player.footstep_timer.start(0.1)
 
-func state_process(_delta):
+func state_process(delta):
 	
 	# playing footstep sound
 	if player.footstep_timer.time_left <= 0:
@@ -28,6 +28,9 @@ func state_process(_delta):
 		next_state = idle_state
 	if not player.is_on_floor():
 		next_state = fall_state
+	
+	
+	player.rotate_gear(delta)
 
 
 func state_input(event : InputEvent):
