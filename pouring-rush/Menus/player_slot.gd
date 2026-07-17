@@ -16,6 +16,7 @@ var lobby : Lobby
 @export var controller_label : Label
 @export var portrait : TextureRect
 @export var color_icon : TextureRect
+var color_index : int
 
 @export var roster : Array[CharacterData]
 
@@ -52,6 +53,12 @@ func _input(event):
 
 	if event.is_action_pressed("D-Pad Right") or event.is_action_pressed("D-Pad Left"):
 		swap_team()
+	
+	if event.is_action_pressed("Reload"):
+		color_index + 1
+		if color_index >= 8:
+			color_index = 0
+		set_color_icon(color_index)
 
 	if event.is_action_pressed("Start"):
 		
@@ -86,7 +93,8 @@ func join(device_id : int):
 	player_config.ready = false
 	
 	# setting and displaying player color
-	set_color_icon(device_id)
+	color_index = device_id
+	set_color_icon(color_index)
 	
 	update_ui()
 
