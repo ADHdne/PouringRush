@@ -146,7 +146,7 @@ func ko():
 
 func set_color():
 	
-	match player_index:
+	match character_data.color_index:
 		0:
 			color = Color(0.4,0.8,0)
 		1:

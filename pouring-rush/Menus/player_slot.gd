@@ -206,7 +206,6 @@ func update_ui():
 	
 
 func set_color_icon(id : int):
-	print("id: ", id)
 	var color : Color
 	
 	match id:
@@ -228,3 +227,6 @@ func set_color_icon(id : int):
 			color = Color(0.8,0,0.9)
 	
 	color_icon.modulate = color
+	
+	# also updates character datas color index
+	player_config.character_data.color_index = id
