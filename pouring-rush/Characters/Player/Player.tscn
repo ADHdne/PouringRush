@@ -3,10 +3,11 @@
 [ext_resource type="Script" uid="uid://d3iuuhhslgqod" path="res://Characters/Player/player.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://dkmh855tvgk5t" path="res://StateMachine/CharacterStateMachine.gd" id="2_tok1r"]
 [ext_resource type="Script" uid="uid://bq3wd10ibsv6" path="res://Characters/Player/PlayerComponents/player_actions.gd" id="3_6fff4"]
+[ext_resource type="Texture2D" uid="uid://da6h6ws5o21yb" path="res://Assets/Sprites/Player/PlayerBell.png" id="3_k6jdo"]
 [ext_resource type="Script" uid="uid://cm5uk4lupd14h" path="res://Characters/Player/PlayerStates/MoveState.gd" id="3_tok1r"]
-[ext_resource type="Texture2D" uid="uid://c3jjd4o2om7lf" path="res://Assets/Sprites/Player 16x32.png" id="3_xqos4"]
 [ext_resource type="Script" uid="uid://k6vgsmgmifss" path="res://Characters/Player/PlayerComponents/damage_component.gd" id="4_2xv0b"]
 [ext_resource type="PackedScene" uid="uid://byiuwaeqsgmq5" path="res://Characters/Player/PlayerComponents/hurtbox_component.tscn" id="4_5xivi"]
+[ext_resource type="Texture2D" uid="uid://hl27ha7103n" path="res://Assets/Sprites/Player/PlayerGear.png" id="4_bx0yf"]
 [ext_resource type="Script" uid="uid://d0rg3adfxle5y" path="res://Characters/Player/PlayerStates/FallState.gd" id="4_ddoul"]
 [ext_resource type="Script" uid="uid://d31va4idms3u2" path="res://Characters/Player/PlayerComponents/combat_component.gd" id="5_6h4vt"]
 [ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
@@ -68,15 +69,18 @@ tech_zone = NodePath("TechZone")
 sprite = NodePath("PlayerSprite")
 
 [node name="PlayerOutline" type="Sprite2D" parent="." unique_id=827724481]
-position = Vector2(-2.0861626e-07, -1.4999987)
-scale = Vector2(0.75000006, 1.1212121)
-texture = ExtResource("3_xqos4")
+texture_filter = 1
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("3_k6jdo")
+
+[node name="Gear" type="Sprite2D" parent="." unique_id=896391905]
+texture_filter = 1
+texture = ExtResource("4_bx0yf")
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=799234983]
 texture_filter = 1
 position = Vector2(0, -4.4703484e-07)
-scale = Vector2(0.5, 0.96969694)
-texture = ExtResource("3_xqos4")
+texture = ExtResource("3_k6jdo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
 shape = SubResource("RectangleShape2D_q3lat")
