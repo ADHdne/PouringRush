@@ -2,7 +2,7 @@ extends SafeZoneArea
 class_name TeamZone
 
 
-
+@export var animation : AnimationPlayer
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var core: Area2D = $Core
 
@@ -19,6 +19,11 @@ var carrier : Player
 @export var velocity : Vector2
 
 
+
+func _ready() -> void:
+	
+	# play first animation
+	animation.play("Idle")
 
 func _process(delta: float) -> void:
 	
