@@ -82,6 +82,10 @@ func spawn_team_zones():
 	
 	red_zone.global_position = arena.red_base.global_position
 	blue_zone.global_position = arena.blue_base.global_position
+	
+	# setting up team zone colors
+	red_zone.set_color()
+	blue_zone.set_color()
 
 func get_team_bases():
 	red_base = arena.red_base

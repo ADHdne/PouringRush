@@ -63,7 +63,8 @@ func _physics_process(delta: float) -> void:
 func initialize(match_manager : MatchManager):
 	self.match_manager = match_manager
 	self.players = match_manager.players
-	
+
+
 
 
 func start_match():

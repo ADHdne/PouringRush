@@ -3,6 +3,7 @@ class_name TeamZone
 
 
 @export var animation : AnimationPlayer
+@export var sprite : Sprite2D
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var core: Area2D = $Core
 
@@ -24,6 +25,18 @@ func _ready() -> void:
 	
 	# play first animation
 	animation.play("Idle")
+
+
+func set_color():
+	var color : Color
+	
+	match team:
+		Team.type.RED:
+			color = Color(0.7,0.2,0.2)
+		Team.type.BLUE:
+			color = Color(0.2,0.2,0.7)
+	
+	sprite.modulate = color
 
 func _process(delta: float) -> void:
 	

@@ -53,11 +53,12 @@ _data = {
 &"RESET": SubResource("Animation_0b6tn")
 }
 
-[node name="TeamZone" type="Area2D" unique_id=188268863 node_paths=PackedStringArray("animation")]
+[node name="TeamZone" type="Area2D" unique_id=188268863 node_paths=PackedStringArray("animation", "sprite")]
 collision_layer = 64
 collision_mask = 4
 script = ExtResource("1_620r3")
 animation = NodePath("AnimationPlayer")
+sprite = NodePath("Energy")
 
 [node name="SafeZoneSprite" type="Sprite2D" parent="." unique_id=797932899]
 self_modulate = Color(1, 0.8039216, 0, 0.09019608)
