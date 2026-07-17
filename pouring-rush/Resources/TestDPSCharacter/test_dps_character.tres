@@ -1,20 +1,16 @@
 [gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://dfelift0tkp3c"]
 
 [ext_resource type="Resource" uid="uid://craujuwyqxor6" path="res://Resources/TestDPSCharacter/dps_bs.tres" id="1_mxvll"]
-[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="2_4s3eo"]
+[ext_resource type="Texture2D" uid="uid://h1vso7qahh1v" path="res://Assets/Sprites/Weapons/Gun3.png" id="2_mxvll"]
 [ext_resource type="Script" uid="uid://c26p6mh1s8fyn" path="res://Resources/character_data.gd" id="3_6rju7"]
 [ext_resource type="Resource" uid="uid://c1urw7gwlpneg" path="res://Resources/TestDPSCharacter/dps_sp1.tres" id="4_4s3eo"]
 [ext_resource type="Resource" uid="uid://bp6wdom3pcmoi" path="res://Resources/TestDPSCharacter/dps_sp2.tres" id="5_6rju7"]
 [ext_resource type="Resource" uid="uid://dih6d5lo5ltfp" path="res://Resources/TestDPSCharacter/dps_utility.tres" id="6_7bg45"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_q7j0j"]
-atlas = ExtResource("2_4s3eo")
-region = Rect2(16, 112, 16, 16)
-
 [resource]
 script = ExtResource("3_6rju7")
 display_name = "Pim"
-portrait = SubResource("AtlasTexture_q7j0j")
+portrait = ExtResource("2_mxvll")
 run_speed = 220.0
 carry_speed = 140.0
 basic_shot = ExtResource("1_mxvll")

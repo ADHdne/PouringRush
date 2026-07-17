@@ -113,6 +113,7 @@ func _process(delta: float) -> void:
 	if can_action_pressed:
 		input()
 	
+	rotate_gun(aim_input())
 
 
 
@@ -193,3 +194,14 @@ func rotate_gear(delta : float):
 		gear.rotation_degrees += 120 * delta
 	else:
 		gear.rotation_degrees -= 120 * delta
+
+func rotate_gun(_aim_direction : Vector2):
+	if aim_direction == Vector2(0, 0):
+		if not facing_flipped:
+			gun_sprite.rotation_degrees = 45
+		else:
+			gun_sprite.rotation_degrees = -135
+		return
+	
+	elif aim_direction.length() > 0.2:
+		gun_sprite.rotation = _aim_direction.angle() + deg_to_rad(45) 
