@@ -84,7 +84,6 @@ frame = 1
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=799234983]
 texture_filter = 1
 position = Vector2(0, -4.4703484e-07)
-scale = Vector2(2, 2)
 texture = ExtResource("3_k6jdo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
