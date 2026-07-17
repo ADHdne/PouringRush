@@ -1,10 +1,17 @@
 [gd_scene format=3 uid="uid://bmg8s781sv220"]
 
 [ext_resource type="Script" uid="uid://cpya0drk2bmgo" path="res://GameModes/Push/pusher.gd" id="1_wmc3i"]
-[ext_resource type="Texture2D" uid="uid://s5kti0keprnw" path="res://Assets/Sprites/Pusher36x36.png" id="2_wmc3i"]
+[ext_resource type="Texture2D" uid="uid://cpsc4t8224dwi" path="res://Assets/Sprites/Objects/PusherTopSprite.png" id="2_m4te3"]
 [ext_resource type="Script" uid="uid://wyhwioa3cdkn" path="res://GameModes/Push/pusher_sound_effects.gd" id="3_n672m"]
+[ext_resource type="Texture2D" uid="uid://bh7xbip1scdx7" path="res://Assets/Sprites/Objects/PusherBotSprite.png" id="3_neq7x"]
 [ext_resource type="AudioStream" uid="uid://dx7gm83m471qm" path="res://Assets/Sound/PlayerSounds/Footsteps/Footstep1.wav" id="4_el2f3"]
 [ext_resource type="AudioStream" uid="uid://roxk2f34enk1" path="res://Assets/Sound/LeatherArmor_Rustle_03.wav" id="4_gi3hb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f4cu"]
+atlas = ExtResource("2_m4te3")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsaxn"]
+atlas = ExtResource("3_neq7x")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wmc3i"]
 size = Vector2(36, 36)
@@ -18,11 +25,15 @@ sound_effects = NodePath("SoundEffects")
 footstep_timer = NodePath("FootstepTimer")
 push_sound_timer = NodePath("PushSoundTimer")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=861754851]
+[node name="Top" type="Sprite2D" parent="." unique_id=861754851]
 texture_filter = 1
-position = Vector2(9.23872e-07, 9.23872e-07)
-scale = Vector2(0.9729729, 0.9729729)
-texture = ExtResource("2_wmc3i")
+texture = SubResource("AtlasTexture_2f4cu")
+hframes = 3
+
+[node name="Bot" type="Sprite2D" parent="." unique_id=1052142965]
+texture_filter = 1
+texture = SubResource("AtlasTexture_fsaxn")
+hframes = 3
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1770698048]
 collision_layer = 128
