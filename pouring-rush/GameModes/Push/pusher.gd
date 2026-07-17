@@ -6,6 +6,7 @@ class_name Pusher
 
 @export var sprite_top : Sprite2D
 @export var sprite_bot : Sprite2D
+@export var animation : AnimationPlayer
 @onready var area: Area2D = $Area2D
 @onready var capture_area: Area2D = $CaptureArea
 @export var sound_effects : Node
@@ -31,6 +32,9 @@ var match_ended : bool = false
 
 func _ready() -> void:
 	match_ended = false
+	
+	# plays first animation
+	animation.play("Idle")
 
 func _physics_process(delta: float) -> void:
 	
