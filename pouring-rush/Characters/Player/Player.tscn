@@ -75,7 +75,10 @@ texture = ExtResource("3_k6jdo")
 
 [node name="Gear" type="Sprite2D" parent="." unique_id=896391905]
 texture_filter = 1
+position = Vector2(0, 8)
 texture = ExtResource("4_bx0yf")
+vframes = 2
+frame = 1
 
 [node name="PlayerSprite" type="Sprite2D" parent="." unique_id=799234983]
 texture_filter = 1
