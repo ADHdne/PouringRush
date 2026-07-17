@@ -23,6 +23,7 @@ portrait = NodePath("Portrait")
 roster = Array[ExtResource("2_3tacp")]([ExtResource("3_ayy4j"), ExtResource("4_opa1w")])
 
 [node name="Portrait" type="TextureRect" parent="." unique_id=1776692055]
+texture_filter = 1
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
