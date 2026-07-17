@@ -11,15 +11,8 @@ func set_up(device_id : int):
 	controller_id = device_id
 
 
-
-func _unhandled_input(event: InputEvent) -> void:
-	check_controller(event)
-
-func check_controller(event : InputEvent) -> void:
-	if event.device != controller_id:
-		return
-	
-	if event.is_action_pressed("Jump"):
-		
-			if event.device == controller_id:
-				print("controller id: ", controller_id)
+func check_controller(action : StringName) -> bool:
+	for event in InputMap.action_get_events(action):
+		if event.device == controller_id:
+			return Input.is_action_pressed(action)
+	return false

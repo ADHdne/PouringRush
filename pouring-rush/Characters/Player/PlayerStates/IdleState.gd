@@ -16,7 +16,7 @@ func state_process(_delta):
 
 func state_input(event : InputEvent):
 	if player.can_action_pressed:
-		if event.is_action_pressed(player.input_handler.player_actions.jump):
+		if player.input_handler.check_controller(player.input_handler.player_actions.jump):
 			_jump()
 		# for picking up team zone
 		if event.is_action_pressed(player.input_handler.player_actions.interact):
