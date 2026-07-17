@@ -18,7 +18,7 @@ func state_process(_delta):
 
 func state_input(event : InputEvent):
 	if player.can_action_pressed:
-		if event.is_action_pressed(player.player_actions.jump):
+		if event.is_action_pressed(player.input_handler.player_actions.jump):
 			wall_jump()
 
 func wall_jump():

@@ -22,12 +22,12 @@ func state_process(_delta):
 
 func state_input(event : InputEvent):
 	if player.can_action_pressed:
-		if Input.is_action_just_released(player.player_actions.jump) and player.velocity.y < 0:
+		if Input.is_action_just_released(player.input_handler.player_actions.jump) and player.velocity.y < 0:
 			player.velocity.y *= deceleration_on_jump_release
-		if event.is_action_pressed(player.player_actions.jump) and player.movement_component.jumps_remaining > 0:
+		if event.is_action_pressed(player.input_handler.player_actions.jump) and player.movement_component.jumps_remaining > 0:
 			double_jump()
 		# for picking up team zone
-		if event.is_action_pressed(player.player_actions.interact):
+		if event.is_action_pressed(player.input_handler.player_actions.interact):
 			if player.carry_component.is_carrying():
 				player.carry_component.drop()
 			else:

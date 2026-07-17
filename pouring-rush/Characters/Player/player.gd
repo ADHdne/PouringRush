@@ -8,8 +8,6 @@ class_name Player
 
 # reference to resources
 @export var character_data : CharacterData
-@export var player_actions : PlayerActions
-
 
 
 
@@ -27,6 +25,8 @@ class_name Player
 @export var footstep_timer : Timer
 
 @export var sound_effects : CharacterSoundEffects
+
+@export var input_handler : InputHandler
 
 @export var movement_component : MovementComponent
 @export var damage_component : DamageComponent
@@ -85,18 +85,22 @@ func _ready() -> void:
 		outline.modulate = Color(0.7,0.2,0.2)
 	else:
 		outline.modulate = Color(0.2,0.2,0.7)
+
 	
 
 # match manager calles this
-func initialize(character_data : CharacterData, match_manager : Node):
+func initialize(character_data : CharacterData, match_manager : Node, device : int):
 	self.character_data = character_data
 	self.match_manager = match_manager
+	
+	input_handler.set_up(device)
 	
 	combat_component.initialize(character_data)
 	carry_component.intialize(self)
 	
 	# setting gun sprite
 	gun_sprite.texture = character_data.portrait
+
 
 
 func _process(delta: float) -> void:
@@ -118,12 +122,12 @@ func _process(delta: float) -> void:
 
 
 func input() -> Vector2:
-	direction = Input.get_vector(player_actions.move_left, player_actions.move_right, player_actions.move_up, player_actions.move_down)
+	direction = Input.get_vector(input_handler.player_actions.move_left, input_handler.player_actions.move_right, input_handler.player_actions.move_up, input_handler.player_actions.move_down)
 	direction = direction.normalized()
 	return direction
 
 func aim_input() -> Vector2:
-	aim_direction = Input.get_vector(player_actions.aim_left, player_actions.aim_right, player_actions.aim_up, player_actions.aim_down)
+	aim_direction = Input.get_vector(input_handler.player_actions.aim_left, input_handler.player_actions.aim_right, input_handler.player_actions.aim_up, input_handler.player_actions.aim_down)
 	aim_direction = aim_direction.normalized()
 	return aim_direction
 
@@ -205,3 +209,7 @@ func rotate_gun(_aim_direction : Vector2):
 	
 	elif aim_direction.length() > 0.2:
 		gun_sprite.rotation = _aim_direction.angle() + deg_to_rad(45) 
+
+
+func set_controls():
+	pass

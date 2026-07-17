@@ -22,7 +22,7 @@ func state_process(delta):
 
 func state_input(event : InputEvent):
 	if player.can_tech:
-		if event.is_action_pressed("Block"):
+		if event.is_action_pressed(player.input_handler.player_actions.block):
 			check_tech()
 
 func check_tech():

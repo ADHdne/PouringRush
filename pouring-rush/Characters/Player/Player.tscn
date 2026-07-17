@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://d3iuuhhslgqod" path="res://Characters/Player/player.gd" id="1_3qydi"]
 [ext_resource type="Script" uid="uid://dkmh855tvgk5t" path="res://StateMachine/CharacterStateMachine.gd" id="2_tok1r"]
-[ext_resource type="Script" uid="uid://bq3wd10ibsv6" path="res://Characters/Player/PlayerComponents/player_actions.gd" id="3_6fff4"]
 [ext_resource type="Texture2D" uid="uid://da6h6ws5o21yb" path="res://Assets/Sprites/Player/PlayerBell.png" id="3_k6jdo"]
 [ext_resource type="Script" uid="uid://cm5uk4lupd14h" path="res://Characters/Player/PlayerStates/MoveState.gd" id="3_tok1r"]
 [ext_resource type="Script" uid="uid://k6vgsmgmifss" path="res://Characters/Player/PlayerComponents/damage_component.gd" id="4_2xv0b"]
@@ -14,7 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://h1vso7qahh1v" path="res://Assets/Sprites/Weapons/Gun3.png" id="5_bx0yf"]
 [ext_resource type="Script" uid="uid://ce44ty8226jpp" path="res://Characters/Player/PlayerComponents/knockback_component.gd" id="7_k8aph"]
 [ext_resource type="PackedScene" uid="uid://hmiwpv2cagky" path="res://Characters/Player/PlayerComponents/tech_zone.tscn" id="7_tdp7v"]
+[ext_resource type="Resource" uid="uid://dqvy2np3l3wud" path="res://Characters/Player/PlayerResources/PlayerControls/player_1_actions.tres" id="8_2jhbk"]
 [ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
+[ext_resource type="Script" uid="uid://b8637w7b00qx7" path="res://Characters/Player/PlayerComponents/input_handler.gd" id="8_14yy5"]
 [ext_resource type="Script" uid="uid://ch51j4onl3j1j" path="res://Characters/Player/PlayerStates/IdleState.gd" id="8_dl42p"]
 [ext_resource type="Script" uid="uid://c3exafj8k1lqv" path="res://Characters/Player/PlayerComponents/carry_component.gd" id="9_u4bhk"]
 [ext_resource type="AudioStream" uid="uid://bxw5elnly7opc" path="res://Assets/Sound/PlayerSounds/ShootSounds/shoot2.wav" id="10_xxflj"]
@@ -41,16 +42,12 @@
 [ext_resource type="PackedScene" uid="uid://djkt86xwm70xd" path="res://Components/DebugTools/state_debug_label.tscn" id="37_fvyiu"]
 [ext_resource type="PackedScene" uid="uid://bqkyds65ymdao" path="res://Components/DebugTools/Precentage.tscn" id="38_5qm8w"]
 
-[sub_resource type="Resource" id="Resource_6h4vt"]
-script = ExtResource("3_6fff4")
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6jdo"]
 height = 32.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("gun_sprite", "outline", "gear", "state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone", "sprite")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("gun_sprite", "outline", "gear", "state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "input_handler", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone", "sprite")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
-player_actions = SubResource("Resource_6h4vt")
 gun_sprite = NodePath("Gun")
 outline = NodePath("PlayerOutline")
 gear = NodePath("Gear")
@@ -62,6 +59,7 @@ coyote_jump_timer = NodePath("Timers/CoyoteJumpTimer")
 jump_buffer_timer = NodePath("Timers/JumpBufferTimer")
 footstep_timer = NodePath("Timers/FootStepTimer")
 sound_effects = NodePath("SoundEffects")
+input_handler = NodePath("InputHandler")
 movement_component = NodePath("MovementComponent")
 damage_component = NodePath("DamageComponent")
 knockback_component = NodePath("KnockbackComponent")
@@ -107,6 +105,10 @@ collision_mask = 88
 [node name="TechZone" parent="." unique_id=10040679 instance=ExtResource("7_tdp7v")]
 scale = Vector2(1.2, 1.2)
 collision_layer = 0
+
+[node name="InputHandler" type="Node" parent="." unique_id=640675116]
+script = ExtResource("8_14yy5")
+player_actions = ExtResource("8_2jhbk")
 
 [node name="MovementComponent" type="Node" parent="." unique_id=2061918053 node_paths=PackedStringArray("player")]
 script = ExtResource("12_6h4vt")

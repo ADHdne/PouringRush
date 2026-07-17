@@ -148,9 +148,6 @@ func spawn_players():
 		
 		player.set_color()
 		
-		# setting controls
-		player.player_actions = config.player_actions[i]
-		
 		players.append(player)
 		
 
@@ -161,7 +158,8 @@ func spawn_player(config : PlayerConfig) -> Player:
 	players_root.add_child(p)
 	
 	# inject runtime identity
-	p.initialize(config.character_data, self)
+	p.initialize(config.character_data, self, config.device)
+	
 	
 	# assigning match spesific state
 	p.team = config.team

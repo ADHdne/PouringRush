@@ -86,8 +86,10 @@ func join(device_id : int):
 
 	player_config = PlayerConfig.new()
 	player_config.device = device_id
-
+	
+	# setting first character in rooster as hoovering or active
 	character_index = 0
+	
 	player_config.character_data = roster[character_index]
 	player_config.team = Team.type.RED
 	player_config.ready = false

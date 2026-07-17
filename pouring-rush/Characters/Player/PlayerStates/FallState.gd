@@ -21,7 +21,7 @@ func state_process(_delta):
 
 func state_input(event : InputEvent):
 	if player.can_action_pressed:
-		if event.is_action_pressed(player.player_actions.jump):
+		if event.is_action_pressed(player.input_handler.player_actions.jump):
 			if not coyote_timer.is_stopped():
 				_jump()
 				print("coyote")
@@ -31,7 +31,7 @@ func state_input(event : InputEvent):
 			else:
 				player.jump_buffer_timer.start()
 		# for picking up team zone
-		if event.is_action_pressed(player.player_actions.interact):
+		if event.is_action_pressed(player.input_handler.player_actions.interact):
 			if player.carry_component.is_carrying():
 				player.carry_component.drop()
 			else:

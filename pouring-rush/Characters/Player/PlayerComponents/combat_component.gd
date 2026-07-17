@@ -44,15 +44,15 @@ func _process(delta):
 
 func _input(event: InputEvent) -> void:
 	if not player.carry_component.is_carrying() and player.can_action_pressed and player.can_attack:
-		if event.is_action_pressed(player.player_actions.attack):
+		if event.is_action_pressed(player.input_handler.player_actions.attack):
 			try_use_ability(basic_shot_data)
-		if event.is_action_pressed(player.player_actions.special_1):
+		if event.is_action_pressed(player.input_handler.player_actions.special_1):
 			try_use_ability(special_shot_data)
-		if event.is_action_pressed(player.player_actions.special_2):
+		if event.is_action_pressed(player.input_handler.player_actions.special_2):
 			try_use_ability(special_2_data)
-		if event.is_action_pressed(player.player_actions.utility):
+		if event.is_action_pressed(player.input_handler.player_actions.utility):
 			try_use_ability(utility_data)
-		if event.is_action_pressed(player.player_actions.reload):
+		if event.is_action_pressed(player.input_handler.player_actions.reload):
 			request_reload()
 
 
