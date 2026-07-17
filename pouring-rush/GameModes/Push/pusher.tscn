@@ -19,8 +19,10 @@ size = Vector2(36, 36)
 [sub_resource type="CircleShape2D" id="CircleShape2D_wmc3i"]
 radius = 203.0
 
-[node name="Pusher" type="PathFollow2D" unique_id=1039393299 node_paths=PackedStringArray("sound_effects", "footstep_timer", "push_sound_timer")]
+[node name="Pusher" type="PathFollow2D" unique_id=1039393299 node_paths=PackedStringArray("sprite_top", "sprite_bot", "sound_effects", "footstep_timer", "push_sound_timer")]
 script = ExtResource("1_wmc3i")
+sprite_top = NodePath("Top")
+sprite_bot = NodePath("Bot")
 sound_effects = NodePath("SoundEffects")
 footstep_timer = NodePath("FootstepTimer")
 push_sound_timer = NodePath("PushSoundTimer")

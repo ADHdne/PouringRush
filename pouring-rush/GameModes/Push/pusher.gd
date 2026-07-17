@@ -4,7 +4,8 @@ class_name Pusher
 
 
 
-@onready var sprite: Sprite2D = $Sprite2D
+@export var sprite_top : Sprite2D
+@export var sprite_bot : Sprite2D
 @onready var area: Area2D = $Area2D
 @onready var capture_area: Area2D = $CaptureArea
 @export var sound_effects : Node
@@ -76,11 +77,13 @@ func set_state(new_state : PusherStates.State):
 
 func move_to_red(speed : float, delta : float):
 	progress += speed * delta
-	sprite.flip_h = false
+	sprite_top.flip_h = false
+	sprite_bot.flip_h = false
 
 func move_to_blue(speed : float, delta : float):
 	progress -= speed * delta
-	sprite.flip_h = true
+	sprite_top.flip_h = true
+	sprite_bot.flip_h = true
 
 func push_red(delta : float):
 	

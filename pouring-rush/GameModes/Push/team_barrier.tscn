@@ -1,20 +1,25 @@
 [gd_scene format=3 uid="uid://1xalpnn3nslc"]
 
 [ext_resource type="Script" uid="uid://bk8dy6jygpjle" path="res://GameModes/Push/team_barrier.gd" id="1_icpss"]
-[ext_resource type="Texture2D" uid="uid://cbdrb35aaf7b6" path="res://Assets/Sprites/TeamBarrier32x32.png" id="2_uepwn"]
+[ext_resource type="Texture2D" uid="uid://cb61dus4poxe0" path="res://Assets/Sprites/Objects/TeamCrystal.png" id="2_dyomr"]
+[ext_resource type="Texture2D" uid="uid://spkt14nrtft1" path="res://Assets/Sprites/Objects/TeamCrystalCase.png" id="3_qsbi3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dyomr"]
 size = Vector2(32, 32)
 
 [node name="TeamBarrier" type="PathFollow2D" unique_id=1880023225 node_paths=PackedStringArray("sprite")]
 script = ExtResource("1_icpss")
-sprite = NodePath("Sprite2D")
+sprite = NodePath("Crystal")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1492190059]
+[node name="Crystal" type="Sprite2D" parent="." unique_id=381192478]
+texture_filter = 1
+texture = ExtResource("2_dyomr")
+
+[node name="Case" type="Sprite2D" parent="." unique_id=1492190059]
 texture_filter = 1
 position = Vector2(0, -9.536743e-07)
 scale = Vector2(1, 0.96969694)
-texture = ExtResource("2_uepwn")
+texture = ExtResource("3_qsbi3")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1406950215]
 collision_layer = 256
