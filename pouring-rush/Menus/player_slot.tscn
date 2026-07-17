@@ -4,8 +4,10 @@
 [ext_resource type="Script" uid="uid://c26p6mh1s8fyn" path="res://Resources/character_data.gd" id="2_3tacp"]
 [ext_resource type="Resource" uid="uid://dfelift0tkp3c" path="res://Resources/TestDPSCharacter/test_dps_character.tres" id="3_ayy4j"]
 [ext_resource type="Resource" uid="uid://d1sslh2setsns" path="res://Resources/TestSupportCharacter/test_support_character.tres" id="4_opa1w"]
+[ext_resource type="Texture2D" uid="uid://h1vso7qahh1v" path="res://Assets/Sprites/Weapons/Gun3.png" id="5_56smd"]
+[ext_resource type="Texture2D" uid="uid://da6h6ws5o21yb" path="res://Assets/Sprites/Player/PlayerBell.png" id="5_q1glc"]
 
-[node name="PlayerSlot" type="Control" unique_id=1950497164 node_paths=PackedStringArray("character_name_label", "ready_label", "controller_label", "portrait")]
+[node name="PlayerSlot" type="Control" unique_id=1950497164 node_paths=PackedStringArray("character_name_label", "ready_label", "controller_label", "portrait", "color_icon")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -20,13 +22,25 @@ character_name_label = NodePath("VBoxContainer/CharacterNameLabel")
 ready_label = NodePath("VBoxContainer/ReadyLabel")
 controller_label = NodePath("VBoxContainer/ControllerLabel")
 portrait = NodePath("Portrait")
+color_icon = NodePath("ColorIcon")
 roster = Array[ExtResource("2_3tacp")]([ExtResource("3_ayy4j"), ExtResource("4_opa1w")])
+
+[node name="ColorIcon" type="TextureRect" parent="." unique_id=719008433]
+texture_filter = 1
+layout_mode = 0
+offset_top = 6.0
+offset_right = 100.0
+offset_bottom = 106.0
+texture = ExtResource("5_q1glc")
 
 [node name="Portrait" type="TextureRect" parent="." unique_id=1776692055]
 texture_filter = 1
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 23.0
+offset_top = 18.0
+offset_right = 80.0
+offset_bottom = 75.0
+texture = ExtResource("5_56smd")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1115964331]
 layout_mode = 1

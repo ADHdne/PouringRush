@@ -15,6 +15,7 @@ var lobby : Lobby
 @export var ready_label : Label
 @export var controller_label : Label
 @export var portrait : TextureRect
+@export var color_icon : TextureRect
 
 @export var roster : Array[CharacterData]
 
@@ -83,7 +84,10 @@ func join(device_id : int):
 	player_config.character_data = roster[character_index]
 	player_config.team = Team.type.RED
 	player_config.ready = false
-
+	
+	# setting and displaying player color
+	set_color_icon(device_id)
+	
 	update_ui()
 
 	player_joined.emit()
@@ -189,3 +193,28 @@ func update_ui():
 
 	if portrait:
 		portrait.texture = player_config.character_data.portrait
+	
+
+func set_color_icon(id : int):
+	
+	var color : Color
+	
+	match id:
+		0:
+			color = Color(0.4,0.8,0)
+		1:
+			color = Color(1,0.5,0)
+		2:
+			color = Color(1,0.3,0.3)
+		3:
+			color = Color(0.3,0.3,1)
+		4:
+			color = Color(0.5,0.5,0)
+		5:
+			color = Color(0.3,0.3,0.3)
+		6:
+			color = Color(0.7,0.7,0.7)
+		7:
+			color = Color(0.8,0,0.9)
+	
+	color_icon.modulate = color
