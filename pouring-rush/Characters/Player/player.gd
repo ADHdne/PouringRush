@@ -15,6 +15,7 @@ class_name Player
 
 # reference to children
 @export var outline : Sprite2D
+@export var gear : Sprite2D
 @export var state_machine : CharacterStateMachine
 @export var ko_state : State
 @export var respawn_state : State
@@ -101,13 +102,12 @@ func _process(delta: float) -> void:
 	
 	# flip player based on direction
 	if direction.x > 0 and facing_flipped:
-		facing_flipped = false
+		flip_sprite(false)
 	elif direction.x < 0 and not facing_flipped:
-		facing_flipped = true
+		flip_sprite(true)
 	
 	if can_action_pressed:
 		input()
-
 
 
 func input() -> Vector2:
@@ -163,3 +163,21 @@ func _on_alive_timer_timeout() -> void:
 	alive = true
 	hurtbox.monitorable = true
 	can_action_pressed = true
+
+func flip_sprite(flipped : bool):
+	if not flipped:
+		sprite.flip_h = false
+		gear.flip_h = false
+		outline.flip_h = false
+		# a flipped bool
+		facing_flipped = false
+		
+	else:
+		sprite.flip_h = true
+		gear.flip_h = true
+		outline.flip_h = true
+		
+		facing_flipped = true
+
+func rotate_gear():
+	pass
