@@ -14,6 +14,7 @@ class_name Player
 
 
 # reference to children
+@export var gun_sprite : Sprite2D
 @export var outline : Sprite2D
 @export var gear : Sprite2D
 @export var state_machine : CharacterStateMachine
@@ -93,6 +94,9 @@ func initialize(character_data : CharacterData, match_manager : Node):
 	
 	combat_component.initialize(character_data)
 	carry_component.intialize(self)
+	
+	# setting gun sprite
+	gun_sprite.texture = character_data.portrait
 
 
 func _process(delta: float) -> void:

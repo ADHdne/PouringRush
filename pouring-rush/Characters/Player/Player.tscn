@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://d0rg3adfxle5y" path="res://Characters/Player/PlayerStates/FallState.gd" id="4_ddoul"]
 [ext_resource type="Script" uid="uid://d31va4idms3u2" path="res://Characters/Player/PlayerComponents/combat_component.gd" id="5_6h4vt"]
 [ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
+[ext_resource type="Texture2D" uid="uid://h1vso7qahh1v" path="res://Assets/Sprites/Weapons/Gun3.png" id="5_bx0yf"]
 [ext_resource type="Script" uid="uid://ce44ty8226jpp" path="res://Characters/Player/PlayerComponents/knockback_component.gd" id="7_k8aph"]
 [ext_resource type="PackedScene" uid="uid://hmiwpv2cagky" path="res://Characters/Player/PlayerComponents/tech_zone.tscn" id="7_tdp7v"]
 [ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
@@ -46,10 +47,11 @@ script = ExtResource("3_6fff4")
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6jdo"]
 height = 32.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("outline", "gear", "state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone", "sprite")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("gun_sprite", "outline", "gear", "state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone", "sprite")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 player_actions = SubResource("Resource_6h4vt")
+gun_sprite = NodePath("Gun")
 outline = NodePath("PlayerOutline")
 gear = NodePath("Gear")
 state_machine = NodePath("CharacterStateMachine")
@@ -87,6 +89,11 @@ texture_filter = 1
 position = Vector2(0, -4.4703484e-07)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_k6jdo")
+
+[node name="Gun" type="Sprite2D" parent="." unique_id=1585734853]
+texture_filter = 1
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("5_bx0yf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
 scale = Vector2(1.2, 1.2)
