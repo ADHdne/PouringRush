@@ -10,6 +10,7 @@ var start_progress : float
 
 
 
+# called in match manager
 func set_color():
 	var color : Color
 	

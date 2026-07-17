@@ -55,10 +55,10 @@ func _input(event):
 		swap_team()
 	
 	if event.is_action_pressed("Reload"):
-		color_index + 1
+		color_index += 1
 		if color_index >= 8:
 			color_index = 0
-		set_color_icon(color_index)
+		update_ui()
 
 	if event.is_action_pressed("Start"):
 		
@@ -92,9 +92,8 @@ func join(device_id : int):
 	player_config.team = Team.type.RED
 	player_config.ready = false
 	
-	# setting and displaying player color
+	# setting player color
 	color_index = device_id
-	set_color_icon(color_index)
 	
 	update_ui()
 
@@ -202,9 +201,12 @@ func update_ui():
 	if portrait:
 		portrait.texture = player_config.character_data.portrait
 	
+	# display character color
+	set_color_icon(color_index)
+	
 
 func set_color_icon(id : int):
-	
+	print("id: ", id)
 	var color : Color
 	
 	match id:
