@@ -15,6 +15,9 @@ func state_process(_delta):
 		next_state = move_state
 
 func state_input(event : InputEvent):
+	
+	if event.device != player.input_handler.controller_id:
+		return
 	if player.can_action_pressed:
 		if player.input_handler.check_controller(player.input_handler.player_actions.jump):
 			_jump()

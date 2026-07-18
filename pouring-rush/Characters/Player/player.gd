@@ -148,9 +148,9 @@ func ko():
 	hurtbox.monitorable = false
 	can_action_pressed = false
 
-func set_color():
+func set_color(color_index : int):
 	
-	match character_data.color_index:
+	match color_index:
 		0:
 			color = Color(0.4,0.8,0)
 		1:

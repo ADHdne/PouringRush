@@ -219,6 +219,7 @@ func start_match():
 
 
 
+
 	match_config.arena_scene = arenas[selected_arena]
 
 	match_config.game_mode = game_modes[selected_game_mode]

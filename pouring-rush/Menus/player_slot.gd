@@ -231,4 +231,4 @@ func set_color_icon(id : int):
 	color_icon.modulate = color
 	
 	# also updates character datas color index
-	player_config.character_data.color_index = id
+	player_config.color_index = id

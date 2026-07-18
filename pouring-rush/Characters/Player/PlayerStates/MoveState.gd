@@ -34,6 +34,10 @@ func state_process(delta):
 
 
 func state_input(event : InputEvent):
+	
+	if event.device != player.input_handler.controller_id:
+		return
+	
 	if player.can_action_pressed:
 		if event.is_action_pressed(player.input_handler.player_actions.jump):
 			_jump()

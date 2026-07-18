@@ -146,7 +146,7 @@ func spawn_players():
 		# setting id
 		player.player_index = i
 		
-		player.set_color()
+		player.set_color(config.color_index)
 		
 		players.append(player)
 		

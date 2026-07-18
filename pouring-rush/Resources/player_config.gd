@@ -5,6 +5,7 @@ class_name PlayerConfig
 var character_data : CharacterData
 var team : Team.type
 var input_id : int
+var color_index : int
 
 var device : int
 var ready : bool = false
