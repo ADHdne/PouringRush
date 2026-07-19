@@ -45,10 +45,10 @@ texture = ExtResource("6_fg1il")
 [node name="GunIcon" type="TextureRect" parent="." unique_id=1776692055]
 texture_filter = 1
 layout_mode = 0
-offset_left = 23.0
-offset_top = 18.0
-offset_right = 80.0
-offset_bottom = 75.0
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 75.0
+offset_bottom = 74.0
 texture = ExtResource("5_56smd")
 flip_h = true
 
