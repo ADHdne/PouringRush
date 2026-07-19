@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dq0nnq8dnfdh"]
 
 [ext_resource type="Script" uid="uid://d3iuuhhslgqod" path="res://Characters/Player/player.gd" id="1_3qydi"]
+[ext_resource type="Texture2D" uid="uid://dep6tdmfbi8tr" path="res://Assets/Sprites/Player/Player Outline.png" id="2_327au"]
 [ext_resource type="Script" uid="uid://dkmh855tvgk5t" path="res://StateMachine/CharacterStateMachine.gd" id="2_tok1r"]
-[ext_resource type="Texture2D" uid="uid://da6h6ws5o21yb" path="res://Assets/Sprites/Player/PlayerBell.png" id="3_k6jdo"]
 [ext_resource type="Script" uid="uid://cm5uk4lupd14h" path="res://Characters/Player/PlayerStates/MoveState.gd" id="3_tok1r"]
 [ext_resource type="Script" uid="uid://k6vgsmgmifss" path="res://Characters/Player/PlayerComponents/damage_component.gd" id="4_2xv0b"]
 [ext_resource type="PackedScene" uid="uid://byiuwaeqsgmq5" path="res://Characters/Player/PlayerComponents/hurtbox_component.tscn" id="4_5xivi"]
@@ -74,9 +74,9 @@ sprite = NodePath("PlayerColor")
 
 [node name="PlayerOutline" type="Sprite2D" parent="." unique_id=827724481]
 texture_filter = 1
-position = Vector2(0, 3)
-scale = Vector2(1.8, 1.8)
-texture = ExtResource("3_k6jdo")
+position = Vector2(0, 5.9604645e-07)
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("2_327au")
 
 [node name="Gear" type="Sprite2D" parent="." unique_id=896391905]
 texture_filter = 1

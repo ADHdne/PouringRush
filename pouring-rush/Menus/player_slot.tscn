@@ -5,7 +5,8 @@
 [ext_resource type="Resource" uid="uid://dfelift0tkp3c" path="res://Resources/TestDPSCharacter/test_dps_character.tres" id="3_ayy4j"]
 [ext_resource type="Resource" uid="uid://d1sslh2setsns" path="res://Resources/TestSupportCharacter/test_support_character.tres" id="4_opa1w"]
 [ext_resource type="Texture2D" uid="uid://h1vso7qahh1v" path="res://Assets/Sprites/Weapons/Gun3.png" id="5_56smd"]
-[ext_resource type="Texture2D" uid="uid://da6h6ws5o21yb" path="res://Assets/Sprites/Player/PlayerBell.png" id="5_q1glc"]
+[ext_resource type="Texture2D" uid="uid://6v3a60c4hd3y" path="res://Assets/Sprites/Player/Player.png" id="5_oh105"]
+[ext_resource type="Texture2D" uid="uid://c6ejci7k4nklb" path="res://Assets/Sprites/Player/PlayerColor.png" id="6_fg1il"]
 
 [node name="PlayerSlot" type="Control" unique_id=1950497164 node_paths=PackedStringArray("character_name_label", "ready_label", "controller_label", "portrait", "color_icon")]
 layout_mode = 3
@@ -21,9 +22,17 @@ script = ExtResource("1_qdjbm")
 character_name_label = NodePath("VBoxContainer/CharacterNameLabel")
 ready_label = NodePath("VBoxContainer/ReadyLabel")
 controller_label = NodePath("VBoxContainer/ControllerLabel")
-portrait = NodePath("Portrait")
+portrait = NodePath("GunIcon")
 color_icon = NodePath("ColorIcon")
 roster = Array[ExtResource("2_3tacp")]([ExtResource("3_ayy4j"), ExtResource("4_opa1w")])
+
+[node name="PlayerIcon" type="TextureRect" parent="." unique_id=1734998836]
+texture_filter = 1
+layout_mode = 0
+offset_top = 6.0
+offset_right = 100.0
+offset_bottom = 106.0
+texture = ExtResource("5_oh105")
 
 [node name="ColorIcon" type="TextureRect" parent="." unique_id=719008433]
 texture_filter = 1
@@ -31,9 +40,9 @@ layout_mode = 0
 offset_top = 6.0
 offset_right = 100.0
 offset_bottom = 106.0
-texture = ExtResource("5_q1glc")
+texture = ExtResource("6_fg1il")
 
-[node name="Portrait" type="TextureRect" parent="." unique_id=1776692055]
+[node name="GunIcon" type="TextureRect" parent="." unique_id=1776692055]
 texture_filter = 1
 layout_mode = 0
 offset_left = 23.0
@@ -41,6 +50,7 @@ offset_top = 18.0
 offset_right = 80.0
 offset_bottom = 75.0
 texture = ExtResource("5_56smd")
+flip_h = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1115964331]
 layout_mode = 1
