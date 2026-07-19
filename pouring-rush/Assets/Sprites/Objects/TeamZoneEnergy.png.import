@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://de3msd8m4d87l"
-path="res://.godot/imported/TeamZoneEnergysprite.png-75b2612f586653240a352a0af073f0ba.ctex"
+uid="uid://hwq3lgaib0dw"
+path="res://.godot/imported/TeamZoneEnergy.png-cfcbd4636cdee15fbc3059d7ec3e1582.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Objects/TeamZoneEnergysprite.png"
-dest_files=["res://.godot/imported/TeamZoneEnergysprite.png-75b2612f586653240a352a0af073f0ba.ctex"]
+source_file="res://Assets/Sprites/Objects/TeamZoneEnergy.png"
+dest_files=["res://.godot/imported/TeamZoneEnergy.png-cfcbd4636cdee15fbc3059d7ec3e1582.ctex"]
 
 [params]
 

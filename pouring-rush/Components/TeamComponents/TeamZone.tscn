@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://1qp7xj0c0dac" path="res://Components/TeamComponents/team_zone.gd" id="1_620r3"]
 [ext_resource type="Texture2D" uid="uid://cv87dsylapl4n" path="res://Assets/Sprites/TeamZoneCapsuleShape.png" id="2_jb0pr"]
-[ext_resource type="Texture2D" uid="uid://de3msd8m4d87l" path="res://Assets/Sprites/Objects/TeamZoneEnergysprite.png" id="3_vcmky"]
 [ext_resource type="Texture2D" uid="uid://p0i2bid0hao1" path="res://Assets/Sprites/Objects/TeamZoneCase.png" id="4_0b6tn"]
+[ext_resource type="Texture2D" uid="uid://hwq3lgaib0dw" path="res://Assets/Sprites/Objects/TeamZoneEnergy.png" id="4_vcmky"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5p61m"]
-atlas = ExtResource("3_vcmky")
+atlas = ExtResource("4_vcmky")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vcmky"]
 radius = 16.0
@@ -68,17 +68,18 @@ rotation = 1.5707964
 scale = Vector2(5.1, 5.1)
 texture = ExtResource("2_jb0pr")
 
-[node name="Energy" type="Sprite2D" parent="." unique_id=4432675]
-texture_filter = 1
-scale = Vector2(1.2, 1.2)
-texture = SubResource("AtlasTexture_5p61m")
-hframes = 3
-
 [node name="CoreSprite" type="Sprite2D" parent="." unique_id=1830444331]
 texture_filter = 1
 position = Vector2(-9.536743e-07, 9.536743e-07)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("4_0b6tn")
+
+[node name="Energy" type="Sprite2D" parent="." unique_id=4432675]
+texture_filter = 1
+scale = Vector2(1.2, 1.2)
+texture = SubResource("AtlasTexture_5p61m")
+hframes = 2
+vframes = 2
 
 [node name="TeamZoneCore" type="Area2D" parent="." unique_id=1621631690]
 scale = Vector2(1.2, 1.2)
