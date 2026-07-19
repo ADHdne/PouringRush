@@ -2,7 +2,7 @@
 
 [ext_resource type="Resource" uid="uid://w7jffe2j62rq" path="res://Resources/TestSupportCharacter/support_bs.tres" id="1_sjgap"]
 [ext_resource type="Script" uid="uid://c26p6mh1s8fyn" path="res://Resources/character_data.gd" id="1_ss8ch"]
-[ext_resource type="Texture2D" uid="uid://ka1ljxyqivgb" path="res://Assets/Sprites/Weapons/Gun1.png" id="2_sjgap"]
+[ext_resource type="Texture2D" uid="uid://drhkn4bj2ml1n" path="res://Assets/Sprites/Weapons/Gun2.png" id="2_sjgap"]
 [ext_resource type="Resource" uid="uid://dp6pl7nskj8cr" path="res://Resources/TestSupportCharacter/support_sp1.tres" id="4_sw7ym"]
 [ext_resource type="Resource" uid="uid://1kwact2tf208" path="res://Resources/TestSupportCharacter/support_sp2.tres" id="5_2vt7t"]
 [ext_resource type="Resource" uid="uid://c1rsdbn46ew2d" path="res://Resources/TestSupportCharacter/support_utility.tres" id="6_o1ydh"]
