@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://dfelift0tkp3c"]
 
 [ext_resource type="Resource" uid="uid://craujuwyqxor6" path="res://Resources/TestDPSCharacter/dps_bs.tres" id="1_mxvll"]
-[ext_resource type="Texture2D" uid="uid://h1vso7qahh1v" path="res://Assets/Sprites/Weapons/Gun3.png" id="2_mxvll"]
+[ext_resource type="Texture2D" uid="uid://f2a8ydnk78s6" path="res://Assets/Sprites/Weapons/Gun1 (2).png" id="2_mxvll"]
 [ext_resource type="Script" uid="uid://c26p6mh1s8fyn" path="res://Resources/character_data.gd" id="3_6rju7"]
 [ext_resource type="Resource" uid="uid://c1urw7gwlpneg" path="res://Resources/TestDPSCharacter/dps_sp1.tres" id="4_4s3eo"]
 [ext_resource type="Resource" uid="uid://bp6wdom3pcmoi" path="res://Resources/TestDPSCharacter/dps_sp2.tres" id="5_6rju7"]
