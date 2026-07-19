@@ -9,7 +9,7 @@
 
 [resource]
 script = ExtResource("1_ss8ch")
-display_name = "Pom"
+display_name = "Pempem"
 portrait = ExtResource("2_sjgap")
 run_speed = 190.0
 carry_speed = 160.0

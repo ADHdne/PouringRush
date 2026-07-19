@@ -16,7 +16,7 @@ var lobby : Lobby
 @export var controller_label : Label
 @export var portrait : TextureRect
 @export var color_icon : TextureRect
-var color_index : int
+var color_index : int = -1
 
 @export var roster : Array[CharacterData]
 

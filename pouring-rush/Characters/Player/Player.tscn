@@ -12,7 +12,7 @@
 [ext_resource type="Script" uid="uid://d31va4idms3u2" path="res://Characters/Player/PlayerComponents/combat_component.gd" id="5_6h4vt"]
 [ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
 [ext_resource type="Texture2D" uid="uid://c6ejci7k4nklb" path="res://Assets/Sprites/Player/PlayerColor.png" id="5_327au"]
-[ext_resource type="Texture2D" uid="uid://f2a8ydnk78s6" path="res://Assets/Sprites/Weapons/Gun1 (2).png" id="6_327au"]
+[ext_resource type="Texture2D" uid="uid://drhkn4bj2ml1n" path="res://Assets/Sprites/Weapons/Gun2.png" id="6_327au"]
 [ext_resource type="Script" uid="uid://ce44ty8226jpp" path="res://Characters/Player/PlayerComponents/knockback_component.gd" id="7_k8aph"]
 [ext_resource type="PackedScene" uid="uid://hmiwpv2cagky" path="res://Characters/Player/PlayerComponents/tech_zone.tscn" id="7_tdp7v"]
 [ext_resource type="Resource" uid="uid://dqvy2np3l3wud" path="res://Characters/Player/PlayerResources/PlayerControls/player_1_actions.tres" id="8_2jhbk"]
