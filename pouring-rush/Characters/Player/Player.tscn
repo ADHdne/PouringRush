@@ -6,10 +6,12 @@
 [ext_resource type="Script" uid="uid://cm5uk4lupd14h" path="res://Characters/Player/PlayerStates/MoveState.gd" id="3_tok1r"]
 [ext_resource type="Script" uid="uid://k6vgsmgmifss" path="res://Characters/Player/PlayerComponents/damage_component.gd" id="4_2xv0b"]
 [ext_resource type="PackedScene" uid="uid://byiuwaeqsgmq5" path="res://Characters/Player/PlayerComponents/hurtbox_component.tscn" id="4_5xivi"]
+[ext_resource type="Texture2D" uid="uid://6v3a60c4hd3y" path="res://Assets/Sprites/Player/Player.png" id="4_327au"]
 [ext_resource type="Texture2D" uid="uid://hl27ha7103n" path="res://Assets/Sprites/Player/PlayerGear.png" id="4_bx0yf"]
 [ext_resource type="Script" uid="uid://d0rg3adfxle5y" path="res://Characters/Player/PlayerStates/FallState.gd" id="4_ddoul"]
 [ext_resource type="Script" uid="uid://d31va4idms3u2" path="res://Characters/Player/PlayerComponents/combat_component.gd" id="5_6h4vt"]
 [ext_resource type="Script" uid="uid://bio2wv5tp0lbs" path="res://Characters/Player/PlayerStates/JumpState.gd" id="5_8g4oa"]
+[ext_resource type="Texture2D" uid="uid://c6ejci7k4nklb" path="res://Assets/Sprites/Player/PlayerColor.png" id="5_327au"]
 [ext_resource type="Texture2D" uid="uid://h1vso7qahh1v" path="res://Assets/Sprites/Weapons/Gun3.png" id="5_bx0yf"]
 [ext_resource type="Script" uid="uid://ce44ty8226jpp" path="res://Characters/Player/PlayerComponents/knockback_component.gd" id="7_k8aph"]
 [ext_resource type="PackedScene" uid="uid://hmiwpv2cagky" path="res://Characters/Player/PlayerComponents/tech_zone.tscn" id="7_tdp7v"]
@@ -45,9 +47,10 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6jdo"]
 height = 32.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("gun_sprite", "outline", "gear", "state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "input_handler", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone", "sprite")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("player_sprite", "gun_sprite", "outline", "gear", "state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "input_handler", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone", "sprite")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
+player_sprite = NodePath("Player")
 gun_sprite = NodePath("Gun")
 outline = NodePath("PlayerOutline")
 gear = NodePath("Gear")
@@ -67,43 +70,49 @@ combat_component = NodePath("CombatComponent")
 hurtbox = NodePath("Hurtbox")
 carry_component = NodePath("CarryComponent")
 tech_zone = NodePath("TechZone")
-sprite = NodePath("PlayerSprite")
+sprite = NodePath("PlayerColor")
 
 [node name="PlayerOutline" type="Sprite2D" parent="." unique_id=827724481]
 texture_filter = 1
-scale = Vector2(1.4, 1.4)
+position = Vector2(0, 3)
+scale = Vector2(1.8, 1.8)
 texture = ExtResource("3_k6jdo")
 
 [node name="Gear" type="Sprite2D" parent="." unique_id=896391905]
 texture_filter = 1
-position = Vector2(0, 9)
-scale = Vector2(1.2, 1.2)
+position = Vector2(0, 10.999998)
+scale = Vector2(1.4, 1.4)
 texture = ExtResource("4_bx0yf")
 vframes = 2
 frame = 1
 
-[node name="PlayerSprite" type="Sprite2D" parent="." unique_id=799234983]
+[node name="Player" type="Sprite2D" parent="." unique_id=1309282353]
+texture_filter = 1
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("4_327au")
+
+[node name="PlayerColor" type="Sprite2D" parent="." unique_id=799234983]
 texture_filter = 1
 position = Vector2(0, -4.4703484e-07)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("3_k6jdo")
+scale = Vector2(1.4, 1.4)
+texture = ExtResource("5_327au")
 
 [node name="Gun" type="Sprite2D" parent="." unique_id=1585734853]
 texture_filter = 1
-scale = Vector2(1.7, 1.7)
+scale = Vector2(2, 2)
 texture = ExtResource("5_bx0yf")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927499134]
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.4, 1.4)
 shape = SubResource("CapsuleShape2D_k6jdo")
 
 [node name="Hurtbox" parent="." unique_id=935006614 instance=ExtResource("4_5xivi")]
 visibility_layer = 0
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.4, 1.4)
 collision_mask = 88
 
 [node name="TechZone" parent="." unique_id=10040679 instance=ExtResource("7_tdp7v")]
-scale = Vector2(1.2, 1.2)
+scale = Vector2(1.6, 1.6)
 collision_layer = 0
 
 [node name="InputHandler" type="Node" parent="." unique_id=640675116]

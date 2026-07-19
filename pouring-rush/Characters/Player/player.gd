@@ -12,6 +12,7 @@ class_name Player
 
 
 # reference to children
+@export var player_sprite : Sprite2D
 @export var gun_sprite : Sprite2D
 @export var outline : Sprite2D
 @export var gear : Sprite2D
@@ -177,14 +178,16 @@ func _on_alive_timer_timeout() -> void:
 
 func flip_sprite(flipped : bool):
 	if not flipped:
-		sprite.flip_h = false
+		player_sprite.flip_h = false
+		sprite.flip_h = false # player color
 		gear.flip_h = false
 		outline.flip_h = false
 		# a flipped bool
 		facing_flipped = false
 		
 	else:
-		sprite.flip_h = true
+		player_sprite.flip_h = true
+		sprite.flip_h = true # player color
 		gear.flip_h = true
 		outline.flip_h = true
 		

@@ -11,7 +11,7 @@ class_name TeamZone
 
 var carrier : Player
 
-@export var carrier_offset : Vector2 = Vector2(0, -40)
+@export var carrier_offset : Vector2 = Vector2(0, -45)
 
 @export var pickup_range : float = 50
 
