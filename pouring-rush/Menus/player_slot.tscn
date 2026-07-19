@@ -4,9 +4,15 @@
 [ext_resource type="Script" uid="uid://c26p6mh1s8fyn" path="res://Resources/character_data.gd" id="2_3tacp"]
 [ext_resource type="Resource" uid="uid://dfelift0tkp3c" path="res://Resources/TestDPSCharacter/test_dps_character.tres" id="3_ayy4j"]
 [ext_resource type="Resource" uid="uid://d1sslh2setsns" path="res://Resources/TestSupportCharacter/test_support_character.tres" id="4_opa1w"]
-[ext_resource type="Texture2D" uid="uid://h1vso7qahh1v" path="res://Assets/Sprites/Weapons/Gun3.png" id="5_56smd"]
 [ext_resource type="Texture2D" uid="uid://6v3a60c4hd3y" path="res://Assets/Sprites/Player/Player.png" id="5_oh105"]
 [ext_resource type="Texture2D" uid="uid://c6ejci7k4nklb" path="res://Assets/Sprites/Player/PlayerColor.png" id="6_fg1il"]
+[ext_resource type="Texture2D" uid="uid://f2a8ydnk78s6" path="res://Assets/Sprites/Weapons/Gun1 (2).png" id="7_oh105"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fg1il"]
+bg_color = Color(0, 0, 0, 0.47058824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tjqyr"]
+bg_color = Color(0, 0, 0, 0.5137255)
 
 [node name="PlayerSlot" type="Control" unique_id=1950497164 node_paths=PackedStringArray("character_name_label", "ready_label", "controller_label", "portrait", "color_icon")]
 layout_mode = 3
@@ -45,11 +51,12 @@ texture = ExtResource("6_fg1il")
 [node name="GunIcon" type="TextureRect" parent="." unique_id=1776692055]
 texture_filter = 1
 layout_mode = 0
-offset_left = 18.0
-offset_top = 17.0
-offset_right = 75.0
-offset_bottom = 74.0
-texture = ExtResource("5_56smd")
+offset_left = 10.0
+offset_top = 16.0
+offset_right = 90.0
+offset_bottom = 96.0
+texture = ExtResource("7_oh105")
+expand_mode = 1
 flip_h = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1115964331]
@@ -60,6 +67,7 @@ offset_bottom = 140.0
 [node name="ReadyLabel" type="Label" parent="VBoxContainer" unique_id=1103007954]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_fg1il")
 text = "Ready"
 
 [node name="ControllerLabel" type="Label" parent="VBoxContainer" unique_id=769515716]
@@ -72,4 +80,5 @@ text = "Mr. pooper"
 
 [node name="Press Start" type="Button" parent="VBoxContainer" unique_id=724870782]
 layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_tjqyr")
 text = "Press Start"
