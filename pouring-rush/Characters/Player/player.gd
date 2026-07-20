@@ -94,7 +94,7 @@ func initialize(character_data : CharacterData, match_manager : Node, device : i
 	self.character_data = character_data
 	self.match_manager = match_manager
 	
-	input_handler.set_up(device)
+	input_handler.set_up(device, self)
 	
 	combat_component.initialize(character_data)
 	carry_component.intialize(self)
