@@ -40,6 +40,10 @@ enum UtilityType {
 @export var projectile_data : ProjectileData
 
 
-# for utility
+## for utility
+# dash
 @export var dash_speed : float = 800
 @export var dash_duration : float = 0.1
+
+# teleport
+@export var teleport_distance : float = 200

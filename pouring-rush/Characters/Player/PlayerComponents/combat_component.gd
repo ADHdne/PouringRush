@@ -147,7 +147,7 @@ func use_utility(data : AbilityState):
 			dash(data)
 		
 		AbilityData.UtilityType.TELEPORT:
-			pass
+			teleport(data)
 		
 		AbilityData.UtilityType.GRAPPLE:
 			pass
@@ -164,6 +164,17 @@ func dash(data: AbilityState):
 	
 	# play dash sound
 	player.sound_effects.dash()
+
+func teleport(data : AbilityState):
+	
+	var ability := data.ability_data
+	
+	player.movement_component.teleport(
+		player.direction,
+		ability.teleport_distance
+	)
+	
+	# play teleport sound here!
 
 ## reload logic
 func request_reload():

@@ -161,3 +161,10 @@ func end_dash():
 	dash_speed = 0.0
 	
 	player.velocity *= Vector2(0.2, 0.2)
+
+func teleport(direction : Vector2, distance : float):
+	var new_position : Vector2
+	
+	new_position = player.global_position + distance * direction
+	
+	player.global_position = new_position

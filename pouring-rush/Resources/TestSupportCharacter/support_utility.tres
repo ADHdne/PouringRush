@@ -16,7 +16,7 @@ metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 [resource]
 script = ExtResource("1_635gn")
 ability_type = 1
-utility_type = 1
+utility_type = 2
 ability_name = "Support Utility"
 cooldown = 0.2
 ability_cooldown = 8.0
@@ -25,4 +25,5 @@ reload_time = 0.0
 projectile_data = SubResource("Resource_adbwl")
 dash_speed = 2000.0
 dash_duration = 0.13
+teleport_distance = 400.0
 metadata/_custom_type_script = "uid://d1qs4e030ganv"
