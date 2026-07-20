@@ -42,18 +42,26 @@ func _process(delta):
 		if can_shoot(buffered_ability):
 			try_use_ability(buffered_ability)
 
-func _input(event: InputEvent) -> void:
-	if not player.carry_component.is_carrying() and player.can_action_pressed and player.can_attack:
-		if event.is_action_pressed(player.input_handler.player_actions.attack):
-			try_use_ability(basic_shot_data)
-		if event.is_action_pressed(player.input_handler.player_actions.special_1):
-			try_use_ability(special_shot_data)
-		if event.is_action_pressed(player.input_handler.player_actions.special_2):
-			try_use_ability(special_2_data)
-		if event.is_action_pressed(player.input_handler.player_actions.utility):
-			try_use_ability(utility_data)
-		if event.is_action_pressed(player.input_handler.player_actions.reload):
-			request_reload()
+
+
+## Button Presses
+func attack_button_pressed():
+	try_use_ability(basic_shot_data)
+
+func special_1_button_pressed():
+	try_use_ability(special_shot_data)
+
+func special_2_button_pressed():
+	try_use_ability(special_2_data)
+
+func utility_button_pressed():
+	try_use_ability(utility_data)
+
+func reload_button_pressed():
+	request_reload()
+
+
+
 
 
 func create_states(data : CharacterData):

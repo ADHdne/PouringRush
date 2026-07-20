@@ -27,6 +27,9 @@ func state_input(event : InputEvent):
 		if event.is_action_pressed(player.input_handler.player_actions.interact):
 			interact()
 
+
+
+## Button Presses
 func jump_pressed():
 	if not coyote_timer.is_stopped():
 		_jump()
@@ -34,6 +37,16 @@ func jump_pressed():
 		double_jump()
 	else:
 		player.jump_buffer_timer.start()
+
+
+func interact_button_pressed():
+	if not player.can_action_pressed:
+		return
+	
+	interact()
+
+
+## Actions
 
 func _jump():
 	player.movement_component.jump()

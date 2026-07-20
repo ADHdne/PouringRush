@@ -20,11 +20,9 @@ func state_process(delta):
 		next_state = idle_state
 	
 
-func state_input(event : InputEvent):
-	if event.is_action_pressed(player.input_handler.player_actions.block):
-		check_can_tech()
 
-func check_can_tech():
+## Button Presses
+func tech_button_pressed():
 	if not player.can_tech:
 		return
 	check_tech()

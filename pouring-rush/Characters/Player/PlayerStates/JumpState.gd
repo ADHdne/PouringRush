@@ -20,16 +20,28 @@ func state_process(_delta):
 	if player.is_on_floor():
 		next_state = move_state
 
-func state_input(event : InputEvent):
-	if player.can_action_pressed:
-		if Input.is_action_just_released(player.input_handler.player_actions.jump) and player.velocity.y < 0:
-			jump_peak_reached()
-		if event.is_action_pressed(player.input_handler.player_actions.jump) and player.movement_component.jumps_remaining > 0:
-			double_jump()
-		# for picking up team zone
-		if event.is_action_pressed(player.input_handler.player_actions.interact):
-			interact()
 
+
+## button presses
+func jump_button_released():
+	if not player.can_action_pressed:
+		return
+	jump_peak_reached()
+
+func jump_button_pressed():
+	if not player.can_action_pressed:
+		return
+	
+	double_jump()
+	
+func interact_button_pressed():
+	if not player.can_action_pressed:
+		return
+	
+	interact()
+
+
+## actions
 
 func jump_peak_reached():
 	player.velocity.y *= deceleration_on_jump_release

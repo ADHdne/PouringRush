@@ -16,10 +16,16 @@ func state_process(_delta):
 	else:
 		pass
 
-func state_input(event : InputEvent):
-	if player.can_action_pressed:
-		if event.is_action_pressed(player.input_handler.player_actions.jump):
-			wall_jump()
+
+## Button Presses
+func jump_button_pressed():
+	if not player.can_action_pressed:
+		return
+	
+	wall_jump()
+
+
+## Actions
 
 func wall_jump():
 	player.movement_component.wall_jump()

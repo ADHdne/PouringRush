@@ -14,14 +14,21 @@ func state_process(_delta):
 	if not player.direction.x == 0:
 		next_state = move_state
 
-func state_input(event : InputEvent):
+
+## Button Presses
+func jump_button_pressed():
+	if not player.can_action_pressed:
+		return
 	
-	if player.can_action_pressed:
-		if player.input_handler.check_controller(player.input_handler.player_actions.jump):
-			_jump()
-		# for picking up team zone
-		if event.is_action_pressed(player.input_handler.player_actions.interact):
-			interact()
+	_jump()
+	
+func interact_button_pressed():
+	if not player.can_action_pressed:
+		return
+	
+	interact()
+
+## Actions
 
 func _jump():
 	player.movement_component.jump()
