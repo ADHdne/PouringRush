@@ -116,7 +116,7 @@ func _process(delta: float) -> void:
 		flip_sprite(true)
 	
 	
-	rotate_gun(aim_direction)
+	rotate_gun(input_handler.aim_input())
 
 
 func reset_for_respawn():

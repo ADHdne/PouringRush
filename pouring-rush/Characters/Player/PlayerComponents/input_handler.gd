@@ -71,6 +71,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			state_machine.current_state.interact_button_pressed()
 
 func input() -> Vector2:
+	var input : Input
+	
 	player.direction = Input.get_vector(player_actions.move_left, player_actions.move_right, player_actions.move_up, player_actions.move_down)
 	player.direction = player.direction.normalized()
 	return player.direction
