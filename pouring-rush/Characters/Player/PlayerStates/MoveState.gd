@@ -35,23 +35,24 @@ func state_process(delta):
 
 func state_input(event : InputEvent):
 	
-	if event.device != player.input_handler.controller_id:
-		return
-	
 	if player.can_action_pressed:
 		if event.is_action_pressed(player.input_handler.player_actions.jump):
 			_jump()
 		# for picking up team zone
 		if event.is_action_pressed(player.input_handler.player_actions.interact):
-			if player.carry_component.is_carrying():
-				player.carry_component.drop()
-			else:
-				player.carry_component.pick_up(player.carry_component.zone)
+			interact()
 
 
 func _jump():
 	player.movement_component.jump()
 	next_state = jump_state
+
+func interact():
+	if player.carry_component.is_carrying():
+		player.carry_component.drop()
+	else:
+		player.carry_component.pick_up(player.carry_component.zone)
+
 
 func on_exit():
 	player.footstep_timer.stop()

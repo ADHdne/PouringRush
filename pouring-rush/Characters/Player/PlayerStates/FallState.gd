@@ -22,20 +22,18 @@ func state_process(_delta):
 func state_input(event : InputEvent):
 	if player.can_action_pressed:
 		if event.is_action_pressed(player.input_handler.player_actions.jump):
-			if not coyote_timer.is_stopped():
-				_jump()
-				print("coyote")
-			elif player.movement_component.jumps_remaining > 0:
-				double_jump()
-				print("double")
-			else:
-				player.jump_buffer_timer.start()
+			jump_pressed()
 		# for picking up team zone
 		if event.is_action_pressed(player.input_handler.player_actions.interact):
-			if player.carry_component.is_carrying():
-				player.carry_component.drop()
-			else:
-				player.carry_component.pick_up(player.carry_component.zone)
+			interact()
+
+func jump_pressed():
+	if not coyote_timer.is_stopped():
+		_jump()
+	elif player.movement_component.jumps_remaining > 0:
+		double_jump()
+	else:
+		player.jump_buffer_timer.start()
 
 func _jump():
 	player.movement_component.jump()
@@ -46,3 +44,10 @@ func double_jump():
 	# the physical jump
 	player.velocity.y = player.character_data.double_jump_power
 	next_state = jump_state
+
+
+func interact():
+	if player.carry_component.is_carrying():
+		player.carry_component.drop()
+	else:
+		player.carry_component.pick_up(player.carry_component.zone)
