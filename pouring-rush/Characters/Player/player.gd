@@ -115,22 +115,9 @@ func _process(delta: float) -> void:
 	elif direction.x < 0 and not facing_flipped:
 		flip_sprite(true)
 	
-	if can_action_pressed:
-		input()
 	
-	rotate_gun(aim_input())
+	rotate_gun(aim_direction)
 
-
-
-func input() -> Vector2:
-	direction = Input.get_vector(input_handler.player_actions.move_left, input_handler.player_actions.move_right, input_handler.player_actions.move_up, input_handler.player_actions.move_down)
-	direction = direction.normalized()
-	return direction
-
-func aim_input() -> Vector2:
-	aim_direction = Input.get_vector(input_handler.player_actions.aim_left, input_handler.player_actions.aim_right, input_handler.player_actions.aim_up, input_handler.player_actions.aim_down)
-	aim_direction = aim_direction.normalized()
-	return aim_direction
 
 func reset_for_respawn():
 	combat_component.reset_for_spawn(character_data)

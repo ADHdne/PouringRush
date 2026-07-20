@@ -117,12 +117,12 @@ func shoot(data : AbilityState):
 	var proj = data.ability_data.projectile_scene.instantiate()
 	
 	# get direction
-	var direction = player.aim_input()
+	var direction = player.input_handler.aim_input()
 	
 	# add the right data for the projectile
 	proj.data = data.ability_data.projectile_data
 	
-	if player.aim_input() != Vector2(0, 0):
+	if direction != Vector2(0, 0):
 		proj.global_position = player.global_position + Vector2(0, -10) + (15 * player.aim_direction)
 		proj.velocity = direction.normalized() * data.ability_data.projectile_data.speed
 	else:

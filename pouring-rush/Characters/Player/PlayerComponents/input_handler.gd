@@ -12,11 +12,22 @@ class_name InputHandler
 
 var controller_id : int = -1
 
+
+
+
+
+
 func set_up(device_id : int, player : Player, state_machine : CharacterStateMachine, combat_component : CombatComponent):
 	controller_id = device_id
 	self.player = player
 	self.state_machine = state_machine
 	self.combat_component = combat_component
+
+func _physics_process(delta: float) -> void:
+	
+	if player != null:
+		if player.can_action_pressed:
+			input()
 
 
 func check_controller(action : StringName) -> bool:
@@ -51,10 +62,20 @@ func _unhandled_input(event: InputEvent) -> void:
 		if state_machine.current_state.has_method("jump_button_released"):
 			state_machine.current_state.jump_button_released()
 	
-	if event.is_action_pressed(player_actions.tech):
+	if event.is_action_pressed(player_actions.block):
 		if state_machine.current_state.has_method("tech_button_pressed"):
 			state_machine.current_state.tech_button_pressed()
 	
 	if event.is_action_pressed(player_actions.interact):
 		if state_machine.current_state.has_method("interact_button_pressed"):
 			state_machine.current_state.interact_button_pressed()
+
+func input() -> Vector2:
+	player.direction = Input.get_vector(player_actions.move_left, player_actions.move_right, player_actions.move_up, player_actions.move_down)
+	player.direction = player.direction.normalized()
+	return player.direction
+
+func aim_input() -> Vector2:
+	player.aim_direction = Input.get_vector(player_actions.aim_left, player_actions.aim_right, player_actions.aim_up, player_actions.aim_down)
+	player.aim_direction = player.aim_direction.normalized()
+	return player.aim_direction
