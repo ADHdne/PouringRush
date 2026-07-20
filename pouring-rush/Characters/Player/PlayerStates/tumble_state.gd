@@ -21,9 +21,13 @@ func state_process(delta):
 	
 
 func state_input(event : InputEvent):
-	if player.can_tech:
-		if event.is_action_pressed(player.input_handler.player_actions.block):
-			check_tech()
+	if event.is_action_pressed(player.input_handler.player_actions.block):
+		check_can_tech()
+
+func check_can_tech():
+	if not player.can_tech:
+		return
+	check_tech()
 
 func check_tech():
 	if player.tech_zone != null:
