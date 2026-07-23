@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://c26p6mh1s8fyn" path="res://Resources/character_data.gd" id="2_3tacp"]
 [ext_resource type="Resource" uid="uid://dfelift0tkp3c" path="res://Resources/TestDPSCharacter/test_dps_character.tres" id="3_ayy4j"]
 [ext_resource type="Resource" uid="uid://d1sslh2setsns" path="res://Resources/TestSupportCharacter/test_support_character.tres" id="4_opa1w"]
+[ext_resource type="Resource" uid="uid://dnsdae8r1220m" path="res://Resources/TestTankCharacter/test_tank_character.tres" id="5_fg1il"]
 [ext_resource type="Texture2D" uid="uid://6v3a60c4hd3y" path="res://Assets/Sprites/Player/Player.png" id="5_oh105"]
 [ext_resource type="Texture2D" uid="uid://c6ejci7k4nklb" path="res://Assets/Sprites/Player/PlayerColor.png" id="6_fg1il"]
 [ext_resource type="Texture2D" uid="uid://drhkn4bj2ml1n" path="res://Assets/Sprites/Weapons/Gun2.png" id="7_oh105"]
@@ -30,7 +31,7 @@ ready_label = NodePath("VBoxContainer/ReadyLabel")
 controller_label = NodePath("VBoxContainer/ControllerLabel")
 portrait = NodePath("GunIcon")
 color_icon = NodePath("ColorIcon")
-roster = Array[ExtResource("2_3tacp")]([ExtResource("3_ayy4j"), ExtResource("4_opa1w")])
+roster = Array[ExtResource("2_3tacp")]([ExtResource("3_ayy4j"), ExtResource("4_opa1w"), ExtResource("5_fg1il")])
 
 [node name="PlayerIcon" type="TextureRect" parent="." unique_id=1734998836]
 texture_filter = 1

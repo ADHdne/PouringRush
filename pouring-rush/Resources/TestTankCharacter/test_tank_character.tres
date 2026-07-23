@@ -1,7 +1,11 @@
 [gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://dnsdae8r1220m"]
 
+[ext_resource type="Resource" uid="uid://0e3ig6aljxt7" path="res://Resources/TestTankCharacter/tank_bs.tres" id="1_ay5f2"]
 [ext_resource type="Script" uid="uid://c26p6mh1s8fyn" path="res://Resources/character_data.gd" id="1_ecf6j"]
 [ext_resource type="Texture2D" uid="uid://h1vso7qahh1v" path="res://Assets/Sprites/Weapons/Gun3.png" id="1_hfcyh"]
+[ext_resource type="Resource" uid="uid://b4y1vfh4k1p6y" path="res://Resources/TestTankCharacter/tank_sp1.tres" id="4_ai5ry"]
+[ext_resource type="Resource" uid="uid://qreps7qixsym" path="res://Resources/TestTankCharacter/tank_sp2.tres" id="5_2yilt"]
+[ext_resource type="Resource" uid="uid://c4pqnnc6wkhge" path="res://Resources/TestTankCharacter/tank_utility.tres" id="6_aqmrs"]
 
 [resource]
 script = ExtResource("1_ecf6j")
@@ -12,4 +16,8 @@ wall_jump_power = -290.0
 run_speed = 185.0
 carry_speed = 175.0
 weight = 3.0
+basic_shot = ExtResource("1_ay5f2")
+special_1 = ExtResource("4_ai5ry")
+special_2 = ExtResource("5_2yilt")
+utility = ExtResource("6_aqmrs")
 metadata/_custom_type_script = "uid://c26p6mh1s8fyn"
