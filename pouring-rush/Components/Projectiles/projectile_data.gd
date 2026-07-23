@@ -4,6 +4,9 @@ class_name ProjectileData
 
 @export var hit_data : HitData
 
+
+@export var spawn_distance : float = 15 # spawn distance from player
+
 # texture and size and stuff
 @export var texture : Texture
 @export var radius : float = 8
@@ -11,9 +14,12 @@ class_name ProjectileData
 @export var rotation : float = 0
 @export var sprite_size : Vector2 = Vector2(1,1)
 @export var sprite_rotation : float
+
+# sound
 @export var hit_sound : AudioStream
 @export var hit_sound_volume : float
 
+# properties
 @export var gravity : float = 1000
 
 @export var speed: float = 800

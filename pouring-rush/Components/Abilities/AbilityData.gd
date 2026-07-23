@@ -4,7 +4,8 @@ class_name AbilityData
 
 enum AbilityType {
 	PROJECTILE,
-	UTILITY
+	UTILITY,
+	MELEE
 }
 
 enum UtilityType {

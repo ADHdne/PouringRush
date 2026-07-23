@@ -17,6 +17,7 @@ region = Rect2(156, 15, 52, 14)
 [sub_resource type="Resource" id="Resource_p1t6a"]
 script = ExtResource("2_qt1k5")
 hit_data = SubResource("Resource_ghfv1")
+spawn_distance = 25.0
 texture = SubResource("AtlasTexture_1hehi")
 radius = 7.0
 height = 48.0

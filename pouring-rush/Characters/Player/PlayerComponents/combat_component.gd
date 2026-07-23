@@ -123,7 +123,7 @@ func shoot(data : AbilityState):
 	proj.data = data.ability_data.projectile_data
 	
 	if direction != Vector2(0, 0):
-		proj.global_position = player.global_position + Vector2(0, -10) + (15 * player.aim_direction)
+		proj.global_position = player.global_position + Vector2(0, -10) + (proj.data.spawn_distance * player.aim_direction)
 		proj.velocity = direction.normalized() * data.ability_data.projectile_data.speed
 	else:
 		if not player.facing_flipped:
