@@ -159,6 +159,9 @@ func use_utility(data : AbilityState):
 		
 		AbilityData.UtilityType.GRAPPLE:
 			pass
+		
+		AbilityData.UtilityType.SELFHEAL:
+			self_heal(data)
 
 func dash(data: AbilityState):
 
@@ -183,6 +186,13 @@ func teleport(data : AbilityState):
 	)
 	
 	# play teleport sound here!
+
+
+func self_heal(data : AbilityState):
+	var ability = data.ability_data
+	
+	player.damage_component.apply_heal(ability.projectile_data.hit_data.healing, player)
+
 
 ## reload logic
 func request_reload():
