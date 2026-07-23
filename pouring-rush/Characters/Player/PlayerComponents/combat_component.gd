@@ -117,7 +117,7 @@ func shoot(data : AbilityState):
 	var proj = data.ability_data.projectile_scene.instantiate()
 	
 	# get direction
-	var direction = player.input_handler.aim_input()
+	var direction = player.input_handler.aim_direction
 	
 	# add the right data for the projectile
 	proj.data = data.ability_data.projectile_data

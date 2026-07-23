@@ -115,8 +115,11 @@ func _process(delta: float) -> void:
 	elif direction.x < 0 and not facing_flipped:
 		flip_sprite(true)
 	
+	direction = input_handler.movement_direction
+	aim_direction = input_handler.aim_direction
 	
-	rotate_gun(input_handler.aim_input())
+	
+	rotate_gun(aim_direction)
 
 
 func reset_for_respawn():

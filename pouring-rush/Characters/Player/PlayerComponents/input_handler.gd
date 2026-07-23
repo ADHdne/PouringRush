@@ -13,8 +13,11 @@ class_name InputHandler
 var controller_id : int = -1
 
 
+var movement_direction : Vector2 = Vector2.ZERO
+var aim_direction : Vector2 = Vector2.RIGHT
 
-
+# deadzone for sticks
+const DEADZONE : float = 0.2
 
 
 func set_up(device_id : int, player : Player, state_machine : CharacterStateMachine, combat_component : CombatComponent):
@@ -23,14 +26,8 @@ func set_up(device_id : int, player : Player, state_machine : CharacterStateMach
 	self.state_machine = state_machine
 	self.combat_component = combat_component
 
-func _physics_process(delta: float) -> void:
-	
-	if player != null:
-		if player.can_action_pressed:
-			input()
 
-
-func check_controller(action : StringName) -> bool:
+func check_controller(action : StringName) -> bool: # does this do anything ??????
 	for event in InputMap.action_get_events(action):
 		if event.device == controller_id:
 			return Input.is_action_pressed(action)
@@ -69,15 +66,26 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(player_actions.interact):
 		if state_machine.current_state.has_method("interact_button_pressed"):
 			state_machine.current_state.interact_button_pressed()
-
-func input() -> Vector2:
-	var input : Input
 	
-	player.direction = Input.get_vector(player_actions.move_left, player_actions.move_right, player_actions.move_up, player_actions.move_down)
-	player.direction = player.direction.normalized()
-	return player.direction
+	
+	# 2. HANDLE STICK AXIS MOVEMENTS
+	if event is InputEventJoypadMotion:
+		# --- LEFT STICK (Movement Tracking) ---
+		if event.axis == JOY_AXIS_LEFT_X or event.axis == JOY_AXIS_LEFT_Y:
+			# Get current updated values directly from the hardware
+			var lx := Input.get_joy_axis(controller_id, JOY_AXIS_LEFT_X)
+			var ly := Input.get_joy_axis(controller_id, JOY_AXIS_LEFT_Y)
+			var raw_left := Vector2(lx, ly)
+			
+			# Save vector if pushed past deadzone, otherwise reset to zero
+			movement_direction = raw_left if raw_left.length() > DEADZONE else Vector2.ZERO
 
-func aim_input() -> Vector2:
-	player.aim_direction = Input.get_vector(player_actions.aim_left, player_actions.aim_right, player_actions.aim_up, player_actions.aim_down)
-	player.aim_direction = player.aim_direction.normalized()
-	return player.aim_direction
+		# --- RIGHT STICK (Aim Tracking) ---
+		if event.axis == JOY_AXIS_RIGHT_X or event.axis == JOY_AXIS_RIGHT_Y:
+			var rx := Input.get_joy_axis(controller_id, JOY_AXIS_RIGHT_X)
+			var ry := Input.get_joy_axis(controller_id, JOY_AXIS_RIGHT_Y)
+			var raw_right := Vector2(rx, ry)
+			
+			# Only update aim direction when actively holding/flicking the stick
+			if raw_right.length() > DEADZONE:
+				aim_direction = raw_right.normalized()
