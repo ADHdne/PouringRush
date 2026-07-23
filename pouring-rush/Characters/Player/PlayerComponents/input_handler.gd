@@ -82,5 +82,4 @@ func _unhandled_input(event: InputEvent) -> void:
 			var raw_right := Vector2(rx, ry)
 			
 			# Only update aim direction when actively holding/flicking the stick
-			if raw_right.length() > DEADZONE:
-				aim_direction = raw_right.normalized()
+			aim_direction = raw_right if raw_right.length() > DEADZONE else Vector2.ZERO
