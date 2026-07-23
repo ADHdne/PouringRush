@@ -13,7 +13,7 @@ class_name InputHandler
 var controller_id : int = -1
 
 
-var move_direction : Vector2 = Vector2.ZERO
+var movement_direction : Vector2 = Vector2.ZERO
 var aim_direction : Vector2 = Vector2.RIGHT
 
 # deadzone for sticks
@@ -27,11 +27,6 @@ func set_up(device_id : int, player : Player, state_machine : CharacterStateMach
 	self.combat_component = combat_component
 
 
-func check_controller(action : StringName) -> bool: # does this do anything ??????
-	for event in InputMap.action_get_events(action):
-		if event.device == controller_id:
-			return Input.is_action_pressed(action)
-	return false
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.device != controller_id:
@@ -89,21 +84,3 @@ func _unhandled_input(event: InputEvent) -> void:
 			# Only update aim direction when actively holding/flicking the stick
 			if raw_right.length() > DEADZONE:
 				aim_direction = raw_right.normalized()
-
-func input(event : InputEvent) -> void:
-	
-	# 1. LEFT STICK: 4-Direction Movement (X and Y axes)
-	var move_x := Input.get_joy_axis(controller_id, JOY_AXIS_LEFT_X)
-	var move_y := Input.get_joy_axis(controller_id, JOY_AXIS_LEFT_Y)
-	var move_vector := Vector2(move_x, move_y)
-	
-	if abs(move_x) > 0.2: # Simple deadzone check
-		velocity.x = move_x * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-
-func aim_input() -> Vector2:
-	player.aim_direction = Input.get_vector(player_actions.aim_left, player_actions.aim_right, player_actions.aim_up, player_actions.aim_down)
-	player.aim_direction = player.aim_direction.normalized()
-	return player.aim_direction

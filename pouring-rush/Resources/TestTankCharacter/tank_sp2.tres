@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://qreps7qixsym"]
+
+[ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_x2bb3"]
+[ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_7s462"]
+[ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="3_sfebk"]
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="4_quqpe"]
+
+[sub_resource type="Resource" id="Resource_kl1ti"]
+script = ExtResource("1_x2bb3")
+metadata/_custom_type_script = "uid://drphxsmjyfe1x"
+
+[sub_resource type="Resource" id="Resource_rkw05"]
+script = ExtResource("2_7s462")
+hit_data = SubResource("Resource_kl1ti")
+metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
+
+[resource]
+script = ExtResource("4_quqpe")
+ability_name = "Tank Special 2"
+projectile_scene = ExtResource("3_sfebk")
+projectile_data = SubResource("Resource_rkw05")
+metadata/_custom_type_script = "uid://d1qs4e030ganv"

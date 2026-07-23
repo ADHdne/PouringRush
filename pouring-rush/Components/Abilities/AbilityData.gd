@@ -12,7 +12,8 @@ enum UtilityType {
 	DASH,
 	TELEPORT,
 	GRAPPLE,
-	REFLECT
+	REFLECT,
+	TANKING
 }
 
 @export var shoot_shound : AudioStream

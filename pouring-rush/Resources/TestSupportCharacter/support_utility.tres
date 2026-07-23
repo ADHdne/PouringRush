@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://c1rsdbn46ew2d"]
 
 [ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="1_8va32"]
-[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="1_635gn"]
 [ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="2_5nhuk"]
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="3_8va32"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xrwoe"]
 atlas = ExtResource("2_5nhuk")
@@ -14,13 +14,13 @@ texture = SubResource("AtlasTexture_xrwoe")
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]
-script = ExtResource("1_635gn")
+script = ExtResource("3_8va32")
 ability_type = 1
 utility_type = 2
 ability_name = "Support Utility"
 cooldown = 0.2
 ability_cooldown = 8.0
-max_ammo = 1
+max_ammo = 0
 reload_time = 0.0
 projectile_data = SubResource("Resource_adbwl")
 dash_speed = 2000.0

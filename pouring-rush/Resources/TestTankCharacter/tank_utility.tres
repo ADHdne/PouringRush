@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://c4pqnnc6wkhge"]
+
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="1_00obn"]
+[ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="1_313q2"]
+[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="2_yhbyu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lar1i"]
+atlas = ExtResource("2_yhbyu")
+region = Rect2(129.036, 177, 15, 15)
+
+[sub_resource type="Resource" id="Resource_o5u1y"]
+script = ExtResource("1_313q2")
+texture = SubResource("AtlasTexture_lar1i")
+can_be_reflected = false
+metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
+
+[resource]
+script = ExtResource("1_00obn")
+ability_type = 1
+utility_type = 5
+ability_name = "Tank Utility"
+ability_cooldown = 10.0
+max_ammo = 0
+reload_time = 0.0
+projectile_data = SubResource("Resource_o5u1y")
+metadata/_custom_type_script = "uid://d1qs4e030ganv"

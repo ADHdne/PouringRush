@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://dp6pl7nskj8cr"]
 
-[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="1_3l8y4"]
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="1_3l8y4"]
 [ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_ffn7l"]
 [ext_resource type="AudioStream" uid="uid://b5j8owy5aat85" path="res://Assets/Sound/PlayerSounds/Abilities/Magic_Spells_Impact_Creation20.wav" id="2_4i8w8"]
 [ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_jaqce"]

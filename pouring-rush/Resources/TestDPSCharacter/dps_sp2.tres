@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_ar30b"]
 [ext_resource type="Texture2D" uid="uid://caxvvruwjpf5" path="res://Assets/Sprites/rotating_orbs.png" id="3_ut4cg"]
 [ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="4_4jlmf"]
-[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="5_hm17f"]
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="5_hm17f"]
 [ext_resource type="AudioStream" uid="uid://ddltwpx5d3phx" path="res://Assets/Sound/PlayerSounds/Abilities/water_blast_projectile_spell_03.wav" id="6_ar30b"]
 [ext_resource type="AudioStream" uid="uid://bja5o5uljn33x" path="res://Assets/Sound/PlayerSounds/Hit/Parry1.wav" id="7_ut4cg"]
 

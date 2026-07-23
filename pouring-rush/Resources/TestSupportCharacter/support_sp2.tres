@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://1kwact2tf208"]
 
-[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Characters/Player/PlayerComponents/AbilityData.gd" id="1_bp7sc"]
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="1_bp7sc"]
 [ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_mg5cg"]
 [ext_resource type="AudioStream" uid="uid://5s1gl4jyhba7" path="res://Assets/Sound/PlayerSounds/Abilities/Bluezone_BC0274_glass_impact_break_002.wav" id="2_kc7oj"]
 [ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_t0id1"]
