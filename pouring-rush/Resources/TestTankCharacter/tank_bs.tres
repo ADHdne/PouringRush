@@ -8,6 +8,10 @@
 
 [sub_resource type="Resource" id="Resource_ghfv1"]
 script = ExtResource("1_aambu")
+damage = 40.0
+base_knockback = 10.0
+knockback_growth = 10.0
+hit_stun = 5.0
 metadata/_custom_type_script = "uid://drphxsmjyfe1x"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1hehi"]

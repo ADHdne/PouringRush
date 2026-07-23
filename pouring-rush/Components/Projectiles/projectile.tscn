@@ -5,11 +5,11 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ctxep"]
 atlas = ExtResource("3_u6a0y")
-region = Rect2(80, 128, 16, 16)
+region = Rect2(79.90971, 96.066315, 16.122559, 16.075233)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u6a0y"]
 radius = 4.0
-height = 34.0
+height = 32.0
 
 [node name="Projectile" type="Area2D" unique_id=2142960138 node_paths=PackedStringArray("lifetime_timer")]
 collision_layer = 16
@@ -24,6 +24,7 @@ scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_ctxep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1411973391]
+rotation = 1.5707964
 shape = SubResource("CapsuleShape2D_u6a0y")
 
 [node name="LifetimeTimer" type="Timer" parent="." unique_id=209157782]

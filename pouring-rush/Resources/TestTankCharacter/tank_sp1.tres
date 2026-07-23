@@ -3,20 +3,40 @@
 [ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_bb3pa"]
 [ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_jsbkc"]
 [ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="3_g8srt"]
+[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/Objects/roguelikeitems.png" id="3_jsbkc"]
 [ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="4_0sds0"]
 
 [sub_resource type="Resource" id="Resource_jv52m"]
 script = ExtResource("1_bb3pa")
+base_knockback = -1600.0
+knockback_growth = 0.0
 metadata/_custom_type_script = "uid://drphxsmjyfe1x"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bb3pa"]
+atlas = ExtResource("3_jsbkc")
+region = Rect2(80, 96, 16, 16)
 
 [sub_resource type="Resource" id="Resource_uofcc"]
 script = ExtResource("2_jsbkc")
 hit_data = SubResource("Resource_jv52m")
+spawn_distance = 25.0
+texture = SubResource("AtlasTexture_bb3pa")
+radius = 4.0
+height = 32.0
+rotation = 90.0
+sprite_size = Vector2(1.5, 1.5)
+sprite_rotation = 45.0
+gravity = 0.0
+speed = 1800.0
+lifetime = 0.4
+can_be_reflected = false
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]
 script = ExtResource("4_0sds0")
 ability_name = "Tank Special 1"
+ability_cooldown = 7.0
+max_ammo = 0
 projectile_scene = ExtResource("3_g8srt")
 projectile_data = SubResource("Resource_uofcc")
 metadata/_custom_type_script = "uid://d1qs4e030ganv"
