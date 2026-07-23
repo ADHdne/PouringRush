@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dopygy3mun57d"
-path="res://.godot/imported/roguelikeitems.png-0bf1fca38070b513c4927378cc9537c5.ctex"
+path="res://.godot/imported/roguelikeitems.png-cda50252e363a07a063886d6b6937745.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/roguelikeitems.png"
-dest_files=["res://.godot/imported/roguelikeitems.png-0bf1fca38070b513c4927378cc9537c5.ctex"]
+source_file="res://Assets/Sprites/Objects/roguelikeitems.png"
+dest_files=["res://.godot/imported/roguelikeitems.png-cda50252e363a07a063886d6b6937745.ctex"]
 
 [params]
 

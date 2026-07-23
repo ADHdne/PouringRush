@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://dih6d5lo5ltfp"]
 
 [ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="1_gk6gt"]
-[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="2_73vl8"]
+[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/Objects/roguelikeitems.png" id="2_73vl8"]
 [ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="3_gk6gt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gk6gt"]

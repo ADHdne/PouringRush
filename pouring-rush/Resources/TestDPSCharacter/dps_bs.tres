@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_l8wfl"]
 [ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_p7sgg"]
 [ext_resource type="AudioStream" uid="uid://dad4ki2y01rv4" path="res://Assets/Sound/PlayerSounds/Hit/SimpleThud.wav" id="2_wk8tj"]
-[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="3_wk8tj"]
 [ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="4_blhtq"]
+[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/Objects/roguelikeitems.png" id="4_wk8tj"]
 [ext_resource type="AudioStream" uid="uid://ciakoykpxviev" path="res://Assets/Sound/PlayerSounds/SwordSwoosh/SwordSwoosh1.wav" id="6_p7sgg"]
 [ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="6_wk8tj"]
 
@@ -17,17 +17,18 @@ knockback_type = 1
 metadata/_custom_type_script = "uid://drphxsmjyfe1x"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rcdb1"]
-atlas = ExtResource("3_wk8tj")
+atlas = ExtResource("4_wk8tj")
 region = Rect2(80, 128, 16, 16)
 
 [sub_resource type="Resource" id="Resource_1auey"]
 script = ExtResource("2_p7sgg")
 hit_data = SubResource("Resource_8kog8")
 texture = SubResource("AtlasTexture_rcdb1")
-radius = 14.0
-height = 28.0
+radius = 4.0
+height = 34.0
+rotation = 90.0
 sprite_size = Vector2(1.5, 1.5)
-sprite_rotation = 40.0
+sprite_rotation = 45.0
 hit_sound = ExtResource("2_wk8tj")
 hit_sound_volume = -15.0
 gravity = 800.0

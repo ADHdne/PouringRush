@@ -1,31 +1,26 @@
 [gd_scene format=3 uid="uid://befl0sg2l4wax"]
 
 [ext_resource type="Script" uid="uid://rfv723u2gb0l" path="res://Components/Projectiles/projectile.gd" id="1_3ktke"]
-[ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_h2xf7"]
-[ext_resource type="Texture2D" uid="uid://nd01nbfgib4r" path="res://Assets/Effects/Player_sword_attacl_effects.png" id="3_u6a0y"]
-
-[sub_resource type="Resource" id="Resource_u6a0y"]
-script = ExtResource("2_h2xf7")
-metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
+[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/Objects/roguelikeitems.png" id="3_u6a0y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ctxep"]
 atlas = ExtResource("3_u6a0y")
-region = Rect2(156, 15, 52, 14)
+region = Rect2(80, 128, 16, 16)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u6a0y"]
-radius = 7.0
-height = 48.0
+radius = 4.0
+height = 34.0
 
 [node name="Projectile" type="Area2D" unique_id=2142960138 node_paths=PackedStringArray("lifetime_timer")]
 collision_layer = 16
 collision_mask = 5
 script = ExtResource("1_3ktke")
-data = SubResource("Resource_u6a0y")
 lifetime_timer = NodePath("LifetimeTimer")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1024164939]
 texture_filter = 1
-rotation = 1.5707964
+rotation = 0.7853982
+scale = Vector2(1.5, 1.5)
 texture = SubResource("AtlasTexture_ctxep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1411973391]

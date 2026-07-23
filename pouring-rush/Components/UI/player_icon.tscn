@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bh0l4ood5f5mu" path="res://Components/UI/player_icon.gd" id="1_fomls"]
 [ext_resource type="Texture2D" uid="uid://d03qtt4hl0g1c" path="res://Assets/Sprites/Bobble.png" id="2_6ryjl"]
-[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="3_ee3hu"]
+[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/Objects/roguelikeitems.png" id="3_ee3hu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dl35q"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

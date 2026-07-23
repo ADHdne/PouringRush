@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="1_00obn"]
 [ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="1_313q2"]
-[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="2_yhbyu"]
+[ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/Objects/roguelikeitems.png" id="2_yhbyu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lar1i"]
 atlas = ExtResource("2_yhbyu")
