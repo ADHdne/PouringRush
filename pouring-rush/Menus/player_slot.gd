@@ -116,17 +116,6 @@ func leave():
 	player_left.emit()
 
 
-func toggle_ready():
-
-	if !joined:
-		return
-
-	player_config.ready = !player_config.ready
-
-	update_ui()
-
-	ready_changed.emit()
-
 
 func next_character():
 
@@ -182,6 +171,19 @@ func swap_team():
 	
 	player_changed_team.emit()
 	update_ui()
+
+
+func toggle_ready():
+
+	if !joined:
+		return
+
+	player_config.ready = !player_config.ready
+
+	update_ui()
+
+	ready_changed.emit()
+
 
 
 func update_ui():
