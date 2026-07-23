@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://dnsdae8r1220m"]
+
+[ext_resource type="Script" uid="uid://c26p6mh1s8fyn" path="res://Resources/character_data.gd" id="1_ecf6j"]
+[ext_resource type="Texture2D" uid="uid://h1vso7qahh1v" path="res://Assets/Sprites/Weapons/Gun3.png" id="1_hfcyh"]
+
+[resource]
+script = ExtResource("1_ecf6j")
+display_name = "Goba"
+portrait = ExtResource("1_hfcyh")
+double_jump_power = -350.0
+wall_jump_power = -290.0
+run_speed = 185.0
+carry_speed = 175.0
+weight = 3.0
+metadata/_custom_type_script = "uid://c26p6mh1s8fyn"
