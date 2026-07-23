@@ -18,6 +18,15 @@ region = Rect2(156, 15, 52, 14)
 script = ExtResource("2_qt1k5")
 hit_data = SubResource("Resource_ghfv1")
 texture = SubResource("AtlasTexture_1hehi")
+radius = 7.0
+height = 14.0
+sprite_rotation = 90.0
+gravity = 0.0
+speed = 3.0
+lifetime = 1.0
+can_be_reflected = false
+pierces = -1
+ammo_cost = 0
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]

@@ -21,6 +21,8 @@ var origin : Player
 
 func _ready() -> void:
 	collision_shape.shape.radius = data.radius
+	collision_shape.shape.height = data.height
+	collision_shape.rotation = data.rotation
 	sprite.texture = data.texture
 	sprite.scale = data.sprite_size
 	sprite.rotation_degrees = data.sprite_rotation

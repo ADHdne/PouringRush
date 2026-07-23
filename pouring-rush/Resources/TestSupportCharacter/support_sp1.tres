@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="AbilityData" format=3 uid="uid://dp6pl7nskj8cr"]
 
-[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="1_3l8y4"]
 [ext_resource type="Script" uid="uid://drphxsmjyfe1x" path="res://Components/Hits/hit_data.gd" id="1_ffn7l"]
 [ext_resource type="AudioStream" uid="uid://b5j8owy5aat85" path="res://Assets/Sound/PlayerSounds/Abilities/Magic_Spells_Impact_Creation20.wav" id="2_4i8w8"]
 [ext_resource type="Script" uid="uid://c4r0dxxkc4urp" path="res://Components/Projectiles/projectile_data.gd" id="2_jaqce"]
 [ext_resource type="Texture2D" uid="uid://caxvvruwjpf5" path="res://Assets/Sprites/rotating_orbs.png" id="3_4i8w8"]
 [ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="4_ltuq3"]
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="6_4i8w8"]
 [ext_resource type="AudioStream" uid="uid://cqixv3unvcjg0" path="res://Assets/Sound/PlayerSounds/Abilities/Magic_Spells_CastShort_Air_Whistling04.wav" id="6_jaqce"]
 
 [sub_resource type="Resource" id="Resource_37252"]
@@ -26,6 +26,7 @@ script = ExtResource("2_jaqce")
 hit_data = SubResource("Resource_37252")
 texture = SubResource("AtlasTexture_1dd26")
 radius = 10.0
+height = 20.0
 hit_sound = ExtResource("2_4i8w8")
 hit_sound_volume = -15.0
 gravity = 20.0
@@ -36,7 +37,7 @@ ammo_cost = 0
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]
-script = ExtResource("1_3l8y4")
+script = ExtResource("6_4i8w8")
 shoot_shound = ExtResource("6_jaqce")
 shoot_sound_volume = -30.0
 ability_name = "Support Special 1"

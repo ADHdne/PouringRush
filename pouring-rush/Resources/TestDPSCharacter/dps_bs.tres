@@ -5,8 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://dad4ki2y01rv4" path="res://Assets/Sound/PlayerSounds/Hit/SimpleThud.wav" id="2_wk8tj"]
 [ext_resource type="Texture2D" uid="uid://dopygy3mun57d" path="res://Assets/Sprites/roguelikeitems.png" id="3_wk8tj"]
 [ext_resource type="PackedScene" uid="uid://befl0sg2l4wax" path="res://Components/Projectiles/projectile.tscn" id="4_blhtq"]
-[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="5_v34u7"]
 [ext_resource type="AudioStream" uid="uid://ciakoykpxviev" path="res://Assets/Sound/PlayerSounds/SwordSwoosh/SwordSwoosh1.wav" id="6_p7sgg"]
+[ext_resource type="Script" uid="uid://d1qs4e030ganv" path="res://Components/Abilities/AbilityData.gd" id="6_wk8tj"]
 
 [sub_resource type="Resource" id="Resource_8kog8"]
 script = ExtResource("1_l8wfl")
@@ -25,6 +25,7 @@ script = ExtResource("2_p7sgg")
 hit_data = SubResource("Resource_8kog8")
 texture = SubResource("AtlasTexture_rcdb1")
 radius = 14.0
+height = 28.0
 sprite_size = Vector2(1.5, 1.5)
 sprite_rotation = 40.0
 hit_sound = ExtResource("2_wk8tj")
@@ -35,7 +36,7 @@ lifetime = 4.0
 metadata/_custom_type_script = "uid://c4r0dxxkc4urp"
 
 [resource]
-script = ExtResource("5_v34u7")
+script = ExtResource("6_wk8tj")
 shoot_shound = ExtResource("6_p7sgg")
 shoot_sound_volume = -15.0
 ability_name = "Basic Shot"

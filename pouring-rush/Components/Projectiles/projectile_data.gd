@@ -8,6 +8,7 @@ class_name ProjectileData
 @export var texture : Texture
 @export var radius : float = 8
 @export var height : float = 16
+@export var rotation : float = 0
 @export var sprite_size : Vector2 = Vector2(1,1)
 @export var sprite_rotation : float
 @export var hit_sound : AudioStream
