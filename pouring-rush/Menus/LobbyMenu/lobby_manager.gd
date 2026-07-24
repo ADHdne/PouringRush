@@ -44,10 +44,17 @@ func _ready():
 
 		slot.lobby = self
 
+
 		slot.player_joined.connect(refresh)
+
 		slot.player_left.connect(refresh)
+
 		slot.ready_changed.connect(refresh)
+
 		slot.team_changed.connect(refresh)
+
+		slot.changed.connect(refresh)
+
 
 
 	refresh()
