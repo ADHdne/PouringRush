@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cnr0d5c4e7mj4"]
+
+[ext_resource type="Script" uid="uid://cg5050mpfumd6" path="res://Menus/LobbyMenu/lobby_manager.gd" id="1_ty013"]
+[ext_resource type="PackedScene" uid="uid://ckvjar50p1lsy" path="res://Menus/LobbyMenu/player_slot.tscn" id="3_rbr0f"]
+
+[node name="Lobby" type="Node" unique_id=1033677992 node_paths=PackedStringArray("player_slots")]
+script = ExtResource("1_ty013")
+player_slots = [NodePath("PlayerSlot"), NodePath("PlayerSlot2"), NodePath("PlayerSlot3"), NodePath("PlayerSlot4"), NodePath("PlayerSlot5"), NodePath("PlayerSlot6"), NodePath("PlayerSlot7"), NodePath("PlayerSlot8")]
+
+[node name="PlayerSlot" parent="." unique_id=180375567 instance=ExtResource("3_rbr0f")]
+
+[node name="PlayerSlot2" parent="." unique_id=1039842554 instance=ExtResource("3_rbr0f")]
+
+[node name="PlayerSlot3" parent="." unique_id=383009512 instance=ExtResource("3_rbr0f")]
+
+[node name="PlayerSlot4" parent="." unique_id=1645374342 instance=ExtResource("3_rbr0f")]
+
+[node name="PlayerSlot5" parent="." unique_id=829291119 instance=ExtResource("3_rbr0f")]
+
+[node name="PlayerSlot6" parent="." unique_id=1444703720 instance=ExtResource("3_rbr0f")]
+
+[node name="PlayerSlot7" parent="." unique_id=928884510 instance=ExtResource("3_rbr0f")]
+
+[node name="PlayerSlot8" parent="." unique_id=1966659821 instance=ExtResource("3_rbr0f")]

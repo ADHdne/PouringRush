@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ckvjar50p1lsy"]
+
+[ext_resource type="Script" uid="uid://cg52fj3772gf3" path="res://Menus/LobbyMenu/player_slot.gd" id="1_qdjbm"]
+[ext_resource type="Script" uid="uid://c26p6mh1s8fyn" path="res://Resources/character_data.gd" id="2_3tacp"]
+[ext_resource type="Resource" uid="uid://dfelift0tkp3c" path="res://Resources/TestDPSCharacter/test_dps_character.tres" id="3_ayy4j"]
+[ext_resource type="Resource" uid="uid://d1sslh2setsns" path="res://Resources/TestSupportCharacter/test_support_character.tres" id="4_opa1w"]
+[ext_resource type="Resource" uid="uid://dnsdae8r1220m" path="res://Resources/TestTankCharacter/test_tank_character.tres" id="5_fg1il"]
+
+[node name="PlayerSlot" type="Node" unique_id=180375567]
+script = ExtResource("1_qdjbm")
+roster = Array[ExtResource("2_3tacp")]([ExtResource("3_ayy4j"), ExtResource("4_opa1w"), ExtResource("5_fg1il")])

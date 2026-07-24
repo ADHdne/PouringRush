@@ -1,0 +1,350 @@
+[gd_scene format=3 uid="uid://biaw23k8j2edy"]
+
+[ext_resource type="Script" uid="uid://joa0doynsh0" path="res://Menus/LobbyMenu/lobby_view.gd" id="1_e48w0"]
+[ext_resource type="Texture2D" uid="uid://cv87dsylapl4n" path="res://Assets/Sprites/TeamZoneCapsuleShape.png" id="2_1jwan"]
+[ext_resource type="PackedScene" uid="uid://csy0xbsyb7d8w" path="res://Menus/LobbyMenu/player_slot_view.tscn" id="3_1jwan"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_axtcy"]
+texture = ExtResource("2_1jwan")
+modulate_color = Color(0.22745098, 0.3372549, 0, 0.61960787)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g24k8"]
+bg_color = Color(0.8745098, 0.21960784, 0, 0.53333336)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jy1fx"]
+bg_color = Color(0.8745098, 0.21960784, 0, 0.53333336)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 11.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rdc6u"]
+bg_color = Color(0.723484, 0.576639, 0.460241, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_abhfv"]
+bg_color = Color(0.385493, 0.385492, 0.385492, 0.823529)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ol3uw"]
+bg_color = Color(0.5497966, 0.421491, 0.31632993, 1)
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+expand_margin_top = 10.0
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7dofm"]
+bg_color = Color(0.5497966, 0.421491, 0.31632993, 1)
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+expand_margin_top = 10.0
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_204q6"]
+bg_color = Color(0.12941177, 0.21960784, 1, 0.53333336)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_asfx0"]
+bg_color = Color(0.129, 0.22, 1, 0.533)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 11.0
+
+[node name="LobbyView" type="Control" unique_id=1649470640 node_paths=PackedStringArray("red_team_container", "blue_team_container", "game_mode_label", "arena_label", "ready_label", "start_label", "player_slot_views")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_e48w0")
+red_team_container = NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer")
+blue_team_container = NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer")
+game_mode_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/GameModeValue")
+arena_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/ArenaValue")
+ready_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/ReadyLabel")
+start_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/StartLabel")
+player_slot_views = [null, null]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=154979127]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Panel" type="Panel" parent="." unique_id=76954065]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_axtcy")
+
+[node name="Title" type="Label" parent="." unique_id=1514333551]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 88.0
+offset_right = 20.0
+offset_bottom = 111.0
+grow_horizontal = 2
+text = "Lobby"
+
+[node name="ReadyLabel" type="Label" parent="." unique_id=1998968556]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1207194382]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=1538340273]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="RedTeamPanel" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=343769789]
+custom_minimum_size = Vector2(550, 350)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_g24k8")
+
+[node name="RedTeamLabel" type="Label" parent="MarginContainer/HBoxContainer/RedTeamPanel" unique_id=147345775]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -71.5
+offset_top = -63.0
+offset_right = 71.5
+offset_bottom = -21.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_jy1fx")
+text = "Red Team"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/RedTeamPanel" unique_id=351739788]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 140
+theme_override_constants/v_separation = 200
+columns = 4
+
+[node name="PlayerSlotView" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=197385380 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView2" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=1013407722 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView3" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=894272652 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView4" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=1715791576 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView5" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=1334728084 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView6" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=254428379 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView7" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=575545140 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView8" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=1567615020 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="MatchSettings" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=2042043699]
+custom_minimum_size = Vector2(300, 500)
+layout_mode = 2
+theme_override_constants/separation = 12
+alignment = 1
+
+[node name="ReadyLabel" type="Label" parent="MarginContainer/HBoxContainer/MatchSettings" unique_id=328831068]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rdc6u")
+text = "Ready"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="StartLabel" type="Label" parent="MarginContainer/HBoxContainer/MatchSettings" unique_id=187712794]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rdc6u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_abhfv")
+text = "Press A To Start"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameModeTitle" type="Label" parent="MarginContainer/HBoxContainer/MatchSettings" unique_id=1015046055]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rdc6u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_abhfv")
+text = "Game Mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameModeValue" type="Label" parent="MarginContainer/HBoxContainer/MatchSettings" unique_id=455663226]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_ol3uw")
+text = "Push"
+horizontal_alignment = 1
+
+[node name="ArenaTitle" type="Label" parent="MarginContainer/HBoxContainer/MatchSettings" unique_id=1966482033]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rdc6u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_abhfv")
+text = "Arena"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ArenaValue" type="Label" parent="MarginContainer/HBoxContainer/MatchSettings" unique_id=1197214863]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_7dofm")
+text = "GrassLands"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Label" parent="MarginContainer/HBoxContainer/MatchSettings" unique_id=363309391]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_rdc6u")
+theme_override_styles/focus = SubResource("StyleBoxFlat_abhfv")
+text = "Press B to return"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BlueTeamPanel" type="Panel" parent="MarginContainer/HBoxContainer" unique_id=878685442]
+custom_minimum_size = Vector2(550, 350)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_204q6")
+
+[node name="BlueTeamLabel" type="Label" parent="MarginContainer/HBoxContainer/BlueTeamPanel" unique_id=361911958]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -76.0
+offset_top = -63.0
+offset_right = 76.0
+offset_bottom = -21.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_asfx0")
+text = "Blue Team"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/HBoxContainer/BlueTeamPanel" unique_id=1483506613]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 140
+theme_override_constants/v_separation = 200
+columns = 4
+
+[node name="PlayerSlotView" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=1020893920 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView2" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=200228765 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView3" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=1679976365 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView4" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=1397572409 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView5" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=1845510052 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView6" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=1018630753 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView7" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=1975553542 instance=ExtResource("3_1jwan")]
+layout_mode = 2
+
+[node name="PlayerSlotView8" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=713373874 instance=ExtResource("3_1jwan")]
+layout_mode = 2

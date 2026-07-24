@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://csy0xbsyb7d8w"]
+
+[ext_resource type="Script" uid="uid://c2wxsuiehqi3c" path="res://Menus/LobbyMenu/player_slot_view.gd" id="1_anbv7"]
+[ext_resource type="Texture2D" uid="uid://6v3a60c4hd3y" path="res://Assets/Sprites/Player/Player.png" id="2_m8c7t"]
+[ext_resource type="Texture2D" uid="uid://c6ejci7k4nklb" path="res://Assets/Sprites/Player/PlayerColor.png" id="3_nycmo"]
+[ext_resource type="Texture2D" uid="uid://drhkn4bj2ml1n" path="res://Assets/Sprites/Weapons/Gun2.png" id="4_3utfv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3ow8"]
+bg_color = Color(0, 0, 0, 0.47058824)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqfvk"]
+bg_color = Color(0, 0, 0, 0.5137255)
+
+[node name="PlayerSlotView" type="Control" unique_id=197385380 node_paths=PackedStringArray("character_name_label", "ready_label", "controller_label", "character_weapon_icon", "color_icon")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_anbv7")
+character_name_label = NodePath("VBoxContainer/CharacterNameLabel")
+ready_label = NodePath("VBoxContainer/ReadyLabel")
+controller_label = NodePath("VBoxContainer/ControllerLabel")
+character_weapon_icon = NodePath("WeaponIcon")
+color_icon = NodePath("ColorIcon")
+
+[node name="PlayerIcon" type="TextureRect" parent="." unique_id=1552485021]
+texture_filter = 1
+layout_mode = 0
+offset_top = 6.0
+offset_right = 100.0
+offset_bottom = 106.0
+texture = ExtResource("2_m8c7t")
+
+[node name="ColorIcon" type="TextureRect" parent="." unique_id=54648288]
+texture_filter = 1
+layout_mode = 0
+offset_top = 6.0
+offset_right = 100.0
+offset_bottom = 106.0
+texture = ExtResource("3_nycmo")
+
+[node name="WeaponIcon" type="TextureRect" parent="." unique_id=1692758112]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 88.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_3utfv")
+expand_mode = 1
+flip_h = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=763466529]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 140.0
+
+[node name="ReadyLabel" type="Label" parent="VBoxContainer" unique_id=1818108958]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_l3ow8")
+text = "Ready"
+
+[node name="ControllerLabel" type="Label" parent="VBoxContainer" unique_id=1177631887]
+layout_mode = 2
+text = "Device 1"
+
+[node name="CharacterNameLabel" type="Label" parent="VBoxContainer" unique_id=1754169753]
+layout_mode = 2
+text = "Mr. pooper"
+
+[node name="Press Start" type="Button" parent="VBoxContainer" unique_id=1411120428]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_nqfvk")
+text = "Press Start"
