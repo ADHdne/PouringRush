@@ -134,6 +134,28 @@ func refresh_lobby():
 	update_host_state()
 	update_lobby()
 
+# a check player slot uses to check if character is free before toggeling ready
+func can_ready(slot: PlayerSlot) -> bool:
+
+	for other_slot in player_slots:
+
+		if other_slot == slot:
+			continue
+
+		if !other_slot.has_player():
+			continue
+
+		if !other_slot.player_config.ready:
+			continue
+
+		if other_slot.player_config.team != slot.player_config.team:
+			continue
+
+		if other_slot.player_config.character_data == slot.player_config.character_data:
+			return false
+
+	return true
+
 
 # ------------------------
 # Match settings

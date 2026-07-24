@@ -177,8 +177,18 @@ func toggle_ready():
 
 	if !joined:
 		return
-
-	player_config.ready = !player_config.ready
+	
+	# turn of ready if ready
+	if player_config.ready:
+		player_config.ready = false
+	
+	# can onnly ready if player is not taken
+	else:
+		if !lobby.can_ready(self):
+			SoundManager.deny.play()
+			return
+		
+		player_config.ready = true
 
 	update_ui()
 
