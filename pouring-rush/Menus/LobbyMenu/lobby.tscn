@@ -8,9 +8,11 @@
 script = ExtResource("1_ty013")
 player_slots = [NodePath("PlayerSlot"), NodePath("PlayerSlot2"), NodePath("PlayerSlot3"), NodePath("PlayerSlot4"), NodePath("PlayerSlot5"), NodePath("PlayerSlot6"), NodePath("PlayerSlot7"), NodePath("PlayerSlot8")]
 
-[node name="LobbyView" parent="." unique_id=1649470640 instance=ExtResource("2_ty013")]
+[node name="LobbyView" parent="." unique_id=1649470640 node_paths=PackedStringArray("player_slot_views") instance=ExtResource("2_ty013")]
+player_slot_views = [NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView2"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView3"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView4"), null, null, null, null, NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView2"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView3"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView4"), null, null, null, null]
 
-[node name="LobbyView2" parent="." unique_id=139977609 instance=ExtResource("2_ty013")]
+[node name="LobbyView2" parent="." unique_id=139977609 node_paths=PackedStringArray("player_slot_views") instance=ExtResource("2_ty013")]
+player_slot_views = [NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView2"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView3"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView4"), null, null, null, null, NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView2"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView3"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView4"), null, null, null, null]
 
 [node name="PlayerSlot" parent="." unique_id=180375567 instance=ExtResource("3_rbr0f")]
 

@@ -24,9 +24,9 @@ var arenas : Array[PackedScene] = [
 
 
 var game_modes : Array[PackedScene] = [
-	preload("res://GameModes/Stock/stock_mode.tscn"),
 	preload("res://GameModes/Push/push_mode.tscn"),
-	preload("res://GameModes/Control/control_mode.tscn")
+	preload("res://GameModes/Control/control_mode.tscn"),
+	preload("res://GameModes/Stock/stock_mode.tscn")
 ]
 
 
