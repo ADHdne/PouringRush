@@ -248,4 +248,12 @@ func _input(event):
 		previous_color()
 	
 	if event.is_action_pressed("Start"):
+
+	# Host is already in match settings,
+	# don't let the slot consume Start anymore.
+		if controller_id == lobby.host_id:
+			if lobby.host_state == LobbyManager.HostState.MATCH_SETTINGS:
+				return
+
 		toggle_ready()
+		get_viewport().set_input_as_handled()

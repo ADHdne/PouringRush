@@ -2,18 +2,20 @@ extends Control
 class_name LobbyView
 
 
-@export var red_team_container:GridContainer
-@export var blue_team_container:GridContainer
+@export var red_team_container : GridContainer
+@export var blue_team_container : GridContainer
 
 
-@export var game_mode_label:Label
-@export var arena_label:Label
+@export var game_mode_label : Label
+@export var arena_label : Label
 
-@export var ready_label:Label
-@export var start_label:Label
+@export var ready_label : Label
+@export var start_label : Label
+
+@export var bottom_text_label : Label
 
 
-@export var player_slot_views:Array[PlayerSlotView]
+@export var player_slot_views : Array[PlayerSlotView]
 
 
 var lobby : LobbyManager
@@ -118,7 +120,7 @@ func update_status():
 
 
 
-	ready_label.text = str(count)+" Players Ready"
+	ready_label.text = str(count)+" Players"
 
 
 

@@ -81,7 +81,16 @@ expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 11.0
 
-[node name="LobbyView" type="Control" unique_id=1649470640 node_paths=PackedStringArray("red_team_container", "blue_team_container", "game_mode_label", "arena_label", "ready_label", "start_label", "player_slot_views") groups=["LobbyView"]]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1jwan"]
+bg_color = Color(0.42714554, 0.42237985, 0.37926188, 1)
+corner_radius_top_left = 17
+corner_radius_top_right = 17
+corner_radius_bottom_right = 17
+corner_radius_bottom_left = 17
+shadow_size = 5
+shadow_offset = Vector2(0, 3.4)
+
+[node name="LobbyView" type="Control" unique_id=1649470640 node_paths=PackedStringArray("red_team_container", "blue_team_container", "game_mode_label", "arena_label", "ready_label", "start_label", "bottom_text_label", "player_slot_views") groups=["LobbyView"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -96,6 +105,7 @@ game_mode_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/GameMode
 arena_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/ArenaValue")
 ready_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/ReadyLabel")
 start_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/StartLabel")
+bottom_text_label = NodePath("BottomText")
 player_slot_views = [NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView2"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView3"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView4"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView2"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView3"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView4")]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=154979127]
@@ -316,3 +326,22 @@ layout_mode = 2
 
 [node name="PlayerSlotView4" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=1397572409 instance=ExtResource("3_1jwan")]
 layout_mode = 2
+
+[node name="BottomText" type="Label" parent="." unique_id=1400817643]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -248.0
+offset_right = 250.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_1jwan")
+horizontal_alignment = 1
+vertical_alignment = 1
