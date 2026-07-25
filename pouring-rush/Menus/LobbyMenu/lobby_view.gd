@@ -13,7 +13,7 @@ class_name LobbyView
 @export var start_label:Label
 
 
-@export var player_slot_views:Array[PlayerSlot]
+@export var player_slot_views:Array[PlayerSlotView]
 
 
 var lobby : LobbyManager

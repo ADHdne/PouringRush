@@ -186,3 +186,25 @@ func toggle_ready():
 
 	ready_changed.emit()
 	changed.emit()
+
+
+# --------------------
+# Input
+# --------------------
+
+func _input(event):
+
+	if !has_player():
+		return
+
+	if event.device != controller_id:
+		return
+
+	if event.is_action_pressed("D-Pad Right"):
+		swap_team()
+
+	if event.is_action_pressed("D-Pad Up"):
+		next_character()
+
+	if event.is_action_pressed("Start"):
+		toggle_ready()

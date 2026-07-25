@@ -6,6 +6,7 @@ signal lobby_changed
 
 
 @export var player_slots : Array[PlayerSlot]
+@export var lobby_views : Array[LobbyView]
 
 
 const MAX_PLAYERS := 8
@@ -40,6 +41,11 @@ var host_state : HostState = HostState.PLAYER_SETUP
 
 func _ready():
 
+	for view in get_tree().get_nodes_in_group("LobbyView"):
+
+		view.setup(self)
+
+	
 	for slot in player_slots:
 
 		slot.lobby = self
@@ -55,7 +61,7 @@ func _ready():
 
 		slot.changed.connect(refresh)
 
-
+	
 
 	refresh()
 
@@ -330,3 +336,54 @@ func start_match():
 
 
 	GameManager.start_match()
+	
+	
+# -------------------------
+# Helper Functions
+# -------------------------
+
+func get_players() -> Array[PlayerSlot]:
+
+	return player_slots
+
+
+func get_player_count()->int:
+
+	var count := 0
+
+	for slot in player_slots:
+
+		if slot.has_player():
+			count += 1
+
+	return count
+
+
+func _unhandled_input(event):
+
+	# Join
+	if event.is_action_pressed("Start"):
+		if !player_has_joined(event.device):
+			add_player(event.device)
+			return
+
+	if event.device != host_id:
+		return
+
+	if host_state != HostState.MATCH_SETTINGS:
+		return
+
+	if event.is_action_pressed("D-Pad Right"):
+		next_game_mode()
+
+	if event.is_action_pressed("D-Pad Left"):
+		previous_game_mode()
+
+	if event.is_action_pressed("D-Pad Up"):
+		next_arena()
+
+	if event.is_action_pressed("D-Pad Down"):
+		previous_arena()
+
+	if event.is_action_pressed("Start"):
+		start_match()

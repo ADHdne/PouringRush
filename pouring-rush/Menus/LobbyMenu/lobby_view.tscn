@@ -81,11 +81,14 @@ expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 11.0
 
-[node name="LobbyView" type="Control" unique_id=1649470640 node_paths=PackedStringArray("red_team_container", "blue_team_container", "game_mode_label", "arena_label", "ready_label", "start_label", "player_slot_views")]
+[node name="LobbyView" type="Control" unique_id=1649470640 node_paths=PackedStringArray("red_team_container", "blue_team_container", "game_mode_label", "arena_label", "ready_label", "start_label", "player_slot_views") groups=["LobbyView"]]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
 script = ExtResource("1_e48w0")
 red_team_container = NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer")
 blue_team_container = NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer")
@@ -93,7 +96,7 @@ game_mode_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/GameMode
 arena_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/ArenaValue")
 ready_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/ReadyLabel")
 start_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/StartLabel")
-player_slot_views = [null, null]
+player_slot_views = [NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView2"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView3"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView4"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView5"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView6"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView7"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView8"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView2"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView3"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView4"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView5"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView6"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView7"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView8")]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=154979127]
 layout_mode = 1
@@ -118,25 +121,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_top = 88.0
-offset_right = 20.0
-offset_bottom = 111.0
+offset_left = -23.5
+offset_top = 149.0
+offset_right = 23.5
+offset_bottom = 172.0
 grow_horizontal = 2
 text = "Lobby"
-
-[node name="ReadyLabel" type="Label" parent="." unique_id=1998968556]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -23.0
-offset_right = 20.0
-grow_horizontal = 2
-grow_vertical = 0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=1207194382]
 layout_mode = 1
