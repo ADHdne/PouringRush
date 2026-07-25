@@ -145,6 +145,20 @@ func next_color():
 	changed.emit()
 
 
+func previous_color():
+	if !joined:
+		return
+
+	if player_config.ready:
+		return
+	
+	player_config.color_index -= 1
+	
+	if player_config.color_index < 0:
+		player_config.color_index = 8
+	
+	changed.emit()
+
 # --------------------
 # Team
 # --------------------
@@ -229,6 +243,9 @@ func _input(event):
 	
 	if event.is_action_pressed("Attack"):
 		next_color()
+	
+	if event.is_action_pressed("Jump"):
+		previous_color()
 	
 	if event.is_action_pressed("Start"):
 		toggle_ready()
