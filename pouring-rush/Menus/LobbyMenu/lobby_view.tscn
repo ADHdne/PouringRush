@@ -96,7 +96,7 @@ game_mode_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/GameMode
 arena_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/ArenaValue")
 ready_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/ReadyLabel")
 start_label = NodePath("MarginContainer/HBoxContainer/MatchSettings/StartLabel")
-player_slot_views = [NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView2"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView3"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView4"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView5"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView6"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView7"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView8"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView2"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView3"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView4"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView5"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView6"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView7"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView8")]
+player_slot_views = [NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView2"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView3"), NodePath("MarginContainer/HBoxContainer/RedTeamPanel/GridContainer/PlayerSlotView4"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView2"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView3"), NodePath("MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer/PlayerSlotView4")]
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=154979127]
 layout_mode = 1
@@ -193,18 +193,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="PlayerSlotView4" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=1715791576 instance=ExtResource("3_1jwan")]
-layout_mode = 2
-
-[node name="PlayerSlotView5" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=1334728084 instance=ExtResource("3_1jwan")]
-layout_mode = 2
-
-[node name="PlayerSlotView6" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=254428379 instance=ExtResource("3_1jwan")]
-layout_mode = 2
-
-[node name="PlayerSlotView7" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=575545140 instance=ExtResource("3_1jwan")]
-layout_mode = 2
-
-[node name="PlayerSlotView8" parent="MarginContainer/HBoxContainer/RedTeamPanel/GridContainer" unique_id=1567615020 instance=ExtResource("3_1jwan")]
 layout_mode = 2
 
 [node name="MatchSettings" type="VBoxContainer" parent="MarginContainer/HBoxContainer" unique_id=2042043699]
@@ -327,16 +315,4 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="PlayerSlotView4" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=1397572409 instance=ExtResource("3_1jwan")]
-layout_mode = 2
-
-[node name="PlayerSlotView5" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=1845510052 instance=ExtResource("3_1jwan")]
-layout_mode = 2
-
-[node name="PlayerSlotView6" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=1018630753 instance=ExtResource("3_1jwan")]
-layout_mode = 2
-
-[node name="PlayerSlotView7" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=1975553542 instance=ExtResource("3_1jwan")]
-layout_mode = 2
-
-[node name="PlayerSlotView8" parent="MarginContainer/HBoxContainer/BlueTeamPanel/GridContainer" unique_id=713373874 instance=ExtResource("3_1jwan")]
 layout_mode = 2
