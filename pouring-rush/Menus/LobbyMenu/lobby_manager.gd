@@ -317,13 +317,13 @@ func start_match():
 	match selected_game_mode:
 
 		0:
-			config.game_mode_type = SelectedMode.Mode.STOCK
-
-		1:
 			config.game_mode_type = SelectedMode.Mode.PUSH
 
-		2:
+		1:
 			config.game_mode_type = SelectedMode.Mode.CONTROL
+
+		2:
+			config.game_mode_type = SelectedMode.Mode.STOCK
 
 
 
