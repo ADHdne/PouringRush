@@ -126,6 +126,24 @@ func previous_character():
 	changed.emit()
 
 
+# --------------------
+# Color
+# --------------------
+
+func next_color():
+	if !joined:
+		return
+
+	if player_config.ready:
+		return
+	
+	player_config.color_index += 1
+	
+	if player_config.color_index > 8:
+		player_config.color_index = 0
+	
+	changed.emit()
+
 
 # --------------------
 # Team
@@ -208,6 +226,9 @@ func _input(event):
 	
 	if event.is_action_pressed("D-Pad Down"):
 		previous_character()
+	
+	if event.is_action_pressed("Attack"):
+		next_color()
 	
 	if event.is_action_pressed("Start"):
 		toggle_ready()
