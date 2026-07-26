@@ -286,7 +286,7 @@ func can_start_match()->bool:
 
 
 
-	return count >= 2
+	return count >= 1
 
 
 
@@ -387,3 +387,7 @@ func _unhandled_input(event):
 
 	if event.is_action_pressed("Start"):
 		start_match()
+	
+	# should have a safer go back option
+	if event.is_action_pressed("Utility"):
+		get_tree().change_scene_to_file("res://Menus/MainMenu/main_menu.tscn")
