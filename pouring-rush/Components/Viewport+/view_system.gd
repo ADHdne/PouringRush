@@ -5,16 +5,16 @@ class_name ViewSystem
 @onready var blue_window: Window = $BlueWindow
 
 
-@onready var red_camera: TeamCamera = $RedCamera
-@onready var blue_camera: TeamCamera = $BlueWindow/SubViewport/BlueCamera
+@export var red_camera : TeamCamera
+@export var blue_camera : TeamCamera
 
 
 @export var red_match_ui : CanvasLayer
 @export var blue_match_ui : CanvasLayer
 
 
-@onready var sub_viewport: SubViewport = $BlueWindow/SubViewport
-@onready var texture_rect: TextureRect = $BlueWindow/TextureRect
+@export var sub_viewport : SubViewport
+@export var texture_rect : TextureRect
 
 @export var red_pause_menu: PauseMenu
 @export var blue_pause_menu: PauseMenu
@@ -26,19 +26,17 @@ class_name ViewSystem
 @export var blue_victory : EndScreen
 
 
-var world : World
-
 
 func _ready() -> void:
+	red_camera.enabled = false
+	blue_camera.enabled = false
+	
 	
 	setup_windows()
 
 
 	# called in match manager
-func initialize(match_manager : MatchManager, world : World, red_zone : TeamZone, blue_zone : TeamZone, players : Array[Player]):
-	
-	red_camera.target_zone = red_zone
-	blue_camera.target_zone = blue_zone
+func initialize(match_manager : MatchManager, match_scene : MatchScene, red_zone : TeamZone, blue_zone : TeamZone, players : Array[Player]):
 	
 	
 	set_ui()
@@ -46,23 +44,29 @@ func initialize(match_manager : MatchManager, world : World, red_zone : TeamZone
 	red_match_ui.initialize(players, match_manager, red_pause_menu)
 	blue_match_ui.initialize(players, match_manager, blue_pause_menu)
 	
-	self.world = world
+	var world = match_scene.world
 	
-	set_world(world)
+	set_world(world, red_zone, blue_zone)
 
 
 
-func set_world(world : World):
+func set_world(world : World, red_zone : TeamZone, blue_zone : TeamZone):
 	
 	var shared_world = world.get_viewport().world_2d
+
 	
 	sub_viewport.world_2d = shared_world
 	
 	red_camera.make_current()
 	blue_camera.make_current()
 	
+	red_camera.enabled = true
+	blue_camera.enabled = true
+	
 	texture_rect.texture = sub_viewport.get_texture()
 
+	red_camera.target_zone = red_zone
+	blue_camera.target_zone = blue_zone
 
 func set_ui():
 	red_match_ui.team = Team.type.RED
@@ -82,13 +86,15 @@ func setup_windows():
 		get_window().mode = Window.MODE_FULLSCREEN
 	
 
+func deactivate_bars():
+	red_match_ui.deactivate_bars()
+	blue_match_ui.deactivate_bars()
 
 
 
-
-
-
-
+#-------------------------------------
+# Activating and deactivating the different stages of the game
+#----------------------------------
 
 func show_main_menu():
 

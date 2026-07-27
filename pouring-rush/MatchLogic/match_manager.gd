@@ -7,6 +7,7 @@ class_name MatchManager
 @export var player_scene : PackedScene
 @export var team_zone_scene: PackedScene
 
+
 var match_config = MatchConfig
 
 var view_system : ViewSystem
@@ -33,22 +34,23 @@ var match_in_progress : bool = false
 func _ready():
 	process_mode = Node.PROCESS_MODE_ALWAYS
 
-# this gets called from match_scene
-func initialize(match_config : MatchConfig, world : World, view_system : ViewSystem):
+# this gets called from game_root
+func initialize(match_config : MatchConfig, match_scene : MatchScene, view_system : ViewSystem):
 	
 	self.match_config = match_config
-	self.players_root = world.players_root
+	players_root = match_scene.world.players_root
 	self.view_system = view_system
 	
-	load_arena(world.arena_root)
+	load_arena(match_scene.world.arena_root)
 	spawn_team_zones()
+	
 	get_team_bases()
 	spawn_players()
 	set_team()
-	load_game_mode(world.game_mode_root)
+	load_game_mode(match_scene.world.game_mode_root)
 	
 	
-	view_system.initialize(self, world, red_zone, blue_zone, players)
+	view_system.initialize(self, match_scene, red_zone, blue_zone, players)
 	
 	match match_config.game_mode_type:
 		SelectedMode.Mode.PUSH:
@@ -62,10 +64,11 @@ func initialize(match_config : MatchConfig, world : World, view_system : ViewSys
 	start_match()
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Start") and not is_paused:
-		pause()
-	elif event.is_action_pressed("Start") and is_paused:
-		unpause()
+	if match_in_progress:
+		if event.is_action_pressed("Start") and not is_paused:
+			pause()
+		elif event.is_action_pressed("Start") and is_paused:
+			unpause()
 
 
 

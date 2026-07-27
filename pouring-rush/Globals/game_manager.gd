@@ -12,6 +12,7 @@ var VIEWSYSTEM = "res://Components/Viewport+/view_system.tscn"
 var game_root : GameRoot
 
 
+
 # Match variables
 var match_config : MatchConfig
 
@@ -30,7 +31,7 @@ func load_lobby():
 	game_root.show_lobby()
 
 func start_match():
-	get_tree().change_scene_to_file(MATCHSCENE)
+	game_root.start_match()
 
 func match_ended():
 	game_root.show_victory()
