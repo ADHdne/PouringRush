@@ -116,4 +116,7 @@ func end_game(str : String):
 	end_scene.end_game(str)
 	
 	end_scene.show()
+
+func deactivate_bars():
+	capture_bar.visible = false
 	

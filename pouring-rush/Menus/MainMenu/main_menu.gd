@@ -18,7 +18,7 @@ func _on_host_game_button_pressed() -> void:
 	SoundManager.confirm.play()
 	
 	# opening lobby
-	get_tree().change_scene_to_file("res://Menus/LobbyMenu/lobby.tscn")
+	GameManager.load_lobby()
 
 func _on_join_game_pressed() -> void:
 	SoundManager.confirm.play()

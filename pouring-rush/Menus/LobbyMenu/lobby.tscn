@@ -1,14 +1,11 @@
 [gd_scene format=3 uid="uid://cnr0d5c4e7mj4"]
 
 [ext_resource type="Script" uid="uid://cg5050mpfumd6" path="res://Menus/LobbyMenu/lobby_manager.gd" id="1_ty013"]
-[ext_resource type="PackedScene" uid="uid://biaw23k8j2edy" path="res://Menus/LobbyMenu/lobby_view.tscn" id="2_ty013"]
 [ext_resource type="PackedScene" uid="uid://ckvjar50p1lsy" path="res://Menus/LobbyMenu/player_slot.tscn" id="3_rbr0f"]
 
 [node name="Lobby" type="Node" unique_id=1033677992 node_paths=PackedStringArray("player_slots")]
 script = ExtResource("1_ty013")
 player_slots = [NodePath("PlayerSlot"), NodePath("PlayerSlot2"), NodePath("PlayerSlot3"), NodePath("PlayerSlot4"), NodePath("PlayerSlot5"), NodePath("PlayerSlot6"), NodePath("PlayerSlot7"), NodePath("PlayerSlot8")]
-
-[node name="LobbyView" parent="." unique_id=1649470640 instance=ExtResource("2_ty013")]
 
 [node name="PlayerSlot" parent="." unique_id=180375567 instance=ExtResource("3_rbr0f")]
 

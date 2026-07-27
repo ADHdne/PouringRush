@@ -390,4 +390,4 @@ func _unhandled_input(event):
 	
 	# should have a safer go back option
 	if event.is_action_pressed("Utility"):
-		get_tree().change_scene_to_file("res://Menus/MainMenu/main_menu.tscn")
+		GameManager.load_main_menu()

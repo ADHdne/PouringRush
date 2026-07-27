@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c0ck8byr7a421"]
+
+[ext_resource type="Script" uid="uid://m8j0mmy8ukpa" path="res://GameRoot/game_root.gd" id="1_prtjo"]
+[ext_resource type="PackedScene" uid="uid://be0hl4ltt0cyk" path="res://Components/Viewport+/view_system.tscn" id="2_pc124"]
+[ext_resource type="PackedScene" uid="uid://cnr0d5c4e7mj4" path="res://Menus/LobbyMenu/lobby.tscn" id="3_yx0wv"]
+[ext_resource type="PackedScene" uid="uid://crhyafy0tdaol" path="res://Menus/MainMenu/main_menu.tscn" id="4_yjbio"]
+
+[node name="GameRoot" type="Node" unique_id=559131310 node_paths=PackedStringArray("main_menu", "view_system")]
+script = ExtResource("1_prtjo")
+main_menu = NodePath("MainMenue")
+view_system = NodePath("ViewSystem")
+
+[node name="ViewSystem" parent="." unique_id=1875535046 instance=ExtResource("2_pc124")]
+
+[node name="MainMenue" parent="." unique_id=898228504 instance=ExtResource("4_yjbio")]
+size_flags_horizontal = 4
+
+[node name="Lobby" parent="." unique_id=1033677992 instance=ExtResource("3_yx0wv")]

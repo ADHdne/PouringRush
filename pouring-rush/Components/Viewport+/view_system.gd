@@ -9,8 +9,8 @@ class_name ViewSystem
 @onready var blue_camera: TeamCamera = $BlueWindow/SubViewport/BlueCamera
 
 
-@onready var red_match_ui: MatchUI = $RedMatchUI
-@onready var blue_match_ui: MatchUI = $BlueWindow/SubViewport/BlueMatchUI
+@export var red_match_ui : CanvasLayer
+@export var blue_match_ui : CanvasLayer
 
 
 @onready var sub_viewport: SubViewport = $BlueWindow/SubViewport
@@ -18,6 +18,12 @@ class_name ViewSystem
 
 @export var red_pause_menu: PauseMenu
 @export var blue_pause_menu: PauseMenu
+
+@export var red_lobby : LobbyView
+@export var blue_lobby : LobbyView
+
+@export var red_victory : EndScreen
+@export var blue_victory : EndScreen
 
 
 var world : World
@@ -75,7 +81,70 @@ func setup_windows():
 		get_window().current_screen = 0
 		get_window().mode = Window.MODE_FULLSCREEN
 	
-func deactivate_bars():
-	red_match_ui.capture_bar.visible = false
 
-	blue_match_ui.capture_bar.visible = false
+
+
+
+
+
+
+
+
+func show_main_menu():
+
+	hide_all()
+
+
+
+func show_lobby():
+
+	red_lobby.show()
+	blue_lobby.show()
+
+	red_match_ui.hide()
+	blue_match_ui.hide()
+
+	red_victory.hide()
+	blue_victory.hide()
+
+
+
+func show_match():
+
+	red_lobby.hide()
+	blue_lobby.hide()
+
+	red_match_ui.show()
+	blue_match_ui.show()
+
+	red_victory.hide()
+	blue_victory.hide()
+
+
+
+func show_victory():
+
+	red_lobby.hide()
+	blue_lobby.hide()
+
+	red_match_ui.hide()
+	blue_match_ui.hide()
+
+	red_victory.show()
+	blue_victory.show()
+
+
+
+func hide_all():
+
+	red_lobby.hide()
+	blue_lobby.hide()
+
+	red_match_ui.hide()
+	blue_match_ui.hide()
+
+	red_pause_menu.hide()
+	blue_pause_menu.hide()
+
+	red_victory.hide()
+	blue_victory.hide()

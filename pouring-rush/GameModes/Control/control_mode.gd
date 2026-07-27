@@ -18,7 +18,7 @@ var control_time : float = 5
 var red_score : float
 var blue_score : float
 
-var winning_amount : int = 420
+var winning_amount : int = 10
 
 func _ready() -> void:
 	pass

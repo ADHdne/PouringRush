@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="PouringRush"
-run/main_scene="uid://crhyafy0tdaol"
+run/main_scene="uid://c0ck8byr7a421"
 config/features=PackedStringArray("4.6", "Mobile")
 boot_splash/image="uid://d03qtt4hl0g1c"
 config/icon="uid://d03qtt4hl0g1c"

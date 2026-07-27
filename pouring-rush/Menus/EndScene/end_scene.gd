@@ -23,7 +23,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if match_ended:
 		if event.is_action_pressed("Start"):
-			get_tree().change_scene_to_file("res://main_menu/main_menu.tscn")
+			GameManager.load_main_menu()
 
 
 func end_game(winning_team : String):
