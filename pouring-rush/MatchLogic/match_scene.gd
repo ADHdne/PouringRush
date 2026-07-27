@@ -7,6 +7,9 @@ class_name MatchScene
 @onready var view_system: ViewSystem = $ViewSystem
 @onready var match_ui: MatchUI = $MatchUI
 
+@export var red_camera : TeamCamera
+@export var blue_camera : TeamCamera
+
 
 
 

@@ -24,16 +24,13 @@ var fullscreen : bool = false
 var winning_team : String # not being used
 
 func load_main_menu():
-	get_tree().change_scene_to_file(MAINMENU)
+	game_root.show_main_menu()
 
 func load_lobby():
-	get_tree().change_scene_to_file(LOBBYSCENE)
+	game_root.show_lobby()
 
 func start_match():
 	get_tree().change_scene_to_file(MATCHSCENE)
 
 func match_ended():
-	print("going to end scene")
-
-func load_view_system():
-	get_tree().change_scene_to_file(VIEWSYSTEM)
+	game_root.show_victory()

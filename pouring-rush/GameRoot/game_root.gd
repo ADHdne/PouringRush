@@ -8,7 +8,8 @@ class_name GameRoot
 
 
 func _ready():
-
+	
+	GameManager.game_root = self
 	
 	show_main_menu()
 

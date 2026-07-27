@@ -13,6 +13,7 @@ view_system = NodePath("ViewSystem")
 [node name="ViewSystem" parent="." unique_id=1875535046 instance=ExtResource("2_pc124")]
 
 [node name="MainMenue" parent="." unique_id=898228504 instance=ExtResource("4_yjbio")]
+visible = false
 size_flags_horizontal = 4
 
 [node name="Lobby" parent="." unique_id=1033677992 instance=ExtResource("3_yx0wv")]
