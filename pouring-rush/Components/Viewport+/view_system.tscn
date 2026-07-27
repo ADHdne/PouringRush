@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c77vu2jh8bwaq" path="res://Components/Viewport+/view_system.gd" id="1_jn0iy"]
 [ext_resource type="PackedScene" uid="uid://d4b8s7w5jnw78" path="res://Components/CameraStuff/TeamCamera.tscn" id="2_esfgm"]
 [ext_resource type="PackedScene" uid="uid://bwr504uk4sydr" path="res://Components/UI/MatchUI.tscn" id="3_bhx3v"]
-[ext_resource type="PackedScene" uid="uid://bcp0ijokg4sd4" path="res://Components/PauseMenu/pause_menu.tscn" id="4_8seun"]
+[ext_resource type="PackedScene" uid="uid://bcp0ijokg4sd4" path="res://Menus/PauseMenu/pause_menu.tscn" id="4_8seun"]
 
 [node name="ViewSystem" type="Node" unique_id=1875535046 node_paths=PackedStringArray("red_pause_menu", "blue_pause_menu")]
 script = ExtResource("1_jn0iy")

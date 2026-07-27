@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://chsgqo2tr72xq"]
+
+[ext_resource type="Script" uid="uid://bedwqcnepvbbv" path="res://Components/Viewport+/screen_ui.gd" id="1_swwc6"]
+[ext_resource type="PackedScene" uid="uid://bwr504uk4sydr" path="res://Components/UI/MatchUI.tscn" id="2_eodin"]
+[ext_resource type="PackedScene" uid="uid://bcp0ijokg4sd4" path="res://Menus/PauseMenu/pause_menu.tscn" id="3_6ds7k"]
+[ext_resource type="PackedScene" uid="uid://biaw23k8j2edy" path="res://Menus/LobbyMenu/lobby_view.tscn" id="4_v0mx3"]
+
+[node name="ScreenUI" type="Control" unique_id=139463961 node_paths=PackedStringArray("match_ui", "lobby_view")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_swwc6")
+match_ui = NodePath("MatchUI")
+lobby_view = NodePath("LobbyView")
+
+[node name="MatchUI" parent="." unique_id=1478391526 instance=ExtResource("2_eodin")]
+
+[node name="PauseMenu" parent="MatchUI" unique_id=358262798 instance=ExtResource("3_6ds7k")]
+
+[node name="LobbyView" parent="." unique_id=1649470640 instance=ExtResource("4_v0mx3")]
+layout_mode = 1
