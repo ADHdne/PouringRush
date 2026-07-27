@@ -9,13 +9,13 @@
 [node name="ViewSystem" type="Node" unique_id=1875535046 node_paths=PackedStringArray("red_match_ui", "blue_match_ui", "red_pause_menu", "blue_pause_menu", "red_lobby", "blue_lobby", "red_victory", "blue_victory")]
 script = ExtResource("1_jn0iy")
 red_match_ui = NodePath("RedMatchUI")
-blue_match_ui = NodePath("BlueWindow/SubViewport/BlueMatchUI")
+blue_match_ui = NodePath("BlueWindow/SubViewportContainer/SubViewport/BlueMatchUI")
 red_pause_menu = NodePath("RedMatchUI/PauseMenu")
-blue_pause_menu = NodePath("BlueWindow/SubViewport/PauseMenu")
+blue_pause_menu = NodePath("BlueWindow/SubViewportContainer/SubViewport/PauseMenu")
 red_lobby = NodePath("LobbyViewRed")
-blue_lobby = NodePath("BlueWindow/SubViewport/LobbyViewBlue")
+blue_lobby = NodePath("BlueWindow/SubViewportContainer/SubViewport/LobbyViewBlue")
 red_victory = NodePath("EndSceneRed")
-blue_victory = NodePath("BlueWindow/SubViewport/EndSceneBlue")
+blue_victory = NodePath("BlueWindow/SubViewportContainer/SubViewport/EndSceneBlue")
 
 [node name="BlueWindow" type="Window" parent="." unique_id=325505694]
 oversampling_override = 1.0
@@ -24,7 +24,19 @@ current_screen = 0
 content_scale_mode = 1
 content_scale_aspect = 1
 
-[node name="ColorRect" type="ColorRect" parent="BlueWindow" unique_id=1227427378]
+[node name="SubViewportContainer" type="SubViewportContainer" parent="BlueWindow" unique_id=1532742225]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="BlueWindow/SubViewportContainer" unique_id=1563683374]
+size = Vector2i(100, 100)
+render_target_update_mode = 4
+
+[node name="ColorRectBorder" type="ColorRect" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=1227427378]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -32,17 +44,13 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="SubViewport" type="SubViewport" parent="BlueWindow" unique_id=1563683374]
-size = Vector2i(1920, 1080)
-render_target_update_mode = 4
+[node name="BlueMatchUI" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=1478391526 instance=ExtResource("3_bhx3v")]
 
-[node name="BlueMatchUI" parent="BlueWindow/SubViewport" unique_id=1478391526 instance=ExtResource("3_bhx3v")]
+[node name="PauseMenu" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=358262798 instance=ExtResource("4_8seun")]
 
-[node name="PauseMenu" parent="BlueWindow/SubViewport" unique_id=358262798 instance=ExtResource("4_8seun")]
+[node name="LobbyViewBlue" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=1649470640 instance=ExtResource("5_4dbld")]
 
-[node name="LobbyViewBlue" parent="BlueWindow/SubViewport" unique_id=1649470640 instance=ExtResource("5_4dbld")]
-
-[node name="EndSceneBlue" parent="BlueWindow/SubViewport" unique_id=1902025636 instance=ExtResource("6_gtah3")]
+[node name="EndSceneBlue" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=1902025636 instance=ExtResource("6_gtah3")]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=138134567]
 anchors_preset = 2
