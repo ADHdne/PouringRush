@@ -106,7 +106,9 @@ func show_main_menu():
 
 
 func show_lobby():
-
+	
+	hide_all()
+	
 	blue_window.position = DisplayServer.screen_get_position(1)
 	blue_window.size = DisplayServer.screen_get_size(1)
 

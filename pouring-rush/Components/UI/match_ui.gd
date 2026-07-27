@@ -107,6 +107,7 @@ func update_time(delta):
 func show_pause_menu(pause : PauseMenu):
 	pause_menu = pause
 
+
 func end_game(str : String):
 	
 	# hide non end scene
