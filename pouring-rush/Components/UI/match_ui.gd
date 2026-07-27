@@ -59,8 +59,9 @@ func initialize(players: Array[Player], match_manager : MatchManager, pause : Pa
 func _process(delta: float) -> void:
 	
 	if match_manager != null:
-		if not match_manager.game_mode.overtime:
-			update_time(delta)
+		if match_manager.match_in_progress:
+			if not match_manager.game_mode.overtime:
+				update_time(delta)
 
 func clear_icons():
 

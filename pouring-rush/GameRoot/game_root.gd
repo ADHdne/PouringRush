@@ -34,7 +34,14 @@ func show_lobby():
 
 	view_system.show_lobby()
 
-
+func return_to_lobby():
+	match_manager.end_match()
+	
+	if current_game != null:
+		for child in current_game.get_children():
+			child.queue_free()
+	
+	view_system.show_lobby()
 
 func start_match():
 

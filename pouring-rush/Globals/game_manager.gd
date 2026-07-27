@@ -35,3 +35,7 @@ func start_match():
 
 func match_ended():
 	game_root.show_victory()
+
+func return_to_lobby():
+	
+	game_root.return_to_lobby()
