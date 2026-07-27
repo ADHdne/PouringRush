@@ -63,12 +63,14 @@ func initialize(match_config : MatchConfig, match_scene : MatchScene, view_syste
 	game_mode.initialize(self)
 	start_match()
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if match_in_progress:
 		if event.is_action_pressed("Start") and not is_paused:
 			pause()
+			get_viewport().set_input_as_handled()
 		elif event.is_action_pressed("Start") and is_paused:
 			unpause()
+			get_viewport().set_input_as_handled()
 
 
 

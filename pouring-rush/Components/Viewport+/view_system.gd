@@ -26,6 +26,8 @@ class_name ViewSystem
 @export var blue_victory : EndScreen
 
 
+@export var color_background : ColorRect
+
 
 func _ready() -> void:
 	red_camera.enabled = false
@@ -99,10 +101,16 @@ func deactivate_bars():
 func show_main_menu():
 
 	hide_all()
+	color_background.show()
 
 
 
 func show_lobby():
+
+	blue_window.position = DisplayServer.screen_get_position(1)
+	blue_window.size = DisplayServer.screen_get_size(1)
+
+	blue_window.show()
 
 	red_lobby.show()
 	blue_lobby.show()
@@ -112,6 +120,10 @@ func show_lobby():
 
 	red_victory.hide()
 	blue_victory.hide()
+	
+	color_background.hide()
+	
+	
 
 
 
@@ -125,6 +137,8 @@ func show_match():
 
 	red_victory.hide()
 	blue_victory.hide()
+	
+	color_background.hide()
 
 
 
@@ -154,3 +168,5 @@ func hide_all():
 
 	red_victory.hide()
 	blue_victory.hide()
+	
+	color_background.hide()

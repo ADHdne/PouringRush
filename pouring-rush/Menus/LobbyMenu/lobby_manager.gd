@@ -389,5 +389,5 @@ func _unhandled_input(event):
 		start_match()
 	
 	# should have a safer go back option
-	if event.is_action_pressed("Utility"):
+	if event.is_action_pressed("Block"):
 		GameManager.load_main_menu()

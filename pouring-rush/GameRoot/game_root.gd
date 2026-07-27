@@ -37,6 +37,12 @@ func show_lobby():
 func return_to_lobby():
 	match_manager.end_match()
 	
+	view_system.red_camera.enabled = false
+	view_system.blue_camera.enabled = false
+	
+	view_system.red_pause_menu.hide()
+	view_system.blue_pause_menu.hide()
+	
 	if current_game != null:
 		for child in current_game.get_children():
 			child.queue_free()
@@ -44,7 +50,7 @@ func return_to_lobby():
 	view_system.show_lobby()
 
 func start_match():
-
+	
 	if current_game != null:
 		for child in current_game.get_children():
 			child.queue_free()

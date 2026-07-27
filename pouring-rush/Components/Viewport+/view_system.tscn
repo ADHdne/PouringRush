@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://biaw23k8j2edy" path="res://Menus/LobbyMenu/lobby_view.tscn" id="5_4dbld"]
 [ext_resource type="PackedScene" uid="uid://baayi1twijxjl" path="res://Menus/EndScene/EndScene.tscn" id="6_gtah3"]
 
-[node name="ViewSystem" type="Node" unique_id=1875535046 node_paths=PackedStringArray("red_camera", "blue_camera", "red_match_ui", "blue_match_ui", "sub_viewport", "texture_rect", "red_pause_menu", "blue_pause_menu", "red_lobby", "blue_lobby", "red_victory", "blue_victory")]
+[node name="ViewSystem" type="Node" unique_id=1875535046 node_paths=PackedStringArray("red_camera", "blue_camera", "red_match_ui", "blue_match_ui", "sub_viewport", "texture_rect", "red_pause_menu", "blue_pause_menu", "red_lobby", "blue_lobby", "red_victory", "blue_victory", "color_background")]
 script = ExtResource("1_jn0iy")
 red_camera = NodePath("RedCamera")
 blue_camera = NodePath("BlueWindow/SubViewportContainer/SubViewport/BlueCamera")
@@ -16,11 +16,12 @@ blue_match_ui = NodePath("BlueWindow/SubViewportContainer/SubViewport/BlueMatchU
 sub_viewport = NodePath("BlueWindow/SubViewportContainer/SubViewport")
 texture_rect = NodePath("TextureRect")
 red_pause_menu = NodePath("RedMatchUI/PauseMenu")
-blue_pause_menu = NodePath("BlueWindow/SubViewportContainer/SubViewport/PauseMenu")
+blue_pause_menu = NodePath("BlueWindow/SubViewportContainer/SubViewport/BlueMatchUI/PauseMenu")
 red_lobby = NodePath("LobbyViewRed")
 blue_lobby = NodePath("BlueWindow/SubViewportContainer/SubViewport/LobbyViewBlue")
 red_victory = NodePath("EndSceneRed")
 blue_victory = NodePath("BlueWindow/SubViewportContainer/SubViewport/EndSceneBlue")
+color_background = NodePath("BlueWindow/SubViewportContainer/SubViewport/ColorRectBorder")
 
 [node name="BlueWindow" type="Window" parent="." unique_id=325505694]
 oversampling_override = 1.0
@@ -43,6 +44,7 @@ size = Vector2i(100, 100)
 render_target_update_mode = 4
 
 [node name="ColorRectBorder" type="ColorRect" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=1227427378]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -52,7 +54,7 @@ color = Color(0, 0, 0, 1)
 
 [node name="BlueMatchUI" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=1478391526 instance=ExtResource("3_bhx3v")]
 
-[node name="PauseMenu" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=358262798 instance=ExtResource("4_8seun")]
+[node name="PauseMenu" parent="BlueWindow/SubViewportContainer/SubViewport/BlueMatchUI" unique_id=358262798 instance=ExtResource("4_8seun")]
 
 [node name="LobbyViewBlue" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=1649470640 instance=ExtResource("5_4dbld")]
 
