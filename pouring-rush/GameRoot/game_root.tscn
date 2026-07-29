@@ -7,11 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://crhyafy0tdaol" path="res://Menus/MainMenu/main_menu.tscn" id="4_yjbio"]
 [ext_resource type="PackedScene" uid="uid://bsyrujkhp2cnx" path="res://MatchLogic/match_manager.tscn" id="6_yx0wv"]
 
-[node name="GameRoot" type="Node" unique_id=559131310 node_paths=PackedStringArray("main_menu", "view_system", "current_game", "match_manager")]
+[node name="GameRoot" type="Node" unique_id=559131310 node_paths=PackedStringArray("main_menu", "view_system", "current_game", "lobby", "match_manager")]
 script = ExtResource("1_prtjo")
 main_menu = NodePath("MainMenue")
 view_system = NodePath("ViewSystem")
 current_game = NodePath("CurrentGame")
+lobby = NodePath("Lobby")
 match_manager = NodePath("MatchManager")
 match_scene = ExtResource("2_yx0wv")
 

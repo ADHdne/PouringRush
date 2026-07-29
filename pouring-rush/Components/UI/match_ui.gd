@@ -121,4 +121,11 @@ func end_game(str : String):
 
 func deactivate_bars():
 	capture_bar.visible = false
+
+
+func clear_for_match_end():
+	pause_menu = null
+	match_manager = null
 	
+	for c in h_box_container.get_children():
+		c.queue_free()

@@ -2,9 +2,10 @@ extends Node
 class_name GameRoot
 
 
-@export var main_menu : Control
+@export var main_menu : MainMenu
 @export var view_system : ViewSystem
 @export var current_game : Node
+@export var lobby : LobbyManager
 
 @export var match_manager : MatchManager
 
@@ -25,14 +26,20 @@ func show_main_menu():
 	main_menu.show()
 
 	view_system.show_main_menu()
+	
+	main_menu.open()
 
 
 
 func show_lobby():
-
+	
 	main_menu.hide()
-
+	
+	lobby.unready()
+	
 	view_system.show_lobby()
+
+
 
 func return_to_lobby():
 	match_manager.end_match()
@@ -46,6 +53,8 @@ func return_to_lobby():
 	if current_game != null:
 		for child in current_game.get_children():
 			child.queue_free()
+	
+	lobby.unready()
 	
 	view_system.show_lobby()
 

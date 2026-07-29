@@ -13,6 +13,9 @@ func _ready() -> void:
 	first_button.grab_focus()
 
 
+func open():
+	first_button.grab_focus()
+
 func _on_host_game_button_pressed() -> void:
 	# playing sound
 	SoundManager.confirm.play()

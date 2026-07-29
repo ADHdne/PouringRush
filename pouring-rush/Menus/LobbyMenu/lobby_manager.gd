@@ -359,6 +359,22 @@ func get_player_count()->int:
 	return count
 
 
+
+func unready():
+	
+	for slot in player_slots:
+		if slot.has_player():
+			slot.player_config.ready = false
+	
+	refresh()
+
+
+
+#-------------------------------------------------------
+# Handeling input
+#-------------------------------------------------------
+
+
 func _unhandled_input(event):
 
 	# Join

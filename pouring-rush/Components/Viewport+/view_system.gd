@@ -125,7 +125,8 @@ func show_lobby():
 	
 	color_background.hide()
 	
-	
+	red_match_ui.clear_for_match_end()
+	blue_match_ui.clear_for_match_end()
 
 
 
