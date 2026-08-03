@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cnhy1ewwjr0a0"]
+
+[ext_resource type="Script" uid="uid://d3c7ourtxeafw" path="res://Menus/PauseMenu/pause_controller.gd" id="1_odloi"]
+
+[node name="PauseController" type="Node" unique_id=1445261866]
+script = ExtResource("1_odloi")

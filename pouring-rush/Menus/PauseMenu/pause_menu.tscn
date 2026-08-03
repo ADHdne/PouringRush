@@ -126,7 +126,7 @@ _data = {
 &"RESET": SubResource("Animation_8xikt")
 }
 
-[node name="PauseMenu" type="Control" unique_id=358262798 node_paths=PackedStringArray("animation", "pause_window", "resume_button")]
+[node name="PauseMenu" type="Control" unique_id=358262798 node_paths=PackedStringArray("animation", "resume_button", "objective_button", "quit_button")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -136,8 +136,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_gvdwd")
 animation = NodePath("AnimationPlayer")
-pause_window = NodePath("PanelContainer/PauseWindow")
 resume_button = NodePath("PanelContainer/PauseWindow/Resume")
+objective_button = NodePath("PanelContainer/PauseWindow/Objective")
+quit_button = NodePath("PanelContainer/PauseWindow/QuitToMenu")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=7933295]
 material = SubResource("ShaderMaterial_3ammu")

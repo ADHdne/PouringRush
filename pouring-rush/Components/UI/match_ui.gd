@@ -127,5 +127,7 @@ func clear_for_match_end():
 	pause_menu = null
 	match_manager = null
 	
+	clear_icons()
+	
 	for c in h_box_container.get_children():
 		c.queue_free()

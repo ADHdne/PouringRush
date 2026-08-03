@@ -36,7 +36,6 @@ func _ready():
 
 # this gets called from game_root
 func initialize(match_config : MatchConfig, match_scene : MatchScene, view_system : ViewSystem):
-	
 	self.match_config = match_config
 	players_root = match_scene.world.players_root
 	self.view_system = view_system
@@ -215,13 +214,11 @@ func start_match():
 func pause():
 	match_timer.paused = true
 	is_paused = true
-	view_system.red_pause_menu.pause()
-	view_system.blue_pause_menu.pause()
+	view_system.pause_controller.toggle()
 
 func unpause():
 	match_timer.paused = false
-	view_system.red_pause_menu.resume()
-	view_system.blue_pause_menu.resume()
+	view_system.pause_controller.resume()
 	is_paused = false
 
 

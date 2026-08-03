@@ -16,6 +16,7 @@ class_name ViewSystem
 @export var sub_viewport : SubViewport
 @export var texture_rect : TextureRect
 
+@export var pause_controller : PauseController
 @export var red_pause_menu: PauseMenu
 @export var blue_pause_menu: PauseMenu
 
@@ -109,6 +110,9 @@ func show_lobby():
 	
 	hide_all()
 	
+	red_camera.enabled = false
+	blue_camera.enabled = false
+	
 	blue_window.position = DisplayServer.screen_get_position(1)
 	blue_window.size = DisplayServer.screen_get_size(1)
 
@@ -117,6 +121,9 @@ func show_lobby():
 	red_lobby.show()
 	blue_lobby.show()
 
+	red_match_ui.clear_for_match_end()
+	blue_match_ui.clear_for_match_end()
+	
 	red_match_ui.hide()
 	blue_match_ui.hide()
 
@@ -125,13 +132,14 @@ func show_lobby():
 	
 	color_background.hide()
 	
-	red_match_ui.clear_for_match_end()
-	blue_match_ui.clear_for_match_end()
 
 
 
 func show_match():
-
+	
+	red_camera.enabled = true
+	blue_camera.enabled = true
+	
 	red_lobby.hide()
 	blue_lobby.hide()
 

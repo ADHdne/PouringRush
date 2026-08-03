@@ -2,12 +2,13 @@
 
 [ext_resource type="Script" uid="uid://c77vu2jh8bwaq" path="res://Components/Viewport+/view_system.gd" id="1_jn0iy"]
 [ext_resource type="PackedScene" uid="uid://d4b8s7w5jnw78" path="res://Components/CameraStuff/TeamCamera.tscn" id="2_esfgm"]
+[ext_resource type="PackedScene" uid="uid://cnhy1ewwjr0a0" path="res://Menus/PauseMenu/pause_controller.tscn" id="2_w1fr5"]
 [ext_resource type="PackedScene" uid="uid://bwr504uk4sydr" path="res://Components/UI/MatchUI.tscn" id="3_bhx3v"]
 [ext_resource type="PackedScene" uid="uid://bcp0ijokg4sd4" path="res://Menus/PauseMenu/pause_menu.tscn" id="4_8seun"]
 [ext_resource type="PackedScene" uid="uid://biaw23k8j2edy" path="res://Menus/LobbyMenu/lobby_view.tscn" id="5_4dbld"]
 [ext_resource type="PackedScene" uid="uid://baayi1twijxjl" path="res://Menus/EndScene/EndScene.tscn" id="6_gtah3"]
 
-[node name="ViewSystem" type="Node" unique_id=1875535046 node_paths=PackedStringArray("red_camera", "blue_camera", "red_match_ui", "blue_match_ui", "sub_viewport", "texture_rect", "red_pause_menu", "blue_pause_menu", "red_lobby", "blue_lobby", "red_victory", "blue_victory", "color_background")]
+[node name="ViewSystem" type="Node" unique_id=1875535046 node_paths=PackedStringArray("red_camera", "blue_camera", "red_match_ui", "blue_match_ui", "sub_viewport", "texture_rect", "pause_controller", "red_pause_menu", "blue_pause_menu", "red_lobby", "blue_lobby", "red_victory", "blue_victory", "color_background")]
 script = ExtResource("1_jn0iy")
 red_camera = NodePath("RedCamera")
 blue_camera = NodePath("BlueWindow/SubViewportContainer/SubViewport/BlueCamera")
@@ -15,6 +16,7 @@ red_match_ui = NodePath("RedMatchUI")
 blue_match_ui = NodePath("BlueWindow/SubViewportContainer/SubViewport/BlueMatchUI")
 sub_viewport = NodePath("BlueWindow/SubViewportContainer/SubViewport")
 texture_rect = NodePath("TextureRect")
+pause_controller = NodePath("PauseController")
 red_pause_menu = NodePath("RedMatchUI/PauseMenu")
 blue_pause_menu = NodePath("BlueWindow/SubViewportContainer/SubViewport/BlueMatchUI/PauseMenu")
 red_lobby = NodePath("LobbyViewRed")
@@ -22,6 +24,11 @@ blue_lobby = NodePath("BlueWindow/SubViewportContainer/SubViewport/LobbyViewBlue
 red_victory = NodePath("EndSceneRed")
 blue_victory = NodePath("BlueWindow/SubViewportContainer/SubViewport/EndSceneBlue")
 color_background = NodePath("BlueWindow/SubViewportContainer/SubViewport/ColorRectBorder")
+
+[node name="PauseController" parent="." unique_id=1445261866 node_paths=PackedStringArray("red_menu", "blue_menu") instance=ExtResource("2_w1fr5")]
+process_mode = 3
+red_menu = NodePath("../RedMatchUI/PauseMenu")
+blue_menu = NodePath("../BlueWindow/SubViewportContainer/SubViewport/BlueMatchUI/PauseMenu")
 
 [node name="BlueWindow" type="Window" parent="." unique_id=325505694]
 oversampling_override = 1.0

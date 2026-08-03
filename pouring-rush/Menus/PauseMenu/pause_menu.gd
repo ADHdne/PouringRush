@@ -1,75 +1,47 @@
 extends Control
 class_name PauseMenu
 
-
-## references
 @export var animation : AnimationPlayer
-@export var pause_window : VBoxContainer
+
 @export var resume_button : Button
-@export var menu_open : bool = false
+@export var objective_button : Button
+@export var quit_button : Button
+
+@export var selected_color := Color.WHITE
+@export var normal_color := Color(0.7,0.7,0.7)
+
+var buttons : Array[Button]
 
 
-func _ready() -> void:
-	# grabs first buttons focus
-	resume_button.grab_focus()
-	
-	# removes it so it is not just invisible
+func _ready():
+
+	buttons = [
+		resume_button,
+		objective_button,
+		quit_button
+	]
+
 	hide()
-	get_tree().paused = false
+
 	animation.play("RESET")
 
 
-func resume():
-	
-	resume_button.grab_focus()
-	resume_button.release_focus()
-	get_tree().paused = false
-	animation.play_backwards("Blur")
-	SoundManager.menu_close.play()
-	
+func show_menu():
 
-func pause():
-	# adds visibility and moves it in front
-	pause_window.visible = true
-	
 	show()
 	move_to_front()
-	
-	resume_button.grab_focus()
-	get_tree().paused = true
 	animation.play("Blur")
-	SoundManager.menu_open.play()
 
 
-func _on_resume_pressed() -> void:
-	resume()
+func hide_menu():
+
+	hide()
 
 
-func _on_return_pressed() -> void:
-	SoundManager.confirm.play()
-	
-	pause_window.visible = true
-	resume_button.grab_focus()
-	
+func set_selection(index:int):
 
-func _on_quit_to_menu_pressed() -> void:
-	resume()
-	
-	# stop clock ticks sound if playing
-	SoundManager.clock_tick_fast.stop()
-	SoundManager.clock_tick_slow.stop()
-	
-	SoundManager.main_music.stop()
-	SoundManager.deny.play()
-	
-	await get_tree().create_timer(0.20).timeout
-	GameManager.return_to_lobby()
+	for i in buttons.size():
 
+		buttons[i].modulate = normal_color
 
-# making sound when button is focused
-func _on_focus_entered() -> void:
-	SoundManager.button.play(0.18)
-
-
-func _on_objective_pressed() -> void:
-	print("parrent: ", get_parent(), ", o pressed")
+	buttons[index].modulate = selected_color
