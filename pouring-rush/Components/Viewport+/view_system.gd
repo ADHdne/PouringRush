@@ -77,16 +77,16 @@ func set_ui():
 	
 
 func setup_windows():
+
+	get_window().current_screen = 0
+	get_window().position = DisplayServer.screen_get_position(0)
+	get_window().mode = Window.MODE_FULLSCREEN
+
 	if DisplayServer.get_screen_count() > 1:
 
-		blue_window.show()
-		await get_tree().process_frame
-
 		blue_window.current_screen = 1
+		blue_window.position = DisplayServer.screen_get_position(1)
 		blue_window.mode = Window.MODE_FULLSCREEN
-
-		get_window().current_screen = 0
-		get_window().mode = Window.MODE_FULLSCREEN
 	
 
 func deactivate_bars():
@@ -103,15 +103,21 @@ func show_main_menu():
 
 	hide_all()
 	color_background.show()
+	
+	GameManager.current_state = GameManager.State.MENU
 
 
 
 func show_lobby():
 	
 	hide_all()
+	GameManager.current_state = GameManager.State.LOBBY
 	
 	red_camera.enabled = false
 	blue_camera.enabled = false
+	
+	red_camera.position = Vector2.ZERO
+	blue_camera.position = Vector2.ZERO
 	
 	blue_window.position = DisplayServer.screen_get_position(1)
 	blue_window.size = DisplayServer.screen_get_size(1)
@@ -136,6 +142,8 @@ func show_lobby():
 
 
 func show_match():
+	
+	GameManager.current_state = GameManager.State.MATCH
 	
 	red_camera.enabled = true
 	blue_camera.enabled = true

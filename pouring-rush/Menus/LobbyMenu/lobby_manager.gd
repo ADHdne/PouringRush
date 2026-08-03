@@ -376,7 +376,9 @@ func unready():
 
 
 func _unhandled_input(event):
-
+	if GameManager.current_state != GameManager.State.LOBBY: # Only while in the lobby
+		return
+	
 	# Join
 	if event.is_action_pressed("Start"):
 		if !player_has_joined(event.device):

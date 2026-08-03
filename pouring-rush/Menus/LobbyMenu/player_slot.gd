@@ -225,7 +225,10 @@ func toggle_ready():
 # --------------------
 
 func _input(event):
-
+	
+	if GameManager.current_state != GameManager.State.LOBBY:
+		return
+	
 	if !has_player():
 		return
 

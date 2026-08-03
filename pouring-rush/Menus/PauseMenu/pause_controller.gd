@@ -69,6 +69,8 @@ func resume():
 
 
 func _input(event):
+	if GameManager.current_state != GameManager.State.MATCH:
+		return
 	
 	if !paused:
 		return

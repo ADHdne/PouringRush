@@ -11,7 +11,12 @@ var VIEWSYSTEM = "res://Components/Viewport+/view_system.tscn"
 
 var game_root : GameRoot
 
-
+enum State {
+	MENU,
+	LOBBY,
+	MATCH,
+	VICTORY
+}
 
 # Match variables
 var match_config : MatchConfig
@@ -23,6 +28,9 @@ var fullscreen : bool = false
 
 
 var winning_team : String # not being used
+
+var current_state : = State.MENU
+
 
 func load_main_menu():
 	game_root.show_main_menu()
