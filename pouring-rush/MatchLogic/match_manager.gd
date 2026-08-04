@@ -4,6 +4,8 @@ class_name MatchManager
 
 @onready var match_timer: Timer = $MatchTimer
 
+@export var pause_controller : PauseController
+
 @export var player_scene : PackedScene
 @export var team_zone_scene: PackedScene
 
@@ -27,8 +29,6 @@ var blue_zone : TeamZone
 var red_base : SafeZoneArea
 var blue_base : SafeZoneArea
 
-var is_paused : bool = false
-
 var match_in_progress : bool = false
 
 func _ready():
@@ -39,6 +39,7 @@ func initialize(match_config : MatchConfig, match_scene : MatchScene, view_syste
 	self.match_config = match_config
 	players_root = match_scene.world.players_root
 	self.view_system = view_system
+	self.pause_controller = view_system.pause_controller
 	
 	load_arena(match_scene.world.arena_root)
 	spawn_team_zones()
@@ -64,10 +65,10 @@ func initialize(match_config : MatchConfig, match_scene : MatchScene, view_syste
 
 func _unhandled_input(event: InputEvent) -> void:
 	if match_in_progress:
-		if event.is_action_pressed("Start") and not is_paused:
+		if event.is_action_pressed("Start") and not pause_controller.paused:
 			pause()
 			get_viewport().set_input_as_handled()
-		elif event.is_action_pressed("Start") and is_paused:
+		elif event.is_action_pressed("Start") and pause_controller.paused:
 			unpause()
 			get_viewport().set_input_as_handled()
 
@@ -213,13 +214,11 @@ func start_match():
 
 func pause():
 	match_timer.paused = true
-	is_paused = true
 	view_system.pause_controller.toggle()
 
 func unpause():
 	match_timer.paused = false
 	view_system.pause_controller.resume()
-	is_paused = false
 
 
 func get_time_remaining() -> float:
