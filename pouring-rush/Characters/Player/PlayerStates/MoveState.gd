@@ -29,8 +29,6 @@ func state_process(delta):
 	if not player.is_on_floor():
 		next_state = fall_state
 	
-	
-	player.rotate_gear(delta)
 
 
 # Button Presses

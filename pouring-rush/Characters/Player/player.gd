@@ -65,6 +65,11 @@ var alive : bool = true
 var facing_flipped : bool = false
 
 
+# gear vars
+var gear_ground_speed : float = 200
+var gear_air_speed : float = 400
+
+
 
 
 func _ready() -> void:
@@ -120,6 +125,11 @@ func _process(delta: float) -> void:
 	
 	
 	rotate_gun(aim_direction)
+	
+	if is_on_floor():
+		rotate_gear(delta, gear_ground_speed)
+	else:
+		rotate_gear(delta, gear_air_speed)
 
 
 func reset_for_respawn():
@@ -183,14 +193,14 @@ func flip_sprite(flipped : bool):
 		
 		facing_flipped = true
 
-func rotate_gear(delta : float):
+func rotate_gear(delta : float, speed : float):
 	if direction.x == 0:
 		return
 	
 	if direction.x > 0:
-		gear.rotation_degrees += 120 * delta
+		gear.rotation_degrees += speed * delta
 	else:
-		gear.rotation_degrees -= 120 * delta
+		gear.rotation_degrees -= speed * delta
 
 func rotate_gun(_aim_direction : Vector2):
 	if aim_direction == Vector2(0, 0):
