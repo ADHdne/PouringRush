@@ -116,25 +116,11 @@ func show_lobby():
 	red_camera.enabled = false
 	blue_camera.enabled = false
 	
-	red_camera.position = Vector2.ZERO
-	blue_camera.position = Vector2.ZERO
-	
-	blue_window.position = DisplayServer.screen_get_position(1)
-	blue_window.size = DisplayServer.screen_get_size(1)
-
-	blue_window.show()
-
 	red_lobby.show()
 	blue_lobby.show()
 
 	red_match_ui.clear_for_match_end()
 	blue_match_ui.clear_for_match_end()
-	
-	red_match_ui.hide()
-	blue_match_ui.hide()
-
-	red_victory.hide()
-	blue_victory.hide()
 	
 	color_background.hide()
 	
@@ -156,8 +142,6 @@ func show_match():
 
 	red_victory.hide()
 	blue_victory.hide()
-	
-	color_background.hide()
 
 
 
