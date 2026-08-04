@@ -282,11 +282,11 @@ volume_db = -20.0
 
 [node name="HitRock" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1743223274]
 stream = ExtResource("31_2jhbk")
-volume_db = 10.0
+volume_db = -10.0
 
 [node name="BreakGlass" type="AudioStreamPlayer" parent="SoundEffects" unique_id=178682587]
 stream = ExtResource("32_327au")
-volume_db = -10.0
+volume_db = -15.0
 
 [node name="Splatt" type="AudioStreamPlayer" parent="SoundEffects" unique_id=1316212251]
 stream = ExtResource("33_icnpe")

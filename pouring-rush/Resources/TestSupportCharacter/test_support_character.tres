@@ -18,4 +18,5 @@ basic_shot = ExtResource("1_sjgap")
 special_1 = ExtResource("4_sw7ym")
 special_2 = ExtResource("5_2vt7t")
 utility = ExtResource("6_o1ydh")
+can_revivie = true
 metadata/_custom_type_script = "uid://c26p6mh1s8fyn"
