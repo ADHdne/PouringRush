@@ -16,6 +16,8 @@ class_name CharacterData
 @export var wall_slide_gravity : float = 40
 @export var jump_hang_gravity : float = 10
 @export var max_fall_velocity : float = 400.0
+
+@export_category("Properties Stats")
 # jump
 @export var jump_power : float = -360.0
 # double jump
@@ -27,13 +29,14 @@ class_name CharacterData
 @export var run_speed : float = 200.0
 # carry speed
 @export var carry_speed : float = 130
-
 # stats
-@export_category("Stats")
 @export var weight : float = 1
 
-# Abilities
+
+@export_category("Abilities")
 @export var basic_shot : AbilityData
 @export var special_1 : AbilityData
 @export var special_2 : AbilityData
 @export var utility : AbilityData
+
+@export var can_revivie : bool = false
