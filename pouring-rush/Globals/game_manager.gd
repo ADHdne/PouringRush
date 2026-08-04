@@ -46,5 +46,5 @@ func match_ended():
 	game_root.show_victory()
 
 func return_to_lobby():
-	
+	SoundManager.menu_music.play()
 	game_root.return_to_lobby()
