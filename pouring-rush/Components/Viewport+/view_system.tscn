@@ -10,25 +10,25 @@
 
 [node name="ViewSystem" type="Node" unique_id=1875535046 node_paths=PackedStringArray("red_camera", "blue_camera", "red_match_ui", "blue_match_ui", "sub_viewport", "texture_rect", "pause_controller", "red_pause_menu", "blue_pause_menu", "red_lobby", "blue_lobby", "red_victory", "blue_victory", "color_background")]
 script = ExtResource("1_jn0iy")
-red_camera = NodePath("RedCamera")
-blue_camera = NodePath("BlueWindow/SubViewportContainer/SubViewport/BlueCamera")
-red_match_ui = NodePath("RedMatchUI")
-blue_match_ui = NodePath("BlueWindow/SubViewportContainer/SubViewport/BlueMatchUI")
+red_camera = NodePath("CanvasLayer/RedCamera")
+blue_camera = NodePath("BlueWindow/SubViewportContainer/SubViewport/CanvasLayer/BlueCamera")
+red_match_ui = NodePath("CanvasLayer/RedMatchUI")
+blue_match_ui = NodePath("BlueWindow/SubViewportContainer/SubViewport/CanvasLayer/BlueMatchUI")
 sub_viewport = NodePath("BlueWindow/SubViewportContainer/SubViewport")
 texture_rect = NodePath("TextureRect")
 pause_controller = NodePath("PauseController")
-red_pause_menu = NodePath("RedMatchUI/PauseMenu")
-blue_pause_menu = NodePath("BlueWindow/SubViewportContainer/SubViewport/BlueMatchUI/PauseMenu")
-red_lobby = NodePath("LobbyViewRed")
-blue_lobby = NodePath("BlueWindow/SubViewportContainer/SubViewport/LobbyViewBlue")
-red_victory = NodePath("EndSceneRed")
-blue_victory = NodePath("BlueWindow/SubViewportContainer/SubViewport/EndSceneBlue")
-color_background = NodePath("BlueWindow/SubViewportContainer/SubViewport/ColorRectBorder")
+red_pause_menu = NodePath("CanvasLayer/RedMatchUI/PauseMenu")
+blue_pause_menu = NodePath("BlueWindow/SubViewportContainer/SubViewport/CanvasLayer/BlueMatchUI/PauseMenu")
+red_lobby = NodePath("CanvasLayer/LobbyViewRed")
+blue_lobby = NodePath("BlueWindow/SubViewportContainer/SubViewport/CanvasLayer/LobbyViewBlue")
+red_victory = NodePath("CanvasLayer/EndSceneRed")
+blue_victory = NodePath("BlueWindow/SubViewportContainer/SubViewport/CanvasLayer/EndSceneBlue")
+color_background = NodePath("BlueWindow/SubViewportContainer/SubViewport/CanvasLayer/ColorRectBorder")
 
 [node name="PauseController" parent="." unique_id=1445261866 node_paths=PackedStringArray("red_menu", "blue_menu") instance=ExtResource("2_w1fr5")]
 process_mode = 3
-red_menu = NodePath("../RedMatchUI/PauseMenu")
-blue_menu = NodePath("../BlueWindow/SubViewportContainer/SubViewport/BlueMatchUI/PauseMenu")
+red_menu = NodePath("../CanvasLayer/RedMatchUI/PauseMenu")
+blue_menu = NodePath("../BlueWindow/SubViewportContainer/SubViewport/CanvasLayer/BlueMatchUI/PauseMenu")
 
 [node name="BlueWindow" type="Window" parent="." unique_id=325505694]
 oversampling_override = 1.0
@@ -50,7 +50,9 @@ handle_input_locally = false
 size = Vector2i(100, 100)
 render_target_update_mode = 4
 
-[node name="ColorRectBorder" type="ColorRect" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=1227427378]
+[node name="CanvasLayer" type="CanvasLayer" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=1875278708]
+
+[node name="ColorRectBorder" type="ColorRect" parent="BlueWindow/SubViewportContainer/SubViewport/CanvasLayer" unique_id=1227427378]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -59,15 +61,15 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="BlueMatchUI" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=1478391526 instance=ExtResource("3_bhx3v")]
+[node name="BlueMatchUI" parent="BlueWindow/SubViewportContainer/SubViewport/CanvasLayer" unique_id=1478391526 instance=ExtResource("3_bhx3v")]
 
-[node name="PauseMenu" parent="BlueWindow/SubViewportContainer/SubViewport/BlueMatchUI" unique_id=358262798 instance=ExtResource("4_8seun")]
+[node name="PauseMenu" parent="BlueWindow/SubViewportContainer/SubViewport/CanvasLayer/BlueMatchUI" unique_id=358262798 instance=ExtResource("4_8seun")]
 
-[node name="LobbyViewBlue" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=1649470640 instance=ExtResource("5_4dbld")]
+[node name="LobbyViewBlue" parent="BlueWindow/SubViewportContainer/SubViewport/CanvasLayer" unique_id=1649470640 instance=ExtResource("5_4dbld")]
 
-[node name="EndSceneBlue" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=1902025636 instance=ExtResource("6_gtah3")]
+[node name="EndSceneBlue" parent="BlueWindow/SubViewportContainer/SubViewport/CanvasLayer" unique_id=1902025636 instance=ExtResource("6_gtah3")]
 
-[node name="BlueCamera" parent="BlueWindow/SubViewportContainer/SubViewport" unique_id=511926268 instance=ExtResource("2_esfgm")]
+[node name="BlueCamera" parent="BlueWindow/SubViewportContainer/SubViewport/CanvasLayer" unique_id=511926268 instance=ExtResource("2_esfgm")]
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=138134567]
 anchors_preset = 2
@@ -77,12 +79,14 @@ grow_vertical = 0
 expand_mode = 1
 stretch_mode = 5
 
-[node name="RedMatchUI" parent="." unique_id=1860532533 instance=ExtResource("3_bhx3v")]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1402384753]
 
-[node name="PauseMenu" parent="RedMatchUI" unique_id=1121024975 instance=ExtResource("4_8seun")]
+[node name="RedMatchUI" parent="CanvasLayer" unique_id=1860532533 instance=ExtResource("3_bhx3v")]
 
-[node name="LobbyViewRed" parent="." unique_id=256870905 instance=ExtResource("5_4dbld")]
+[node name="PauseMenu" parent="CanvasLayer/RedMatchUI" unique_id=1121024975 instance=ExtResource("4_8seun")]
 
-[node name="EndSceneRed" parent="." unique_id=2066927437 instance=ExtResource("6_gtah3")]
+[node name="LobbyViewRed" parent="CanvasLayer" unique_id=256870905 instance=ExtResource("5_4dbld")]
 
-[node name="RedCamera" parent="." unique_id=335018330 instance=ExtResource("2_esfgm")]
+[node name="EndSceneRed" parent="CanvasLayer" unique_id=2066927437 instance=ExtResource("6_gtah3")]
+
+[node name="RedCamera" parent="CanvasLayer" unique_id=335018330 instance=ExtResource("2_esfgm")]
