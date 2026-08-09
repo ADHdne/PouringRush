@@ -19,18 +19,21 @@ func state_process(_delta):
 	elif player.is_on_wall() and player.velocity.y > 0:
 		next_state = wall_slide_state
 
-func state_input(event : InputEvent):
-	if player.can_action_pressed:
-		if event.is_action_pressed(player.input_handler.player_actions.jump):
-			jump_pressed()
-		# for picking up team zone
-		if event.is_action_pressed(player.input_handler.player_actions.interact):
-			interact()
+#func state_input(event : InputEvent):
+	#if player.can_action_pressed:
+		#if event.is_action_pressed(player.input_handler.player_actions.jump):
+			#jump_pressed()
+		## for picking up team zone
+		#if event.is_action_pressed(player.input_handler.player_actions.interact):
+			#interact()
 
 
+
+func jump_button_pressed():
+	jump_()
 
 ## Button Presses
-func jump_pressed():
+func jump_():
 	if not coyote_timer.is_stopped():
 		_jump()
 	elif player.movement_component.jumps_remaining > 0:

@@ -49,7 +49,8 @@ func jump_peak_reached():
 func double_jump():
 	player.movement_component.jumps_remaining -= 1
 	# the physical jump
-	player.velocity.y = player.character_data.double_jump_power
+	if player.movement_component.jumps_remaining > 0:
+		player.velocity.y = player.character_data.double_jump_power
 
 
 func interact():

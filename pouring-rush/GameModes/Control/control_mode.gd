@@ -12,13 +12,15 @@ var control_zone : ControlZone
 
 var taking_control : Team.type
 
-var control_time : float = 5
+# this is seconds controlling for winning
+var control_time : float = 42
 
 
 var red_score : float
 var blue_score : float
 
-var winning_amount : int = 10
+# what is this!?
+var winning_amount : int = 420
 
 func _ready() -> void:
 	pass
