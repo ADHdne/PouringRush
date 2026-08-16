@@ -38,7 +38,7 @@ func interact():
 	if player.carry_component.is_carrying():
 		player.carry_component.drop()
 	
-	elif player.revive_component.try_revive():
+	elif player.character_data.can_revivie and player.revive_component.try_revive():
 		return
 	
 	else:
