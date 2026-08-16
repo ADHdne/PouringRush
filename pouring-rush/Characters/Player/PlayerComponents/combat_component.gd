@@ -191,7 +191,7 @@ func teleport(data : AbilityState):
 func self_heal(data : AbilityState):
 	var ability = data.ability_data
 	
-	player.damage_component.apply_heal(ability.projectile_data.hit_data.healing, player)
+	player.damage_component.apply_heal(ability.projectile_data.hit_data, player)
 
 
 ## reload logic
