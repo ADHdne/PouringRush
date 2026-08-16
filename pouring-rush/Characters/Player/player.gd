@@ -35,8 +35,10 @@ class_name Player
 @export var combat_component : CombatComponent
 @export var hurtbox : HurtboxComponent
 @export var carry_component : CarryComponent
+@export var revive_component : ReviveComponent
 
 @export var tech_zone : Area2D
+@export var revive_area : ReviveArea
 
 var player_index : int
 var color : Color
@@ -103,6 +105,7 @@ func initialize(character_data : CharacterData, match_manager : Node, device : i
 	
 	combat_component.initialize(character_data)
 	carry_component.intialize(self)
+	revive_component.initialize(self, revive_area)
 	
 	# setting gun sprite
 	gun_sprite.texture = character_data.portrait
@@ -132,22 +135,13 @@ func _process(delta: float) -> void:
 		rotate_gear(delta, gear_air_speed)
 
 
-func reset_for_respawn():
-	combat_component.reset_for_spawn(character_data)
-	state_machine.current_state.next_state = respawn_state
-	hurtbox.monitorable = true
-	damage_component.percentage = 0
 
 func hit_visual():
 	sprite.modulate = Color(1,1,1)
 	await get_tree().create_timer(0.1).timeout
 	sprite.modulate = color
 
-func ko():
-	alive = false
-	state_machine.on_state_interupt_state(ko_state)
-	hurtbox.monitorable = false
-	can_action_pressed = false
+
 
 func set_color(color_index : int):
 	
@@ -170,11 +164,6 @@ func set_color(color_index : int):
 			color = Color(0.8,0,0.9)
 	sprite.modulate = color
 
-
-func _on_alive_timer_timeout() -> void:
-	alive = true
-	hurtbox.monitorable = true
-	can_action_pressed = true
 
 func flip_sprite(flipped : bool):
 	if not flipped:
@@ -211,8 +200,44 @@ func rotate_gun(_aim_direction : Vector2):
 		return
 	
 	elif aim_direction.length() > 0.2:
-		gun_sprite.rotation = _aim_direction.angle() + deg_to_rad(45) 
+		gun_sprite.rotation = _aim_direction.angle() + deg_to_rad(45)
 
 
-func set_controls():
-	pass
+
+
+func ko():
+	alive = false
+	state_machine.on_state_interupt_state(ko_state)
+	hurtbox.monitorable = false
+	can_action_pressed = false
+
+func _on_alive_timer_timeout() -> void:
+	alive = true
+	hurtbox.monitorable = true
+	can_action_pressed = true
+
+func reset_for_respawn():
+	combat_component.reset_for_spawn(character_data)
+	state_machine.current_state.next_state = respawn_state
+	hurtbox.monitorable = true
+	damage_component.percentage = 0
+
+func can_be_revived(by : Player) -> bool:
+
+	if alive:
+		return false
+
+	if team != by.team:
+		return false
+
+	return true
+
+func revive():
+	if alive:
+		return
+	
+	await get_tree().create_timer(2.5).timeout
+	
+	alive = true
+
+	reset_for_respawn()

@@ -37,5 +37,9 @@ func _jump():
 func interact():
 	if player.carry_component.is_carrying():
 		player.carry_component.drop()
+	
+	elif player.revive_component.try_revive():
+		return
+	
 	else:
 		player.carry_component.pick_up(player.carry_component.zone)

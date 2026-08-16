@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cceqkwgi55x8b"]
+
+[ext_resource type="Script" uid="uid://c7numhxqjrkph" path="res://area_2d.gd" id="1_74dld"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_74dld"]
+size = Vector2(50, 40)
+
+[node name="ReviveArea" type="Area2D" unique_id=48856426]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_74dld")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=439426174]
+shape = SubResource("RectangleShape2D_74dld")

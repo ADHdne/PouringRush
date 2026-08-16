@@ -19,10 +19,12 @@
 [ext_resource type="Script" uid="uid://w5nqu8885rir" path="res://Characters/Scripts/sound_effects.gd" id="8_14m2a"]
 [ext_resource type="Script" uid="uid://b8637w7b00qx7" path="res://Characters/Player/PlayerComponents/input_handler.gd" id="8_14yy5"]
 [ext_resource type="Script" uid="uid://ch51j4onl3j1j" path="res://Characters/Player/PlayerStates/IdleState.gd" id="8_dl42p"]
+[ext_resource type="PackedScene" uid="uid://cceqkwgi55x8b" path="res://Characters/Player/PlayerComponents/revive_area.tscn" id="9_p8656"]
 [ext_resource type="Script" uid="uid://c3exafj8k1lqv" path="res://Characters/Player/PlayerComponents/carry_component.gd" id="9_u4bhk"]
 [ext_resource type="AudioStream" uid="uid://bxw5elnly7opc" path="res://Assets/Sound/PlayerSounds/ShootSounds/shoot2.wav" id="10_xxflj"]
 [ext_resource type="Script" uid="uid://dy3hvkt1q1r7t" path="res://Characters/Player/PlayerComponents/movement_component.gd" id="12_6h4vt"]
 [ext_resource type="Script" uid="uid://gkrxyqf3tr7g" path="res://Characters/Player/PlayerStates/wall_slide_state.gd" id="14_u61tb"]
+[ext_resource type="PackedScene" uid="uid://bgvt5gt1dnvv0" path="res://Characters/Player/PlayerComponents/revive_component.tscn" id="18_82jp0"]
 [ext_resource type="Script" uid="uid://buxclsp28a2e2" path="res://Characters/Player/PlayerStates/tumble_state.gd" id="18_u61tb"]
 [ext_resource type="Script" uid="uid://cl3fv5nelqmvq" path="res://Characters/Player/PlayerStates/pickup_state.gd" id="20_1t7vx"]
 [ext_resource type="Script" uid="uid://flftotrrcgyd" path="res://Characters/Player/PlayerStates/tech_state.gd" id="20_6hnbq"]
@@ -33,6 +35,7 @@
 [ext_resource type="AudioStream" uid="uid://bfe6c01i6466b" path="res://Assets/Sound/PlayerSounds/SwordSwoosh/SwordSwoosh5.wav" id="29_bx0yf"]
 [ext_resource type="AudioStream" uid="uid://b6ofpuqfdqyba" path="res://Assets/Sound/PlayerSounds/Hit/BlockedHit.wav" id="30_14yy5"]
 [ext_resource type="AudioStream" uid="uid://b32agvcio4gsv" path="res://Assets/Sound/PlayerSounds/Hit/HitRock.wav" id="31_2jhbk"]
+[ext_resource type="Script" uid="uid://kxjd0r2sj24h" path="res://Characters/Player/RevivingState.gd" id="32_82jp0"]
 [ext_resource type="AudioStream" uid="uid://4xdfk3ex1d1m" path="res://Assets/Sound/PlayerSounds/Shieldbreak/ShieldBreak.wav" id="32_327au"]
 [ext_resource type="AudioStream" uid="uid://dll6mw68ihxno" path="res://Assets/Sound/PlayerSounds/Hit/Splatt1.wav" id="33_icnpe"]
 [ext_resource type="AudioStream" uid="uid://233ie1dny1ai" path="res://Assets/Sound/PlayerSounds/Reload/Reload sound.wav" id="33_qy8ba"]
@@ -47,7 +50,7 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k6jdo"]
 height = 32.0
 
-[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("player_sprite", "gun_sprite", "outline", "gear", "state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "input_handler", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "tech_zone", "sprite")]
+[node name="Player" type="CharacterBody2D" unique_id=1623790446 node_paths=PackedStringArray("player_sprite", "gun_sprite", "outline", "gear", "state_machine", "ko_state", "respawn_state", "reload_state", "coyote_jump_timer", "jump_buffer_timer", "footstep_timer", "sound_effects", "input_handler", "movement_component", "damage_component", "knockback_component", "combat_component", "hurtbox", "carry_component", "revive_component", "tech_zone", "revive_area", "sprite")]
 collision_layer = 2
 script = ExtResource("1_3qydi")
 player_sprite = NodePath("Player")
@@ -69,7 +72,9 @@ knockback_component = NodePath("KnockbackComponent")
 combat_component = NodePath("CombatComponent")
 hurtbox = NodePath("Hurtbox")
 carry_component = NodePath("CarryComponent")
+revive_component = NodePath("ReviveComponent")
 tech_zone = NodePath("TechZone")
+revive_area = NodePath("ReviveArea")
 sprite = NodePath("PlayerColor")
 
 [node name="PlayerOutline" type="Sprite2D" parent="." unique_id=827724481]
@@ -115,6 +120,9 @@ collision_mask = 88
 scale = Vector2(1.6, 1.6)
 collision_layer = 0
 
+[node name="ReviveArea" parent="." unique_id=48856426 instance=ExtResource("9_p8656")]
+position = Vector2(0, 3)
+
 [node name="InputHandler" type="Node" parent="." unique_id=640675116]
 script = ExtResource("8_14yy5")
 player_actions = ExtResource("8_2jhbk")
@@ -140,6 +148,9 @@ generic_shot_sound = ExtResource("10_xxflj")
 script = ExtResource("9_u4bhk")
 pickup_state = NodePath("../CharacterStateMachine/Pickup")
 put_down_state = NodePath("../CharacterStateMachine/PutDown")
+
+[node name="ReviveComponent" parent="." unique_id=2006337293 node_paths=PackedStringArray("revive_state") instance=ExtResource("18_82jp0")]
+revive_state = NodePath("../CharacterStateMachine/Reviving")
 
 [node name="CharacterStateMachine" type="Node" parent="." unique_id=840629580 node_paths=PackedStringArray("player", "current_state")]
 script = ExtResource("2_tok1r")
@@ -231,6 +242,15 @@ alive_timer = NodePath("../../Timers/AliveTimer")
 can_reload = false
 metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
 
+[node name="Reviving" type="Node" parent="CharacterStateMachine" unique_id=1857485753 node_paths=PackedStringArray("idle_state", "revive_component", "alive_timer")]
+script = ExtResource("32_82jp0")
+idle_state = NodePath("../Idle")
+revive_component = NodePath("../../ReviveComponent")
+alive_timer = NodePath("../../Timers/AliveTimer")
+can_move = false
+can_reload = false
+metadata/_custom_type_script = "uid://b8lk4e2k8nwnw"
+
 [node name="Timers" type="Node" parent="." unique_id=1220796725]
 
 [node name="CoyoteJumpTimer" type="Timer" parent="Timers" unique_id=921392844]
@@ -254,6 +274,10 @@ one_shot = true
 one_shot = true
 
 [node name="AliveTimer" type="Timer" parent="Timers" unique_id=936522042]
+one_shot = true
+
+[node name="ReviveTimer" type="Timer" parent="Timers" unique_id=607459211]
+wait_time = 2.5
 one_shot = true
 
 [node name="SoundEffects" type="Node" parent="." unique_id=624573972 node_paths=PackedStringArray("dash_sound", "hit_sound", "hit_rock_sound", "glass_break_sound", "splatt_sound", "footstep_sound", "jumpswoosh_sound", "shoot_sound", "reload_1_sound", "reload_2_sound", "pick_up_sound", "drop_sound")]
@@ -340,8 +364,12 @@ text = "100%"
 horizontal_alignment = 1
 player = NodePath("..")
 
+[connection signal="body_entered" from="ReviveArea" to="ReviveArea" method="_on_body_entered"]
+[connection signal="body_exited" from="ReviveArea" to="ReviveArea" method="_on_body_exited"]
 [connection signal="timeout" from="Timers/ShotBufferTimer" to="CombatComponent" method="_on_shot_buffer_timer_timeout"]
 [connection signal="timeout" from="Timers/ReloadTimer" to="CombatComponent" method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="Timers/ReloadTimer" to="CharacterStateMachine/Reload" method="_on_reload_timer_timeout"]
 [connection signal="timeout" from="Timers/AliveTimer" to="." method="_on_alive_timer_timeout"]
 [connection signal="timeout" from="Timers/AliveTimer" to="CharacterStateMachine/Respawn" method="_on_alive_timer_timeout"]
+[connection signal="timeout" from="Timers/AliveTimer" to="CharacterStateMachine/Reviving" method="_on_alive_timer_timeout"]
+[connection signal="timeout" from="Timers/ReviveTimer" to="CharacterStateMachine/Reviving" method="_on_revive_timer_timeout"]

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bgvt5gt1dnvv0"]
+
+[ext_resource type="Script" uid="uid://cvxtldchfkxku" path="res://revive_component.gd" id="1_dn5g6"]
+
+[node name="ReviveComponent" type="Node" unique_id=2006337293]
+script = ExtResource("1_dn5g6")
