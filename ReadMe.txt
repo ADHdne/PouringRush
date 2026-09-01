@@ -58,3 +58,11 @@ pouring-rush/
     "B" button = Tech
     "X" button = Interact
     "Y" button = Reload basic shot
+
+    ---
+
+## 📄 License & Copyright
+
+© 2026 [Your Name or Studio Name]. All rights reserved.
+
+This project is proprietary software. Unlawful copying, distribution, or modification of any source code, graphics, or audio assets within this repository is strictly prohibited.
